@@ -1255,6 +1255,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int track=0x7f0100a2;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int txt=0x7f0100a9;
         /**  Voice button icon 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -1376,25 +1384,28 @@ containing a value of this type.
         public static final int abc_config_showMenuShortcutsWhenKeyboardPresent=0x7f050003;
     }
     public static final class color {
-        public static final int abc_background_cache_hint_selector_material_dark=0x7f060031;
-        public static final int abc_background_cache_hint_selector_material_light=0x7f060032;
+        public static final int abc_background_cache_hint_selector_material_dark=0x7f06003e;
+        public static final int abc_background_cache_hint_selector_material_light=0x7f06003f;
         public static final int abc_input_method_navigation_guard=0x7f060003;
-        public static final int abc_primary_text_disable_only_material_dark=0x7f060033;
-        public static final int abc_primary_text_disable_only_material_light=0x7f060034;
-        public static final int abc_primary_text_material_dark=0x7f060035;
-        public static final int abc_primary_text_material_light=0x7f060036;
-        public static final int abc_search_url_text=0x7f060037;
+        public static final int abc_primary_text_disable_only_material_dark=0x7f060040;
+        public static final int abc_primary_text_disable_only_material_light=0x7f060041;
+        public static final int abc_primary_text_material_dark=0x7f060042;
+        public static final int abc_primary_text_material_light=0x7f060043;
+        public static final int abc_search_url_text=0x7f060044;
         public static final int abc_search_url_text_normal=0x7f060000;
         public static final int abc_search_url_text_pressed=0x7f060002;
         public static final int abc_search_url_text_selected=0x7f060001;
-        public static final int abc_secondary_text_material_dark=0x7f060038;
-        public static final int abc_secondary_text_material_light=0x7f060039;
+        public static final int abc_secondary_text_material_dark=0x7f060045;
+        public static final int abc_secondary_text_material_light=0x7f060046;
         public static final int accent_material_dark=0x7f06000f;
         public static final int accent_material_light=0x7f06000e;
         public static final int background_floating_material_dark=0x7f060006;
         public static final int background_floating_material_light=0x7f060007;
         public static final int background_material_dark=0x7f060004;
         public static final int background_material_light=0x7f060005;
+        public static final int blanc_casse=0x7f06003d;
+        public static final int bleu1=0x7f060035;
+        public static final int bleu2=0x7f060036;
         /**  White 50% 
          */
         public static final int bright_foreground_disabled_material_dark=0x7f060016;
@@ -1411,6 +1422,7 @@ containing a value of this type.
         public static final int dim_foreground_disabled_material_light=0x7f06001d;
         public static final int dim_foreground_material_dark=0x7f06001a;
         public static final int dim_foreground_material_light=0x7f06001b;
+        public static final int fushia=0x7f06003c;
         /**  TODO: This is 40% alpha on the default accent color. 
          */
         public static final int highlighted_text_material_dark=0x7f060020;
@@ -1419,6 +1431,7 @@ containing a value of this type.
         public static final int highlighted_text_material_light=0x7f060021;
         public static final int hint_foreground_material_dark=0x7f06001e;
         public static final int hint_foreground_material_light=0x7f06001f;
+        public static final int jaune1=0x7f060037;
         public static final int link_text_material_dark=0x7f060022;
         public static final int link_text_material_light=0x7f060023;
         public static final int material_blue_grey_800=0x7f06002e;
@@ -1426,6 +1439,9 @@ containing a value of this type.
         public static final int material_blue_grey_950=0x7f060030;
         public static final int material_deep_teal_200=0x7f06002c;
         public static final int material_deep_teal_500=0x7f06002d;
+        public static final int orange1=0x7f060038;
+        public static final int orange2=0x7f060039;
+        public static final int orange3=0x7f06003a;
         public static final int primary_dark_material_dark=0x7f06000a;
         public static final int primary_dark_material_light=0x7f06000b;
         public static final int primary_material_dark=0x7f060008;
@@ -1440,12 +1456,17 @@ containing a value of this type.
         public static final int primary_text_disabled_material_light=0x7f060028;
         public static final int ripple_material_dark=0x7f06000c;
         public static final int ripple_material_light=0x7f06000d;
+        public static final int rose=0x7f06003b;
         public static final int secondary_text_default_material_dark=0x7f060027;
         public static final int secondary_text_default_material_light=0x7f060025;
         public static final int secondary_text_disabled_material_dark=0x7f06002b;
         public static final int secondary_text_disabled_material_light=0x7f060029;
         public static final int switch_thumb_normal_material_dark=0x7f060012;
         public static final int switch_thumb_normal_material_light=0x7f060013;
+        public static final int translucide=0x7f060031;
+        public static final int vert1=0x7f060032;
+        public static final int vert2=0x7f060033;
+        public static final int vert3=0x7f060034;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1629,9 +1650,11 @@ containing a value of this type.
         public static final int gnar=0x7f020036;
         public static final int help=0x7f020037;
         public static final int home=0x7f020038;
-        public static final int ic_launcher=0x7f020039;
-        public static final int shape=0x7f02003a;
-        public static final int shape_drop=0x7f02003b;
+        public static final int home_e=0x7f020039;
+        public static final int ic_launcher=0x7f02003a;
+        public static final int separateur=0x7f02003b;
+        public static final int shape=0x7f02003c;
+        public static final int shape_drop=0x7f02003d;
     }
     public static final class id {
         public static final int action_bar=0x7f090031;
@@ -1652,8 +1675,10 @@ containing a value of this type.
         public static final int beginning=0x7f09001b;
         public static final int bottomleft=0x7f090043;
         public static final int bottomright=0x7f090045;
+        public static final int bouton=0x7f09004b;
         public static final int checkbox=0x7f090029;
         public static final int collapseActionView=0x7f090015;
+        public static final int custom=0x7f090048;
         public static final int decor_content_parent=0x7f09002f;
         public static final int default_activity_button=0x7f090024;
         public static final int dialog=0x7f090019;
@@ -1692,6 +1717,7 @@ containing a value of this type.
         public static final int search_plate=0x7f090039;
         public static final int search_src_text=0x7f09003a;
         public static final int search_voice_btn=0x7f09003e;
+        public static final int separateur=0x7f09004a;
         public static final int shortcut=0x7f09002a;
         public static final int showCustom=0x7f090010;
         public static final int showHome=0x7f090011;
@@ -1700,6 +1726,7 @@ containing a value of this type.
         public static final int submit_area=0x7f09003c;
         public static final int tabMode=0x7f09000c;
         public static final int title=0x7f090027;
+        public static final int titre=0x7f090049;
         public static final int topleft=0x7f09003f;
         public static final int topright=0x7f090041;
         public static final int up=0x7f090001;
@@ -1759,7 +1786,8 @@ containing a value of this type.
         public static final int activity_main=0x7f030017;
         public static final int activity_second=0x7f030018;
         public static final int activity_third=0x7f030019;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
+        public static final int custom_menu=0x7f03001a;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -6219,5 +6247,40 @@ containing a value of this type.
           @attr name android:layout
         */
         public static final int ViewStubCompat_android_layout = 1;
+        /** Attributes that can be used with a stylableTitle.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #stylableTitle_android_drawable android:drawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #stylableTitle_txt com.Atlas.framework:txt}</code></td><td></td></tr>
+           </table>
+           @see #stylableTitle_android_drawable
+           @see #stylableTitle_txt
+         */
+        public static final int[] stylableTitle = {
+            0x01010199, 0x7f0100a9
+        };
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#drawable}
+          attribute's value can be found in the {@link #stylableTitle} array.
+          @attr name android:drawable
+        */
+        public static final int stylableTitle_android_drawable = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.Atlas.framework.R.attr#txt}
+          attribute's value can be found in the {@link #stylableTitle} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.Atlas.framework:txt
+        */
+        public static final int stylableTitle_txt = 1;
     };
 }

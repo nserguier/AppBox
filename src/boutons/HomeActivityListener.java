@@ -23,7 +23,7 @@ public class HomeActivityListener implements OnClickListener {
 	Class<?> targetActivity;
 	
 	public HomeActivityListener(Context context,Button button,Activity currentActivity, Class<?> targetActivity){
-		this.pressed = context.getResources().getDrawable(R.id.home);
+		this.pressed = context.getResources().getDrawable(R.drawable.home_e);
 		this.button = button;
 		this.currentActivity = currentActivity;
 		this.targetActivity = targetActivity;
@@ -37,7 +37,7 @@ public class HomeActivityListener implements OnClickListener {
     	
     	/* Retour au menu */
        Intent homeActivity = new Intent(currentActivity,targetActivity);
-       //currentActivity.startActivity(homeActivity);
+       currentActivity.startActivity(homeActivity);
 		
 	}
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="stylableTitle">
+        <attr name="txt" format="string"/>
+        <attr name="android:drawable"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="translucide">#00000000</color>
+    <color name="vert1">#8CC63E</color>
+    <color name="vert2">#2AB573</color>
+    <color name="vert3">#38B449</color>
+    <color name="bleu1">#41C0C3</color>
+    <color name="bleu2">#02ADDE</color>
+    <color name="jaune1">#FFD550</color>
+    <color name="orange1">#FBAE33</color>
+    <color name="orange2">#F68B36</color>
+    <color name="orange3">#F05850</color>
+    <color name="rose">#EE4775</color>
+    <color name="fushia">#D91B5B</color>
+    <color name="blanc_casse">#E8E3DA</color>
+    
+    
+    
+</resources>

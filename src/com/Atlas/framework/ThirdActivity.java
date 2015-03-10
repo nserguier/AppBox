@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * Activite montrant l'utilisation du composant reutilisable menu
+ * @author Nicklos
+ *
+ */
 public class ThirdActivity extends Activity {
 
 	@Override
