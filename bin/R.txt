@@ -374,10 +374,10 @@ int id always 0x7f090014
 int id beginning 0x7f09001b
 int id bottomleft 0x7f090043
 int id bottomright 0x7f090045
-int id bouton 0x7f09004b
+int id bouton 0x7f09004c
 int id checkbox 0x7f090029
 int id collapseActionView 0x7f090015
-int id custom 0x7f090048
+int id custom 0x7f090049
 int id decor_content_parent 0x7f09002f
 int id default_activity_button 0x7f090024
 int id dialog 0x7f090019
@@ -416,7 +416,7 @@ int id search_mag_icon 0x7f090038
 int id search_plate 0x7f090039
 int id search_src_text 0x7f09003a
 int id search_voice_btn 0x7f09003e
-int id separateur 0x7f09004a
+int id separateur 0x7f09004b
 int id shortcut 0x7f09002a
 int id showCustom 0x7f090010
 int id showHome 0x7f090011
@@ -424,8 +424,9 @@ int id showTitle 0x7f090012
 int id split_action_bar 0x7f090004
 int id submit_area 0x7f09003c
 int id tabMode 0x7f09000c
+int id textView1 0x7f090048
 int id title 0x7f090027
-int id titre 0x7f090049
+int id titre 0x7f09004a
 int id topleft 0x7f09003f
 int id topright 0x7f090041
 int id up 0x7f090001

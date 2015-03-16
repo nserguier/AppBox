@@ -1675,10 +1675,10 @@ containing a value of this type.
         public static final int beginning=0x7f09001b;
         public static final int bottomleft=0x7f090043;
         public static final int bottomright=0x7f090045;
-        public static final int bouton=0x7f09004b;
+        public static final int bouton=0x7f09004c;
         public static final int checkbox=0x7f090029;
         public static final int collapseActionView=0x7f090015;
-        public static final int custom=0x7f090048;
+        public static final int custom=0x7f090049;
         public static final int decor_content_parent=0x7f09002f;
         public static final int default_activity_button=0x7f090024;
         public static final int dialog=0x7f090019;
@@ -1717,7 +1717,7 @@ containing a value of this type.
         public static final int search_plate=0x7f090039;
         public static final int search_src_text=0x7f09003a;
         public static final int search_voice_btn=0x7f09003e;
-        public static final int separateur=0x7f09004a;
+        public static final int separateur=0x7f09004b;
         public static final int shortcut=0x7f09002a;
         public static final int showCustom=0x7f090010;
         public static final int showHome=0x7f090011;
@@ -1725,8 +1725,9 @@ containing a value of this type.
         public static final int split_action_bar=0x7f090004;
         public static final int submit_area=0x7f09003c;
         public static final int tabMode=0x7f09000c;
+        public static final int textView1=0x7f090048;
         public static final int title=0x7f090027;
-        public static final int titre=0x7f090049;
+        public static final int titre=0x7f09004a;
         public static final int topleft=0x7f09003f;
         public static final int topright=0x7f090041;
         public static final int up=0x7f090001;
@@ -1875,9 +1876,6 @@ containing a value of this type.
  API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f0b00eb;
-        /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static final int AppTheme=0x7f0b00ec;
         public static final int Base_TextAppearance_AppCompat=0x7f0b0098;
         public static final int Base_TextAppearance_AppCompat_Body1=0x7f0b00a3;

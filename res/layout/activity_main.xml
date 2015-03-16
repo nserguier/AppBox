@@ -77,4 +77,17 @@
         android:layout_row="1"
         android:background="@drawable/bouton1" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="80sp"
+        android:layout_column="1"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_row="0"
+        android:text="Drag and Drop"
+        android:textColor="@color/fushia" />
+
 </GridLayout>

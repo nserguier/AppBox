@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import boutons.NextActivityListener;
 import dragAndDrop.MyDragAndDrop;
+import fonts.FontsOverride;
 
 public class MainActivity extends Activity {
 
@@ -15,6 +16,9 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		/* Changement de la police par defaut */
+		FontsOverride.setDefaultFont(this,"MONOSPACE", "fonts/onthemove.ttf");
+		
 		/* Bouton pour aller a l'activite suivante */
 		final Button boutonNext = (Button) findViewById(R.id.next);
 		Drawable pressed = getResources().getDrawable(R.drawable.bouton1e);
