@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanc_casse"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/titre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/titre_menu"
+        android:textColor="@color/bleu2"
+        android:textSize="50sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titre"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/sous_titre_menu"
+        android:textColor="@color/fushia"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/bouton1"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/bouton_bleu"
+        android:paddingBottom="10dp"
+        android:textColor="@color/jaune1"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/bouton2"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_toRightOf="@id/bouton1"
+        android:background="@drawable/bouton_bleu"
+        android:paddingBottom="10dp"
+        android:textColor="@color/jaune1"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/bouton3"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_toRightOf="@id/bouton2"
+        android:background="@drawable/bouton_bleu"
+        android:paddingBottom="10dp"
+        android:textColor="@color/jaune1"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/bouton4"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_toRightOf="@id/bouton3"
+        android:background="@drawable/bouton_bleu"
+        android:paddingBottom="10dp"
+        android:textColor="@color/jaune1"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/bouton5"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/bouton1"
+        android:background="@drawable/bouton_bleu"
+        android:paddingBottom="10dp"
+        android:textColor="@color/jaune1"
+        android:textSize="20sp" />
+
+</RelativeLayout>
