@@ -36,6 +36,8 @@ public class MenuActivity extends Activity {
 		b1.setOnClickListener(new NextActivityListener(this,b1,MenuActivity.this,DragAndDropActivity.class));
 		//b2.setOnClickListener(new NextActivityListener(this,b2,MenuActivity.this,TextToSpeechActivity.class)); // Pour victor
 		b3.setOnClickListener(new NextActivityListener(this,b3,MenuActivity.this,BoutonsActivity.class));
+		b4.setOnClickListener(new NextActivityListener(this,b4,MenuActivity.this,CustomMenuActivity.class));
+		b5.setOnClickListener(new NextActivityListener(this,b5,MenuActivity.this,FullScreenActivity.class));
 	}
 	
 	@Override

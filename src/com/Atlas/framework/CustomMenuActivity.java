@@ -10,11 +10,11 @@ import android.view.MenuItem;
  * @author Nicklos
  *
  */
-public class ThirdActivity extends Activity {
+public class CustomMenuActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_third);
+		setContentView(R.layout.activity_custom_menu);
 	}
 }

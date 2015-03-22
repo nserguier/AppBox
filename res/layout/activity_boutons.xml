@@ -56,13 +56,15 @@
         android:elevation="7dp"
         android:background="@color/orange1" />
 
-    <GridView
+    <LinearLayout
         android:id="@+id/stock"
         android:layout_width="600dp"
         android:layout_height="500dp"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/textView1"
-        >
-    </GridView>
+        android:layout_toRightOf="@+id/creer"
+        android:orientation="horizontal" >
+
+    </LinearLayout>
 
 </RelativeLayout>
