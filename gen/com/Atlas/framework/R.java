@@ -16,7 +16,15 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int txt=0x7f010000;
+        public static final int bouton_txt=0x7f010000;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titre=0x7f010001;
     }
     public static final class color {
         public static final int blanc_casse=0x7f04000c;
@@ -119,13 +127,15 @@ containing a value of this type.
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #stylableTitle_android_drawable android:drawable}</code></td><td></td></tr>
-           <tr><td><code>{@link #stylableTitle_txt com.Atlas.framework:txt}</code></td><td></td></tr>
+           <tr><td><code>{@link #stylableTitle_bouton_txt com.Atlas.framework:bouton_txt}</code></td><td></td></tr>
+           <tr><td><code>{@link #stylableTitle_titre com.Atlas.framework:titre}</code></td><td></td></tr>
            </table>
            @see #stylableTitle_android_drawable
-           @see #stylableTitle_txt
+           @see #stylableTitle_bouton_txt
+           @see #stylableTitle_titre
          */
         public static final int[] stylableTitle = {
-            0x01010199, 0x7f010000
+            0x01010199, 0x7f010000, 0x7f010001
         };
         /**
           <p>This symbol is the offset where the {@link android.R.attr#drawable}
@@ -134,7 +144,7 @@ containing a value of this type.
         */
         public static final int stylableTitle_android_drawable = 0;
         /**
-          <p>This symbol is the offset where the {@link com.Atlas.framework.R.attr#txt}
+          <p>This symbol is the offset where the {@link com.Atlas.framework.R.attr#bouton_txt}
           attribute's value can be found in the {@link #stylableTitle} array.
 
 
@@ -144,8 +154,22 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.Atlas.framework:txt
+          @attr name com.Atlas.framework:bouton_txt
         */
-        public static final int stylableTitle_txt = 1;
+        public static final int stylableTitle_bouton_txt = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.Atlas.framework.R.attr#titre}
+          attribute's value can be found in the {@link #stylableTitle} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.Atlas.framework:titre
+        */
+        public static final int stylableTitle_titre = 2;
     };
 }

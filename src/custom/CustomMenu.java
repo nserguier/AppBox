@@ -53,13 +53,20 @@ public class CustomMenu extends RelativeLayout{
       // getInteger(int index) (...) pour obtenir la valeur String, Integer (...) d'un attribut.
 
       // on vérifie que l'attribut "txt" n'est pas null: ce test est important! on verra par la suite pourquoi
-	if(a.getString(R.styleable.stylableTitle_txt)!=null){
-	        titre.setText(a.getString(R.styleable.stylableTitle_txt));
+	if(a.getString(R.styleable.stylableTitle_titre)!=null){
+	        titre.setText(a.getString(R.styleable.stylableTitle_titre));
 	        /* Changement de police du titre */
 			Typeface externalFont = Typeface.createFromAsset(ctx.getAssets(),"fonts/onthemove.ttf");
 			titre.setTypeface(externalFont);
 
 	}
+	if(a.getString(R.styleable.stylableTitle_bouton_txt)!=null){
+        bouton.setText(a.getString(R.styleable.stylableTitle_bouton_txt));
+        /* Changement de police du titre */
+		Typeface externalFont = Typeface.createFromAsset(ctx.getAssets(),"fonts/onthemove.ttf");
+		titre.setTypeface(externalFont);
+
+}
       // et on recommence pour l'attribut "drawable"
 	if(a.getDrawable(R.styleable.stylableTitle_android_drawable)!=null)
 	        bouton.setBackground(a.getDrawable(R.styleable.stylableTitle_android_drawable));
