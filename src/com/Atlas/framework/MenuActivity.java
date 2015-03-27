@@ -40,7 +40,6 @@ public class MenuActivity extends Activity {
 		b3.setOnClickListener(new NextActivityListener(this,b3,MenuActivity.this,BoutonsActivity.class));
 		b4.setOnClickListener(new NextActivityListener(this,b4,MenuActivity.this,CustomMenuActivity.class));
 		b5.setOnClickListener(new NextActivityListener(this,b5,MenuActivity.this,FullScreenActivity.class));
-		b6.setOnClickListener(new NextActivityListener(this,b6,MenuActivity.this,GlowActivity.class));
 	}
 	
 	@Override

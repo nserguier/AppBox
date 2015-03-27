@@ -6,6 +6,6 @@ public final class Application extends android.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        FontsOverride.changeDefaultFont(this);
+        FontsOverride.setDefaultFont(getApplicationContext(),"MONOSPACE", "onthemove.ttf");
     }
 }

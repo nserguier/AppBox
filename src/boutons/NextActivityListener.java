@@ -1,6 +1,9 @@
 package boutons;
 
+import com.Atlas.framework.R;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.View;
@@ -20,6 +23,13 @@ public class NextActivityListener implements OnClickListener {
 	
 	public NextActivityListener(Button button, Drawable pressed,Activity currentActivity, Class<?> targetActivity){
 		this.pressed = pressed;
+		this.button = button;
+		this.currentActivity = currentActivity;
+		this.targetActivity = targetActivity;
+	}
+	
+	public NextActivityListener(Context ctx, Button button,Activity currentActivity, Class<?> targetActivity){
+		this.pressed = ctx.getResources().getDrawable(R.drawable.bouton_bleu);
 		this.button = button;
 		this.currentActivity = currentActivity;
 		this.targetActivity = targetActivity;

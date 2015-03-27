@@ -22,7 +22,7 @@
       android:layout_marginBottom="188dp"
       android:layout_marginRight="67dp"
       android:onClick="speakText"
-      android:text="@string/text1" />
+      android:text="text to speech" />
 
    <EditText
       android:id="@+id/champ"
@@ -39,6 +39,6 @@
       android:layout_height="wrap_content"
       android:layout_centerHorizontal="true"
       android:layout_marginTop="0dp"
-      android:text="@string/write"
+      android:text="write text"
       android:textAppearance="?android:attr/textAppearanceLarge" />
 </RelativeLayout>
