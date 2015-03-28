@@ -1,6 +1,5 @@
 package dragAndDrop;
 
-import com.Atlas.framework.R;
 
 import android.graphics.drawable.Drawable;
 import android.view.DragEvent;
@@ -21,8 +20,17 @@ public class MyDragListener implements OnDragListener {
 
     
     public MyDragListener(Context context, int dropZoneID,int dropZoneSurbrillanteID){
-    	this.dropZone = context.getResources().getDrawable(dropZoneID);
-    	this.dropZoneSurbrillante = context.getResources().getDrawable(dropZoneSurbrillanteID);
+    	if(dropZoneID!=0){
+        	this.dropZone = context.getResources().getDrawable(dropZoneID);
+    	}else{
+    		this.dropZone = null;
+    	}
+    	if(dropZoneSurbrillanteID!=0){
+        	this.dropZoneSurbrillante = context.getResources().getDrawable(dropZoneSurbrillanteID);
+    	}else{
+    		this.dropZoneSurbrillante = null;
+    	}
+
     }
     
     @Override
@@ -34,10 +42,12 @@ public class MyDragListener implements OnDragListener {
         break;
         
       case DragEvent.ACTION_DRAG_ENTERED: /* Passage du drag dans la zone de drop */
+    	if(dropZoneSurbrillante!=null)
         v.setBackground(dropZoneSurbrillante);
         break;
         
       case DragEvent.ACTION_DRAG_EXITED: /* Sortie du drag de la zone de drop */
+    	if(dropZone!=null)
         v.setBackground(dropZone);
         break;
         
@@ -56,6 +66,7 @@ public class MyDragListener implements OnDragListener {
         break;
         
       case DragEvent.ACTION_DRAG_ENDED: /* Fin du drag-and-drop */
+    	if(dropZone!=null)
         v.setBackground(dropZone);
         View view2 = (View) event.getLocalState();
         view2.setVisibility(View.VISIBLE);

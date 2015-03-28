@@ -6,9 +6,15 @@
     <string name="title_activity_second">SecondActivity</string>
     <string name="title_activity_third">ThirdActivity</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_drag_and_drop">DragAndDropActivity</string>
+    <string name="title_activity_tts">TTSActivity</string>
+    <string name="title_activity_full_screen">FullScreenActivity</string>
+    <string name="title_activity_boutons">BoutonsActivity</string>
+    <string name="title_activity_menu">CustomMenuActivity</string>
     <string name="titre_menu">Bienvenue dans la démo du Framework !</string>
     <string name="sous_titre_menu">Cliquer sur un des composants pour en avoir un aperçu</string>
     <string name="titre_bouton">Créer des boutons très simplement</string>
     <string name="indication_bouton">Entrez le nom de votre bouton :</string>
+    <string name="title_activity_glow">GlowActivity</string>
 
 </resources>

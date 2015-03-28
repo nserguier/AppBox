@@ -25,7 +25,7 @@ public class TTSActivity extends Activity {
 			      
 			      /* Bouton home de retour au menu */
 					Button home = (Button) findViewById(R.id.home);
-					home.setOnClickListener(new HomeActivityListener(this,home,TTSActivity.this,MenuActivity.class));
+					home.setOnClickListener(new HomeActivityListener(this,home,TTSActivity.this,MainActivity.class));
 			   }
 
 	}

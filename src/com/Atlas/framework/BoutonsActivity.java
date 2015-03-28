@@ -30,7 +30,7 @@ public class BoutonsActivity extends Activity {
 		
 		/* Bouton home de retour au menu */
 		Button home = (Button) findViewById(R.id.home);
-		home.setOnClickListener(new HomeActivityListener(this,home,BoutonsActivity.this,MenuActivity.class));
+		home.setOnClickListener(new HomeActivityListener(this,home,BoutonsActivity.this,MainActivity.class));
 		
 		/* Bouton de creation */
 		Button creer =  (Button) findViewById(R.id.creer);

@@ -14,17 +14,19 @@ public class TTSButton extends Activity {
 	private String texteALire;
 	private Button ttsButton;
 	private EditText edit;
+	Context ctx;
 	TextToSpeech tts;
 
 	public TTSButton(Button ttsButton, EditText edit,Context ctx) {
 		this.texteALire = null;
 		this.edit = edit;
 		this.ttsButton = ttsButton;
+		this.ctx = ctx;
 	}
 
 	public void initialisation() {
 
-		tts = new TextToSpeech(getApplicationContext(),
+		tts = new TextToSpeech(ctx,
 				new TextToSpeech.OnInitListener() {
 
 					public void onInit(int status) {

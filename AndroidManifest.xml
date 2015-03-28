@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.Atlas.framework"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="21"
         android:targetSdkVersion="21" />
 
     <application
@@ -23,16 +23,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SecondActivity"
+            android:name=".BoutonsActivity"
             android:label="@string/title_activity_second" >
         </activity>
         <activity
-            android:name=".ThirdActivity"
+            android:name=".CustomMenuActivity"
             android:label="@string/title_activity_third" >
         </activity>
         <activity
             android:name="custom.TestActivity"
             android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name=".DragAndDropActivity"
+            android:label="@string/title_activity_drag_and_drop" >
+        </activity>
+        <activity
+            android:name=".FullScreenActivity"
+            android:label="@string/title_activity_full_screen" >
+        </activity>
+        <activity
+            android:name=".TTSActivity"
+            android:label="@string/title_activity_tts" >
+        </activity>
+        <activity
+            android:name=".GlowActivity"
+            android:label="@string/title_activity_glow" >
         </activity>
     </application>
 

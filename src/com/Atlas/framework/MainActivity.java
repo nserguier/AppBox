@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-public class MenuActivity extends Activity {
+public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +35,12 @@ public class MenuActivity extends Activity {
 		b6.setText("Glow");
 		
 		/* Cree les lien des boutons */
-		b1.setOnClickListener(new NextActivityListener(this,b1,MenuActivity.this,DragAndDropActivity.class));
-		b2.setOnClickListener(new NextActivityListener(this,b2,MenuActivity.this,TTSActivity.class)); 
-		b3.setOnClickListener(new NextActivityListener(this,b3,MenuActivity.this,BoutonsActivity.class));
-		b4.setOnClickListener(new NextActivityListener(this,b4,MenuActivity.this,CustomMenuActivity.class));
-		b5.setOnClickListener(new NextActivityListener(this,b5,MenuActivity.this,FullScreenActivity.class));
+		b1.setOnClickListener(new NextActivityListener(this,b1,MainActivity.this,DragAndDropActivity.class));
+		b2.setOnClickListener(new NextActivityListener(this,b2,MainActivity.this,TTSActivity.class)); 
+		b3.setOnClickListener(new NextActivityListener(this,b3,MainActivity.this,BoutonsActivity.class));
+		b4.setOnClickListener(new NextActivityListener(this,b4,MainActivity.this,CustomMenuActivity.class));
+		b5.setOnClickListener(new NextActivityListener(this,b5,MainActivity.this,FullScreenActivity.class));
+		b6.setOnClickListener(new NextActivityListener(this,b6,MainActivity.this,GlowActivity.class));
 	}
 	
 	@Override
