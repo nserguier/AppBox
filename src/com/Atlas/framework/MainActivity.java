@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 		Button b4 = (Button) findViewById(R.id.bouton4);
 		Button b5 = (Button) findViewById(R.id.bouton5);
 		Button b6 = (Button) findViewById(R.id.bouton6);
-		
+				
 		b1.setText("Drag and Drop");
 		b2.setText("Text to Speech");
 		b3.setText("Boutons");

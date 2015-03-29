@@ -16,5 +16,8 @@
     <string name="titre_bouton">Créer des boutons très simplement</string>
     <string name="indication_bouton">Entrez le nom de votre bouton :</string>
     <string name="title_activity_glow">GlowActivity</string>
+    <string name="title_activity_glowing_button">GlowingButton</string>
+    <string name="title_activity_glow_activity2">GlowActivity2</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

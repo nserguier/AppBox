@@ -50,6 +50,14 @@
             android:name=".GlowActivity"
             android:label="@string/title_activity_glow" >
         </activity>
+        <activity
+            android:name=".GlowingButton"
+            android:label="@string/title_activity_glowing_button" >
+        </activity>
+        <activity
+            android:name=".GlowActivity2"
+            android:label="@string/title_activity_glow_activity2" >
+        </activity>
     </application>
 
 </manifest>
