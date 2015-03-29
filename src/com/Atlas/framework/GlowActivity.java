@@ -1,6 +1,7 @@
 package com.Atlas.framework;
 
 import boutons.ButtonCreator;
+import glow.GlowingButton;
 import glow.GlowingText;
 import android.app.Activity;
 import android.graphics.Color;
@@ -27,13 +28,12 @@ public class GlowActivity extends Activity {
 		glowText = new GlowingText(this,getBaseContext(),textView,minGlowRadius,maxGlowRadius,startGlowRadius,color,1);
 		
 		Button bouton = (Button) findViewById(R.id.glow_bouton);
-		ButtonCreator.setBlueButton(this,bouton, "glowing button");
+		bouton.setBackground(getResources().getDrawable(R.drawable.home));
 		
 		Button bouton2 = (Button) findViewById(R.id.glow_bouton_2);
 		ButtonCreator.setBlueButton(this,bouton2, "glowing button 2");
 		
-		ImageView img = (ImageView) findViewById(R.id.glow_shadow);
-		img.startAnimation(AnimationUtils.loadAnimation(this, R.anim.glow_scale));
+		GlowingButton.makeGlow(bouton, this);
 		
 		ImageView img2 = (ImageView) findViewById(R.id.glow_shadow_2);
 		img2.startAnimation(AnimationUtils.loadAnimation(this, R.anim.glow_scale));
