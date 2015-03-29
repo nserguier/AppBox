@@ -5,6 +5,7 @@ import java.util.Locale;
 import android.app.Activity;
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,14 @@ public class TTSButton extends Activity {
 		this.ttsButton = ttsButton;
 		this.ctx = ctx;
 	}
+	
+	public TTSButton(Button ttsButton, String texte,Context ctx) {
+		Log.d("graboudibou","niki");
+		this.edit = null;
+		this.texteALire = texte;
+		this.ttsButton = ttsButton;
+		this.ctx = ctx;
+	}
 
 	public void initialisation() {
 
@@ -38,7 +47,7 @@ public class TTSButton extends Activity {
 		ttsButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				texteALire = edit.getText().toString();
+				if(edit!=null) texteALire = edit.getText().toString();
 				tts.speak(texteALire, TextToSpeech.QUEUE_FLUSH, null);
 
 			}
