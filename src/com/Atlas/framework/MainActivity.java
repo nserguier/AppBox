@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
 		Button b4 = (Button) findViewById(R.id.bouton4);
 		Button b5 = (Button) findViewById(R.id.bouton5);
 		Button b6 = (Button) findViewById(R.id.bouton6);
+		Button b7 = (Button) findViewById(R.id.bouton7);
 		
 		b1.setText("Drag and Drop");
 		b2.setText("Text to Speech");
@@ -33,6 +34,7 @@ public class MainActivity extends Activity {
 		b4.setText("Menus");
 		b5.setText("Plein écran");
 		b6.setText("Glow");
+		b7.setText("horloge");
 		
 		/* Cree les lien des boutons */
 		b1.setOnClickListener(new NextActivityListener(this,b1,MainActivity.this,DragAndDropActivity.class));
@@ -41,6 +43,7 @@ public class MainActivity extends Activity {
 		b4.setOnClickListener(new NextActivityListener(this,b4,MainActivity.this,CustomMenuActivity.class));
 		b5.setOnClickListener(new NextActivityListener(this,b5,MainActivity.this,FullScreenActivity.class));
 		b6.setOnClickListener(new NextActivityListener(this,b6,MainActivity.this,GlowActivity.class));
+		b7.setOnClickListener(new NextActivityListener(this,b7,MainActivity.this,ClockActivity.class));
 	}
 	
 	@Override
@@ -53,6 +56,7 @@ public class MainActivity extends Activity {
 		Button b4 = (Button) findViewById(R.id.bouton4);
 		Button b5 = (Button) findViewById(R.id.bouton5);
 		Button b6 = (Button) findViewById(R.id.bouton6);
+		Button b7 = (Button) findViewById(R.id.bouton7);
 		Drawable d = getResources().getDrawable(R.drawable.bouton_bleu);
 		b1.setBackground(d);
 		b2.setBackground(d);
@@ -60,6 +64,7 @@ public class MainActivity extends Activity {
 		b4.setBackground(d);
 		b5.setBackground(d);
 		b6.setBackground(d);
+		b7.setBackground(d);
 
 	}
 }
