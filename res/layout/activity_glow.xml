@@ -41,27 +41,29 @@
         android:layout_centerHorizontal="true"/>
 
     <RelativeLayout
-        android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_width="500dp"
+        android:layout_height="170dp"
         android:layout_alignBottom="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="29dp" >
 
         <ImageView
             android:id="@+id/glow_shadow_2"
-            android:layout_width="256dp"
-            android:layout_height="107dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:alpha="0.5"
-            android:background="@drawable/rectangle" />
-
+            android:alpha="0.7"
+            android:background="@drawable/glow_shadow" />
         <Button
             android:id="@+id/glow_bouton_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            android:background="@drawable/bouton_bleu" />
+
+        
     </RelativeLayout>
 
 </RelativeLayout>

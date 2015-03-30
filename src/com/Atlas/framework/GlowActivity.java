@@ -30,13 +30,13 @@ public class GlowActivity extends Activity {
 		Button bouton = (Button) findViewById(R.id.glow_bouton);
 		bouton.setBackground(getResources().getDrawable(R.drawable.home));
 		
-		Button bouton2 = (Button) findViewById(R.id.glow_bouton_2);
-		ButtonCreator.setBlueButton(this,bouton2, "glowing button 2");
+		//Button bouton2 = (Button) findViewById(R.id.glow_bouton_2);
+		//ButtonCreator.setBlueButton(this,bouton2, "glowing button 2");
 		
 		GlowingButton.makeGlow(bouton, this);
 		
 		ImageView img2 = (ImageView) findViewById(R.id.glow_shadow_2);
-		img2.startAnimation(AnimationUtils.loadAnimation(this, R.anim.glow_scale));
+		img2.startAnimation(AnimationUtils.loadAnimation(this, R.anim.glow_scale_rect));
 		
 	}
 }
