@@ -17,5 +17,6 @@
     <string name="indication_bouton">Entrez le nom de votre bouton :</string>
     <string name="title_activity_glow">GlowActivity</string>
     <string name="title_activity_clock">ClockActivity</string>
+    <string name="title_activity_bulle">BulleActivity</string>
 
 </resources>
