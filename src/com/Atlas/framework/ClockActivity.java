@@ -18,6 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -28,7 +29,8 @@ public class ClockActivity extends Activity {
 	ImageView minutes = null;
 	ImageView secondes = null;
 	ImageView horloge = null;
-
+	EditText write = null;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,8 +38,16 @@ public class ClockActivity extends Activity {
 
 		
 		RelativeLayout r = (RelativeLayout) findViewById(R.id.analogClock);
+		write = (EditText)findViewById(R.id.champ);
 
-		r = Clock.create(r, this, 17, 34, 45);
+		String s = recupereHeure(write);
+		String[] time = s.split(","); 
+		int heure = Integer.valueOf(time[0]);
+		int minute = Integer.valueOf(time[1]);
+		int seconde = Integer.valueOf(time[2]);
+		
+		
+		r = Clock.create(r, this, heure, minute, seconde);
 
 		/* Bouton home de retour au menu */
 		Button home = (Button) findViewById(R.id.home);
@@ -45,5 +55,11 @@ public class ClockActivity extends Activity {
 				ClockActivity.this, MainActivity.class));
 
 	}
+	
+	public String recupereHeure(EditText write) {
+		String  s = write.getText().toString();
+		return s;
+	}
+	
 
 }
