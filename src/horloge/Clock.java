@@ -42,7 +42,7 @@ public class Clock {
 		horloge_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		horloge_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		horloge.setLayoutParams(horloge_params);
-		horloge.setElevation(1f);
+		//horloge.setElevation(1f);
 		r.addView(horloge);
 		parent.removeView(horloge);
 
@@ -51,7 +51,7 @@ public class Clock {
 		heures_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		heures_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		heures.setLayoutParams(heures_params);
-		heures.setElevation(2f);
+		//heures.setElevation(2f);
 		r.addView(heures);
 		parent.removeView(heures);
 
@@ -60,7 +60,7 @@ public class Clock {
 		minutes_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		minutes_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		minutes.setLayoutParams(minutes_params);
-		minutes.setElevation(2f);
+		//minutes.setElevation(2f);
 		r.addView(minutes);
 		parent.removeView(minutes);
 
@@ -69,7 +69,7 @@ public class Clock {
 		secondes_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		secondes_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		secondes.setLayoutParams(secondes_params);
-		secondes.setElevation(2f);
+		//secondes.setElevation(2f);
 		r.addView(secondes);
 		parent.removeView(secondes);
 
@@ -80,5 +80,12 @@ public class Clock {
 		secondes.setRotation(6 * s);
 
 		return r;
+	}
+	/**
+	 * permet de remettre un relative layout contenant
+	 *  l'horloge a son etat de depart
+	 */
+	public static void erase(RelativeLayout r) {
+		r.removeAllViews();
 	}
 }
