@@ -32,7 +32,7 @@ public class BulleCreator {
 	 */
 	public static TextView createBubble(View view, String texte,String lieu, Activity activity){
 		
-		view.setId(1);
+		
 		Drawable bulle = null;
 		TextView bulle_texte = new TextView(activity);
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
