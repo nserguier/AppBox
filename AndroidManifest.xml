@@ -54,6 +54,10 @@
             android:name=".ClockActivity"
             android:label="@string/title_activity_clock" >
         </activity>
+        <activity
+            android:name=".BulleActivity"
+            android:label="@string/title_activity_bulle" >
+        </activity>
     </application>
 
 </manifest>

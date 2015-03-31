@@ -17,7 +17,7 @@ public class MyDragListener implements OnDragListener {
 	
     private Drawable dropZoneSurbrillante; // l'image a utiliser lorsque l'objet drag passe dans la zone de drop
     private Drawable dropZone; // l'image a utiliser lorsque l'objet drag ne passe pas dans la zone de drop
-
+    private boolean vide = true;
     
     public MyDragListener(Context context, int dropZoneID,int dropZoneSurbrillanteID){
     	if(dropZoneID!=0){
@@ -47,22 +47,26 @@ public class MyDragListener implements OnDragListener {
         break;
         
       case DragEvent.ACTION_DRAG_EXITED: /* Sortie du drag de la zone de drop */
-    	if(dropZone!=null)
+    	if(dropZone!=null){
         v.setBackground(dropZone);
+    	}
+    	vide = true;
         break;
         
       case DragEvent.ACTION_DROP: /* Drop de l'objet */
-    	  
-        View view = (View) event.getLocalState(); // la vue qui est drag au dessus
-        ViewGroup owner = (ViewGroup) view.getParent();
-        owner.removeView(view);
-        LinearLayout dropTarget = (LinearLayout) v; // la vue qui sert de drop zone
-        
-    	//Si une vue a deja ete depose ici, il y aura un tag
-    	Object tag = dropTarget.getTag();
-    	
-        dropTarget.addView(view);
-        view.setVisibility(View.VISIBLE);
+    	if(vide){  
+	    	vide= !vide;
+	        View view = (View) event.getLocalState(); // la vue qui est drag au dessus
+	        ViewGroup owner = (ViewGroup) view.getParent();
+	        owner.removeView(view);
+	        LinearLayout dropTarget = (LinearLayout) v; // la vue qui sert de drop zone
+	        dropTarget.addView(view);
+	        view.setVisibility(View.VISIBLE);
+
+    	}
+    	else{
+    		
+    	}
         break;
         
       case DragEvent.ACTION_DRAG_ENDED: /* Fin du drag-and-drop */
