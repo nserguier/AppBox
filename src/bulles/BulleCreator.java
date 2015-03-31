@@ -3,6 +3,7 @@ package bulles;
 import com.Atlas.framework.R;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
@@ -72,6 +73,7 @@ public class BulleCreator {
 		
 		bulle_texte.setText(texte);
 		bulle_texte.setTextSize(20);
+		bulle_texte.setTextColor(Color.BLACK);
 		bulle_texte.setTypeface(comic);
 		bulle_texte.setBackground(bulle);
 		
