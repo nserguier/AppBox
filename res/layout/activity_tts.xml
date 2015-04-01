@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   tools:context=".MainActivity" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanc_casse" >
 
     <Button
         android:id="@+id/home"
@@ -12,33 +12,34 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
         android:background="@drawable/home" />
-    
-   <Button
-      android:id="@+id/bouton_tts"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:layout_alignParentRight="true"
-      android:layout_marginBottom="188dp"
-      android:layout_marginRight="67dp"
-      android:onClick="speakText"
-      android:text="text to speech" />
 
-   <EditText
-      android:id="@+id/champ"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerVertical="true"
-      android:layout_centerHorizontal="true"
-      android:ems="10"/>
+    <Button
+        android:id="@+id/bouton_tts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="188dp"
+        android:layout_marginRight="67dp"
+        android:onClick="speakText"
+        android:text="text to speech" />
 
-   <TextView
-      android:id="@+id/textView1"
-      android:layout_below="@id/champ"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:layout_marginTop="0dp"
-      android:text="write text"
-      android:textAppearance="?android:attr/textAppearanceLarge" />
+    <EditText
+        android:id="@+id/champ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/champ"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="write text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>
