@@ -1,81 +1,67 @@
-package boutons;
-
-import java.util.Locale;
-
-import android.app.Activity;
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
+public class TTSButton {
 
-public class TTSButton extends Activity {
+	private static TextToSpeech tts;
 
-	
-	private Button ttsButton;
-	private EditText edit;
-	private String texte;
-	Context ctx;
-	TextToSpeech tts;
-
-	public TTSButton(Button ttsButton, EditText edit,Context ctx) {
-		
-		this.edit = edit;
-		this.ttsButton = ttsButton;
-		this.ctx = ctx;
-	}
-	
-	public TTSButton(Button ttsButton, String texte,Context ctx) {
-		Log.d("graboudibou","niki");
-		this.edit = null;
-		this.texte = texte;
-		this.ttsButton = ttsButton;
-		this.ctx = ctx;
-	}
-
-	/*
-	 * methode qui cree un bouton cliquable a partir de l'attribut bouton 
-	 * et qui lit le texte de l'attribut quand on clique dessus
+	/**
+	 * cree un TextToSpeech sur un bouton
 	 */
-	public void initialisation() {
+	public static void initialisation(final Button ttsButton,
+			final String texte, Context ctx, final boolean muet,
+			final EditText edit) {
 
-		Log.d("blabla","fdp");
-		tts = new TextToSpeech(ctx,
-				new TextToSpeech.OnInitListener() {
+		tts = new TextToSpeech(ctx, new TextToSpeech.OnInitListener() {
 
-					public void onInit(int status) {
-						if (status != TextToSpeech.ERROR)
-							tts.setLanguage(Locale.FRANCE);
-					}
-				});
-
-	
-		ttsButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if(edit!=null)	texte = edit.getText().toString();
-				Toast.makeText(ctx, texte, 
-				Toast.LENGTH_SHORT).show();
-				tts.speak(texte, TextToSpeech.QUEUE_FLUSH, null);
-
+			public void onInit(int status) {
+				if (status != TextToSpeech.ERROR)
+					tts.setLanguage(Locale.FRANCE);
 			}
 		});
 
+		ttsButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String t = texte;
+				if (!muet) {
+					if (edit != null)
+						t = edit.getText().toString();
+					tts.speak(t, TextToSpeech.QUEUE_FLUSH, null);
+				}
+			}
+		});
 	}
-	
-	
 
-	@Override
-	public void onPause() {
-		if (tts != null) {
-			tts.stop();
-			tts.shutdown();
-		}
-		super.onPause();
+	/**
+	 * pour faire taire un bouton initialise
+	 */
+	public static void fermer(Button ttsButton, Context ctx) {
+		initialisation(ttsButton, "", ctx, true, null);
+		tts.stop();
+		tts.shutdown();
+
 	}
 
+	public static void parle(Button ttsButton, String texte, Context ctx) {
+		initialisation(ttsButton, texte, ctx, false, null);
+
+	}
+
+	/**
+	 * si a la place d'un texte on veut en ecrire un puis le lire
+	 * 
+	 * @param ttsButton
+	 * @param edit
+	 * @param ctx
+	 */
+	public static void parleEdit(Button ttsButton, EditText edit, Context ctx) {
+		initialisation(ttsButton, null, ctx, false, edit);
+
+	}
 
 }

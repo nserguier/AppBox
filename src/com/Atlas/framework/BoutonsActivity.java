@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class BoutonsActivity extends Activity {
 
@@ -23,6 +24,13 @@ public class BoutonsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_boutons);
+		
+		/* Bouton couleur perso */
+		int color = getResources().getColor(R.color.rose);
+		Button bouton = ButtonCreator.createButton(this,color);
+		RelativeLayout parent = (RelativeLayout) findViewById(R.id.parent_view);
+		parent.addView(bouton);
+		
 		
 		/* Recuperation elements */
 		edit = (EditText) findViewById(R.id.editText);

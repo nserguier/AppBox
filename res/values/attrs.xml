@@ -4,5 +4,12 @@
         <attr name="bouton_txt" format="string"/>
         <attr name="titre" format="string"/>
         <attr name="android:drawable"/>
+        
+    </declare-styleable>
+    
+    <declare-styleable name="AnalogClock">
+        <attr name="dial" format="reference"/>
+        <attr name="hand_hour" format="reference"/>
+        <attr name="hand_minute" format="reference"/>
     </declare-styleable>
 </resources>
