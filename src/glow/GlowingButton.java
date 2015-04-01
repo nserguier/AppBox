@@ -22,22 +22,20 @@ public class GlowingButton {
 	 */
 	public static ImageView makeGlow(Button bouton, Context ctx){
 		ViewGroup parent = (ViewGroup) bouton.getParent();
-		parent.setClipChildren(false);
-		
+		float elevation = bouton.getElevation();
 		RelativeLayout.LayoutParams params =  (LayoutParams) bouton.getLayoutParams();
 		RelativeLayout rl = new RelativeLayout(ctx);
 		rl.setLayoutParams(params);
 		parent.addView(rl);
-		rl.setClipChildren(false);
-		
+		parent.setClipChildren(false);
 		
 		RelativeLayout.LayoutParams bouton_params =  new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 		bouton_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		bouton_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		bouton.setLayoutParams(bouton_params);
-		bouton.setElevation(1);
 		parent.removeView(bouton);
 		rl.addView(bouton);
+		rl.setElevation(elevation);
 		
 		ImageView glow = new ImageView(ctx);
 		glow.setBackground(ctx.getResources().getDrawable(R.drawable.glow_circle));
