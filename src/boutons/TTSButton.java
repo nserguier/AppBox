@@ -36,11 +36,7 @@ public class TTSButton {
 					if (edit != null)
 						t = edit.getText().toString();
 					tts.speak(t, TextToSpeech.QUEUE_FLUSH, null);
-				} else {
-					ttsButton.callOnClick();
-
 				}
-
 			}
 		});
 	}
