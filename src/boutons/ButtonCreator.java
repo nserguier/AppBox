@@ -47,6 +47,7 @@ public class ButtonCreator {
 	 *            Le texte a mettre sur le bouton
 	 */
 	public static void setBlueButton(Context c, Button b, String nomBouton) {
+
 		b.setBackground(c.getResources().getDrawable(R.drawable.bouton_bleu));
 		//RelativeLayout.LayoutParams params = (LayoutParams) b.getLayoutParams();
 		//params.height = 200;
@@ -58,6 +59,7 @@ public class ButtonCreator {
 		b.setPadding(0, 0, 0, 15);
 	}
 
+	
 	/**
 	 * Cree un bouton en relief classique a partir d'une couleur
 	 * @param c Le contexte
@@ -80,4 +82,5 @@ public class ButtonCreator {
 		bouton.setBackground(layerDrawable);
 		return bouton;
 	}
+
 }

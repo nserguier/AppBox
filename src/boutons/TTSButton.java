@@ -2,67 +2,74 @@ package boutons;
 
 import java.util.Locale;
 
-import android.app.Activity;
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class TTSButton extends Activity {
+public class TTSButton {
 
-	private String texteALire;
-	private Button ttsButton;
-	private EditText edit;
-	Context ctx;
-	TextToSpeech tts;
+	private static TextToSpeech tts;
 
-	public TTSButton(Button ttsButton, EditText edit,Context ctx) {
-		this.texteALire = null;
-		this.edit = edit;
-		this.ttsButton = ttsButton;
-		this.ctx = ctx;
-	}
-	
-	public TTSButton(Button ttsButton, String texte,Context ctx) {
-		Log.d("graboudibou","niki");
-		this.edit = null;
-		this.texteALire = texte;
-		this.ttsButton = ttsButton;
-		this.ctx = ctx;
-	}
+	/**
+	 * cree un TextToSpeech sur un bouton
+	 */
+	public static void initialisation(final Button ttsButton,
+			final String texte, Context ctx, final boolean muet,
+			final EditText edit) {
 
-	public void initialisation() {
+		tts = new TextToSpeech(ctx, new TextToSpeech.OnInitListener() {
 
-		tts = new TextToSpeech(ctx,
-				new TextToSpeech.OnInitListener() {
-
-					public void onInit(int status) {
-						if (status != TextToSpeech.ERROR)
-							tts.setLanguage(Locale.FRANCE);
-					}
-				});
+			public void onInit(int status) {
+				if (status != TextToSpeech.ERROR)
+					tts.setLanguage(Locale.FRANCE);
+			}
+		});
 
 		ttsButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(edit!=null) texteALire = edit.getText().toString();
-				tts.speak(texteALire, TextToSpeech.QUEUE_FLUSH, null);
+				String t = texte;
+				if (!muet) {
+					if (edit != null)
+						t = edit.getText().toString();
+					tts.speak(t, TextToSpeech.QUEUE_FLUSH, null);
+				} else {
+					ttsButton.callOnClick();
+
+				}
 
 			}
 		});
+	}
+
+	/**
+	 * pour faire taire un bouton initialise
+	 */
+	public static void fermer(Button ttsButton, Context ctx) {
+		initialisation(ttsButton, "", ctx, true, null);
+		tts.stop();
+		tts.shutdown();
 
 	}
 
-	@Override
-	public void onPause() {
-		if (tts != null) {
-			tts.stop();
-			tts.shutdown();
-		}
-		super.onPause();
+	public static void parle(Button ttsButton, String texte, Context ctx) {
+		initialisation(ttsButton, texte, ctx, false, null);
+
 	}
 
+	/**
+	 * si a la place d'un texte on veut en ecrire un puis le lire
+	 * 
+	 * @param ttsButton
+	 * @param edit
+	 * @param ctx
+	 */
+	public static void parleEdit(Button ttsButton, EditText edit, Context ctx) {
+		initialisation(ttsButton, null, ctx, false, edit);
+
+	}
 
 }
