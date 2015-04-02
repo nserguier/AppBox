@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanc_casse"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/etoile" />
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+                android:layout_toRightOf="@id/image1"
+        android:layout_alignTop="@id/image1"
+        android:layout_marginStart="200dp"
+        android:background="@drawable/etoile" />
+
+    <ImageView
+        android:id="@+id/image3"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+                android:layout_toRightOf="@id/image2"
+        android:layout_alignTop="@id/image1"
+        android:layout_marginStart="200dp"
+        android:background="@drawable/etoile" />
+
+    <ImageView
+        android:id="@+id/image4"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_alignTop="@id/image1"
+        android:layout_toRightOf="@id/image3"
+        android:layout_marginStart="200dp"
+        android:background="@drawable/etoile" />
+
+</RelativeLayout>

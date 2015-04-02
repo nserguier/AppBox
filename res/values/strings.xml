@@ -18,5 +18,7 @@
     <string name="title_activity_glow">GlowActivity</string>
     <string name="title_activity_clock">ClockActivity</string>
     <string name="title_activity_bulle">BulleActivity</string>
+    <string name="title_activity_animation">AnimationActivity</string>
+    <string name="title_activity_font">FontActivity</string>
 
 </resources>

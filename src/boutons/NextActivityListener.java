@@ -29,7 +29,7 @@ public class NextActivityListener implements OnClickListener {
 	}
 	
 	public NextActivityListener(Context ctx, Button button,Activity currentActivity, Class<?> targetActivity){
-		this.pressed = ctx.getResources().getDrawable(R.drawable.bouton_bleu);
+		this.pressed = ctx.getResources().getDrawable(R.drawable.bouton_bleu_e);
 		this.button = button;
 		this.currentActivity = currentActivity;
 		this.targetActivity = targetActivity;
