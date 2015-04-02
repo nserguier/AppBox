@@ -1,14 +1,11 @@
 package com.Atlas.framework;
 
-
-import boutons.ButtonCreator;
-import boutons.NextActivityListener;
-import fonts.FontsOverride;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import boutons.NextActivityListener;
+import fonts.FontsOverride;
 
 public class MainActivity extends Activity {
 
@@ -16,10 +13,10 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu);
-		
+
 		/* Changement de la police par defaut */
-		FontsOverride.setDefaultFont(this,"MONOSPACE", "fonts/onthemove.ttf");
-		
+		FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/onthemove.ttf");
+
 		/* Mise des textes sur les boutons */
 		Button b1 = (Button) findViewById(R.id.bouton1);
 		Button b2 = (Button) findViewById(R.id.bouton2);
@@ -29,7 +26,7 @@ public class MainActivity extends Activity {
 		Button b6 = (Button) findViewById(R.id.bouton6);
 		Button b7 = (Button) findViewById(R.id.bouton7);
 		Button b8 = (Button) findViewById(R.id.bouton8);
-		
+
 		b1.setText("Drag and Drop");
 		b2.setText("Text to Speech");
 		b3.setText("Boutons");
@@ -38,19 +35,27 @@ public class MainActivity extends Activity {
 		b6.setText("Glow");
 		b7.setText("Horloge");
 		b8.setText("Bulles");
-		
+
 		/* Cree les lien des boutons */
-		b1.setOnClickListener(new NextActivityListener(this,b1,MainActivity.this,DragAndDropActivity.class));
-		b2.setOnClickListener(new NextActivityListener(this,b2,MainActivity.this,TTSActivity.class)); 
-		b3.setOnClickListener(new NextActivityListener(this,b3,MainActivity.this,BoutonsActivity.class));
-		b4.setOnClickListener(new NextActivityListener(this,b4,MainActivity.this,CustomMenuActivity.class));
-		b5.setOnClickListener(new NextActivityListener(this,b5,MainActivity.this,FullScreenActivity.class));
-		b6.setOnClickListener(new NextActivityListener(this,b6,MainActivity.this,GlowActivity.class));
-		b7.setOnClickListener(new NextActivityListener(this,b7,MainActivity.this,ClockActivity.class));
-		b8.setOnClickListener(new NextActivityListener(this,b8,MainActivity.this,BulleActivity.class));
-		
+		b1.setOnClickListener(new NextActivityListener(this, b1,
+				MainActivity.this, DragAndDropActivity.class));
+		b2.setOnClickListener(new NextActivityListener(this, b2,
+				MainActivity.this, TTSActivity.class));
+		b3.setOnClickListener(new NextActivityListener(this, b3,
+				MainActivity.this, BoutonsActivity.class));
+		b4.setOnClickListener(new NextActivityListener(this, b4,
+				MainActivity.this, CustomMenuActivity.class));
+		b5.setOnClickListener(new NextActivityListener(this, b5,
+				MainActivity.this, FullScreenActivity.class));
+		b6.setOnClickListener(new NextActivityListener(this, b6,
+				MainActivity.this, GlowActivity.class));
+		b7.setOnClickListener(new NextActivityListener(this, b7,
+				MainActivity.this, ClockActivity.class));
+		b8.setOnClickListener(new NextActivityListener(this, b8,
+				MainActivity.this, BulleActivity.class));
+
 	}
-	
+
 	@Override
 	/* L'activite revient sur le devant de la scene */
 	public void onResume() {
