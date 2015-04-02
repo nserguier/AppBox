@@ -1,14 +1,11 @@
 package com.Atlas.framework;
 
 
-import boutons.ButtonCreator;
 import boutons.NextActivityListener;
-import fonts.FontsOverride;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 
 public class MainActivity extends Activity {
 
@@ -16,9 +13,6 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu);
-		
-		/* Changement de la police par defaut */
-		FontsOverride.setDefaultFont(this,"MONOSPACE", "fonts/onthemove.ttf");
 		
 		/* Mise des textes sur les boutons */
 		Button b1 = (Button) findViewById(R.id.bouton1);
@@ -29,6 +23,8 @@ public class MainActivity extends Activity {
 		Button b6 = (Button) findViewById(R.id.bouton6);
 		Button b7 = (Button) findViewById(R.id.bouton7);
 		Button b8 = (Button) findViewById(R.id.bouton8);
+		Button b9 = (Button) findViewById(R.id.bouton9);
+		Button b10 = (Button) findViewById(R.id.bouton10);
 		
 		b1.setText("Drag and Drop");
 		b2.setText("Text to Speech");
@@ -38,6 +34,8 @@ public class MainActivity extends Activity {
 		b6.setText("Glow");
 		b7.setText("Horloge");
 		b8.setText("Bulles");
+		b9.setText("Animations");
+		b10.setText("Polices");
 		
 		/* Cree les lien des boutons */
 		b1.setOnClickListener(new NextActivityListener(this,b1,MainActivity.this,DragAndDropActivity.class));
@@ -48,6 +46,8 @@ public class MainActivity extends Activity {
 		b6.setOnClickListener(new NextActivityListener(this,b6,MainActivity.this,GlowActivity.class));
 		b7.setOnClickListener(new NextActivityListener(this,b7,MainActivity.this,ClockActivity.class));
 		b8.setOnClickListener(new NextActivityListener(this,b8,MainActivity.this,BulleActivity.class));
+		b9.setOnClickListener(new NextActivityListener(this,b9,MainActivity.this,AnimationActivity.class));
+		b10.setOnClickListener(new NextActivityListener(this,b10,MainActivity.this,FontActivity.class));
 		
 	}
 	
@@ -63,6 +63,8 @@ public class MainActivity extends Activity {
 		Button b6 = (Button) findViewById(R.id.bouton6);
 		Button b7 = (Button) findViewById(R.id.bouton7);
 		Button b8 = (Button) findViewById(R.id.bouton8);
+		Button b9 = (Button) findViewById(R.id.bouton9);
+		Button b10 = (Button) findViewById(R.id.bouton10);
 		Drawable d = getResources().getDrawable(R.drawable.bouton_bleu);
 		b1.setBackground(d);
 		b2.setBackground(d);
@@ -72,6 +74,8 @@ public class MainActivity extends Activity {
 		b6.setBackground(d);
 		b7.setBackground(d);
 		b8.setBackground(d);
+		b9.setBackground(d);
+		b10.setBackground(d);
 
 	}
 }
