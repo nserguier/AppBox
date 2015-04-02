@@ -21,8 +21,7 @@ public class TTSActivity extends Activity {
 			      bouton = (Button) findViewById(R.id.bouton_tts);
 			      write = (EditText)findViewById(R.id.champ);
 			      TTSButton.parleEdit(bouton,write,this);
-			      
-			      TTSButton.parle(bouton, "dfdfdfdf", this);
+
 			      /* Bouton home de retour au menu */
 					Button home = (Button) findViewById(R.id.home);
 					home.setOnClickListener(new HomeActivityListener(this,home,TTSActivity.this,MainActivity.class));

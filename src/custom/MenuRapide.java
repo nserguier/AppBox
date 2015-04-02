@@ -2,12 +2,14 @@ package custom;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import boutons.ButtonCreator;
 import boutons.HomeActivityListener;
+import boutons.NextActivityListener;
 
 
 import com.Atlas.framework.CustomMenuActivity;
@@ -36,13 +38,12 @@ public class MenuRapide {
 
 		// creation du bouton de couleur choisie
 
-		int color = a.getResources().getColor(couleurBouton);
-		bouton = ButtonCreator.createButton(a, color);
+		bouton = ButtonCreator.createButton(a, couleurBouton);
 		bouton.setText(textBouton);
-		bouton.setOnClickListener(new HomeActivityListener(a.getApplicationContext(), bouton, a,
+		Drawable pressed = ButtonCreator.createButtonPressedDrawable(a,couleurBouton);
+		bouton.setOnClickListener(new NextActivityListener(bouton,pressed, a,
 				MainActivity.class));
-		RelativeLayout.LayoutParams bouton_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams bouton_params = new LayoutParams(400,150);
 		bouton_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		bouton_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		bouton.setLayoutParams(bouton_params);

@@ -41,6 +41,7 @@ public class GlowingButton {
 		bouton_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		bouton_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		bouton.setLayoutParams(bouton_params);
+		bouton.setElevation(elevation+1);
 		parent.removeView(bouton);
 		rl.addView(bouton);
 		rl.setElevation(elevation);

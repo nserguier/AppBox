@@ -47,7 +47,8 @@ public class ButtonCreator {
 	 * @param color La couleur seravnt de base au bouton
 	 * @return L'image du bouton
 	 */
-	public static LayerDrawable createButtonPressedDrawable(int color){	
+	public static LayerDrawable createButtonPressedDrawable(Context c,int color){
+		color = c.getResources().getColor(color);
 		GradientDrawable fond = new GradientDrawable();
 	    fond.setShape(GradientDrawable.RECTANGLE);
 	    fond.setCornerRadius(15);

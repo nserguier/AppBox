@@ -26,8 +26,7 @@ public class BoutonsActivity extends Activity {
 		setContentView(R.layout.activity_boutons);
 		
 		/* Bouton couleur perso */
-		int color = getResources().getColor(R.color.rose);
-		Button bouton = ButtonCreator.createButton(this,color);
+		Button bouton = ButtonCreator.createButton(this,R.color.rose);
 		RelativeLayout parent = (RelativeLayout) findViewById(R.id.parent_view);
 		parent.addView(bouton);
 		
@@ -42,6 +41,7 @@ public class BoutonsActivity extends Activity {
 		
 		/* Bouton de creation */
 		Button creer =  (Button) findViewById(R.id.creer);
+		creer.setTextSize(30);
 		creer.setOnClickListener(new OnClickListener() {
 			
 			@Override
