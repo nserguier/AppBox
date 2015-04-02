@@ -1,11 +1,14 @@
 package com.Atlas.framework;
 
-
-import boutons.NextActivityListener;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Button;
+import boutons.NextActivityListener;
+import fonts.FontsOverride;
+
+
+
 
 public class MainActivity extends Activity {
 
@@ -13,6 +16,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu);
+
 		
 		/* Mise des textes sur les boutons */
 		Button b1 = (Button) findViewById(R.id.bouton1);
@@ -25,7 +29,7 @@ public class MainActivity extends Activity {
 		Button b8 = (Button) findViewById(R.id.bouton8);
 		Button b9 = (Button) findViewById(R.id.bouton9);
 		Button b10 = (Button) findViewById(R.id.bouton10);
-		
+
 		b1.setText("Drag and Drop");
 		b2.setText("Text to Speech");
 		b3.setText("Boutons");
@@ -36,8 +40,10 @@ public class MainActivity extends Activity {
 		b8.setText("Bulles");
 		b9.setText("Animations");
 		b10.setText("Polices");
-		
+
 		/* Cree les lien des boutons */
+		
+
 		b1.setOnClickListener(new NextActivityListener(this,b1,MainActivity.this,DragAndDropActivity.class));
 		b2.setOnClickListener(new NextActivityListener(this,b2,MainActivity.this,TTSActivity.class)); 
 		b3.setOnClickListener(new NextActivityListener(this,b3,MainActivity.this,BoutonsActivity.class));
@@ -50,7 +56,7 @@ public class MainActivity extends Activity {
 		b10.setOnClickListener(new NextActivityListener(this,b10,MainActivity.this,FontActivity.class));
 		
 	}
-	
+
 	@Override
 	/* L'activite revient sur le devant de la scene */
 	public void onResume() {
