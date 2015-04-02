@@ -6,6 +6,7 @@ import divers.Couleur;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.widget.Button;
@@ -16,6 +17,11 @@ import android.widget.RelativeLayout.LayoutParams;
 
 public class ButtonCreator {
 
+	/**
+	 * Cree une image de bouton a partir d'une couleur
+	 * @param color La couleur seravnt de base au bouton
+	 * @return L'image du bouton
+	 */
 	public static LayerDrawable createButtonDrawable(int color){	
 		GradientDrawable fond = new GradientDrawable();
 	    fond.setShape(GradientDrawable.RECTANGLE);
@@ -33,6 +39,31 @@ public class ButtonCreator {
 	    LayerDrawable res = new LayerDrawable(layers);
 	    res.setLayerInset(0, 0, 0, 0, 0);
 	    res.setLayerInset(1, 2, 2, 2, 15);
+	    return res;
+	}
+	
+	/**
+	 * Cree une image de bouton presse a partir d'une couleur
+	 * @param color La couleur seravnt de base au bouton
+	 * @return L'image du bouton
+	 */
+	public static LayerDrawable createButtonPressedDrawable(int color){	
+		GradientDrawable fond = new GradientDrawable();
+	    fond.setShape(GradientDrawable.RECTANGLE);
+	    fond.setCornerRadius(15);
+	    fond.setColor(Couleur.darkenColor(color));
+	    
+		GradientDrawable devant = new GradientDrawable();
+	    devant.setShape(GradientDrawable.RECTANGLE);
+	    devant.setCornerRadius(15);
+	    int[] colors = { color,Couleur.lightenColor(color), color };
+	    devant.setColors(colors);
+	    devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+	    
+	    GradientDrawable[] layers = {fond,devant};
+	    LayerDrawable res = new LayerDrawable(layers);
+	    res.setLayerInset(0, 0, 0, 0, 0);
+	    res.setLayerInset(1, 2, 2, 2, 6);
 	    return res;
 	}
 	
@@ -100,8 +131,7 @@ public class ButtonCreator {
 	}
 
 	/**
-	 * Change l'apparence d'un bouton pour lui donner celle du bouton bleu
-	 * classique
+	 * Change l'apparence d'un bouton selon des couleurs et un un texte
 	 * 
 	 * @param c
 	 *            Le contexte de l'activite
@@ -121,6 +151,9 @@ public class ButtonCreator {
 		color = c.getResources().getColor(color);
 		textColor = c.getResources().getColor(textColor);
 		LayerDrawable layerDrawable = createButtonDrawable(color);
+        Typeface comic = Typeface.createFromAsset(c.getAssets(),"fonts/comic.otf");
+		b.setTypeface(comic);
+		b.setAllCaps(false);
 		b.setText(nomBouton);
 		b.setTextSize(30f);
 		b.setTextColor(textColor);
