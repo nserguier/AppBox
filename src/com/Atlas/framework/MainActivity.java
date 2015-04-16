@@ -7,9 +7,6 @@ import android.widget.Button;
 import boutons.NextActivityListener;
 import fonts.FontsOverride;
 
-
-
-
 public class MainActivity extends Activity {
 
 	@Override
