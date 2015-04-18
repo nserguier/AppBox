@@ -20,5 +20,6 @@
     <string name="title_activity_bulle">BulleActivity</string>
     <string name="title_activity_animation">AnimationActivity</string>
     <string name="title_activity_font">FontActivity</string>
+    <string name="title_activity_squelette">SqueletteActivity</string>
 
 </resources>
