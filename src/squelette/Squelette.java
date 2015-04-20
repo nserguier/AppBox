@@ -1,19 +1,14 @@
 package squelette;
 
-import boutons.ButtonCreator;
-
-import com.Atlas.framework.R;
-
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import boutons.ButtonCreator;
+
+import com.Atlas.framework.R;
 
 /**
  * permet rapidement la creation d'un menu a X elements, relativement

@@ -148,5 +148,31 @@
         android:paddingBottom="10dp"
         android:textColor="@color/jaune1"
         android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/bouton11"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/bouton5"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/bouton10"
+        android:background="@drawable/bouton_bleu"
+        android:paddingBottom="10dp"
+        android:textColor="@color/jaune1"
+        android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/bouton12"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/bouton5"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/bouton11"
+        android:background="@drawable/bouton_bleu"
+        android:paddingBottom="10dp"
+        android:textColor="@color/jaune1"
+        android:textSize="20sp" />
 
 </RelativeLayout>
