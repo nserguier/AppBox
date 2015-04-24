@@ -27,6 +27,7 @@ public class DeroulantActivity extends Activity {
 		parent.addView(fils);
 		
 		RelativeLayout votreMenu = MenuDeroulant.create(fils, this, R.color.bleu1,R.color.bleu2, "derouler le menu");
-		
+		Button b = ButtonCreator.createButton(this,R.color.fushia);
+		MenuDeroulant.add(b);
 	}
 }

@@ -1,6 +1,9 @@
 package animation;
 
+import com.Atlas.framework.R;
+
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -15,24 +18,31 @@ public class MenuDeroulant {
 	private static RelativeLayout menuDeroulant;
 	private static boolean isOpen = false;
 	
-	public static RelativeLayout create(final RelativeLayout parent,Context context,int colorMenu,int colorDeroulant,String text) {
+	public static RelativeLayout create(final RelativeLayout parent,Context context,int colorBouton,int colorDeroulant,String text) {
 		
 		parent.setClipChildren(true);
 		// on cree deux layout : un pour le bouton qui fait poper le menu et un pour le menu deroulant
 		menuDeroulant = new RelativeLayout(context);
+		menuDeroulant.setId(1);
 		RelativeLayout bouton = new RelativeLayout(context);
+		bouton.setId(2);
+		RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+		bouton.setLayoutParams(params);
 		
-		RelativeLayout.LayoutParams menu_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+		
+		RelativeLayout.LayoutParams menu_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+		//menu_params.setMargins(0,70 , 0, 0);
+		menu_params.addRule(RelativeLayout.BELOW,bouton.getId());
+		menu_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		menuDeroulant.setLayoutParams(menu_params);
 		menuDeroulant.setVisibility(View.INVISIBLE);
 		menuDeroulant.setBackgroundColor(context.getResources().getColor(colorDeroulant));
 		
-		RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		bouton.setLayoutParams(params);
-		
+				
 		// on cree le bouton et son listenner
 		
-		Button b = ButtonCreator.createButton(context, colorMenu);
+		Button b = ButtonCreator.createButton(context, colorBouton);
 		b.setLayoutParams(bouton.getLayoutParams());
 		b.setText(text);
 				
@@ -48,21 +58,18 @@ public class MenuDeroulant {
 		bouton.addView(b);
 		parent.addView(menuDeroulant);
 		parent.addView(bouton);
+		
 			
 		return menuDeroulant;
 	}
 	
-	/*public static void add(Context context,View v) {
-		RelativeLayout aux = new RelativeLayout(context);
-		RelativeLayout.LayoutParams aux_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
-		aux_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-		aux_params.setMargins(0, 200, 0, 0);
-		aux.setLayoutParams(aux_params);
-		v.setLayoutParams(aux.getLayoutParams());
-		aux.addView(v);
+	public static void add(View v) {
 		
-		menuDeroulant.addView(aux);
-	}*/
+		RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+		params.addRule(RelativeLayout.ALIGN_END);
+		v.setLayoutParams(params);
+		menuDeroulant.addView(v);
+	}
 	
 	/**
 	 * Utilisee pour ouvrir ou fermer le menu.

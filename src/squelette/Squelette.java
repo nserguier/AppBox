@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import animation.MenuDeroulant;
 import boutons.ButtonCreator;
 
 import com.Atlas.framework.R;
@@ -61,8 +62,7 @@ public class Squelette {
 			i_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 			// i_params.addRule(RelativeLayout.BELOW,118*i);
 			squelette[i].setLayoutParams(i_params);
-			squelette[i].setBackground(context.getResources().getDrawable(
-					R.color.fushia));
+			squelette[i].setBackground(parent.getBackground());
 		}
 
 		return squelette;
@@ -125,7 +125,7 @@ public class Squelette {
 	/**
 	 * permet d'ajouter un background de la couleur choisie avec un drawable en fond (en bas a gauche)
 	 * le background est ajoute au layout voulue sur l'ecran avec le num de ce layout
-	 * @param text
+	 * @param d
 	 * @param color
 	 * @param place
 	 */
@@ -149,5 +149,21 @@ public class Squelette {
 		
 
 	}
+	
+	/**
+	 * 
+	 * @param colorMenu
+	 * @param colorBouton
+	 * @param text
+	 * @param place
+	 */
+	public void addMenuDeroulant(int colorMenu,int colorBouton, String text, int place) {
 
+		if(place <= nbElements) {
+		RelativeLayout r = squelette[place];
+		MenuDeroulant.create(r, context, colorBouton, colorMenu, text);
+		
+		}
+	
+	}
 }
