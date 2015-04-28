@@ -22,19 +22,17 @@ public class SqueletteActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_squelette);
 		
-			
-		// le nombre d'elements que vous souhaitez integrer au menu :
+		//	le nombre d'elements que vous souhaitez integrer au menu :
 		int nbElements = 5; //TODO
 		
 		//	creation du "squelette" de layout
 		Squelette squelette = new Squelette(nbElements,this);
-		
-		// on parametre la taille de tous les layout du squelette
-		squelette.createSquelette(200,700); //TODO
+		squelette.createSquelette();
 		
 		//	le parent de l'application
 		ViewGroup parent = (ViewGroup) findViewById(R.id.parent);
 		parent.addView(squelette.getRl(0));
+		parent.getHeight();
 		
 		//	c'est a vous de jouer, vous pouvez ajouter a votre menu des boutons, background 
 		//	ou textes avec pleins de parametres!!
@@ -43,15 +41,20 @@ public class SqueletteActivity extends Activity {
 		//	squelette.addText("votre texte ici", R.color.votrecouleur, le numero de l'endroit sur l'ecran);
 		//	squelette.addBackground(R.drawable.votredrawable, R.color.votrecouleur,le numero du layout desire);
 		//	mettre 0 si vous ne voulez pas de couleur ou de drawable au background.
+		//  squelette.addMenuDeroulant(R.color.couleurBouton, R.color.couleurMenu , "le titre de votre menu",le numero du layout desire);
 		
 		//TODO
-		squelette.addBouton("Votre titre", R.color.orange1, 1);
-		squelette.addText("texte 1", R.color.orange2, 2);
-		squelette.addText("texte 2", R.color.jaune1, 3);
-		squelette.addBouton("bouton 1", R.color.bleu1, 4);
-		squelette.addMenuDeroulant(R.color.orange3, R.color.fushia , "Et un menu déroulant !",5);
-		squelette.addBackground(0, R.color.jaune1,2);		
+		squelette.addText("Bienvenue dans le menu !", R.color.orange2, 2);
+		squelette.addBouton("JOUER", R.color.vert1, 1);	
+		squelette.addBouton("petit enfant", R.color.vert1, 3);
+		squelette.addBouton("maison", R.color.vert1, 4);
+		squelette.addBouton("ballon", R.color.vert1, 5);
 		squelette.addBackground(R.drawable.gnar, R.color.bleu1,0);
+		squelette.addBackground(R.drawable.shape, 0,5);
+		squelette.addBackground(R.drawable.home, 0,4);
+		squelette.addBackground(0, R.color.fushia,2);
+		squelette.setWidth(1000,1);
+		
 		// et voila, votre menu est fabrique !!
 		
 	}

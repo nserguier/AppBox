@@ -32,7 +32,7 @@ public class MenuDeroulant {
 		
 		
 		RelativeLayout.LayoutParams menu_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
-		//menu_params.setMargins(0,70 , 0, 0);
+		menu_params.setMargins(0, -10 , 0, 0);
 		menu_params.addRule(RelativeLayout.BELOW,bouton.getId());
 		menu_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		menuDeroulant.setLayoutParams(menu_params);
@@ -67,6 +67,8 @@ public class MenuDeroulant {
 		
 		RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.ALIGN_END);
+		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+		params.setMargins(0,10,0,0);
 		v.setLayoutParams(params);
 		menuDeroulant.addView(v);
 	}
