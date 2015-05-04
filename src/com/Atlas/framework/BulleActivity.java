@@ -1,6 +1,7 @@
 package com.Atlas.framework;
 
-import bulles.BulleCreator;
+import composants.BulleCreator;
+
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;

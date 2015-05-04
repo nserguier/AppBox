@@ -1,6 +1,7 @@
 package com.Atlas.framework;
 
-import fonts.FontsOverride;
+import composants.FontsOverride;
+
 import boutons.ButtonCreator;
 import android.app.Activity;
 import android.content.Intent;

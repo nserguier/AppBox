@@ -1,12 +1,13 @@
 package com.Atlas.framework;
 
+import composants.Animate;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import animation.Animate;
 
 public class AnimationActivity extends Activity {
 

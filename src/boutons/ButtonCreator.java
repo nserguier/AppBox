@@ -1,8 +1,8 @@
 package boutons;
 
 import com.Atlas.framework.R;
+import composants.Couleur;
 
-import divers.Couleur;
 
 import android.content.Context;
 import android.graphics.Color;

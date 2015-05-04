@@ -1,4 +1,4 @@
-package glow;
+package composants;
 
 import java.util.ArrayList;
 

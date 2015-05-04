@@ -1,4 +1,4 @@
-package bulles;
+package composants;
 
 import com.Atlas.framework.R;
 
@@ -15,7 +15,6 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import animation.Animate;
 
 public class BulleCreator {
 

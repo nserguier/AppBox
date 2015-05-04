@@ -1,5 +1,7 @@
 package com.Atlas.framework;
 
+import composants.MenuDeroulant;
+
 import boutons.ButtonCreator;
 import boutons.HomeActivityListener;
 import android.app.Activity;
@@ -9,7 +11,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import animation.MenuDeroulant;
 
 public class DeroulantActivity extends Activity {
 

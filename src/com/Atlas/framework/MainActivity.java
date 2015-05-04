@@ -1,11 +1,12 @@
 package com.Atlas.framework;
 
+import composants.FontsOverride;
+
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Button;
 import boutons.NextActivityListener;
-import fonts.FontsOverride;
 
 public class MainActivity extends Activity {
 

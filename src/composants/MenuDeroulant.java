@@ -1,4 +1,4 @@
-package animation;
+package composants;
 
 import com.Atlas.framework.R;
 
