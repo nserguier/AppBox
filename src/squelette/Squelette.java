@@ -39,8 +39,12 @@ public class Squelette {
 	 * @param width
 	 * @return
 	 */
-	public RelativeLayout[] createSquelette(int height, int width) {
+	public RelativeLayout[] createSquelette() {
 
+		int width = 700;
+		int height = context.getApplicationContext().getResources().getDisplayMetrics().heightPixels;
+		height = height/nbElements - nbElements*10; //	la hauteur de chaque element du menu 
+		//	est relative a la taille du menu et au nombre d'element dans le menu
 		RelativeLayout parent = new RelativeLayout(context);
 		RelativeLayout.LayoutParams parent_params = new LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -165,5 +169,16 @@ public class Squelette {
 		
 		}
 	
+	}
+	
+	public void setWidth(int width, int place) {
+
+		if(place <= nbElements) {
+		RelativeLayout r = squelette[place];
+		RelativeLayout.LayoutParams params = (LayoutParams) r.getLayoutParams();
+		params.width = width;
+		
+		}
+		else Log.d("Attention","trop d'elements dans votre menu !");
 	}
 }
