@@ -43,6 +43,34 @@ public class ButtonCreator {
 	}
 	
 	/**
+	 * Cree une image de bouton arrondi a partir d'une couleur
+	 * @param color La couleur seravnt de base au bouton
+	 * @return L'image du bouton
+	 */
+	public static LayerDrawable createButtonRoundedDrawable(int color){	
+		GradientDrawable fond = new GradientDrawable();
+	    fond.setShape(GradientDrawable.RECTANGLE);
+	    fond.setCornerRadius(1000);
+	    int fonce = Couleur.darkenColor(color);
+	    fond.setColor(fonce);
+	    fond.setStroke(3, Couleur.darkenColor(fonce));
+	    
+		GradientDrawable devant = new GradientDrawable();
+	    devant.setShape(GradientDrawable.RECTANGLE);
+	    devant.setCornerRadius(1000);
+	    int[] colors = { Couleur.darkenColor(color), color };
+	    devant.setColors(colors);
+	    devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+	    devant.setStroke(2, Couleur.lightenColor(color));
+	    
+	    GradientDrawable[] layers = {fond,devant};
+	    LayerDrawable res = new LayerDrawable(layers);
+	    res.setLayerInset(0, 0, 0, 0, 0);
+	    res.setLayerInset(1,12, 12, 12, 12);
+	    return res;
+	}
+	
+	/**
 	 * Cree une image de bouton presse a partir d'une couleur
 	 * @param color La couleur seravnt de base au bouton
 	 * @return L'image du bouton
@@ -127,6 +155,25 @@ public class ButtonCreator {
 		Button bouton = new Button(c);
 		bouton.setHeight(80);
 		bouton.setWidth(200);
+		bouton.setBackground(layerDrawable);
+		return bouton;
+	}
+	
+	/**
+	 * Cree un bouton en relief arrondi a partir d'une couleur
+	 * 
+	 * @param c
+	 *            Le contexte
+	 * @param color
+	 *            L'identifiant de la couleur ex(R.color.bleu)
+	 * @return Le bouton
+	 */
+	public static Button createRoundedButton(Context c, int color) {
+		color = c.getResources().getColor(color);
+		LayerDrawable layerDrawable = createButtonRoundedDrawable(color);
+		Button bouton = new Button(c);
+		bouton.setHeight(100);
+		bouton.setWidth(500);
 		bouton.setBackground(layerDrawable);
 		return bouton;
 	}

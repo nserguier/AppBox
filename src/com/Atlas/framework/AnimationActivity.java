@@ -20,7 +20,7 @@ public class AnimationActivity extends Activity {
 		ImageView img3 = (ImageView) findViewById(R.id.image3);
 		ImageView img4 = (ImageView) findViewById(R.id.image4);
 	
-		Animate.scale(img1,1f, 1.2f,500, true);
+		Animate.scale(img1,1f, 1.2f,500,0, true);
 		Animate.rotateInfinite(img2, 3000);
 		Animate.rotate(img3, 1000, 120, true);
 		img4.setVisibility(View.INVISIBLE);
