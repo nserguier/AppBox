@@ -85,8 +85,12 @@
         </activity>
         <activity
             android:name=".DeroulantActivity"
-            android:label="@string/title_activity_deroulant" 
+            android:label="@string/title_activity_deroulant"
             android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".MenuStyleActivity"
+            android:label="@string/title_activity_menu_style" >
         </activity>
     </application>
 

@@ -36,12 +36,15 @@ public class SqueletteActivity extends Activity {
 		
 		//	c'est a vous de jouer, vous pouvez ajouter a votre menu des boutons, background 
 		//	ou textes avec pleins de parametres!!
+		//	le numero du layout va de 1 au nb d'element voulu ou 0 pour le fond global
+		// tous les layout sont centres et les uns en dessous des autres
 		//	voici quelques exemples :
 		//	squelette.addBouton("votre texte ici", R.color.votrecouleur, le numero de l'endroit sur l'ecran);
 		//	squelette.addText("votre texte ici", R.color.votrecouleur, le numero de l'endroit sur l'ecran);
 		//	squelette.addBackground(R.drawable.votredrawable, R.color.votrecouleur,le numero du layout desire);
 		//	mettre 0 si vous ne voulez pas de couleur ou de drawable au background.
 		//  squelette.addMenuDeroulant(R.color.couleurBouton, R.color.couleurMenu , "le titre de votre menu",le numero du layout desire);
+		
 		
 		//TODO
 		squelette.addText("Bienvenue dans le menu !", R.color.orange2, 2);

@@ -22,5 +22,6 @@
     <string name="title_activity_font">FontActivity</string>
     <string name="title_activity_squelette">SqueletteActivity</string>
     <string name="title_activity_deroulant">DeroulantActivity</string>
+    <string name="title_activity_menu_style">MenuStyleActivity</string>
 
 </resources>

@@ -1,19 +1,15 @@
 package boutons;
 
-import com.Atlas.framework.R;
-
-import divers.Couleur;
-
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
+
+import com.Atlas.framework.R;
+
+import divers.Couleur;
 
 public class ButtonCreator {
 
