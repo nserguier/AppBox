@@ -18,7 +18,7 @@ import android.widget.TextView;
  */
 public class AnimatedText{
 	
-	public static void addAnimatedTest(Context context,LinearLayout layout,String myText,int[] colors,float textSize) throws InterruptedException{
+	public static void addAnimatedTest(Context context,LinearLayout layout,String myText,int[] colors,float textSize){
 		
 		int offSet = 200;
 		Typeface myFont = Typeface.createFromAsset(context.getAssets(),"fonts/intsh.ttf");
