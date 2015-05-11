@@ -69,6 +69,17 @@ public class Animate {
 		view.startAnimation(rotate);
 	}
 	
+	public static void rotate(View view,int duration,int from,int to,float pivotX,float pivotY,boolean loop){
+		RotateAnimation rotate = new RotateAnimation(from,to,Animation.RELATIVE_TO_SELF, pivotX, Animation.RELATIVE_TO_SELF, pivotY);
+		rotate.setDuration(duration);
+		if(loop){
+			rotate.setRepeatCount(ScaleAnimation.INFINITE);
+			rotate.setRepeatMode(ScaleAnimation.REVERSE);
+		}
+		rotate.setInterpolator(new AccelerateDecelerateInterpolator());
+		view.startAnimation(rotate);
+	}
+	
 	/**
 	 * Fait apparaitre une vue invisible avec une animation d'echelle et un effet de rebond
 	 * @param view La vue a animer
@@ -198,6 +209,18 @@ public class Animate {
 		TranslateAnimation trans = new TranslateAnimation(fromX, toX, fromY, toY);
 		trans.setDuration(duration);
 		trans.setFillAfter(true);
+		view.startAnimation(trans);
+		
+	}
+	
+	public static void translate(View view,float fromX, float fromY, float toX, float toY, int duration,boolean loop){
+		TranslateAnimation trans = new TranslateAnimation(fromX, toX, fromY, toY);
+		trans.setDuration(duration);
+		trans.setFillAfter(true);
+		if(loop){
+			trans.setRepeatCount(ScaleAnimation.INFINITE);
+			trans.setRepeatMode(ScaleAnimation.REVERSE);
+		}
 		view.startAnimation(trans);
 		
 	}

@@ -5,14 +5,25 @@ import com.Atlas.framework.R;
 import composants.Couleur;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 
 public class ButtonCreator {
 
+	Button bouton;
+	ImageButton image_bouton;
+	
+	public ButtonCreator(Context c){
+		bouton = new Button(c);
+		image_bouton = new ImageButton(c);
+	}
+	
 	/**
 	 * Cree une image de bouton a partir d'une couleur
 	 * @param color La couleur seravnt de base au bouton
@@ -204,5 +215,84 @@ public class ButtonCreator {
 		b.setPadding(0, 0, 0, 15);
 		b.setBackground(layerDrawable);
 	}
+	
+	/**
+	 * Methode pour l'ecriture fluent
+	 * @param context
+	 * @return 
+	 */
+	public static ButtonCreator create(Context context){
+		return new ButtonCreator(context) ;
+	}
 
+	/**
+	 * Change le background drawable du bouton
+	 * @param d
+	 * @return
+	 */
+	public ButtonCreator setBack(Drawable d){
+		bouton.setBackground(d);
+		image_bouton.setBackground(d);
+		return this;
+	}
+	
+	/**
+	 * Change le background drawable du bouton en miroir
+	 * @param d
+	 * @return
+	 */
+	public ButtonCreator mirror(){
+		bouton.setScaleX(-1f);
+		image_bouton.setScaleX(-1f);
+		return this;
+	}
+	
+	/**
+	 * Change le texte du bouton
+	 * @param d
+	 * @return
+	 */
+	public ButtonCreator setText(String s){
+		bouton.setText(s);
+		return this;
+	}
+	
+	/**
+	 * Change le taille du texte du bouton
+	 * @param d
+	 * @return
+	 */
+	public ButtonCreator setTextSize(float s){
+		bouton.setTextSize(s);
+		return this;
+	}
+	
+	/**
+	 * Change la couleur du texte du bouton
+	 * @param d
+	 * @return
+	 */
+	public ButtonCreator setTextColor(int color){
+		int true_color = bouton.getContext().getResources().getColor(color);
+		bouton.setTextColor(true_color);
+		return this;
+	}
+	
+	/**
+	 * Retourne le bouton cree
+	 * @return le bouton
+	 */
+	public Button build(){
+		return bouton;
+	}
+	
+	/**
+	 * Retourne le image bouton cree
+	 * @return le bouton
+	 */
+	public ImageButton buildImage(){
+		return image_bouton;
+	}
+	
+	
 }

@@ -157,7 +157,7 @@ public class MenuStyle {
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
 			t.setLayoutParams(params);
 			t.setText(texte);
-			b.setTextSize(30);
+			t.setTextSize(30);
 		
 			
 	}

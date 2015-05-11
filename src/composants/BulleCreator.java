@@ -73,7 +73,7 @@ public class BulleCreator {
 		Typeface comic = Typeface.createFromAsset(activity.getAssets(),"fonts/comic.otf");
 		
 		bulle_texte.setText(texte);
-		bulle_texte.setTextSize(20);
+		bulle_texte.setTextSize(26);
 		bulle_texte.setTextColor(Color.BLACK);
 		bulle_texte.setTypeface(comic);
 		bulle_texte.setBackground(bulle);
