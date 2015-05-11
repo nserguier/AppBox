@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanc_casse"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <Button
+        android:id="@+id/bouton_police1"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="350dp" />
+
+    <Button
+        android:id="@+id/bouton_police2"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="100dp"
+        android:layout_toRightOf="@id/bouton_police1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/bouton_police2"
+        android:layout_below="@+id/bouton_police1"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/bulle_bas"
+        android:text="Je suis un texte à la police changeante"
+        android:textColor="@color/noir"
+        android:textSize="30sp" />
+
+</RelativeLayout>

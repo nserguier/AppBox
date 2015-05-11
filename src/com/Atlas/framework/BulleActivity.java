@@ -1,6 +1,7 @@
 package com.Atlas.framework;
 
-import bulles.BulleCreator;
+import composants.BulleCreator;
+
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -20,10 +21,10 @@ public class BulleActivity extends Activity {
 		setContentView(R.layout.activity_bulle);
 		
 		Button bouton = (Button) findViewById(R.id.bouton_bulle);
-		final TextView bulle1 = BulleCreator.createBubble(bouton, "Je suis une bulle à droite","right", this);
-		final TextView bulle2 = BulleCreator.createBubble(bouton, "Je suis une bulle à gauche","left", this);
-		final TextView bulle3 = BulleCreator.createBubble(bouton, "Je suis une bulle en haut","above", this);
-		final TextView bulle4 = BulleCreator.createBubble(bouton, "Je suis une bulle en bas","below", this);
+		final TextView bulle1 = BulleCreator.createBubble(bouton, "Je suis une bulle à droite","right",true, this);
+		final TextView bulle2 = BulleCreator.createBubble(bouton, "Je suis une bulle à gauche","left",true, this);
+		final TextView bulle3 = BulleCreator.createBubble(bouton, "Je suis une bulle en haut","above",true, this);
+		final TextView bulle4 = BulleCreator.createBubble(bouton, "Je suis une bulle en bas","below",true, this);
 		
 		Button suppr = (Button) findViewById(R.id.bouton_supprimer);
 		suppr.setOnClickListener(new View.OnClickListener() {

@@ -1,3 +1,7 @@
+package boutons;
+
+import java.util.Locale;
+
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import android.view.View;

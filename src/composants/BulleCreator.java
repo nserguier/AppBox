@@ -1,4 +1,4 @@
-package bulles;
+package composants;
 
 import com.Atlas.framework.R;
 
@@ -27,10 +27,12 @@ public class BulleCreator {
 	 * 		"below"	en dessous
 	 * 		"right" a droite
 	 * 		"left" a gauche
+	 * @param "true" pour que la bulle soit visible a sa creation
+	 * 			"false" pour que la bulle soit invisible a sa creation
 	 * @param activity L'activite en question
 	 * @return La bulle
 	 */
-	public static TextView createBubble(View view, String texte,String lieu, Activity activity){
+	public static TextView createBubble(View view, String texte,String lieu,boolean isVisible, Activity activity){
 		
 		Drawable bulle = null;
 		TextView bulle_texte = new TextView(activity);
@@ -71,15 +73,21 @@ public class BulleCreator {
 		Typeface comic = Typeface.createFromAsset(activity.getAssets(),"fonts/comic.otf");
 		
 		bulle_texte.setText(texte);
-		bulle_texte.setTextSize(20);
+		bulle_texte.setTextSize(26);
 		bulle_texte.setTextColor(Color.BLACK);
 		bulle_texte.setTypeface(comic);
 		bulle_texte.setBackground(bulle);
+		//bulle_texte.setElevation(view.getElevation());
 		
 		ViewGroup parent = (ViewGroup) view.getParent();
 		parent.addView(bulle_texte, params);
 		
-		bulle_texte.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.pop_in));
+		if(isVisible){
+			Animate.pop_in(bulle_texte,500);
+		}
+		else{
+			bulle_texte.setVisibility(View.INVISIBLE);
+		}
 		
 		return bulle_texte;
 	}
@@ -89,25 +97,7 @@ public class BulleCreator {
 	 * @param bulle la bulle existante
 	 */
 	public static void destroyBubble(final TextView bulle,Activity activity){
-		Animation pop_out = AnimationUtils.loadAnimation(activity, R.anim.pop_out);
-		pop_out.setAnimationListener(new AnimationListener() {
-
-			@Override
-			public void onAnimationStart(Animation animation) {
-			}
-
-			@Override
-			public void onAnimationRepeat(Animation animation) {
-			}
-
-			@Override
-			public void onAnimationEnd(Animation animation) {
-				//retire la vue seulement quand l'animation est finie
-				ViewGroup parent = (ViewGroup) bulle.getParent();
-				parent.removeView(bulle);
-			}
-		});
-		bulle.startAnimation(pop_out);
+		Animate.pop_out(bulle, 500,true);
 		
 	}
 	

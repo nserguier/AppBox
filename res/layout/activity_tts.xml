@@ -13,17 +13,6 @@
         android:layout_marginBottom="50dp"
         android:background="@drawable/home" />
 
-    <Button
-        android:id="@+id/bouton_tts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="188dp"
-        android:layout_marginRight="67dp"
-        android:onClick="speakText"
-        android:text="text to speech" />
-
     <EditText
         android:id="@+id/champ"
         android:layout_width="wrap_content"
@@ -41,5 +30,15 @@
         android:layout_marginTop="0dp"
         android:text="write text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/bouton_tts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/champ"
+        android:layout_marginLeft="37dp"
+        android:layout_toRightOf="@+id/champ"
+        android:onClick="speakText"
+        android:text="text to speech" />
 
 </RelativeLayout>
