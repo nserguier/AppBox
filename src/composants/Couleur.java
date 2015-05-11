@@ -1,4 +1,4 @@
-package divers;
+package composants;
 
 import android.graphics.Color;
 

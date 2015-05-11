@@ -1,4 +1,4 @@
-package animation;
+package composants;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +8,11 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.BounceInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 
 public class Animate {
 
@@ -20,16 +22,18 @@ public class Animate {
 	 * @param from Le facteur d'echelle a prende au debut d'animation
 	 * @param to Le facteur d'echelle a prendre en fin d'animation
 	 * @param duration La duree d'un cycle d'animation en millisecondes
+	 * @param offSet La duree avant que l'animation se lance
 	 * @param loop "true" pour boucler l'animation a l'infini
 	 * 				"false" pour effectuer une seule fois l'animation
 	 */
-	public static void scale(View view,float from, float to,int duration,boolean loop){
+	public static void scale(View view,float from, float to,int duration,int offSet,boolean loop){
 		ScaleAnimation scale = new ScaleAnimation(from, to, from, to, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 		if(loop){
 			scale.setRepeatCount(ScaleAnimation.INFINITE);
 			scale.setRepeatMode(ScaleAnimation.REVERSE);
 		}
 		scale.setDuration(duration);
+		scale.setStartOffset(offSet);
 		view.startAnimation(scale);
 	}
 	
@@ -166,6 +170,52 @@ public class Animate {
 			}
 		});
 		view.startAnimation(alpha);
+	}
+	
+	/**
+	 * 
+	 * @param view
+	 * @param toX
+	 * @param toY
+	 * @param duration
+	 */
+	public static void translate(View view, float toX, float toY, int duration){
+		TranslateAnimation trans = new TranslateAnimation(0, toX, 0, toY);
+		trans.setDuration(duration);
+		trans.setFillAfter(true);
+		view.startAnimation(trans);
+		
+	}
+	
+	/**
+	 * 
+	 * @param view
+	 * @param toX
+	 * @param toY
+	 * @param duration
+	 */
+	public static void translate(View view,float fromX, float fromY, float toX, float toY, int duration){
+		TranslateAnimation trans = new TranslateAnimation(fromX, toX, fromY, toY);
+		trans.setDuration(duration);
+		trans.setFillAfter(true);
+		view.startAnimation(trans);
+		
+	}
+	
+	/**
+	 * 
+	 * @param view
+	 * @param toX
+	 * @param toY
+	 * @param duration
+	 */
+	public static void translateDecelerate(View view,float fromX, float fromY, float toX, float toY, int duration){
+		TranslateAnimation trans = new TranslateAnimation(fromX, toX, fromY, toY);
+		trans.setInterpolator(new DecelerateInterpolator());
+		trans.setDuration(duration);
+		trans.setFillAfter(true);
+		view.startAnimation(trans);
+		
 	}
 	
 }

@@ -1,6 +1,6 @@
 package com.Atlas.framework;
 
-import fonts.FontsOverride;
+import composants.FontsOverride;
 
 public final class Application extends android.app.Application {
     @Override

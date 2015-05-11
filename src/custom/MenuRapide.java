@@ -1,18 +1,14 @@
 package custom;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import boutons.ButtonCreator;
-import boutons.HomeActivityListener;
 import boutons.NextActivityListener;
 
-
-import com.Atlas.framework.CustomMenuActivity;
 import com.Atlas.framework.MainActivity;
 
 public class MenuRapide {

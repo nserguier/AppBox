@@ -1,4 +1,4 @@
-package squelette;
+package composants;
 
 import android.content.Context;
 import android.util.Log;
@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import animation.MenuDeroulant;
 import boutons.ButtonCreator;
 
 import com.Atlas.framework.R;

@@ -29,11 +29,6 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".CustomMenuActivity"
-            android:label="@string/title_activity_third"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
             android:name="custom.TestActivity"
             android:label="@string/title_activity_test"
             android:screenOrientation="landscape" >
@@ -80,7 +75,7 @@
         </activity>
         <activity
             android:name=".SqueletteActivity"
-            android:label="@string/title_activity_font"
+            android:label="@string/title_activity_squelette"
             android:screenOrientation="landscape" >
         </activity>
         <activity
@@ -90,7 +85,8 @@
         </activity>
         <activity
             android:name=".MenuStyleActivity"
-            android:label="@string/title_activity_menu_style" >
+            android:label="@string/title_activity_menu_style" 
+            android:screenOrientation="landscape">
         </activity>
     </application>
 

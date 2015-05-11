@@ -1,12 +1,10 @@
 package com.Atlas.framework;
 
-import squelette.Squelette;
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.ViewGroup;
-import animation.MenuDeroulant;
+
+import composants.Squelette;
 
 /**
  * activite preremplie ou l'utilisateur rentre ces parametre aux endroits indiques
