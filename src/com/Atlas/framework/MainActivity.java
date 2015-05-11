@@ -1,9 +1,6 @@
 package com.Atlas.framework;
 
 
-import composants.FontsOverride;
-
-
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -43,7 +40,7 @@ public class MainActivity extends Activity {
 		b8.setText("Bulles");
 		b9.setText("Animations");
 		b10.setText("Polices");
-		b11.setText("Squelette");
+		b11.setText("squelette");
 		b12.setText("Menu deroulant");
 
 		/* Cree les lien des boutons */
@@ -52,7 +49,7 @@ public class MainActivity extends Activity {
 		b1.setOnClickListener(new NextActivityListener(this,b1,MainActivity.this,DragAndDropActivity.class));
 		b2.setOnClickListener(new NextActivityListener(this,b2,MainActivity.this,TTSActivity.class)); 
 		b3.setOnClickListener(new NextActivityListener(this,b3,MainActivity.this,BoutonsActivity.class));
-		b4.setOnClickListener(new NextActivityListener(this,b4,MainActivity.this,CustomMenuActivity.class));
+		b4.setOnClickListener(new NextActivityListener(this,b4,MainActivity.this,MenuStyleActivity.class));
 		b5.setOnClickListener(new NextActivityListener(this,b5,MainActivity.this,FullScreenActivity.class));
 		b6.setOnClickListener(new NextActivityListener(this,b6,MainActivity.this,GlowActivity.class));
 		b7.setOnClickListener(new NextActivityListener(this,b7,MainActivity.this,ClockActivity.class));
