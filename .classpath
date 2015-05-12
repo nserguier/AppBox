@@ -5,13 +5,5 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/EclipseAndroid/adt-bundle-windows-x86_64-20140702/sdk/platforms/android-21/android.jar" sourcepath="C:/Program Files/Java/EclipseAndroid/adt-bundle-windows-x86_64-20140702/sdk/sources/android-21">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/C:/Program Files/Java/EclipseAndroid/adt-bundle-windows-x86_64-20140702/sdk/docs/reference"/>
-		</attributes>
-		<accessrules>
-			<accessrule kind="nonaccessible" pattern="com/android/internal/**"/>
-		</accessrules>
-	</classpathentry>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
