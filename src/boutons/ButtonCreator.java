@@ -10,6 +10,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -57,21 +58,52 @@ public class ButtonCreator {
 	 * @param color La couleur seravnt de base au bouton
 	 * @return L'image du bouton
 	 */
-	public static LayerDrawable createButtonRoundedDrawable(int color){	
+	public static LayerDrawable createButtonRoundedDrawable(int color,float f){	
 		GradientDrawable fond = new GradientDrawable();
 	    fond.setShape(GradientDrawable.RECTANGLE);
 	    fond.setCornerRadius(1000);
 	    int fonce = Couleur.darkenColor(color);
 	    fond.setColor(fonce);
 	    fond.setStroke(3, Couleur.darkenColor(fonce));
+	    int width = (int) (f*430);
+	    fond.setSize(width,110);
 	    
 		GradientDrawable devant = new GradientDrawable();
 	    devant.setShape(GradientDrawable.RECTANGLE);
 	    devant.setCornerRadius(1000);
 	    int[] colors = { Couleur.darkenColor(color), color };
 	    devant.setColors(colors);
-	    devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+	    devant.setOrientation(GradientDrawable.Orientation.BOTTOM_TOP);
 	    devant.setStroke(2, Couleur.lightenColor(color));
+	    
+	    GradientDrawable[] layers = {fond,devant};
+	    LayerDrawable res = new LayerDrawable(layers);
+	    res.setLayerInset(0, 0, 0, 0, 0);
+	    res.setLayerInset(1,12,12,12,12);
+	    return res;
+	}
+	
+	/**
+	 * Cree une image de bouton arrondi a partir d'une couleur
+	 * @param color La couleur seravnt de base au bouton
+	 * @return L'image du bouton
+	 */
+	public static LayerDrawable createButtonPressedRoundedDrawable(int color){	
+		GradientDrawable fond = new GradientDrawable();
+	    fond.setShape(GradientDrawable.RECTANGLE);
+	    fond.setCornerRadius(1000);
+	    int fonce = color;
+	    fond.setColor(fonce);
+	    fond.setStroke(3, Couleur.darkenColor(fonce));
+	    
+		GradientDrawable devant = new GradientDrawable();
+	    devant.setShape(GradientDrawable.RECTANGLE);
+	    devant.setCornerRadius(1000);
+	    int clair = Couleur.lightenColor(color);
+	    int[] colors = { clair, Couleur.lightenColor(clair) };
+	    devant.setColors(colors);
+	    devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+	    devant.setStroke(2, Couleur.lightenColor(clair));
 	    
 	    GradientDrawable[] layers = {fond,devant};
 	    LayerDrawable res = new LayerDrawable(layers);
@@ -180,7 +212,7 @@ public class ButtonCreator {
 	 */
 	public static Button createRoundedButton(Context c, int color) {
 		color = c.getResources().getColor(color);
-		LayerDrawable layerDrawable = createButtonRoundedDrawable(color);
+		LayerDrawable layerDrawable = createButtonRoundedDrawable(color,1);
 		Button bouton = new Button(c);
 		bouton.setHeight(100);
 		bouton.setWidth(500);

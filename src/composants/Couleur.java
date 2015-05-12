@@ -18,7 +18,7 @@ public class Couleur {
 		color = Color.HSVToColor(hsv);
 		return color;
 	}
-	
+
 	/**
 	 * Eclaircit une couleur
 	 * 
