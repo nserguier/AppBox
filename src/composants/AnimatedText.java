@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -18,10 +19,10 @@ import android.widget.TextView;
  */
 public class AnimatedText{
 	
-	public static void addAnimatedTest(Context context,LinearLayout layout,String myText,int[] colors,float textSize){
+	public static void addAnimatedText(Context context,RelativeLayout layout,String myText,int[] colors,float textSize){
 		
 		int offSet = 200;
-		Typeface myFont = Typeface.createFromAsset(context.getAssets(),"fonts/intsh.ttf");
+		Typeface myFont = Typeface.createFromAsset(context.getAssets(),"fonts/onthemove.ttf");
 		int j =0;
 		
 		for(int i=0;i<myText.length();i++){
