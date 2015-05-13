@@ -48,7 +48,7 @@ public class BoutonsActivity extends Activity {
 			public void onClick(View v) {
 				edit = (EditText) findViewById(R.id.editText);
 				String nomBouton = edit.getText().toString();
-				Button b = ButtonCreator.createBlueButton(getApplicationContext(), nomBouton);
+				Button b = ButtonCreator.createButton(getApplicationContext(),getApplicationContext().getResources().getColor(R.color.bleu1));
 				stock.addView(b);
 				
 			}

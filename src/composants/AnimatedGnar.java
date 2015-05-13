@@ -1,6 +1,9 @@
 package composants;
 
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -108,7 +111,9 @@ public class AnimatedGnar {
 		bras_gauche.setOnClickListener(ocl);
 		
 		// clignement d'yeux
-		
+
+ 
+        
 		
 		//Ajout des elements au layout
 		rl.addView(bras_gauche,params_bras_gauche);

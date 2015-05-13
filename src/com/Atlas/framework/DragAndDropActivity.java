@@ -16,7 +16,7 @@ public class DragAndDropActivity extends Activity {
 		setContentView(R.layout.activity_drag_n_drop);
 
 		/* Changement de la police par defaut */
-		FontsOverride.setDefaultFont(this,"MONOSPACE", "fonts/onthemove.ttf");
+		FontsOverride.setDefaultFont(this, "fonts/onthemove.ttf");
 
 		/* Drag And Drop */
 		MyDragAndDrop dnd = new MyDragAndDrop(this, DragAndDropActivity.this);
