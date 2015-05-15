@@ -3,39 +3,30 @@ package custom;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import android.widget.RelativeLayout.LayoutParams;
 import boutons.ButtonCreator;
 
-import com.Atlas.framework.DragAndDropActivity;
 import com.Atlas.framework.R;
-
 import composants.Animate;
-import composants.AnimatedText;
+
 import dragAndDrop.DnDFonctions;
 import dragAndDrop.MyDragAndDrop;
-import dragAndDrop.MyDragListener;
-import dragAndDrop.MyTouchListener;
 
-public class MenuStyle {
+public class MenuVertical {
 
 	private Context context;
 	RelativeLayout[] menu;
 	RelativeLayout boutons;
 	
 	
-	public MenuStyle(Context context) {
+	public MenuVertical(Context context) {
 		this.context = context;
 		menu = new RelativeLayout[8];
 		boutons = new RelativeLayout(context);
@@ -53,6 +44,7 @@ public class MenuStyle {
 	public RelativeLayout[] createMenu(ViewGroup parent) {
 
 		
+		
 		int width = context.getApplicationContext().getResources().getDisplayMetrics().widthPixels;
 		int height = context.getApplicationContext().getResources().getDisplayMetrics().heightPixels;
 		
@@ -60,8 +52,8 @@ public class MenuStyle {
 		parent.addView(boutons);
 		boutons.setElevation(-10);
 		RelativeLayout.LayoutParams boutons_params = new LayoutParams(
-				width/2, LayoutParams.MATCH_PARENT);
-		boutons_params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+				 LayoutParams.MATCH_PARENT,height/2);
+		boutons_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		boutons.setLayoutParams(boutons_params);
 		
 		
@@ -79,7 +71,7 @@ public class MenuStyle {
 			
 			// case 0 : layout du titre
 				case 0: 
-					RelativeLayout.LayoutParams titre_params = new LayoutParams(width/2,LayoutParams.MATCH_PARENT); 
+					RelativeLayout.LayoutParams titre_params = new LayoutParams(LayoutParams.MATCH_PARENT,height/2); 
 					menu[0].setLayoutParams(titre_params);
 					menu[0].setElevation(50);
 					parent.addView(menu[0]);
@@ -229,13 +221,13 @@ public class MenuStyle {
 		int height = context.getApplicationContext().getResources().getDisplayMetrics().heightPixels;
 		
 		//	separateur 
-		RelativeLayout liane = new RelativeLayout(context);
+		/*RelativeLayout liane = new RelativeLayout(context);
 		RelativeLayout.LayoutParams l_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.MATCH_PARENT);
 		l_params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		liane.setBackground(context.getApplicationContext().getResources().getDrawable(R.drawable.liane));
 		liane.setLayoutParams(l_params);
 		menu[0].addView(liane);
-		Animate.translateDecelerate(liane, 0, -height, 0, 0, 2000);
+		Animate.translateDecelerate(liane, 0, -height, 0, 0, 2000);*/
 		
 		
 		RelativeLayout fruit = new RelativeLayout(context);
@@ -289,5 +281,4 @@ public class MenuStyle {
 		
 		
 	}
-	
 }

@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:background="@color/blanc_casse" >
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/topleft"
         android:layout_width="280dp"
         android:layout_height="280dp"
@@ -15,7 +15,7 @@
         android:paddingLeft="88dp"
         android:paddingTop="88dp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/topright"
         android:layout_width="280dp"
         android:layout_height="280dp"
@@ -26,7 +26,7 @@
         android:paddingLeft="88dp"
         android:paddingTop="88dp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/bottomleft"
         android:layout_width="280dp"
         android:layout_height="280dp"
@@ -37,7 +37,7 @@
         android:paddingLeft="88dp"
         android:paddingTop="88dp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/bottomright"
         android:layout_width="280dp"
         android:layout_height="280dp"
@@ -58,7 +58,7 @@
         android:textColor="@color/fushia"
         android:textSize="80sp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/reserve"
         android:layout_width="fill_parent"
         android:layout_height="110dp"
@@ -92,6 +92,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/cercle" />
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

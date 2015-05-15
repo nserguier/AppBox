@@ -19,10 +19,10 @@ import android.widget.TextView;
  */
 public class AnimatedText{
 	
-	public static void addAnimatedText(Context context,RelativeLayout layout,String myText,int[] colors,float textSize){
+	public static void addAnimatedTest(Context context,LinearLayout layout,String myText,int[] colors,float textSize){
 		
 		int offSet = 200;
-		Typeface myFont = Typeface.createFromAsset(context.getAssets(),"fonts/onthemove.ttf");
+		Typeface myFont = Typeface.createFromAsset(context.getAssets(),"fonts/intsh.ttf");
 		int j =0;
 		
 		for(int i=0;i<myText.length();i++){

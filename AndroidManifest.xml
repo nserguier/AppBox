@@ -87,7 +87,7 @@
         <activity
             android:name=".MenuStyleActivity"
             android:label="@string/title_activity_menu_style" 
-            android:screenOrientation="landscape">
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

@@ -12,6 +12,7 @@ public class MyDragAndDrop {
 	Context context; // Le contexte de l'application
 	Activity activity; // L'activite dans laquelle on veut ajouter le drag-and-drop
 	
+	
 	public MyDragAndDrop(Context context,Activity activity){
 		this.context = context;
 		this.activity = activity;
@@ -32,8 +33,8 @@ public class MyDragAndDrop {
 	 * @param dropZoneDrawID l'id de l'image servant de fond a la drop zone
 	 * @param dropZoneSurbrillantDrawID l'id de l'image servant de fond a la drop zone en surbrillance
 	 */
-	public void addDrop(int dropZoneID, int dropZoneDrawID, int dropZoneSurbrillantDrawID){
+	public void addDrop(int dropZoneID, int dropZoneDrawID, int dropZoneSurbrillantDrawID,DnDFonctions fonction){
 		/* Affectation du composant permettant le drop*/
-		activity.findViewById(dropZoneID).setOnDragListener(new MyDragListener(context,dropZoneDrawID,dropZoneSurbrillantDrawID));
+		activity.findViewById(dropZoneID).setOnDragListener(new MyDragListener(context,dropZoneDrawID,dropZoneSurbrillantDrawID,fonction));
 	}
 }

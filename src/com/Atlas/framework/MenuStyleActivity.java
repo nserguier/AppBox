@@ -1,6 +1,7 @@
 package com.Atlas.framework;
 
 import custom.MenuStyle;
+import custom.MenuVertical;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -15,15 +16,16 @@ public class MenuStyleActivity extends Activity {
 		setContentView(R.layout.activity_menu_style);
 		
 		ViewGroup parent = (ViewGroup) findViewById(R.id.parent);
-		MenuStyle m = new MenuStyle(this);
-		RelativeLayout[] menu = m.createMenu();
-		m.rassembler(2,3);
-		m.rassembler(4,5);
+		
+		MenuVertical m = new MenuVertical(this);
+		m.createMenu(parent);
+		m.rassembler(1,2);
+		m.rassembler(3,4);
 		m.addTitre("MEMORY GNAR !!");
-		m.addButton("Jouer", 2);
-		m.addButton("Têtes de GNAR !", 4);
-		m.addButton("Aide de GNAR ?", 6);
-		m.addButton("GNARGOUILLA !!!", 7);
-		parent.addView(menu[0]);
+		m.addButton("Jouer", 1,R.color.vert1);
+		m.addButton("Tête de GNAR !", 3,R.color.vert2);
+		m.addButton("Aide de GNAR ?", 5,R.color.vert1);
+		m.addButton("GNARGOUILLA !!!", 6,R.color.vert1);
+		
 	}
 }
