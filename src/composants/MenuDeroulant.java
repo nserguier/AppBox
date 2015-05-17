@@ -1,7 +1,5 @@
 package composants;
 
-import com.Atlas.framework.R;
-
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
@@ -26,12 +24,12 @@ public class MenuDeroulant {
 		menuDeroulant.setId(1);
 		RelativeLayout bouton = new RelativeLayout(context);
 		bouton.setId(2);
-		RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams params = new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 		bouton.setLayoutParams(params);
 		
 		
-		RelativeLayout.LayoutParams menu_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams menu_params = new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		menu_params.setMargins(0, -10 , 0, 0);
 		menu_params.addRule(RelativeLayout.BELOW,bouton.getId());
 		menu_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
@@ -65,7 +63,7 @@ public class MenuDeroulant {
 	
 	public static void add(View v) {
 		
-		RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams params = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.ALIGN_END);
 		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		params.setMargins(0,10,0,0);
@@ -112,15 +110,18 @@ public class MenuDeroulant {
 	
 	/* Listener pour l'animation de fermeture du menu */
 	static Animation.AnimationListener closeListener = new Animation.AnimationListener() {
+		@Override
 		public void onAnimationEnd(Animation animation) {
 			// On dissimule le menu
 			menuDeroulant.setVisibility(View.INVISIBLE);
 		}
 
+		@Override
 		public void onAnimationRepeat(Animation animation) {
 
 		}
 
+		@Override
 		public void onAnimationStart(Animation animation) {
 
 		}
@@ -128,12 +129,15 @@ public class MenuDeroulant {
 
 	/* Listener pour l'animation d'ouverture du menu */
 	static Animation.AnimationListener openListener = new Animation.AnimationListener() {
+		@Override
 		public void onAnimationEnd(Animation animation) {
 		}
 
+		@Override
 		public void onAnimationRepeat(Animation animation) {
 		}
 
+		@Override
 		public void onAnimationStart(Animation animation) {
 			// On affiche le menu
 			menuDeroulant.setVisibility(View.VISIBLE);

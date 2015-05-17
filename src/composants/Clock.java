@@ -1,12 +1,12 @@
 package composants;
 
-import com.Atlas.framework.R;
-
 import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
+
+import com.Atlas.framework.R;
 
 /**
  * objet horloge qui cree une horloge
@@ -38,7 +38,7 @@ public class Clock {
 		ViewGroup parent = (ViewGroup) r.getParent();
 
 		RelativeLayout.LayoutParams horloge_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		horloge_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		horloge_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		horloge.setLayoutParams(horloge_params);
@@ -47,7 +47,7 @@ public class Clock {
 		parent.removeView(horloge);
 
 		RelativeLayout.LayoutParams heures_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		heures_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		heures_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		heures.setLayoutParams(heures_params);
@@ -56,7 +56,7 @@ public class Clock {
 		parent.removeView(heures);
 
 		RelativeLayout.LayoutParams minutes_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		minutes_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		minutes_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		minutes.setLayoutParams(minutes_params);
@@ -65,7 +65,7 @@ public class Clock {
 		parent.removeView(minutes);
 
 		RelativeLayout.LayoutParams secondes_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		secondes_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		secondes_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		secondes.setLayoutParams(secondes_params);

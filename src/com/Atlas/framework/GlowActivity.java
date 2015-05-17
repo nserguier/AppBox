@@ -31,7 +31,7 @@ public class GlowActivity extends Activity {
 		//Button bouton2 = (Button) findViewById(R.id.glow_bouton_2);
 		//ButtonCreator.setBlueButton(this,bouton2, "glowing button 2");
 		
-		GlowingButton.makeGlow(bouton, this);
+		GlowingButton.makeGlow(bouton, this,115);
 		
 		ImageView img2 = (ImageView) findViewById(R.id.glow_shadow_2);
 		img2.startAnimation(AnimationUtils.loadAnimation(this, R.anim.glow_scale_rect));

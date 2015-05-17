@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 public class MyLayoutParams extends RelativeLayout.LayoutParams{
 
 	public MyLayoutParams() {
-		super(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		super(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 	}
 	
 	public MyLayoutParams toLeftOf(View v){

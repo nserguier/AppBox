@@ -1,7 +1,5 @@
 package composants;
 
-import com.Atlas.framework.R;
-
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -9,12 +7,10 @@ import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.Animation.AnimationListener;
 import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+
+import com.Atlas.framework.R;
 
 public class BulleCreator {
 
@@ -36,7 +32,7 @@ public class BulleCreator {
 		
 		Drawable bulle = null;
 		TextView bulle_texte = new TextView(activity);
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.addRule(Gravity.CENTER_HORIZONTAL);
 		
 		

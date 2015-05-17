@@ -8,8 +8,6 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import boutons.ButtonCreator;
 
-import com.Atlas.framework.R;
-
 /**
  * permet rapidement la creation d'un menu a X elements, relativement
  * parametrables afin de simplifier la creation d'un menu (ici)
@@ -46,7 +44,7 @@ public class Squelette {
 		//	est relative a la taille du menu et au nombre d'element dans le menu
 		RelativeLayout parent = new RelativeLayout(context);
 		RelativeLayout.LayoutParams parent_params = new LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 		parent.setLayoutParams(parent_params);
 
 		squelette[0] = parent;
@@ -89,7 +87,7 @@ public class Squelette {
 		RelativeLayout r = squelette[place];
 		Button bouton = ButtonCreator.createButton(context, color);
 		RelativeLayout.LayoutParams params = new LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		params.addRule(RelativeLayout.CENTER_VERTICAL);
 		bouton.setLayoutParams(params);
@@ -115,7 +113,7 @@ public class Squelette {
 		texte.setText(text);
 		texte.setTextSize(30);
 		RelativeLayout.LayoutParams params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		params.addRule(RelativeLayout.CENTER_VERTICAL);
 		texte.setLayoutParams(params);
@@ -140,7 +138,7 @@ public class Squelette {
 			RelativeLayout r2 = new RelativeLayout(context);
 			r.addView(r2);
 			RelativeLayout.LayoutParams params = new LayoutParams(
-					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			params.addRule(RelativeLayout.ALIGN_LEFT);
 			params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 			r2.setLayoutParams(params);

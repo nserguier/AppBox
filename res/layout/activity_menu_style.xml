@@ -5,6 +5,4 @@
     android:id="@+id/parent"
     tools:context="${relativePackage}.${activityClass}" >
 
- 
-
-</RelativeLayout>
+   </RelativeLayout>

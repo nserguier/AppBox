@@ -18,6 +18,7 @@ public class Couleur {
 		color = Color.HSVToColor(hsv);
 		return color;
 	}
+
 	
 	/**
 	 * Eclaircit une couleur
@@ -30,8 +31,7 @@ public class Couleur {
 		float[] hsv = new float[3];
 		Color.colorToHSV(color, hsv);
 		hsv[2] *= 1.2f;
-		hsv[1] *= 0.75f;
-		hsv[0] *= 1.15f;
+		hsv[1] *= 0.85f;
 		color = Color.HSVToColor(hsv);
 		return color;
 	}

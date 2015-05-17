@@ -24,7 +24,7 @@ public class MenuRapide {
 		
 		RelativeLayout menu = new RelativeLayout(a);
 		RelativeLayout.LayoutParams menu_params = new LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 		menu.setLayoutParams(menu_params);
 
 		// creation du backroung
@@ -54,7 +54,7 @@ public class MenuRapide {
 		titre.setTextColor(colorTitre);
 		titre.setTextSize(30);
 		RelativeLayout.LayoutParams titre_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		titre_params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 		titre_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		titre.setLayoutParams(titre_params);

@@ -29,8 +29,8 @@ public class Animate {
 	public static void scale(View view,float from, float to,int duration,int offSet,boolean loop){
 		ScaleAnimation scale = new ScaleAnimation(from, to, from, to, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 		if(loop){
-			scale.setRepeatCount(ScaleAnimation.INFINITE);
-			scale.setRepeatMode(ScaleAnimation.REVERSE);
+			scale.setRepeatCount(Animation.INFINITE);
+			scale.setRepeatMode(Animation.REVERSE);
 		}
 		scale.setDuration(duration);
 		scale.setStartOffset(offSet);
@@ -45,7 +45,7 @@ public class Animate {
 	public static void rotateInfinite(View view,int duration){
 		RotateAnimation rotate = new RotateAnimation(0,360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 		rotate.setDuration(duration);
-		rotate.setRepeatCount(ScaleAnimation.INFINITE);
+		rotate.setRepeatCount(Animation.INFINITE);
 		rotate.setInterpolator(new LinearInterpolator());
 		view.startAnimation(rotate);
 	}
@@ -62,8 +62,8 @@ public class Animate {
 		RotateAnimation rotate = new RotateAnimation(0,angle,Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 		rotate.setDuration(duration);
 		if(loop){
-			rotate.setRepeatCount(ScaleAnimation.INFINITE);
-			rotate.setRepeatMode(ScaleAnimation.REVERSE);
+			rotate.setRepeatCount(Animation.INFINITE);
+			rotate.setRepeatMode(Animation.REVERSE);
 		}
 		rotate.setInterpolator(new AccelerateDecelerateInterpolator());
 		view.startAnimation(rotate);
@@ -73,8 +73,8 @@ public class Animate {
 		RotateAnimation rotate = new RotateAnimation(from,to,Animation.RELATIVE_TO_SELF, pivotX, Animation.RELATIVE_TO_SELF, pivotY);
 		rotate.setDuration(duration);
 		if(loop){
-			rotate.setRepeatCount(ScaleAnimation.INFINITE);
-			rotate.setRepeatMode(ScaleAnimation.REVERSE);
+			rotate.setRepeatCount(Animation.INFINITE);
+			rotate.setRepeatMode(Animation.REVERSE);
 		}
 		rotate.setInterpolator(new AccelerateDecelerateInterpolator());
 		view.startAnimation(rotate);
@@ -218,8 +218,8 @@ public class Animate {
 		trans.setDuration(duration);
 		trans.setFillAfter(true);
 		if(loop){
-			trans.setRepeatCount(ScaleAnimation.INFINITE);
-			trans.setRepeatMode(ScaleAnimation.REVERSE);
+			trans.setRepeatCount(Animation.INFINITE);
+			trans.setRepeatMode(Animation.REVERSE);
 		}
 		view.startAnimation(trans);
 		

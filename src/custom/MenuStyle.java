@@ -58,9 +58,9 @@ public class MenuStyle {
 		
 		parent.setBackground(context.getResources().getDrawable(R.drawable.jungle2));
 		parent.addView(boutons);
-		boutons.setElevation(-10);
+		
 		RelativeLayout.LayoutParams boutons_params = new LayoutParams(
-				width/2, LayoutParams.MATCH_PARENT);
+				width/2, android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 		boutons_params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		boutons.setLayoutParams(boutons_params);
 		
@@ -79,9 +79,9 @@ public class MenuStyle {
 			
 			// case 0 : layout du titre
 				case 0: 
-					RelativeLayout.LayoutParams titre_params = new LayoutParams(width/2,LayoutParams.MATCH_PARENT); 
+					RelativeLayout.LayoutParams titre_params = new LayoutParams(width/2,android.view.ViewGroup.LayoutParams.MATCH_PARENT); 
 					menu[0].setLayoutParams(titre_params);
-					menu[0].setElevation(50);
+					//menu[0].setElevation(50);
 					parent.addView(menu[0]);
 				
 				break;
@@ -90,7 +90,9 @@ public class MenuStyle {
 				case 1:
 					boutons.addView(menu[1]);
 					params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-					params.setMargins(marge, 500,0, 0);
+					//params.setMargins(marge, 500,0, 0);
+					//	bluestacks:
+					params.setMargins(marge, 200,0, 0);
 					menu[1].setLayoutParams(params);
 				
 				break;
@@ -161,7 +163,7 @@ public class MenuStyle {
 		
 		RelativeLayout l = new RelativeLayout(context);
 		boutons.addView(l);
-		RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams params = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.ALIGN_LEFT,menu[l1].getId());
 		params.addRule(RelativeLayout.ALIGN_RIGHT,menu[l2].getId());
 		params.addRule(RelativeLayout.ALIGN_TOP,menu[l1].getId());
@@ -182,7 +184,7 @@ public class MenuStyle {
 	 * @param place
 	 */
 	
-	public void addButton(String texte, int place, int color) {
+	public Button addButton(String texte, int place, int color) {
 		if(place <7 && place >0 && menu[place] != null) {
 			Button b = ButtonCreator.createRoundedButton(context, color) ;
 			menu[place].addView(b);
@@ -194,16 +196,23 @@ public class MenuStyle {
 					"fonts/intsh.ttf");
 			b.setTypeface(externalFont);
 			b.setTextSize(30);
-		}else Log.d("Attention","le layout designe ne convient pas ou est nul");
+			return b;
+		}else {
+			Log.d("Attention","le layout designe ne convient pas ou est nul");
+			return null;
+		}
 			
 	}
 	
+		
 	public void addTitre(String texte) {
 		
 			TextView t = new TextView(context) ;
 			menu[0].addView(t);
-			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
-			params.setMargins(0, 400, 0, 0);
+			RelativeLayout.LayoutParams params = new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+			//params.setMargins(0, 400, 0, 0);
+			//	bluestacks:
+			params.setMargins(0, 200,0, 0);
 			t.setGravity(Gravity.CENTER_HORIZONTAL);
 			t.setLayoutParams(params);
 			t.setText(texte);
@@ -230,7 +239,7 @@ public class MenuStyle {
 		
 		//	separateur 
 		RelativeLayout liane = new RelativeLayout(context);
-		RelativeLayout.LayoutParams l_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.MATCH_PARENT);
+		RelativeLayout.LayoutParams l_params = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 		l_params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		liane.setBackground(context.getApplicationContext().getResources().getDrawable(R.drawable.liane));
 		liane.setLayoutParams(l_params);
@@ -239,9 +248,11 @@ public class MenuStyle {
 		
 		
 		RelativeLayout fruit = new RelativeLayout(context);
-		RelativeLayout.LayoutParams fruit_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams fruit_params = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		fruit_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-		fruit_params.setMargins(0, 100, 0, 0);
+		//fruit_params.setMargins(0, 100, 0, 0);
+		//	bluestacks:
+		fruit_params.setMargins(0, 50, 0, 0);
 		fruit.setLayoutParams(fruit_params);
 		menu[0].addView(fruit);
 		Animate.scale(fruit, (float) 0.8, (float) 0.9, 1000, 20, true);
@@ -250,14 +261,14 @@ public class MenuStyle {
 		ImageView f = new ImageView(context);
 		f.setBackground(context.getApplicationContext().getResources().getDrawable(R.drawable.fruit));
 		f.setId(124);
-		RelativeLayout.LayoutParams f_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams f_params = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		f_params.addRule(RelativeLayout.CENTER_IN_PARENT);
 		f.setLayoutParams(f_params);
 		fruit.addView(f);
 		
 		
 		RelativeLayout tete = new RelativeLayout(context);
-		RelativeLayout.LayoutParams tete_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams tete_params = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		tete_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		tete_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		tete_params.setMargins(0, 0, 0, -height/2);
@@ -269,7 +280,7 @@ public class MenuStyle {
 		//	dropZone
 		
 		RelativeLayout dropZone = new RelativeLayout(context);
-		RelativeLayout.LayoutParams drop_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams drop_params = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		drop_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		drop_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		drop_params.setMargins(0, 0, 0, height/8);

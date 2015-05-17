@@ -1,7 +1,5 @@
 package custom;
 
-import com.Atlas.framework.R;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
@@ -9,11 +7,11 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.Atlas.framework.R;
 
 public class CustomMenu extends RelativeLayout{
 	private Button bouton;

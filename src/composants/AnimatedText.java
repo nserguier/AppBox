@@ -2,14 +2,9 @@ package composants;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.text.Layout;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -19,7 +14,9 @@ import android.widget.TextView;
  */
 public class AnimatedText{
 	
-	public static void addAnimatedTest(Context context,LinearLayout layout,String myText,int[] colors,float textSize){
+
+	public static void addAnimatedText(Context context,LinearLayout layout,String myText,int[] colors,float textSize){
+
 		
 		int offSet = 200;
 		Typeface myFont = Typeface.createFromAsset(context.getAssets(),"fonts/intsh.ttf");
@@ -36,7 +33,7 @@ public class AnimatedText{
 			}
 			txt.setTextSize(textSize);
 			txt.setTypeface(myFont);
-			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			txt.setPadding(0, 50,0, 0);
 			params.setMargins(0,0, -35, 0); // espacement entre les lettres
 			txt.setLayoutParams(params);

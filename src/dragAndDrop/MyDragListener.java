@@ -6,7 +6,6 @@ import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnDragListener;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.content.Context;
 

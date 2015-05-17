@@ -1,7 +1,5 @@
 package dragAndDrop;
 
-import com.Atlas.framework.R;
-
 import composants.Animate;
 
 import android.app.Activity;
