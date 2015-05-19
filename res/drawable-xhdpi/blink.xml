@@ -1,0 +1,12 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/blink"
+    android:oneshot="false" >
+
+    <item
+        android:drawable="@drawable/tete"
+        android:duration="1800"/>
+    <item
+        android:drawable="@drawable/tete_clin"
+        android:duration="200"/>
+
+</animation-list>

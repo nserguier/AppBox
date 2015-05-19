@@ -2,9 +2,9 @@ package composants;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -76,6 +76,7 @@ public class AnimatedGnar {
 				case 1:
 					if(num_tete==1){
 						tete.setBackground(r.getDrawable(R.drawable.tete));
+						blink();
 					}
 					else{
 						tete.setBackground(r.getDrawable(R.drawable.tete3));
@@ -88,6 +89,7 @@ public class AnimatedGnar {
 					}
 					else{
 						tete.setBackground(r.getDrawable(R.drawable.tete));
+						blink();
 					}
 					num_tete = 2;
 					break;
@@ -106,7 +108,7 @@ public class AnimatedGnar {
 		bras_gauche.setOnClickListener(ocl);
 		
 		// clignement d'yeux
-
+		blink();
  
         
 		
@@ -120,6 +122,12 @@ public class AnimatedGnar {
 		rl.addView(corps,params_corps);
 		rl.addView(tete,params_tete);
 
+	}
+	
+	public static void blink(){
+		tete.setBackgroundResource(R.drawable.blink);
+		AnimationDrawable frameAnimation = (AnimationDrawable) tete.getBackground();
+        frameAnimation.start();
 	}
 	
 	public static void addAnimatedMiniGnar(Activity a,RelativeLayout rl){
