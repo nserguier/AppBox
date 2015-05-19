@@ -31,12 +31,14 @@ import dragAndDrop.MyTouchListener;
 public class MenuStyle {
 
 	private Context context;
+	private Activity a;
 	RelativeLayout[] menu;
 	RelativeLayout boutons;
 	
 	
-	public MenuStyle(Context context) {
-		this.context = context;
+	public MenuStyle(Activity a) {
+		this.context = a.getApplicationContext();
+		this.a = a;
 		menu = new RelativeLayout[8];
 		boutons = new RelativeLayout(context);
 	}
@@ -186,7 +188,7 @@ public class MenuStyle {
 	
 	public Button addButton(String texte, int place, int color) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton(context, color) ;
+			Button b = ButtonCreator.createRoundedButton(a, color) ;
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -250,9 +252,9 @@ public class MenuStyle {
 		RelativeLayout fruit = new RelativeLayout(context);
 		RelativeLayout.LayoutParams fruit_params = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		fruit_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-		//fruit_params.setMargins(0, 100, 0, 0);
+		fruit_params.setMargins(0, 100, 0, 0);
 		//	bluestacks:
-		fruit_params.setMargins(0, 50, 0, 0);
+		//fruit_params.setMargins(0, 50, 0, 0);
 		fruit.setLayoutParams(fruit_params);
 		menu[0].addView(fruit);
 		Animate.scale(fruit, (float) 0.8, (float) 0.9, 1000, 20, true);

@@ -1,6 +1,7 @@
 package composants;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -17,19 +18,19 @@ public class AnimatedGnar {
 	
 	static ImageButton tete = null;
 	
-	public static void addAnimatedGnar(Context context,RelativeLayout rl){
-		final Resources r = context.getResources();
+	public static void addAnimatedGnar(Activity a,RelativeLayout rl){
+		final Resources r = a.getResources();
 		rl.setClipChildren(false);
 		
 		// Creation des parties de gnar
-		tete = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.tete)).buildImage();
-		ImageButton oreille_gauche = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.oreille)).buildImage();
-		ImageButton oreille_droite = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.oreille)).mirror().buildImage();
-		ImageButton corps = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.corps)).buildImage();
-		ImageButton bras_gauche = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.bras)).buildImage();
-		ImageButton bras_droit = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.bras)).mirror().buildImage();
-		ImageButton jambe_gauche = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.jambe)).buildImage();
-		ImageButton jambe_droit = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.jambe)).mirror().buildImage();
+		tete = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.tete)).buildImage();
+		ImageButton oreille_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.oreille)).buildImage();
+		ImageButton oreille_droite = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.oreille)).mirror().buildImage();
+		ImageButton corps = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.corps)).buildImage();
+		ImageButton bras_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.bras)).buildImage();
+		ImageButton bras_droit = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.bras)).mirror().buildImage();
+		ImageButton jambe_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.jambe)).buildImage();
+		ImageButton jambe_droit = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.jambe)).mirror().buildImage();
 		
 		// Tailles des drawable
 		Bitmap bit_tete = ((BitmapDrawable) r.getDrawable(R.drawable.tete)).getBitmap();
@@ -121,19 +122,19 @@ public class AnimatedGnar {
 
 	}
 	
-	public static void addAnimatedMiniGnar(Context context,RelativeLayout rl){
-		final Resources r = context.getResources();
+	public static void addAnimatedMiniGnar(Activity a,RelativeLayout rl){
+		final Resources r = a.getResources();
 		rl.setClipChildren(false);
 		
 		// Creation des parties de gnar
-		final ImageButton tete = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.mini_tete)).buildImage();
-		ImageButton oreille_gauche = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.mini_oreille)).buildImage();
-		ImageButton oreille_droite = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.mini_oreille)).mirror().buildImage();
-		ImageButton corps = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.mini_corps)).buildImage();
-		ImageButton bras_gauche = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.mini_bras)).buildImage();
-		ImageButton bras_droit = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.mini_bras)).mirror().buildImage();
-		ImageButton jambe_gauche = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.mini_jambe)).buildImage();
-		ImageButton jambe_droit = ButtonCreator.create(context).setBack(r.getDrawable(R.drawable.mini_jambe)).mirror().buildImage();
+		final ImageButton tete = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_tete)).buildImage();
+		ImageButton oreille_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_oreille)).buildImage();
+		ImageButton oreille_droite = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_oreille)).mirror().buildImage();
+		ImageButton corps = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_corps)).buildImage();
+		ImageButton bras_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_bras)).buildImage();
+		ImageButton bras_droit = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_bras)).mirror().buildImage();
+		ImageButton jambe_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_jambe)).buildImage();
+		ImageButton jambe_droit = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_jambe)).mirror().buildImage();
 		
 		// Tailles des drawable
 		Bitmap bit_tete = ((BitmapDrawable) r.getDrawable(R.drawable.mini_tete)).getBitmap();

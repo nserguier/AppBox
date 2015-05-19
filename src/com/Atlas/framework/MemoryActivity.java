@@ -248,7 +248,7 @@ public class MemoryActivity extends Activity {
 		gnar.setBackground(this.getResources().getDrawable(R.drawable.logo_gnar));
 		gnar.setLayoutParams(params);
 		
-		Button again = ButtonCreator.createRoundedButton(this, R.color.vert2);
+		Button again = ButtonCreator.createRoundedButton(this,R.color.vert2);
 		RelativeLayout.LayoutParams again_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 		again_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		again_params.addRule(RelativeLayout.CENTER_HORIZONTAL);

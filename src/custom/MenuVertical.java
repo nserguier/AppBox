@@ -23,12 +23,14 @@ import dragAndDrop.MyDragAndDrop;
 public class MenuVertical {
 
 	private Context context;
+	private Activity a;
 	RelativeLayout[] menu;
 	RelativeLayout boutons;
 	
 	
-	public MenuVertical(Context context) {
-		this.context = context;
+	public MenuVertical(Activity a) {
+		this.context = a.getApplicationContext();
+		this.a =a;
 		menu = new RelativeLayout[8];
 		boutons = new RelativeLayout(context);
 	}
@@ -177,7 +179,7 @@ public class MenuVertical {
 	
 	public void addButton(String texte, int place, int color) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton(context, color) ;
+			Button b = ButtonCreator.createRoundedButton(a, color) ;
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT,android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
