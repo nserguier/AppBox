@@ -241,7 +241,23 @@ public class Animate {
 		
 	}
 	
-
+	/**
+	 * 
+	 * @param view
+	 * @param toX
+	 * @param toY
+	 * @param duration
+	 * @param offSet La duree avant que l'animation se lance
+	 */
+	public static void translateDecelerate(View view,float fromX, float fromY, float toX, float toY, int duration,int offSet){
+		TranslateAnimation trans = new TranslateAnimation(fromX, toX, fromY, toY);
+		trans.setInterpolator(new DecelerateInterpolator());
+		trans.setDuration(duration);
+		trans.setFillAfter(true);
+		trans.setStartOffset(offSet);
+		view.startAnimation(trans);
+		
+	}
 	
 	
 }

@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="19"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="21"
+        android:targetSdkVersion="22" />
 
     <application
         android:allowBackup="true"
@@ -84,13 +84,14 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".MenuStyleActivity"
+            android:name=".MenuActivity"
             android:label="@string/title_activity_menu_style"
-            android:screenOrientation="landscape" >
+             >
         </activity>
         <activity
             android:name=".MemoryActivity"
-            android:label="@string/title_activity_memory" >
+            android:label="@string/title_activity_memory"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 

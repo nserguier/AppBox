@@ -33,14 +33,14 @@ public class MainActivity extends Activity {
 		b1.setText("Drag and Drop");
 		b2.setText("Text to Speech");
 		b3.setText("Boutons");
-		b4.setText("Menus");
+		b4.setText("Menus/Memory");
 		b5.setText("Plein écran");
 		b6.setText("Glow");
 		b7.setText("Horloge");
 		b8.setText("Bulles");
 		b9.setText("Animations");
 		b10.setText("Polices");
-		b11.setText("squelette");
+		b11.setText("rien");
 		b12.setText("Menu deroulant");
 
 		/* Cree les lien des boutons */
@@ -49,14 +49,14 @@ public class MainActivity extends Activity {
 		b1.setOnClickListener(new NextActivityListener(this,b1,MainActivity.this,DragAndDropActivity.class));
 		b2.setOnClickListener(new NextActivityListener(this,b2,MainActivity.this,TTSActivity.class)); 
 		b3.setOnClickListener(new NextActivityListener(this,b3,MainActivity.this,BoutonsActivity.class));
-		b4.setOnClickListener(new NextActivityListener(this,b4,MainActivity.this,MenuStyleActivity.class));
+		b4.setOnClickListener(new NextActivityListener(this,b4,MainActivity.this,MenuActivity.class));
 		b5.setOnClickListener(new NextActivityListener(this,b5,MainActivity.this,FullScreenActivity.class));
 		b6.setOnClickListener(new NextActivityListener(this,b6,MainActivity.this,GlowActivity.class));
 		b7.setOnClickListener(new NextActivityListener(this,b7,MainActivity.this,ClockActivity.class));
 		b8.setOnClickListener(new NextActivityListener(this,b8,MainActivity.this,BulleActivity.class));
 		b9.setOnClickListener(new NextActivityListener(this,b9,MainActivity.this,AnimationActivity.class));
 		b10.setOnClickListener(new NextActivityListener(this,b10,MainActivity.this,FontActivity.class));
-		b11.setOnClickListener(new NextActivityListener(this,b11,MainActivity.this,SqueletteActivity.class));
+		//b11.setOnClickListener(new NextActivityListener(this,b11,MainActivity.this,SqueletteActivity.class));
 		b12.setOnClickListener(new NextActivityListener(this,b12,MainActivity.this,DeroulantActivity.class));
 		
 	}

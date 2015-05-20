@@ -4,9 +4,6 @@ package com.Atlas.framework;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import boutons.ButtonCreator;
-import boutons.NextActivityListener;
-
 import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -16,16 +13,17 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
-
+import boutons.ButtonCreator;
+import boutons.NextActivityListener;
 
 import composants.Animate;
 import composants.AnimatedGnar;
-import composants.GlowingButton;
 import composants.MyLayoutParams;
 
 
@@ -34,19 +32,61 @@ public class MemoryActivity extends Activity {
 	private boolean modeAide = true;
 	private MediaPlayer mpEpic;
 	private MediaPlayer mp;
+	private MediaPlayer victoire;
 	private ViewGroup parent;
+	private boolean sound=true;
+	private Button again;
 
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		/* Passage en plein ecran */
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		View decorView = getWindow().getDecorView();
+		decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+				| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+				| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+				| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+				| View.SYSTEM_UI_FLAG_FULLSCREEN
+				| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+		
 		setContentView(R.layout.activity_memory);
 		
 		parent = (ViewGroup) findViewById(R.id.parent);
-		parent.setBackground(this.getResources().getDrawable(R.drawable.jungle2));
+		parent.setBackground(this.getResources().getDrawable(R.drawable.jungle_h));
+		parent.setClipChildren(false);
 		
-		mp = MediaPlayer.create(this,R.raw.music);
-		mpEpic = MediaPlayer.create(this,R.raw.duel);
+		mp = MediaPlayer.create(MemoryActivity.this,R.raw.music);
+		mpEpic = MediaPlayer.create(MemoryActivity.this,R.raw.duel);
+		victoire = MediaPlayer.create(this,R.raw.mountains);
+		mp.seekTo(10000);
+		mp.start();
+		
+		// un bouton pour stopper le son
+		final Button audio = (Button) findViewById(R.id.audio);
+		audio.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+				if(sound){
+					audio.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.sound_e));
+					if(mp.isPlaying()) mp.pause();
+					if(mpEpic.isPlaying())mpEpic.pause();
+					if(victoire.isPlaying())victoire.pause();
+				}else {
+					audio.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.sound));
+					mp.start();
+					
+				}
+				sound=!sound;
+				
+			}
+		});
+		
+		
+		
 		final Compteur c = new Compteur();
 		
 		//	les differentes cases du plateau
@@ -73,8 +113,7 @@ public class MemoryActivity extends Activity {
 		Animate.fade_in(buisson6,1000);
 			
 		//	les mechant et les gentils gnar
-		RelativeLayout.LayoutParams params = new LayoutParams(
-				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.CENTER_IN_PARENT);
 				
 		
@@ -179,6 +218,14 @@ public class MemoryActivity extends Activity {
 		
 	}
 	
+	/**
+	 * methode qui definit la regle du jeu a appliquer a chaque case du plateau
+	 * @param plateau le plateau de jeu : un ensemble de case (RelativeLayout[])
+	 * @param index la case a qui l'on definit l'action
+	 * @param c le compteur de bonnes reponses trouvees
+	 * @param emplacement un tableau ou l'on a les indices de toutes les cases melangees
+	 *  pour creer un plateau aleatoire
+	 */
 	public void action(RelativeLayout[] plateau, int index, Compteur c,ArrayList<Integer> emplacement) {
 		index--;
 		RelativeLayout rl = plateau[index];
@@ -190,11 +237,6 @@ public class MemoryActivity extends Activity {
 			mpEpic.start();
 			mp.pause();
 			if(c.getB1()&&c.getB2()) { // c'est gagne !!
-				for(int i=0;i<6;i++){
-					View v = plateau[i].getChildAt(1);
-					if(v.getVisibility()==View.VISIBLE)
-					Animate.fade_out(v, 1000, false);
-					}
 				
 				victoire();
 			}
@@ -204,13 +246,8 @@ public class MemoryActivity extends Activity {
 				c.setB2(true);
 				mpEpic.seekTo(0);
 				mpEpic.start();
-				mp.start();
+				mp.pause();
 				if(c.getB1()&&c.getB2()) { // c'est gagne !!
-					for(int i=0;i<6;i++){
-						View v = plateau[i].getChildAt(1);
-						if(v.getVisibility()==View.VISIBLE)
-						Animate.fade_out(v, 1000, false);
-						}
 					
 					victoire();
 				}
@@ -231,41 +268,60 @@ public class MemoryActivity extends Activity {
 		}
 	}
 	
+	/**
+	 * methode qui defint l'action a faire quand toutes les bonnes reponses ont ete trouvees
+	 */
 	public void victoire(){
-		parent.removeAllViews();
-		onStop();
-		MediaPlayer victoire = MediaPlayer.create(this,R.raw.mountains);
+		parent.removeView(findViewById(R.id.aide));
+		mp.stop();
+		mpEpic.stop();
 		victoire.start();
+		int width = this.getApplicationContext().getResources().getDisplayMetrics().widthPixels;
 		
 		RelativeLayout fin = new RelativeLayout(this);
-		RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+		parent.addView(fin);
+		RelativeLayout.LayoutParams params = new LayoutParams(width/3,LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-		params.addRule(RelativeLayout.CENTER_VERTICAL);
+		//params.addRule(RelativeLayout.CENTER_VERTICAL);
 		fin.setLayoutParams(params);
-		
-		RelativeLayout gnar = new RelativeLayout(this);
-		//AnimatedGnar.addAnimatedGnar(this, gnar);
-		gnar.setBackground(this.getResources().getDrawable(R.drawable.logo_gnar));
-		gnar.setLayoutParams(params);
-		
-		Button again = ButtonCreator.createRoundedButton(this, R.color.vert2);
-		RelativeLayout.LayoutParams again_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+				
+			
+		again = ButtonCreator.createRoundedButton(this, R.color.vert1);
+		fin.addView(again);
+		RelativeLayout.LayoutParams again_params = new LayoutParams(LayoutParams.MATCH_PARENT,width/10);
 		again_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		again_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		again.setLayoutParams(again_params);
-		
-		parent.addView(fin);
-		fin.addView(gnar);
-		fin.addView(again);
-		
-		again.setOnClickListener(new NextActivityListener(this,again,MemoryActivity.this,MenuStyleActivity.class));
 		again.setText("Encore une fois !!");
 		Typeface externalFont = Typeface.createFromAsset(this.getAssets(),
 				"fonts/intsh.ttf");
 		again.setTypeface(externalFont);
 		again.setTextSize(40);
+		again.setId(12);
+		
+				
+		RelativeLayout gnar = new RelativeLayout(this);
+		fin.addView(gnar);
+		RelativeLayout.LayoutParams gnar_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+		gnar_params.addRule(RelativeLayout.ABOVE,12);
+		gnar_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+		gnar.setLayoutParams(gnar_params);
+		AnimatedGnar.addAnimatedGnar(this, gnar);
+		
+		
+		Animate.pop_in(fin, 1000);
+		
+		Button pressed = ButtonCreator.createRoundedButton(this,R.color.vert2);
+		pressed.setText(again.getText());
+		again.setOnClickListener(new NextActivityListener(again,pressed.getBackground(),MemoryActivity.this,MenuActivity.class));
+		
 	}
 	
+	/**
+	 * permet de creer un bouton d'aide et de definir son action sur le jeu
+	 * @param rl le layout qui contient ce bouton
+	 * @return
+	 */
 	public ImageButton createAide(RelativeLayout rl){
 		final Resources r = this.getResources();
 		rl.setClipChildren(false);
@@ -297,6 +353,11 @@ public class MemoryActivity extends Activity {
 				
 	}
 	
+	/**
+	 * methode qui permet de melanger les indices d'un 
+	 * tableau ou d'une liste pour generer un plateau aleatoire par la suite
+	 * @return une liste d'indice dans un ordre aleatoire (indices entre 1 et 6)
+	 */
 	public ArrayList<Integer> emplacement(){
 		ArrayList<Integer> tab = new ArrayList<Integer>();
 		for(int i=0;i<6;i++)
@@ -308,10 +369,20 @@ public class MemoryActivity extends Activity {
 	
 	@Override
 	public void onStop(){
+		super.onStop();
 		mp.stop();
 		mp.release();
 		mpEpic.stop();
 		mpEpic.release();
+		victoire.stop();
+		victoire.release();
+			
+	}
+		
+	@Override
+	public void onResume(){
+		super.onResume();
+		again = ButtonCreator.createRoundedButton(this,R.color.vert1);
 		
 	}
 	
