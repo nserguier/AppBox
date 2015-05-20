@@ -284,11 +284,11 @@ public class MemoryActivity extends Activity {
 		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		//params.addRule(RelativeLayout.CENTER_VERTICAL);
 		fin.setLayoutParams(params);
-				
-			
-		again = ButtonCreator.createRoundedButton(this, R.color.vert1);
-		fin.addView(again);
-		RelativeLayout.LayoutParams again_params = new LayoutParams(LayoutParams.MATCH_PARENT,width/10);
+
+		
+		Button again = ButtonCreator.createRoundedButton(this,R.color.vert2);
+		RelativeLayout.LayoutParams again_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+
 		again_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		again_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		again.setLayoutParams(again_params);

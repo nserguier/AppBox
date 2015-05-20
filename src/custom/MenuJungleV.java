@@ -192,7 +192,7 @@ public class MenuJungleV {
 	
 	public Button addButton(String texte, int place, int color) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton(context, color) ;
+			Button b = ButtonCreator.createRoundedButton((Activity) context, color) ;
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
