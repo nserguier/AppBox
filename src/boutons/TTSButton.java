@@ -5,7 +5,6 @@ import java.util.Locale;
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -22,6 +21,7 @@ public class TTSButton {
 
 		tts = new TextToSpeech(ctx, new TextToSpeech.OnInitListener() {
 
+			@Override
 			public void onInit(int status) {
 				if (status != TextToSpeech.ERROR)
 					tts.setLanguage(Locale.FRANCE);

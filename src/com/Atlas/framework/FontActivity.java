@@ -1,6 +1,7 @@
 package com.Atlas.framework;
 
-import fonts.FontsOverride;
+import composants.Fonts;
+
 import boutons.ButtonCreator;
 import android.app.Activity;
 import android.content.Intent;
@@ -26,7 +27,7 @@ public class FontActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				FontsOverride.setDefaultFont(getApplicationContext(),"MONOSPACE","fonts/comic.otf");
+				Fonts.setDefaultFont(getApplicationContext(),"fonts/comic.otf");
 				Intent intent = getIntent();
 				finish();
 				startActivity(intent);
@@ -42,7 +43,7 @@ public class FontActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				FontsOverride.setDefaultFont(getApplicationContext(),"MONOSPACE","fonts/onthemove.ttf");
+				Fonts.setDefaultFont(getApplicationContext(),"fonts/onthemove.ttf");
 				Intent intent = getIntent();
 				finish();
 				startActivity(intent);

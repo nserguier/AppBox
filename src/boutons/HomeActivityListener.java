@@ -1,7 +1,5 @@
 package boutons;
 
-import com.Atlas.framework.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

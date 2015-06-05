@@ -1,0 +1,140 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+    
+    <Button 
+        android:id="@+id/audio"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/sound"
+        />
+    
+    <RelativeLayout 
+        android:id="@+id/case1"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp">
+        
+              
+    <Button 
+        android:id="@+id/buisson1"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/buisson"
+        android:visibility="invisible" />
+    </RelativeLayout>
+    
+    <RelativeLayout 
+        android:id="@+id/case2"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="80dp"
+        android:layout_below="@id/case1">
+        
+    <Button 
+        android:id="@+id/buisson2"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/buisson"
+        android:visibility="invisible" />
+    </RelativeLayout>
+    
+    <RelativeLayout 
+        android:id="@+id/case3"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="40dp"
+        >
+        
+    <Button 
+        android:id="@+id/buisson3"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/buisson"
+        android:visibility="invisible" />
+    </RelativeLayout>
+    
+    
+    <RelativeLayout
+        android:id="@+id/case4"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="250dp"
+        android:layout_marginTop="50dp">
+        
+    <Button 
+        android:id="@+id/buisson4"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/buisson"
+        android:visibility="invisible" />
+    </RelativeLayout>      
+    
+    <RelativeLayout
+        android:id="@+id/case5"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="100dp">
+        
+    <Button 
+        android:id="@+id/buisson5"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/buisson"
+        android:visibility="invisible" />
+    </RelativeLayout> 
+    
+    
+    <RelativeLayout
+        android:id="@+id/case6"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="200dp"
+        android:layout_marginBottom="50dp">
+        
+    <Button 
+        android:id="@+id/buisson6"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/buisson"
+        android:visibility="invisible" />
+    </RelativeLayout> 
+    
+            
+    
+   <RelativeLayout
+       android:id="@+id/aide"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:clipChildren="false"
+                   />
+   
+      
+</RelativeLayout>

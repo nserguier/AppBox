@@ -1,10 +1,11 @@
 package com.Atlas.framework;
 
 
+import composants.Fonts;
+
 import android.app.Activity;
 import android.os.Bundle;
 import dragAndDrop.MyDragAndDrop;
-import fonts.FontsOverride;
 
 public class DragAndDropActivity extends Activity {
 
@@ -15,7 +16,7 @@ public class DragAndDropActivity extends Activity {
 		setContentView(R.layout.activity_drag_n_drop);
 
 		/* Changement de la police par defaut */
-		FontsOverride.setDefaultFont(this,"MONOSPACE", "fonts/onthemove.ttf");
+		Fonts.setDefaultFont(this, "fonts/onthemove.ttf");
 
 		/* Drag And Drop */
 		MyDragAndDrop dnd = new MyDragAndDrop(this, DragAndDropActivity.this);
@@ -27,11 +28,11 @@ public class DragAndDropActivity extends Activity {
 		dnd.addDrag(R.id.cercle4);
 
 		/* Zone ou on veut pouvoir les deposer */
-		dnd.addDrop(R.id.reserve, 0, 0);
-		dnd.addDrop(R.id.topleft, R.drawable.shape, R.drawable.shape_drop);
-		dnd.addDrop(R.id.topright, R.drawable.shape, R.drawable.shape_drop);
-		dnd.addDrop(R.id.bottomleft, R.drawable.shape, R.drawable.shape_drop);
-		dnd.addDrop(R.id.bottomright, R.drawable.shape, R.drawable.shape_drop);
+		dnd.addDrop(R.id.reserve, 0, 0,null);
+		dnd.addDrop(R.id.topleft, R.drawable.shape, R.drawable.shape_drop,null);
+		dnd.addDrop(R.id.topright, R.drawable.shape, R.drawable.shape_drop,null);
+		dnd.addDrop(R.id.bottomleft, R.drawable.shape, R.drawable.shape_drop,null);
+		dnd.addDrop(R.id.bottomright, R.drawable.shape, R.drawable.shape_drop,null);
 
 	}
 
