@@ -84,13 +84,14 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".MenuStyleActivity"
+            android:name=".MenuActivity"
             android:label="@string/title_activity_menu_style"
-            android:screenOrientation="landscape" >
+             >
         </activity>
         <activity
             android:name=".MemoryActivity"
-            android:label="@string/title_activity_memory" >
+            android:label="@string/title_activity_memory"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 
