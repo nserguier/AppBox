@@ -1,6 +1,8 @@
 package boutons;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,8 +31,11 @@ public class ExitApplicationListener implements OnClickListener {
     	button.setBackground(pressed);
     	
     	/* On quitte l'application */
-    	currentActivity.finish();
-    	System.exit(0);
+    	Context ctx = v.getContext();
+    	Intent intent = new Intent(Intent.ACTION_MAIN);
+		intent.addCategory(Intent.CATEGORY_HOME);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		ctx.startActivity(intent);
 		
 	}
 
