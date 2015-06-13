@@ -21,7 +21,7 @@ import composants.Animate;
 import dragAndDrop.DnDFonctions;
 import dragAndDrop.MyDragAndDrop;
 
-public class MenuJungleV {
+public class MenuJungleV implements Menu{
 
 	private Context context;
 	RelativeLayout[] menu;
@@ -190,9 +190,11 @@ public class MenuJungleV {
 	 * @param place le numero de l'emplacement du bouton (entre 1 et 6)
 	 */
 	
-	public Button addButton(String texte, int place, int color) {
+	public Button addButton(String texte, int place) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton((Activity) context, color) ;
+			Button b = ButtonCreator.createRoundedButton((Activity) context,R.color.vert1);
+			if( place ==3 || place == 4)
+				b = ButtonCreator.createRoundedButton((Activity) context,R.color.vert2);
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);

@@ -1,12 +1,24 @@
 package custom;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -20,7 +32,7 @@ import composants.Animate;
 import dragAndDrop.DnDFonctions;
 import dragAndDrop.MyDragAndDrop;
 
-public class MenuJungleH {
+public class MenuJungleH implements Menu{
 
 	private Context context; 
 	RelativeLayout[] menu;  // les elements du menu : un titre et 6 boutons
@@ -183,9 +195,11 @@ public class MenuJungleH {
 	 * @param place le numero de l'emplacement du bouton (entre 1 et 6)
 	 */
 	
-	public Button addButton(String texte, int place, int color) {
+	public Button addButton(String texte, int place) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton((Activity) context, color) ;
+			Button b = ButtonCreator.createRoundedButton((Activity) context,R.color.vert1);
+			if( place ==3 || place == 4)
+				b = ButtonCreator.createRoundedButton((Activity) context,R.color.vert2);
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -261,7 +275,7 @@ public class MenuJungleH {
 		
 		fruit.setLayoutParams(fruit_params);
 		menu[0].addView(fruit);
-		Animate.scale(fruit, (float) 0.8, (float) 0.9, 1000, 20, true);
+		//Animate.scale(fruit, (float) 0.8, (float) 0.9, 1000, 20, true);
 		fruit.setId(125);
 		
 		ImageView f = new ImageView(context);
@@ -282,6 +296,20 @@ public class MenuJungleH {
 		menu[0].addView(tete);
 		tete.setBackground(context.getApplicationContext().getResources().getDrawable(R.drawable.gnar));
 		Animate.translate(tete, 0, height/2, 0,  -height/9, 3000, true);
+		
+		
+		RotateAnimation rotate = new RotateAnimation(0,360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+		rotate.setRepeatCount(Animation.INFINITE);
+		rotate.setInterpolator(new LinearInterpolator());
+		TranslateAnimation trans = new TranslateAnimation(0, 0, 0, height/2);
+		AnimationSet set = new AnimationSet(true);
+		fruit.setAnimation(trans);
+		fruit.setAnimation(rotate);
+		
+		set.addAnimation(trans);
+		set.addAnimation(rotate);
+		set.startNow();
+		
 		
 		//	dropZone
 		

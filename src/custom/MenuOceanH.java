@@ -18,7 +18,7 @@ import boutons.ButtonCreator;
 import com.Atlas.framework.R;
 import composants.Animate;
 
-public class MenuOceanH {
+public class MenuOceanH implements Menu{
 
 	private Context context; 
 	RelativeLayout[] menu;  // les elements du menu : un titre et 6 boutons
@@ -138,12 +138,9 @@ public class MenuOceanH {
 			}
 						
 			Animate.pop_in(boutons, 3000);
-	
-			
-			
-		}
 				
-			
+		}
+					
 		return menu;
 
 	}
@@ -182,9 +179,11 @@ public class MenuOceanH {
 	 * @param place le numero de l'emplacement du bouton (entre 1 et 6)
 	 */
 	
-	public Button addButton(String texte, int place, int color) {
+	public Button addButton(String texte, int place) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton((Activity) context, color) ;
+			Button b = ButtonCreator.createRoundedButton((Activity) context,R.color.bleu1);
+			if( place ==3 || place == 4)
+				b = ButtonCreator.createRoundedButton((Activity) context,R.color.bleu2);
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);

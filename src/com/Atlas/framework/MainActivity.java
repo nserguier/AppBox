@@ -56,7 +56,6 @@ public class MainActivity extends Activity {
 		b8.setOnClickListener(new NextActivityListener(this,b8,MainActivity.this,BulleActivity.class));
 		b9.setOnClickListener(new NextActivityListener(this,b9,MainActivity.this,AnimationActivity.class));
 		b10.setOnClickListener(new NextActivityListener(this,b10,MainActivity.this,FontActivity.class));
-		//b11.setOnClickListener(new NextActivityListener(this,b11,MainActivity.this,SqueletteActivity.class));
 		b12.setOnClickListener(new NextActivityListener(this,b12,MainActivity.this,DeroulantActivity.class));
 		
 	}

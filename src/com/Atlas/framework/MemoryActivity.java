@@ -4,6 +4,7 @@ package com.Atlas.framework;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import android.animation.AnimatorSet;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -19,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
+import android.widget.TextView;
 import boutons.ButtonCreator;
 import boutons.NextActivityListener;
 
@@ -36,6 +38,9 @@ public class MemoryActivity extends Activity {
 	private ViewGroup parent;
 	private boolean sound=true;
 	private Button again;
+	private int pairesOK = 0; // le nb de paires trouvees
+	private int x = 0;
+	private int nbVictoire = 0;
 
 		
 	@Override
@@ -85,116 +90,20 @@ public class MemoryActivity extends Activity {
 			}
 		});
 		
+		// creation des elements du plateau
+		final Element[] tab= createPlateau(parent);
+	
+		//evenements au click
+		for(int i=0;i<tab.length;i++){
+			final Element e = tab[i];
+			tab[i].getZone().setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					action(tab,e);
+				}
+			});
+		}
 		
-		
-		final Compteur c = new Compteur();
-		
-		//	les differentes cases du plateau
-		final RelativeLayout case1 = (RelativeLayout) findViewById(R.id.case1);
-		final RelativeLayout case2 = (RelativeLayout) findViewById(R.id.case2);
-		final RelativeLayout case3 = (RelativeLayout) findViewById(R.id.case3);
-		final RelativeLayout case4 = (RelativeLayout) findViewById(R.id.case4);
-		final RelativeLayout case5 = (RelativeLayout) findViewById(R.id.case5);
-		final RelativeLayout case6 = (RelativeLayout) findViewById(R.id.case6);
-		final RelativeLayout[] plateau = {case1,case2,case3,case4,case5,case6};
-		
-		//	apparition des buissons
-		Button buisson1 = (Button) findViewById(R.id.buisson1);
-		Animate.fade_in(buisson1,1000);
-		Button buisson2 = (Button) findViewById(R.id.buisson2);
-		Animate.fade_in(buisson2,1000);
-		Button buisson3 = (Button) findViewById(R.id.buisson3);
-		Animate.fade_in(buisson3,1000);
-		Button buisson4 = (Button) findViewById(R.id.buisson4);
-		Animate.fade_in(buisson4,1000);
-		Button buisson5 = (Button) findViewById(R.id.buisson5);
-		Animate.fade_in(buisson5,1000);
-		Button buisson6 = (Button) findViewById(R.id.buisson6);
-		Animate.fade_in(buisson6,1000);
-			
-		//	les mechant et les gentils gnar
-		RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-		params.addRule(RelativeLayout.CENTER_IN_PARENT);
-				
-		
-		final ImageView mechant1 = new ImageView(this);
-		mechant1.setLayoutParams(params);
-		mechant1.setBackground(this.getResources().getDrawable(R.drawable.mechant));
-		mechant1.setVisibility(View.INVISIBLE);
-		final ImageView mechant2 = new ImageView(this);
-		mechant2.setLayoutParams(params);
-		mechant2.setBackground(this.getResources().getDrawable(R.drawable.mechant));
-		mechant2.setVisibility(View.INVISIBLE);
-		final ImageView mechant3 = new ImageView(this);
-		mechant3.setLayoutParams(params);
-		mechant3.setBackground(this.getResources().getDrawable(R.drawable.mechant));
-		mechant3.setVisibility(View.INVISIBLE);
-		final ImageView mechant4 = new ImageView(this);
-		mechant4.setLayoutParams(params);
-		mechant4.setBackground(this.getResources().getDrawable(R.drawable.mechant));
-		mechant4.setVisibility(View.INVISIBLE);
-		final ImageView gnarPetit = new ImageView(this);
-		gnarPetit.setLayoutParams(params);
-		gnarPetit.setBackground(this.getResources().getDrawable(R.drawable.fruit));
-		gnarPetit.setVisibility(View.INVISIBLE);
-		final ImageView gnar = new ImageView(this);
-		gnar.setLayoutParams(params);
-		gnar.setBackground(this.getResources().getDrawable(R.drawable.fruit));
-		gnar.setVisibility(View.INVISIBLE);
-
-		
-		//	on attribue les mechants/gnar au differents buissons
-		final ArrayList<Integer> emplacement = emplacement();
-		plateau[emplacement.get(0)].addView(mechant1,1);
-		plateau[emplacement.get(1)].addView(mechant2,1);
-		plateau[emplacement.get(2)].addView(mechant3,1);
-		plateau[emplacement.get(3)].addView(mechant4,1);
-		plateau[emplacement.get(4)].addView(gnarPetit,1);
-		plateau[emplacement.get(5)].addView(gnar,1);
-		
-		
-				
-		//	les evenements au click
-		
-		buisson1.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				action(plateau,1,c,emplacement);
-					
-			}});
-		
-		buisson2.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				action(plateau,2,c,emplacement);
-				
-			}});
-		
-		buisson3.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				action(plateau,3,c,emplacement);
-					
-			}});
-		
-		buisson4.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				action(plateau,4,c,emplacement);
-				
-			}});
-		buisson5.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				action(plateau,5,c,emplacement);
-					
-			}});
-		
-		buisson6.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				action(plateau,6,c,emplacement);
-			}});
 				
 		// aide du jeu
 		
@@ -206,11 +115,11 @@ public class MemoryActivity extends Activity {
 				
 				if(modeAide){/// on est denas le mode aide
 					tete.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.tete3));
-					Animate.scale(plateau[emplacement.get(5)], 1, (float) 1.5, 2000, 20, true);
+					//Animate.scale(plateau[numDesordre.get(5)], 1, (float) 1.5, 2000, 20, true);
 					modeAide = false;
 				} else {
 					tete.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.tete));
-					plateau[emplacement.get(5)].clearAnimation();	
+					//plateau[numDesordre.get(5)].clearAnimation();	
 					modeAide = true;
 					}
 				
@@ -219,53 +128,74 @@ public class MemoryActivity extends Activity {
 	}
 	
 	/**
+	 *  cree un tableau d'elements que l'on positionne sur le plateau
+	 *  la place de l'element i du tableau est aleatoire sur le terrain
+	 * @param parent
+	 * @return
+	 */
+	public Element [] createPlateau(ViewGroup parent){
+		final ArrayList<Integer> numDesordre = numDesordre();
+		
+		int nbCaches = 6+2*nbVictoire;
+		Element [] tab = new Element[nbCaches];
+		int height = this.getApplicationContext().getResources().getDisplayMetrics().heightPixels;
+		int width = this.getApplicationContext().getResources().getDisplayMetrics().widthPixels;
+		for(int i=0;i<nbCaches;i++){
+			int place = numDesordre.get(i);
+			Element e = new Element(i%2, false, place, this);
+			RelativeLayout zone = e.getZone();
+			parent.addView(zone);
+			zone.setX(width/nbCaches*place);
+			zone.setY(height/nbCaches*place);
+			Animate.fade_in(zone,1000);
+			tab[i]=e;
+			
+		}
+		return tab;
+	}
+	
+	
+	
+	/**
 	 * methode qui definit la regle du jeu a appliquer a chaque case du plateau
 	 * @param plateau le plateau de jeu : un ensemble de case (RelativeLayout[])
 	 * @param index la case a qui l'on definit l'action
 	 * @param c le compteur de bonnes reponses trouvees
-	 * @param emplacement un tableau ou l'on a les indices de toutes les cases melangees
+	 * @param numDesordre un tableau ou l'on a les indices de toutes les cases melangees
 	 *  pour creer un plateau aleatoire
 	 */
-	public void action(RelativeLayout[] plateau, int index, Compteur c,ArrayList<Integer> emplacement) {
-		index--;
-		RelativeLayout rl = plateau[index];
-		Animate.fade_in(rl.getChildAt(1), 1000);
+	public void action(Element[] e,Element element) {
 		
-		if(emplacement.get(5)==index){ // c'est un gentil
-			c.setB1(true);
-			mpEpic.seekTo(0);
-			mpEpic.start();
-			mp.pause();
-			if(c.getB1()&&c.getB2()) { // c'est gagne !!
-				
-				victoire();
+		TextView item = element.getItem();
+		Animate.fade_in(item, 1000);
+		
+			for(int i=0;i<e.length;i++) {
+				if(!e[i].equals(element) && e[i].getItem().getVisibility()==View.VISIBLE)
+					if(e[i].getPair() == element.getPair()) {
+						e[i].setTrouve(true);
+						element.setTrouve(true);
+						pairesOK++;
+						//tab[i].setClickable(false);
+						//tab[element.getPlace()].setClickable(false);
+						mange(element,e[i]);
+						
+					}
+					else {
+						
+						Animate.fade_out(item, 1000, false);
+						Animate.fade_out(e[i].getItem(), 1000, false);
+					}
 			}
+		if(pairesOK==3) victoire();
 			
-		} else 
-			if(emplacement.get(4)==index){ // c'est un gentil
-				c.setB2(true);
-				mpEpic.seekTo(0);
-				mpEpic.start();
-				mp.pause();
-				if(c.getB1()&&c.getB2()) { // c'est gagne !!
-					
-					victoire();
-				}
-				
-	   
-		}else { // c'est un mechant
-			c.reinitialize();
-			for(int i=0;i<6;i++){
-				View v = plateau[i].getChildAt(1);
-				if(v.getVisibility()==View.VISIBLE)
-				Animate.fade_out(v, 1000, false);
-				if(mpEpic.isPlaying()){
-					mpEpic.pause();
-					mp.start();
-				}
-			}
-			
-		}
+	}
+	
+		
+	public void mange(Element e1,Element e2) {
+		
+		Animate.fade_out(e1.getImg(), 1000, false);
+		Animate.fade_out(e2.getImg(), 1000, false);
+		
 	}
 	
 	/**
@@ -298,9 +228,10 @@ public class MemoryActivity extends Activity {
 		again.setTypeface(externalFont);
 		again.setTextSize(40);
 		again.setId(12);
-		
+		fin.addView(again);
 				
 		RelativeLayout gnar = new RelativeLayout(this);
+		gnar.setClipChildren(false);
 		fin.addView(gnar);
 		RelativeLayout.LayoutParams gnar_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 		gnar_params.addRule(RelativeLayout.ABOVE,12);
@@ -313,7 +244,8 @@ public class MemoryActivity extends Activity {
 		
 		Button pressed = ButtonCreator.createRoundedButton(this,R.color.vert2);
 		pressed.setText(again.getText());
-		again.setOnClickListener(new NextActivityListener(again,pressed.getBackground(),MemoryActivity.this,MenuActivity.class));
+		again.setOnClickListener(new NextActivityListener(
+				again,pressed.getBackground(),MemoryActivity.this,MenuActivity.class));
 		
 	}
 	
@@ -328,8 +260,10 @@ public class MemoryActivity extends Activity {
 		
 		// Creation des parties de gnar
 		ImageButton tete = ButtonCreator.create(this).setBack(r.getDrawable(R.drawable.tete)).buildImage();
-		ImageButton oreille_gauche = ButtonCreator.create(this).setBack(r.getDrawable(R.drawable.oreille)).buildImage();
-		ImageButton oreille_droite = ButtonCreator.create(this).setBack(r.getDrawable(R.drawable.oreille)).mirror().buildImage();
+		ImageButton oreille_gauche = ButtonCreator.create(this)
+				.setBack(r.getDrawable(R.drawable.oreille)).buildImage();
+		ImageButton oreille_droite = ButtonCreator.create(this)
+				.setBack(r.getDrawable(R.drawable.oreille)).mirror().buildImage();
 		
 		// Tailles des drawable
 		Bitmap bit_tete = ((BitmapDrawable) r.getDrawable(R.drawable.tete)).getBitmap();
@@ -353,14 +287,16 @@ public class MemoryActivity extends Activity {
 				
 	}
 	
+	
+	
 	/**
 	 * methode qui permet de melanger les indices d'un 
 	 * tableau ou d'une liste pour generer un plateau aleatoire par la suite
 	 * @return une liste d'indice dans un ordre aleatoire (indices entre 1 et 6)
 	 */
-	public ArrayList<Integer> emplacement(){
+	public ArrayList<Integer> numDesordre(){
 		ArrayList<Integer> tab = new ArrayList<Integer>();
-		for(int i=0;i<6;i++)
+		for(int i=0;i<6+2*nbVictoire;i++)
 			tab.add(i);
 		Collections.shuffle(tab);
 		
@@ -372,10 +308,10 @@ public class MemoryActivity extends Activity {
 		super.onStop();
 		mp.stop();
 		mp.release();
-		mpEpic.stop();
+		/*mpEpic.stop();
 		mpEpic.release();
 		victoire.stop();
-		victoire.release();
+		victoire.release();*/
 			
 	}
 		
