@@ -17,6 +17,7 @@ import com.Atlas.framework.R;
 public class AnimatedGnar {
 	
 	static ImageButton tete = null;
+	static ImageButton tete_mini = null;
 	
 	public static void addAnimatedGnar(Activity a,RelativeLayout rl){
 		final Resources r = a.getResources();
@@ -130,12 +131,19 @@ public class AnimatedGnar {
         frameAnimation.start();
 	}
 	
+	public static void blink_mini(){
+		tete_mini.setBackgroundResource(R.drawable.blink_mini);
+		AnimationDrawable frameAnimation = (AnimationDrawable) tete_mini.getBackground();
+        frameAnimation.start();
+	}
+	
 	public static void addAnimatedMiniGnar(Activity a,RelativeLayout rl){
 		final Resources r = a.getResources();
 		rl.setClipChildren(false);
 		
 		// Creation des parties de gnar
 		final ImageButton tete = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_tete)).buildImage();
+		tete_mini = tete;
 		ImageButton oreille_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_oreille)).buildImage();
 		ImageButton oreille_droite = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_oreille)).mirror().buildImage();
 		ImageButton corps = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_corps)).buildImage();
@@ -170,7 +178,7 @@ public class AnimatedGnar {
 		Animate.translate(corps, 0, -H_tete/30, 0, H_tete/100, T,true);
 		
 		//Clics
-		/**
+		
 		OnClickListener ocl = new View.OnClickListener() {
 			int num_tete = 2;
 			@Override
@@ -179,28 +187,28 @@ public class AnimatedGnar {
 				switch(random){
 				case 0:
 					if(num_tete==0){
-						tete.setBackground(r.getDrawable(R.drawable.tete3));
+						tete.setBackground(r.getDrawable(R.drawable.mini_tete_3));
 					}
 					else{
-						tete.setBackground(r.getDrawable(R.drawable.tete2));
+						tete.setBackground(r.getDrawable(R.drawable.mini_tete_2));
 					}
 					num_tete =0;
 					break;
 				case 1:
 					if(num_tete==1){
-						tete.setBackground(r.getDrawable(R.drawable.tete));
+						tete.setBackground(r.getDrawable(R.drawable.mini_tete));
 					}
 					else{
-						tete.setBackground(r.getDrawable(R.drawable.tete3));
+						tete.setBackground(r.getDrawable(R.drawable.mini_tete_3));
 					}
 					num_tete = 1;
 					break;
 				default :
 					if(num_tete==2){
-						tete.setBackground(r.getDrawable(R.drawable.tete2));
+						tete.setBackground(r.getDrawable(R.drawable.mini_tete_2));
 					}
 					else{
-						tete.setBackground(r.getDrawable(R.drawable.tete));
+						tete.setBackground(r.getDrawable(R.drawable.mini_tete));
 					}
 					num_tete = 2;
 					break;
@@ -218,7 +226,9 @@ public class AnimatedGnar {
 		corps.setOnClickListener(ocl);
 		bras_droit.setOnClickListener(ocl);
 		bras_gauche.setOnClickListener(ocl);
-		*/
+		
+		// clignement d'yeux
+		blink_mini();
 		
 		//Ajout des elements au layout
 		rl.addView(bras_gauche,params_bras_gauche);
