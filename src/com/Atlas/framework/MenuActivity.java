@@ -15,6 +15,7 @@ import composants.Animate;
 
 import custom.FabriqueMenu;
 import custom.Menu;
+import custom.TypeMenu;
 
 
 public class MenuActivity extends Activity {
@@ -23,7 +24,7 @@ public class MenuActivity extends Activity {
 	private Button decor;
 	private MediaPlayer mp;
 	private boolean sound = true;
-	private String typeMenu = "jungleH";
+	private TypeMenu typeMenu = TypeMenu.OceanHorizontal;
 	Menu m;
 
 	
@@ -45,7 +46,7 @@ public class MenuActivity extends Activity {
 
 		// recuperation du type de menu
 		Intent i = getIntent();
-		String s =  i.getStringExtra("extra");
+		TypeMenu s =  (TypeMenu) i.getSerializableExtra("extra");
 		if(s!=null) typeMenu = s;
 		
 		try {
@@ -66,7 +67,7 @@ public class MenuActivity extends Activity {
 		m.addButton("tes scores !!!", 6);
 
 		mp = MediaPlayer.create(MenuActivity.this, R.raw.music);
-		if(typeMenu.equals("oceanH")) mp = MediaPlayer.create(MenuActivity.this, R.raw.habla_con_hella);
+		if(typeMenu.equals(TypeMenu.OceanHorizontal)) mp = MediaPlayer.create(MenuActivity.this, R.raw.habla_con_hella);
 		mp.setLooping(true);
 		mp.start();
 
@@ -92,19 +93,29 @@ public class MenuActivity extends Activity {
 			}
 		});
 
-		Button pressed = ButtonCreator.createRoundedButton(this, R.color.vert3);
+		final Button pressed = ButtonCreator.createRoundedButton(this, R.color.vert3);
 		pressed.setText(jouer.getText());
 
-		jouer.setOnClickListener(new NextActivityListener(jouer, pressed
-				.getBackground(), MenuActivity.this, MemoryActivity.class));
+			
+		
+		jouer.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				jouer = pressed;
+				TypeMenu menu = TypeMenu.JungleHorizontal;
+				if(typeMenu.equals(TypeMenu.JungleHorizontal)) menu = TypeMenu.OceanHorizontal;	
+				Animate.changeActivityAnimation(parent, MemoryActivity.class,menu);
+			}
+		});
+	
 
 		decor.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				String s = "jungleH";
-				if(typeMenu.equals("jungleH")) s="oceanH";
-				
-				Animate.changeActivityAnimation(parent, MenuActivity.class,s);
+								
+				TypeMenu menu = TypeMenu.JungleHorizontal;
+				if(typeMenu.equals(TypeMenu.JungleHorizontal)) menu = TypeMenu.OceanHorizontal;	
+				Animate.changeActivityAnimation(parent, MenuActivity.class,menu);
 			}
 		});
 	}

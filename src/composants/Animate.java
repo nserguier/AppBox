@@ -2,6 +2,8 @@ package composants;
 
 import com.Atlas.framework.R;
 
+import custom.TypeMenu;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -337,7 +339,7 @@ public class Animate {
 	 * 
 	 */
 	public static void changeActivityAnimation(ViewGroup parent,
-			final Class<?> targetActivity,final String extra) {
+			final Class<?> targetActivity,final TypeMenu extra) {
 		/* animation rideau sur l'ecran violet */
 		final Context context = parent.getContext();
 		int H = context.getApplicationContext().getResources()
@@ -361,9 +363,10 @@ public class Animate {
 			public void onAnimationEnd(Animation animation) {
 				/* Passage a l'autre activite */
 				Intent intent = new Intent((Activity) context, targetActivity);
+				if (extra != null)
+					intent.putExtra("extra", extra);
 				((Activity) context).startActivity(intent);
-				if(extra!=null)
-				intent.putExtra("extra", extra);
+
 				((Activity) context).overridePendingTransition(R.anim.fade_out,
 						R.anim.fade_in);
 

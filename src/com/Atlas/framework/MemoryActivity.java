@@ -6,6 +6,7 @@ import java.util.Collections;
 
 import android.animation.AnimatorSet;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
@@ -27,6 +28,7 @@ import boutons.NextActivityListener;
 import composants.Animate;
 import composants.AnimatedGnar;
 import composants.MyLayoutParams;
+import custom.TypeMenu;
 
 
 public class MemoryActivity extends Activity {
@@ -41,6 +43,7 @@ public class MemoryActivity extends Activity {
 	private int pairesOK = 0; // le nb de paires trouvees
 	private int x = 0;
 	private int nbVictoire = 0;
+	private TypeMenu menu;
 
 		
 	@Override
@@ -59,8 +62,14 @@ public class MemoryActivity extends Activity {
 		
 		setContentView(R.layout.activity_memory);
 		
+		// recuperation du type de menu
+		Intent intent = getIntent();
+		menu =  (TypeMenu) intent.getSerializableExtra("extra");
+		
+		
 		parent = (ViewGroup) findViewById(R.id.parent);
-		parent.setBackground(this.getResources().getDrawable(R.drawable.jungle_h));
+		parent.setBackground(this.getResources().getDrawable(menu.getBackground()));
+		
 		parent.setClipChildren(false);
 		
 		mp = MediaPlayer.create(MemoryActivity.this,R.raw.music);
@@ -91,12 +100,12 @@ public class MemoryActivity extends Activity {
 		});
 		
 		// creation des elements du plateau
-		final Element[] tab= createPlateau(parent);
+		final ArrayList<Element> tab= createPlateau(parent);
 	
 		//evenements au click
-		for(int i=0;i<tab.length;i++){
-			final Element e = tab[i];
-			tab[i].getZone().setOnClickListener(new View.OnClickListener() {
+		for(int i=0;i<tab.size();i++){
+			final Element e = tab.get(i);
+			tab.get(i).getZone().setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					action(tab,e);
@@ -133,22 +142,22 @@ public class MemoryActivity extends Activity {
 	 * @param parent
 	 * @return
 	 */
-	public Element [] createPlateau(ViewGroup parent){
+	public ArrayList<Element> createPlateau(ViewGroup parent){
 		final ArrayList<Integer> numDesordre = numDesordre();
 		
 		int nbCaches = 6+2*nbVictoire;
-		Element [] tab = new Element[nbCaches];
+		ArrayList<Element> tab = new ArrayList<Element>();
 		int height = this.getApplicationContext().getResources().getDisplayMetrics().heightPixels;
 		int width = this.getApplicationContext().getResources().getDisplayMetrics().widthPixels;
 		for(int i=0;i<nbCaches;i++){
 			int place = numDesordre.get(i);
-			Element e = new Element(i%2, false, place, this);
+			Element e = new Element(i/2, place, menu, this);
 			RelativeLayout zone = e.getZone();
 			parent.addView(zone);
 			zone.setX(width/nbCaches*place);
 			zone.setY(height/nbCaches*place);
 			Animate.fade_in(zone,1000);
-			tab[i]=e;
+			tab.add(e);
 			
 		}
 		return tab;
@@ -164,26 +173,26 @@ public class MemoryActivity extends Activity {
 	 * @param numDesordre un tableau ou l'on a les indices de toutes les cases melangees
 	 *  pour creer un plateau aleatoire
 	 */
-	public void action(Element[] e,Element element) {
+	public void action(ArrayList<Element> e,Element element) {
 		
 		TextView item = element.getItem();
 		Animate.fade_in(item, 1000);
-		
-			for(int i=0;i<e.length;i++) {
-				if(!e[i].equals(element) && e[i].getItem().getVisibility()==View.VISIBLE)
-					if(e[i].getPair() == element.getPair()) {
-						e[i].setTrouve(true);
-						element.setTrouve(true);
+		element.setVisible(true);
+			for(int i=0;i<e.size();i++) {
+				Element ei = e.get(i);
+				if(!ei.equals(element) && ei.isVisible())
+					if(ei.getPair() == element.getPair()) {
 						pairesOK++;
-						//tab[i].setClickable(false);
-						//tab[element.getPlace()].setClickable(false);
-						mange(element,e[i]);
-						
+						e.remove(ei);
+						e.remove(e);
+						mange(element,ei);
 					}
 					else {
 						
 						Animate.fade_out(item, 1000, false);
-						Animate.fade_out(e[i].getItem(), 1000, false);
+						ei.setVisible(false);
+						element.setVisible(false);
+						Animate.fade_out(ei.getItem(), 1000, false);
 					}
 			}
 		if(pairesOK==3) victoire();
@@ -193,8 +202,11 @@ public class MemoryActivity extends Activity {
 		
 	public void mange(Element e1,Element e2) {
 		
-		Animate.fade_out(e1.getImg(), 1000, false);
-		Animate.fade_out(e2.getImg(), 1000, false);
+		Animate.fade_out(e1.getItem(), 1000, true);
+		Animate.fade_out(e2.getItem(), 1000, true);
+		Animate.fade_out(e1.getZone(), 1000, true);
+		Animate.fade_out(e2.getZone(), 1000, true);
+		
 		
 	}
 	

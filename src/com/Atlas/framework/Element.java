@@ -1,6 +1,8 @@
 package com.Atlas.framework;
 
 import android.content.Context;
+import android.graphics.drawable.LayerDrawable;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,15 +12,18 @@ import android.widget.RelativeLayout.LayoutParams;
 
 import com.Atlas.framework.R.color;
 
+import custom.TypeMenu;
+
 public class Element {
 
 	private int pair;
 	private ImageView img;
-	private boolean trouve;
 	private int place;
 	private RelativeLayout zone;
 	private Context context;
 	private TextView item;
+	private boolean isVisible = false;
+	private TypeMenu menu;
 	
 	/**
 	 * @param pair
@@ -26,20 +31,21 @@ public class Element {
 	 * @param place
 	 * @param context
 	 */
-	public Element(int pair, boolean trouve, int place,Context context) {
+	public Element(int pair, int place,TypeMenu menu,Context context) {
 		this.pair = pair;
-		this.trouve = trouve;
+		this.menu = menu;
 		this.place = place;
 		this.context = context;
 		zone = new RelativeLayout(context);
 		
 		item = new TextView(context);
 		item.setText(Integer.toString(pair));
-		item.setTextColor(color.orange2);
-		item.setTextSize(30f);
+		item.setTextColor(context.getApplicationContext().getResources().getColor(R.color.orange6));
+		item.setTextSize(60f);
+		item.setTextAlignment(Gravity.CENTER);
 		item.setVisibility(View.INVISIBLE);
 		
-		zone.setBackground(context.getResources().getDrawable(R.drawable.buisson));
+		zone.setBackground(context.getResources().getDrawable(menu.getCache()));
 		RelativeLayout.LayoutParams params = new LayoutParams(
 				 LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -50,14 +56,6 @@ public class Element {
 	}
 
 	
-	public boolean isTrouve() {
-		return trouve;
-	}
-
-	public void setTrouve(boolean trouve) {
-		this.trouve = trouve;
-	}
-
 	public ImageView getImg() {
 		return img;
 	}
@@ -86,6 +84,16 @@ public class Element {
 	
 	public TextView getItem(){
 		return this.item;
+	}
+
+
+	public boolean isVisible() {
+		return isVisible;
+	}
+
+
+	public void setVisible(boolean isVisible) {
+		this.isVisible = isVisible;
 	}
 
 
