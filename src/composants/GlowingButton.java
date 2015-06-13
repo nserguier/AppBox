@@ -35,6 +35,10 @@ public class GlowingButton {
 		parent.addView(rl);
 
 		parent.setClipChildren(false);
+		if(parent.getParent()!=null){
+			ViewGroup pp = (ViewGroup) parent.getParent();
+			pp.setClipChildren(false);
+		}
 
 		RelativeLayout.LayoutParams bouton_params = new LayoutParams(
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);

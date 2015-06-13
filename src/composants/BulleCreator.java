@@ -73,6 +73,7 @@ public class BulleCreator {
 		bulle_texte.setTextColor(Color.BLACK);
 		bulle_texte.setTypeface(comic);
 		bulle_texte.setBackground(bulle);
+		bulle_texte.setGravity(Gravity.CENTER);
 		//bulle_texte.setElevation(view.getElevation());
 		
 		ViewGroup parent = (ViewGroup) view.getParent();
@@ -84,7 +85,7 @@ public class BulleCreator {
 		else{
 			bulle_texte.setVisibility(View.INVISIBLE);
 		}
-		
+		bulle_texte.setAlpha(0.7f);
 		return bulle_texte;
 	}
 	
