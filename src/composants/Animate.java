@@ -1,5 +1,7 @@
 package composants;
 
+import java.io.Serializable;
+
 import com.Atlas.framework.R;
 
 import custom.TypeMenu;
@@ -330,16 +332,65 @@ public class Animate {
 		view.startAnimation(trans);
 		return trans;
 	}
-
+	
+	
 	/**
 	 * 
 	 * @param parent
 	 * @param targetActivity
 	 * @param extra un parametre serialise qui sera repris par la nouvelle application, mettre null pour l'ignorer
+	 * @param name l'id du parametre extra
+	 * 
+	 */
+	public static void changeActivityAnimation(final ViewGroup parent,
+			final Class<?> targetActivity,final Serializable extra,final String name) {
+		/* animation rideau sur l'ecran violet */
+		final Context context = parent.getContext();
+		int H = context.getApplicationContext().getResources()
+				.getDisplayMetrics().heightPixels;
+
+		TranslateAnimation trans = new TranslateAnimation(0, 0, 0, H * 1.1f);
+		trans.setDuration(1300);
+		trans.setFillAfter(true);
+		trans.setInterpolator(new DecelerateInterpolator());
+		trans.setAnimationListener(new Animation.AnimationListener() {
+
+			@Override
+			public void onAnimationStart(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				/* Passage a l'autre activite */
+				
+				Intent intent = new Intent((Activity) context, targetActivity);
+				if (extra != null)
+					intent.putExtra(name, extra);
+				((Activity) context).startActivity(intent);
+
+				((Activity) context).overridePendingTransition(R.anim.fade_out,
+						R.anim.fade_in);
+
+			}
+		});
+		parent.startAnimation(trans);
+
+	}
+	
+	/**
+	 * 
+	 * @param parent
+	 * @param targetActivity
+	 * @param extra un parametre serialise qui sera repris par la nouvelle application, mettre null pour l'ignorer
+	 * @param name l'id du parametre extra
 	 * 
 	 */
 	public static void changeActivityAnimation(ViewGroup parent,
-			final Class<?> targetActivity,final TypeMenu extra) {
+			final Class<?> targetActivity,final Serializable extra1,final Serializable extra2, final String name1,final String name2) {
 		/* animation rideau sur l'ecran violet */
 		final Context context = parent.getContext();
 		int H = context.getApplicationContext().getResources()
@@ -363,8 +414,10 @@ public class Animate {
 			public void onAnimationEnd(Animation animation) {
 				/* Passage a l'autre activite */
 				Intent intent = new Intent((Activity) context, targetActivity);
-				if (extra != null)
-					intent.putExtra("extra", extra);
+				if (extra1 != null)
+					intent.putExtra(name1, extra1);
+				if (extra2 != null)
+					intent.putExtra(name2, extra2);
 				((Activity) context).startActivity(intent);
 
 				((Activity) context).overridePendingTransition(R.anim.fade_out,

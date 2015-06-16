@@ -52,7 +52,7 @@ public class MenuJungleH implements Menu{
 	 * @param parent le parent de l'activite
 	 * @return
 	 */
-	public RelativeLayout[] createMenu(ViewGroup parent) {
+	public RelativeLayout[] createMenu(ViewGroup parent,TypeMenu type) {
 
 		
 		int width = context.getApplicationContext().getResources().getDisplayMetrics().widthPixels;
@@ -63,7 +63,7 @@ public class MenuJungleH implements Menu{
 			a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		
 		//	on definit un background general
-		parent.setBackground(context.getResources().getDrawable(R.drawable.jungle_h));
+		parent.setBackground(context.getResources().getDrawable(type.getBackground()));
 		parent.addView(boutons);
 		parent.setClipChildren(false);
 		
