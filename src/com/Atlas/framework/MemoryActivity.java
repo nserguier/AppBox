@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -215,6 +216,13 @@ public class MemoryActivity extends Activity {
 	 * @return
 	 */
 	public ArrayList<Element> createPlateau(ViewGroup parent) {
+		
+		int cache = 0;
+		switch(menu){
+		case OceanHorizontal: cache = R.drawable.une_bulle;
+		case JungleHorizontal: cache = R.drawable.buisson;
+		}
+		
 		final ArrayList<Integer> numDesordre = numDesordre();
 		final ArrayList<Integer> zoneDesordre = numDesordre();
 
@@ -226,7 +234,7 @@ public class MemoryActivity extends Activity {
 				.getDisplayMetrics().widthPixels;
 		for (int i = 0; i < nbCaches; i++) {
 
-			Element e = new Element(i / 2, menu, this);
+			Element e = new Element(i / 2,cache, this);
 			RelativeLayout zone = e.getZone();
 			parent.addView(zone);
 			zone.setX(width / nbCaches * numDesordre.get(i));

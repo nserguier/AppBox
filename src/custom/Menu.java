@@ -7,8 +7,8 @@ import android.widget.RelativeLayout;
 
 /**
  * Dernier maillon de la fabrique qui regroupe plusieurs objets sous un même
- * type commun Filtre pour un meilleur découplage: le Client ne reçoit que ce
- * type commun.
+ * type commun Menu pour un meilleur découplage: l'application "cliente" qui souhaite creer un menu
+ *  ne reçoit que ce type commun.
  * 
  * @author Victor, Nicklos
  * 
