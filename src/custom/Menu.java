@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
  */
 public interface Menu {
 
-	RelativeLayout[] createMenu(ViewGroup parent);
+	RelativeLayout[] createMenu(ViewGroup parent,TypeMenu menu);
 	void rassembler(int l1, int l2);
 	Button addButton(String texte, int place);
 	void addTitre(String texte);

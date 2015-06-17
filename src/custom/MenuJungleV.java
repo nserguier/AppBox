@@ -43,7 +43,7 @@ public class MenuJungleV implements Menu{
 	 * @param width
 	 * @return
 	 */
-	public RelativeLayout[] createMenu(ViewGroup parent) {
+	public RelativeLayout[] createMenu(ViewGroup parent,TypeMenu type) {
 
 		
 		
@@ -56,7 +56,7 @@ public class MenuJungleV implements Menu{
 		a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		
 		//	on definit un background general
-		parent.setBackground(context.getResources().getDrawable(R.drawable.jungle_v));
+		parent.setBackground(context.getResources().getDrawable(type.getBackground()));
 		parent.addView(boutons);
 		parent.setClipChildren(false);
 		

@@ -28,20 +28,18 @@ public class Element {
 	/**
 	 * @param pair
 	 * @param trouve
-	 * @param place
 	 * @param context
 	 */
-	public Element(int pair, int place,TypeMenu menu,Context context) {
+	public Element(int pair,TypeMenu menu,Context context) {
 		this.pair = pair;
 		this.menu = menu;
-		this.place = place;
 		this.context = context;
 		zone = new RelativeLayout(context);
 		
 		item = new TextView(context);
 		item.setText(Integer.toString(pair));
 		item.setTextColor(context.getApplicationContext().getResources().getColor(R.color.orange6));
-		item.setTextSize(60f);
+		item.setTextSize(100f);
 		item.setTextAlignment(Gravity.CENTER);
 		item.setVisibility(View.INVISIBLE);
 		
@@ -72,11 +70,6 @@ public class Element {
 		this.pair = pair;
 	}
 
-	public int getPlace() {
-		return place;
-	}
-
-	
 
 	public RelativeLayout getZone() {
 		return zone;

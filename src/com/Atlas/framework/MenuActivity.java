@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import boutons.Bouton;
-import boutons.NextActivityListener;
 
 import composants.Animer;
 
@@ -24,7 +23,7 @@ public class MenuActivity extends Activity {
 	private Button decor;
 	private MediaPlayer mp;
 	private boolean sound = true;
-	private TypeMenu typeMenu = TypeMenu.OceanHorizontal;
+	private TypeMenu menuDepart = TypeMenu.OceanHorizontal;
 	Menu m;
 
 	
@@ -47,17 +46,17 @@ public class MenuActivity extends Activity {
 		// recuperation du type de menu
 		Intent i = getIntent();
 		TypeMenu s =  (TypeMenu) i.getSerializableExtra("extra");
-		if(s!=null) typeMenu = s;
+		if(s!=null) menuDepart = s;
 		
 		try {
-			m = FabriqueMenu.create(typeMenu,this);
+			m = FabriqueMenu.create(menuDepart,this);
 		} catch (IllegalArgumentException | InstantiationException
 				| IllegalAccessException e) {
 			
 			e.printStackTrace();
 		}
 		final ViewGroup parent = (ViewGroup) findViewById(R.id.parent);
-		m.createMenu(parent);
+		m.createMenu(parent,menuDepart);
 		m.rassembler(1, 2);
 		m.rassembler(3, 4);
 		m.addTitre("MEMORY GNAR !!");
@@ -67,7 +66,7 @@ public class MenuActivity extends Activity {
 		m.addButton("tes scores !!!", 6);
 
 		mp = MediaPlayer.create(MenuActivity.this, R.raw.music);
-		if(typeMenu.equals(TypeMenu.OceanHorizontal)) mp = MediaPlayer.create(MenuActivity.this, R.raw.habla_con_hella);
+		if(menuDepart.equals(TypeMenu.OceanHorizontal)) mp = MediaPlayer.create(MenuActivity.this, R.raw.habla_con_hella);
 		mp.setLooping(true);
 		mp.start();
 
@@ -93,29 +92,28 @@ public class MenuActivity extends Activity {
 			}
 		});
 
-		final Button pressed = Bouton.createRoundedButton(this, R.color.vert3);
-		pressed.setText(jouer.getText());
-
-			
-		
+		// passage a l'autre activite
 		jouer.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				jouer = pressed;
+				
 				TypeMenu menu = TypeMenu.JungleHorizontal;
-				if(typeMenu.equals(TypeMenu.JungleHorizontal)) menu = TypeMenu.OceanHorizontal;	
+				if(menuDepart.equals(TypeMenu.OceanHorizontal)) menu = TypeMenu.OceanHorizontal;
+				mp.stop();
 				Animer.changeActivityAnimation(parent, MemoryActivity.class,menu);
 			}
 		});
 	
+		
 
 		decor.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 								
 				TypeMenu menu = TypeMenu.JungleHorizontal;
-				if(typeMenu.equals(TypeMenu.JungleHorizontal)) menu = TypeMenu.OceanHorizontal;	
+				if(menuDepart.equals(TypeMenu.JungleHorizontal)) menu = TypeMenu.OceanHorizontal;	
 				Animer.changeActivityAnimation(parent, MenuActivity.class,menu);
+
 			}
 		});
 	}
@@ -124,6 +122,7 @@ public class MenuActivity extends Activity {
 	public void onResume() {
 		super.onResume();
 		jouer = Bouton.createRoundedButton(this, R.color.vert1);
+		mp.start();
 
 	}
 

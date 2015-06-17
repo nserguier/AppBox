@@ -38,7 +38,7 @@ public class MenuOceanH implements Menu{
 	 * @param parent le parent de l'activite
 	 * @return
 	 */
-	public RelativeLayout[] createMenu(ViewGroup parent) {
+	public RelativeLayout[] createMenu(ViewGroup parent,TypeMenu type) {
 
 		
 		int width = context.getApplicationContext().getResources().getDisplayMetrics().widthPixels;
@@ -49,7 +49,7 @@ public class MenuOceanH implements Menu{
 			a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		
 		//	on definit un background general
-		parent.setBackground(context.getResources().getDrawable(R.drawable.ocean_h));
+		parent.setBackground(context.getResources().getDrawable(type.getBackground()));
 		parent.addView(boutons);
 		parent.setClipChildren(false);
 		
