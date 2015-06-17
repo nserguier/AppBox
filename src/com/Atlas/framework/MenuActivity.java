@@ -100,7 +100,7 @@ public class MenuActivity extends Activity {
 				TypeMenu menu = TypeMenu.JungleHorizontal;
 				if(menuDepart.equals(TypeMenu.OceanHorizontal)) menu = TypeMenu.OceanHorizontal;
 				mp.stop();
-				Animer.changeActivityAnimation(parent, MemoryActivity.class,menu);
+				Animer.changeActivityAnimation(parent, MemoryActivity.class,menu,"memory",null,null);
 			}
 		});
 	
@@ -112,7 +112,7 @@ public class MenuActivity extends Activity {
 								
 				TypeMenu menu = TypeMenu.JungleHorizontal;
 				if(menuDepart.equals(TypeMenu.JungleHorizontal)) menu = TypeMenu.OceanHorizontal;	
-				Animer.changeActivityAnimation(parent, MenuActivity.class,menu);
+				Animer.changeActivityAnimation(parent, MenuActivity.class,menu,"extra",null,null);
 
 			}
 		});

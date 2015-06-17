@@ -358,7 +358,7 @@ public class MemoryActivity extends Activity {
 			public void onClick(View v) {
 
 				Animer.changeActivityAnimation(parent, MemoryActivity.class,
-						menu);
+						nbVictoire+1,"victoire",menu,"memory");
 			}
 		});
 	}

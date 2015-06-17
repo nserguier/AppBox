@@ -1,5 +1,7 @@
 package composants;
 
+import java.io.Serializable;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -357,15 +359,16 @@ public class Animer {
 		return trans;
 	}
 
-	/** Passe d'une activite a une autre avec une animation de transition
+	/**
 	 * 
 	 * @param parent
 	 * @param targetActivity
 	 * @param extra un parametre serialise qui sera repris par la nouvelle application, mettre null pour l'ignorer
+	 * @param name l'id du parametre extra
 	 * 
 	 */
 	public static void changeActivityAnimation(ViewGroup parent,
-			final Class<?> targetActivity,final TypeMenu extra) {
+			final Class<?> targetActivity,final Serializable extra1,final String name1,final Serializable extra2,final String name2) {
 		/* animation rideau sur l'ecran violet */
 		final Context context = parent.getContext();
 		int H = context.getApplicationContext().getResources()
@@ -389,8 +392,10 @@ public class Animer {
 			public void onAnimationEnd(Animation animation) {
 				/* Passage a l'autre activite */
 				Intent intent = new Intent((Activity) context, targetActivity);
-				if (extra != null)
-					intent.putExtra("extra", extra);
+				if (extra1 != null)
+					intent.putExtra(name1, extra1);
+				if (extra2 != null)
+					intent.putExtra(name2, extra2);
 				((Activity) context).startActivity(intent);
 
 				((Activity) context).overridePendingTransition(R.anim.fade_out,
