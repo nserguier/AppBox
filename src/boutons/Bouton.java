@@ -14,11 +14,16 @@ import android.widget.ImageButton;
 
 import composants.Couleur;
 
-
+/**
+ * classe qui permet de creer rapidement un bouton arrondi de la couleur de son choix
+ * 
+ * @author Victor,Nicklos
+ *
+ */
 public class Bouton {
 
-	Button bouton;
-	ImageButton image_bouton;
+	private Button bouton;
+	private ImageButton image_bouton;
 	
 	public Bouton(Activity a){
 		bouton = new Button(a);
@@ -26,8 +31,8 @@ public class Bouton {
 	}
 	
 	/**
-	 * Cree une image de bouton a partir d'une couleur
-	 * @param color La couleur seravnt de base au bouton
+	 * Cree une image de bouton carre a partir d'une couleur
+	 * @param color La couleur servant de base au bouton
 	 * @return L'image du bouton
 	 */
 	public static LayerDrawable createButtonDrawable(int color){	
@@ -51,8 +56,34 @@ public class Bouton {
 	}
 	
 	/**
-	 * Cree une image de bouton arrondi a partir d'une couleur
+	 * Cree une image de bouton carre presse a partir d'une couleur
 	 * @param color La couleur seravnt de base au bouton
+	 * @return L'image du bouton
+	 */
+	public static LayerDrawable createButtonPressedDrawable(Context c,int color){
+		color = c.getResources().getColor(color);
+		GradientDrawable fond = new GradientDrawable();
+	    fond.setShape(GradientDrawable.RECTANGLE);
+	    fond.setCornerRadius(15);
+	    fond.setColor(Couleur.darken(color));
+	    
+		GradientDrawable devant = new GradientDrawable();
+	    devant.setShape(GradientDrawable.RECTANGLE);
+	    devant.setCornerRadius(15);
+	    int[] colors = { color,Couleur.lighten(color), color };
+	    devant.setColors(colors);
+	    devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+	    
+	    GradientDrawable[] layers = {fond,devant};
+	    LayerDrawable res = new LayerDrawable(layers);
+	    res.setLayerInset(0, 0, 0, 0, 0);
+	    res.setLayerInset(1, 2, 2, 2, 6);
+	    return res;
+	}
+	
+	/**
+	 * Cree une image de bouton arrondi a partir d'une couleur
+	 * @param color La couleur servant de base au bouton
 	 * @return L'image du bouton
 	 */
 	public static LayerDrawable roundedDrawable(Activity a,int color,float f){
@@ -91,7 +122,7 @@ public class Bouton {
 	}
 	
 	/**
-	 * Cree une image de bouton arrondi a partir d'une couleur
+	 * Cree une image de bouton arrondi presse a partir d'une couleur
 	 * @param color La couleur servant de base au bouton
 	 * @return L'image du bouton
 	 */
@@ -129,36 +160,9 @@ public class Bouton {
 	    res.setLayerInset(1,margin,margin,margin,margin);
 	    return res;
 	}
-	
+			
 	/**
-	 * Cree une image de bouton presse a partir d'une couleur
-	 * @param color La couleur seravnt de base au bouton
-	 * @return L'image du bouton
-	 */
-	public static LayerDrawable createButtonPressedDrawable(Context c,int color){
-		color = c.getResources().getColor(color);
-		GradientDrawable fond = new GradientDrawable();
-	    fond.setShape(GradientDrawable.RECTANGLE);
-	    fond.setCornerRadius(15);
-	    fond.setColor(Couleur.darken(color));
-	    
-		GradientDrawable devant = new GradientDrawable();
-	    devant.setShape(GradientDrawable.RECTANGLE);
-	    devant.setCornerRadius(15);
-	    int[] colors = { color,Couleur.lighten(color), color };
-	    devant.setColors(colors);
-	    devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-	    
-	    GradientDrawable[] layers = {fond,devant};
-	    LayerDrawable res = new LayerDrawable(layers);
-	    res.setLayerInset(0, 0, 0, 0, 0);
-	    res.setLayerInset(1, 2, 2, 2, 6);
-	    return res;
-	}
-	
-
-	/**
-	 * Cree un bouton en relief classique a partir d'une couleur
+	 * Cree un bouton en relief carre a partir d'une couleur
 	 * 
 	 * @param c
 	 *            Le contexte
@@ -226,8 +230,12 @@ public class Bouton {
 		b.setBackground(layerDrawable);
 	}
 	
+	// les prochaines methodes permettent de changer les paramètres des boutons
+	// avec une ecriture fluent: on peut chainer les methodes pour plus de
+	// lisibililite et de concision.
 	
 	/**
+	 *
 	 * Methode pour l'ecriture fluent
 	 * @param context
 	 * @return 

@@ -108,20 +108,7 @@ public class MenuActivity extends Activity {
 			}
 		});
 
-		// passage a l'autre activite
-		jouer.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				
-				TypeMenu menu = TypeMenu.JungleHorizontal;
-				if(menuDepart.equals(TypeMenu.OceanHorizontal)) menu = TypeMenu.OceanHorizontal;
-				mp.stop();
-				Animer.changeActivityAnimation(parent, MemoryActivity.class,menu,"memory",null,null);
-			}
-		});
-	
 		
-
 		decor.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
