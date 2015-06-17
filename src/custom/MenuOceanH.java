@@ -18,6 +18,15 @@ import boutons.ButtonCreator;
 import com.Atlas.framework.R;
 import composants.Animate;
 
+/**
+ * Objet qui code un menu "ocean" selon une certaine disposition (orientation paysage) et avec des
+ * animations la couleur des boutons, leur forme et le background est imposée
+ * (sauf changement dans ce code) le nom des boutons et leur fonction seront en
+ * revenche paramétrable dans un autre classe.
+ * 
+ * @author Victor:Nicklos
+ * 
+ */
 public class MenuOceanH implements Menu{
 
 	private Context context; 
@@ -93,7 +102,7 @@ public class MenuOceanH implements Menu{
 				case 2: 
 					boutons.addView(menu[2]);
 					params.addRule(RelativeLayout.RIGHT_OF,menu[1].getId());
-					params.setMargins(marge, width/4, 0, 0);
+					params.setMargins(marge, width/4, marge, 0);
 					menu[2].setLayoutParams(params);
 					
 				
@@ -112,7 +121,7 @@ public class MenuOceanH implements Menu{
 					boutons.addView(menu[4]);
 					params.addRule(RelativeLayout.BELOW,menu[1].getId());
 					params.addRule(RelativeLayout.RIGHT_OF,menu[3].getId());
-					params.setMargins(marge, marge, 0, 0);
+					params.setMargins(marge, marge, marge, 0);
 					menu[4].setLayoutParams(params);
 					
 				
@@ -131,7 +140,7 @@ public class MenuOceanH implements Menu{
 					boutons.addView(menu[6]);
 					params.addRule(RelativeLayout.BELOW,menu[3].getId());
 					params.addRule(RelativeLayout.RIGHT_OF,menu[5].getId());
-					params.setMargins(marge, marge, 0, 0);
+					params.setMargins(marge, marge, marge, 0);
 					menu[6].setLayoutParams(params);
 					
 				break;
@@ -153,6 +162,9 @@ public class MenuOceanH implements Menu{
 	 * @param l2 l'emplacement a droite (2,4,6)
 	 */
 	public void rassembler(int l1, int l2) {
+		int height = context.getApplicationContext().getResources().getDisplayMetrics().heightPixels;
+		int marge = height/40;
+		
 		if((l1==1 || l1==3 || l1==5)&&(l2==2 || l2==4 || l2==6)){
 			RelativeLayout l = new RelativeLayout(context);
 			boutons.addView(l);
@@ -161,8 +173,8 @@ public class MenuOceanH implements Menu{
 			params.addRule(RelativeLayout.ALIGN_RIGHT,menu[l2].getId());
 			params.addRule(RelativeLayout.ALIGN_TOP,menu[l1].getId());
 			params.addRule(RelativeLayout.ALIGN_BOTTOM,menu[l1].getId());
-			params.setMargins(0, 0, 40, 0);
 			l.setLayoutParams(params);
+			params.setMargins(0, 0, marge, 0);
 			menu[l1]=l;
 			boutons.removeView(menu[l2]);
 			menu[l2]=null;
@@ -181,9 +193,9 @@ public class MenuOceanH implements Menu{
 	
 	public Button addButton(String texte, int place) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton((Activity) context,R.color.bleu1);
+			Button b = ButtonCreator.createRoundedButton((Activity) context,TypeMenu.OceanHorizontal.getCouleur1());
 			if( place ==3 || place == 4)
-				b = ButtonCreator.createRoundedButton((Activity) context,R.color.bleu2);
+				b = ButtonCreator.createRoundedButton((Activity) context,TypeMenu.OceanHorizontal.getCouleur2());
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);

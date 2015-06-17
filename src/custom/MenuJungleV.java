@@ -21,6 +21,15 @@ import composants.Animate;
 import dragAndDrop.DnDFonctions;
 import dragAndDrop.MyDragAndDrop;
 
+/**
+ * Objet qui code un menu "jungle" selon une certaine disposition (orientation portrait) et avec des
+ * animations la couleur des boutons, leur forme et le background est imposée
+ * (sauf changement dans ce code) le nom des boutons et leur fonction seront en
+ * revenche paramétrable dans un autre classe.
+ * 
+ * @author Victor:Nicklos
+ * 
+ */
 public class MenuJungleV implements Menu{
 
 	private Context context;
@@ -164,6 +173,8 @@ public class MenuJungleV implements Menu{
 	 * @param l2 l'emplacement a droite (2,4,6)
 	 */
 	public void rassembler(int l1, int l2) {
+		int width = context.getApplicationContext().getResources().getDisplayMetrics().widthPixels;
+		int marge = width/40;
 		if((l1==1 || l1==3 || l1==5)&&(l2==2 || l2==4 || l2==6)){
 			RelativeLayout l = new RelativeLayout(context);
 			boutons.addView(l);
@@ -172,7 +183,7 @@ public class MenuJungleV implements Menu{
 			params.addRule(RelativeLayout.ALIGN_RIGHT,menu[l2].getId());
 			params.addRule(RelativeLayout.ALIGN_TOP,menu[l1].getId());
 			params.addRule(RelativeLayout.ALIGN_BOTTOM,menu[l1].getId());
-			params.setMargins(0, 0, 40, 0);
+			params.setMargins(0, 0, marge, 0);
 			l.setLayoutParams(params);
 			menu[l1]=l;
 			boutons.removeView(menu[l2]);
@@ -192,9 +203,9 @@ public class MenuJungleV implements Menu{
 	
 	public Button addButton(String texte, int place) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton((Activity) context,R.color.vert1);
+			Button b = ButtonCreator.createRoundedButton((Activity) context,TypeMenu.JungleVertical.getCouleur1());
 			if( place ==3 || place == 4)
-				b = ButtonCreator.createRoundedButton((Activity) context,R.color.vert2);
+				b = ButtonCreator.createRoundedButton((Activity) context,TypeMenu.JungleVertical.getCouleur2());
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);

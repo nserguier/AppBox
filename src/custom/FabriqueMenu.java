@@ -18,9 +18,11 @@ public class FabriqueMenu {
 	 *         découplage.
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
+	 * @throws InstantiationException
+	 * @author Victor,Nicklos 
 	 */
-	public static Menu create(TypeMenu typeMenu,Context context) throws IllegalArgumentException, InstantiationException, IllegalAccessException {
+	public static Menu create(TypeMenu typeMenu,Context context) 
+			throws IllegalArgumentException, InstantiationException, IllegalAccessException {
 
 		switch(typeMenu){
 		case JungleHorizontal: return new MenuJungleH(context);

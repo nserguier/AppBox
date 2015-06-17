@@ -23,16 +23,16 @@ public class Element {
 	private Context context;
 	private TextView item;
 	private boolean isVisible = false;
-	private TypeMenu menu;
+	private int drawable;
 	
 	/**
 	 * @param pair
 	 * @param trouve
 	 * @param context
+	 * @param drawable
 	 */
-	public Element(int pair,TypeMenu menu,Context context) {
+	public Element(int pair,int drawable, Context context) {
 		this.pair = pair;
-		this.menu = menu;
 		this.context = context;
 		zone = new RelativeLayout(context);
 		
@@ -43,7 +43,7 @@ public class Element {
 		item.setTextAlignment(Gravity.CENTER);
 		item.setVisibility(View.INVISIBLE);
 		
-		zone.setBackground(context.getResources().getDrawable(menu.getCache()));
+		zone.setBackground(context.getResources().getDrawable(drawable));
 		RelativeLayout.LayoutParams params = new LayoutParams(
 				 LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.CENTER_IN_PARENT);

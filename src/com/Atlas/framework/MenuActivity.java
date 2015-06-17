@@ -43,10 +43,21 @@ public class MenuActivity extends Activity {
 
 		setContentView(R.layout.activity_menu_style);
 
+
+		final ViewGroup parent = (ViewGroup) findViewById(R.id.parent);
+		
 		// recuperation du type de menu
 		Intent i = getIntent();
 		TypeMenu s =  (TypeMenu) i.getSerializableExtra("extra");
-		if(s!=null) menuDepart = s;
+		if(s!=null){ 
+			menuDepart = s;
+			/* Apparition de l'activité */
+			int H = getApplicationContext().getResources()
+					.getDisplayMetrics().heightPixels;
+			Animate.translateDecelerate(parent, 0, H, 0, 0,
+					2000);
+		}
+		
 		
 		try {
 			m = FabriqueMenu.create(menuDepart,this);
@@ -54,16 +65,21 @@ public class MenuActivity extends Activity {
 				| IllegalAccessException e) {
 			
 			e.printStackTrace();
-		}
-		final ViewGroup parent = (ViewGroup) findViewById(R.id.parent);
+		}		
+		
+		// on cree le menu et on l'incorpore à l'appli
 		m.createMenu(parent,menuDepart);
+		// on rassemble les premiers boutons
 		m.rassembler(1, 2);
 		m.rassembler(3, 4);
 		m.addTitre("MEMORY GNAR !!");
+		// on cree les boutons, on pourra plus tard leur donner une tâche
 		jouer = m.addButton("Jouer", 1);
 		decor = m.addButton("Autre decor !", 3);
 		m.addButton("Aide de GNAR ?", 5);
 		m.addButton("tes scores !!!", 6);
+		
+		// c'est fini, et voici le resultat !
 
 		mp = MediaPlayer.create(MenuActivity.this, R.raw.music);
 		if(menuDepart.equals(TypeMenu.OceanHorizontal)) mp = MediaPlayer.create(MenuActivity.this, R.raw.habla_con_hella);
@@ -98,7 +114,7 @@ public class MenuActivity extends Activity {
 			public void onClick(View v) {
 				
 				TypeMenu menu = TypeMenu.JungleHorizontal;
-				if(menuDepart.equals(TypeMenu.OceanHorizontal)) menu = TypeMenu.OceanHorizontal;
+				if(menuDepart.equals(v)) menu = TypeMenu.OceanHorizontal;
 				mp.stop();
 				Animate.changeActivityAnimation(parent, MemoryActivity.class,menu,"memory");
 			}

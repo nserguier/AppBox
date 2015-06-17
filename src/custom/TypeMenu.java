@@ -4,21 +4,30 @@ import com.Atlas.framework.R;
 
 import android.graphics.drawable.Drawable;
 
-public enum TypeMenu {OceanHorizontal(R.drawable.ocean_h,R.drawable.une_bulle),
-	JungleVertical(R.drawable.jungle_v,R.drawable.buisson),
-	JungleHorizontal(R.drawable.jungle_h,R.drawable.buisson);
+/**
+ * une enumeration qui permet de recenser les differents types de menus proposees 
+ * avec leurs couleurs er backgrounds
+ * @author Victor,Nicklos
+ *
+ */
+public enum TypeMenu {OceanHorizontal(R.drawable.ocean_h,R.color.bleu1,R.color.bleu2),
+	JungleVertical(R.drawable.jungle_v,R.color.vert1,R.color.vert2),
+	JungleHorizontal(R.drawable.jungle_h,R.color.vert1,R.color.vert2);
 
 	private int background;
-	private int cache;
+	private int couleur1;
+	private int couleur2;
 		
 	/**
 	 * 
 	 * @param background
-	 * @param cache
+	 * @param couleur1
+	 * @param couleur2
 	 */
-	private TypeMenu(int background, int cache) {
+	private TypeMenu(int background, int couleur1,int couleur2) {
 		this.background = background;
-		this.cache = cache;
+		this.couleur1 = couleur1;
+		this.couleur2 = couleur2;
 	}
 
 
@@ -27,9 +36,15 @@ public enum TypeMenu {OceanHorizontal(R.drawable.ocean_h,R.drawable.une_bulle),
 	}
 
 
-	public int getCache() {
-		return cache;
+	public int getCouleur2() {
+		return couleur2;
 	}
+	
+	public int getCouleur1() {
+		return couleur1;
+	}
+
+
 
 
 
