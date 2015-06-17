@@ -1,9 +1,5 @@
 package composants;
 
-import com.Atlas.framework.R;
-
-import custom.TypeMenu;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -20,9 +16,15 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
-import android.widget.RelativeLayout;
 
-public class Animate {
+import com.Atlas.framework.R;
+
+import custom.TypeMenu;
+
+/**
+ * Composant permettant d'animer des vues avec une collection d'animation parametrables
+ */
+public class Animer {
 
 	/**
 	 * Anime une vue en la faisant grossir/retrecir
@@ -102,6 +104,18 @@ public class Animate {
 		return rotate;
 	}
 
+	/** Fait tourner une vue d'un angle à un autre autour d'un point
+	 * 
+	 * @param view La vue a animer
+	 * @param duration duree d'un cycle d'animation en millisecondes
+	 * @param from l'angle à prendre au début de l'animation (souvent 0)
+	 * @param to l'angle à prendre en fin de l'animation
+	 * @param pivotX coordonnee x du point autour duquel tourner (x=0 bord gauche de la vue, x=1 bord droit)
+	 * @param pivotY coordonnee y du point autour duquel tourner (y=0 haut de la vue, y=1 bas)
+	 * @param loop "true" pour boucler l'animation a l'infini "false" pour
+	 *            effectuer une seule fois l'animation
+	 * @return
+	 */
 	public static RotateAnimation rotate(View view, int duration, int from,
 			int to, float pivotX, float pivotY, boolean loop) {
 		RotateAnimation rotate = new RotateAnimation(from, to,
@@ -243,7 +257,7 @@ public class Animate {
 		return alpha;
 	}
 
-	/**
+	/** Translate une vue de sa position initiale à une autre position
 	 * 
 	 * @param view
 	 * @param toX
@@ -260,7 +274,7 @@ public class Animate {
 
 	}
 
-	/**
+	/** Translate une vue d'une position à une autre
 	 * 
 	 * @param view
 	 * @param toX
@@ -277,6 +291,17 @@ public class Animate {
 		return trans;
 	}
 
+	/** Translate une vue d'une position à une autre et peut boucler cette animation
+	 * 
+	 * @param view
+	 * @param fromX
+	 * @param fromY
+	 * @param toX
+	 * @param toY
+	 * @param duration
+	 * @param loop
+	 * @return
+	 */
 	public static TranslateAnimation translate(View view, float fromX,
 			float fromY, float toX, float toY, int duration, boolean loop) {
 		TranslateAnimation trans = new TranslateAnimation(fromX, toX, fromY,
@@ -291,7 +316,7 @@ public class Animate {
 		return trans;
 	}
 
-	/**
+	/** Translate une vue d'un point à un autre en decelerrant sur la fin
 	 * 
 	 * @param view
 	 * @param toX
@@ -309,7 +334,8 @@ public class Animate {
 		return trans;
 	}
 
-	/**
+	/** Translate une vue d'un point à un autre en decelerrant sur la fin
+	 * Peut se lancer de maniere decale
 	 * 
 	 * @param view
 	 * @param toX
@@ -331,7 +357,7 @@ public class Animate {
 		return trans;
 	}
 
-	/**
+	/** Passe d'une activite a une autre avec une animation de transition
 	 * 
 	 * @param parent
 	 * @param targetActivity

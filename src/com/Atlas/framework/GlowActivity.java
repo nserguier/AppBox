@@ -2,7 +2,7 @@ package com.Atlas.framework;
 
 import composants.GlowingButton;
 
-import boutons.ButtonCreator;
+import boutons.Bouton;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;

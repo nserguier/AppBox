@@ -1,11 +1,11 @@
 package com.Atlas.framework;
 
-import composants.Fonts;
+import composants.Police;
 
 public final class Application extends android.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Fonts.setDefaultFont(getApplicationContext(), "onthemove.ttf");
+        Police.setDefaultFont(getApplicationContext(), "onthemove.ttf");
     }
 }

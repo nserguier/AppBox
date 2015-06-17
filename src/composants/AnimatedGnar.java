@@ -10,28 +10,36 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import boutons.ButtonCreator;
+import boutons.Bouton;
 
 import com.Atlas.framework.R;
 
+/**
+ * Ajoute une mascotte anime
+ */
 public class AnimatedGnar {
 	
 	static ImageButton tete = null;
 	static ImageButton tete_mini = null;
 	
-	public static void addAnimatedGnar(Activity a,RelativeLayout rl){
+	/**
+	 * Ajoute un Gnar anime au RelativeLayout(vide) donne en parametre
+	 * @param a l'activite
+	 * @param rl le layout dans lequel placer Gnar
+	 */
+	public static void addGnar(Activity a,RelativeLayout rl){
 		final Resources r = a.getResources();
 		rl.setClipChildren(false);
 		
 		// Creation des parties de gnar
-		tete = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.tete)).buildImage();
-		ImageButton oreille_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.oreille)).buildImage();
-		ImageButton oreille_droite = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.oreille)).mirror().buildImage();
-		ImageButton corps = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.corps)).buildImage();
-		ImageButton bras_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.bras)).buildImage();
-		ImageButton bras_droit = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.bras)).mirror().buildImage();
-		ImageButton jambe_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.jambe)).buildImage();
-		ImageButton jambe_droit = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.jambe)).mirror().buildImage();
+		tete = Bouton.create(a).setBack(r.getDrawable(R.drawable.tete)).buildImage();
+		ImageButton oreille_gauche = Bouton.create(a).setBack(r.getDrawable(R.drawable.oreille)).buildImage();
+		ImageButton oreille_droite = Bouton.create(a).setBack(r.getDrawable(R.drawable.oreille)).mirror().buildImage();
+		ImageButton corps = Bouton.create(a).setBack(r.getDrawable(R.drawable.corps)).buildImage();
+		ImageButton bras_gauche = Bouton.create(a).setBack(r.getDrawable(R.drawable.bras)).buildImage();
+		ImageButton bras_droit = Bouton.create(a).setBack(r.getDrawable(R.drawable.bras)).mirror().buildImage();
+		ImageButton jambe_gauche = Bouton.create(a).setBack(r.getDrawable(R.drawable.jambe)).buildImage();
+		ImageButton jambe_droit = Bouton.create(a).setBack(r.getDrawable(R.drawable.jambe)).mirror().buildImage();
 		
 		// Tailles des drawable
 		Bitmap bit_tete = ((BitmapDrawable) r.getDrawable(R.drawable.tete)).getBitmap();
@@ -52,11 +60,11 @@ public class AnimatedGnar {
 		
 		// Animation
 		int T = 1000;
-		Animate.rotate(oreille_gauche, T,-2, 3,1f,1f, true);
-		Animate.rotate(oreille_droite, T,3,-2,0f,1f, true);
-		Animate.rotate(bras_gauche, T,-3, 3,1f,0f, true);
-		Animate.rotate(bras_droit, T,3,-3,0f,0f, true);
-		Animate.translate(corps, 0, -H_tete/30, 0, H_tete/100, T,true);
+		Animer.rotate(oreille_gauche, T,-2, 3,1f,1f, true);
+		Animer.rotate(oreille_droite, T,3,-2,0f,1f, true);
+		Animer.rotate(bras_gauche, T,-3, 3,1f,0f, true);
+		Animer.rotate(bras_droit, T,3,-3,0f,0f, true);
+		Animer.translate(corps, 0, -H_tete/30, 0, H_tete/100, T,true);
 		
 		//Clics
 		OnClickListener ocl = new View.OnClickListener() {
@@ -137,20 +145,25 @@ public class AnimatedGnar {
         frameAnimation.start();
 	}
 	
-	public static void addAnimatedMiniGnar(Activity a,RelativeLayout rl){
+	/**
+	 * Ajoute un bebe Gnar anime au RelativeLayout(vide) donne en parametre
+	 * @param a l'activite
+	 * @param rl le layout dans lequel placer Gnar
+	 */
+	public static void addMiniGnar(Activity a,RelativeLayout rl){
 		final Resources r = a.getResources();
 		rl.setClipChildren(false);
 		
 		// Creation des parties de gnar
-		final ImageButton tete = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_tete)).buildImage();
+		final ImageButton tete = Bouton.create(a).setBack(r.getDrawable(R.drawable.mini_tete)).buildImage();
 		tete_mini = tete;
-		ImageButton oreille_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_oreille)).buildImage();
-		ImageButton oreille_droite = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_oreille)).mirror().buildImage();
-		ImageButton corps = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_corps)).buildImage();
-		ImageButton bras_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_bras)).buildImage();
-		ImageButton bras_droit = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_bras)).mirror().buildImage();
-		ImageButton jambe_gauche = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_jambe)).buildImage();
-		ImageButton jambe_droit = ButtonCreator.create(a).setBack(r.getDrawable(R.drawable.mini_jambe)).mirror().buildImage();
+		ImageButton oreille_gauche = Bouton.create(a).setBack(r.getDrawable(R.drawable.mini_oreille)).buildImage();
+		ImageButton oreille_droite = Bouton.create(a).setBack(r.getDrawable(R.drawable.mini_oreille)).mirror().buildImage();
+		ImageButton corps = Bouton.create(a).setBack(r.getDrawable(R.drawable.mini_corps)).buildImage();
+		ImageButton bras_gauche = Bouton.create(a).setBack(r.getDrawable(R.drawable.mini_bras)).buildImage();
+		ImageButton bras_droit = Bouton.create(a).setBack(r.getDrawable(R.drawable.mini_bras)).mirror().buildImage();
+		ImageButton jambe_gauche = Bouton.create(a).setBack(r.getDrawable(R.drawable.mini_jambe)).buildImage();
+		ImageButton jambe_droit = Bouton.create(a).setBack(r.getDrawable(R.drawable.mini_jambe)).mirror().buildImage();
 		
 		// Tailles des drawable
 		Bitmap bit_tete = ((BitmapDrawable) r.getDrawable(R.drawable.mini_tete)).getBitmap();
@@ -171,11 +184,11 @@ public class AnimatedGnar {
 		
 		// Animation
 		int T = 1000;
-		Animate.rotate(oreille_gauche, T,-2, 3,1f,1f, true);
-		Animate.rotate(oreille_droite, T,3,-2,0f,1f, true);
-		Animate.rotate(bras_gauche, T,-3, 3,1f,0f, true);
-		Animate.rotate(bras_droit, T,3,-3,0f,0f, true);
-		Animate.translate(corps, 0, -H_tete/30, 0, H_tete/100, T,true);
+		Animer.rotate(oreille_gauche, T,-2, 3,1f,1f, true);
+		Animer.rotate(oreille_droite, T,3,-2,0f,1f, true);
+		Animer.rotate(bras_gauche, T,-3, 3,1f,0f, true);
+		Animer.rotate(bras_droit, T,3,-3,0f,0f, true);
+		Animer.translate(corps, 0, -H_tete/30, 0, H_tete/100, T,true);
 		
 		//Clics
 		

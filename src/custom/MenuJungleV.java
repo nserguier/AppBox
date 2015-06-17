@@ -14,9 +14,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.RelativeLayout.LayoutParams;
-import boutons.ButtonCreator;
+import boutons.Bouton;
 
-import composants.Animate;
+import composants.Animer;
 
 import dragAndDrop.DnDFonctions;
 import dragAndDrop.MyDragAndDrop;
@@ -146,7 +146,7 @@ public class MenuJungleV implements Menu{
 				break;
 			}
 						
-			Animate.pop_in(boutons, 3000);
+			Animer.pop_in(boutons, 3000);
 	
 			
 		}
@@ -192,9 +192,9 @@ public class MenuJungleV implements Menu{
 	
 	public Button addButton(String texte, int place) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton((Activity) context,R.color.vert1);
+			Button b = Bouton.createRoundedButton((Activity) context,R.color.vert1);
 			if( place ==3 || place == 4)
-				b = ButtonCreator.createRoundedButton((Activity) context,R.color.vert2);
+				b = Bouton.createRoundedButton((Activity) context,R.color.vert2);
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -231,7 +231,7 @@ public class MenuJungleV implements Menu{
 			Typeface externalFont = Typeface.createFromAsset(context.getAssets(),"fonts/intsh.ttf");
 			t.setTypeface(externalFont);
 			t.setTextSize(80);
-			Animate.pop_in(t,2000);
+			Animer.pop_in(t,2000);
 			t.setTextColor(context.getResources().getColor(R.color.orange2));
 			/*int color1 = R.color.bleu1;
 			int color2 = R.color.bleu2;
@@ -264,7 +264,7 @@ public class MenuJungleV implements Menu{
 		menu[0].setClipChildren(false);
 		tete.setBackground(context.getApplicationContext().getResources().getDrawable(R.drawable.gnar));
 		tete.setRotation(-90);
-		Animate.translate(tete, width/4+width/8, 0,width-width/4,0, 3000, true);
+		Animer.translate(tete, width/4+width/8, 0,width-width/4,0, 3000, true);
 		
 			
 	}

@@ -2,7 +2,7 @@ package com.Atlas.framework;
 
 import composants.MenuDeroulant;
 
-import boutons.ButtonCreator;
+import boutons.Bouton;
 import boutons.HomeActivityListener;
 import android.app.Activity;
 import android.os.Bundle;
@@ -28,7 +28,7 @@ public class DeroulantActivity extends Activity {
 		parent.addView(fils);
 		
 		RelativeLayout votreMenu = MenuDeroulant.create(fils, this, R.color.bleu1,R.color.bleu2, "derouler le menu");
-		Button b = ButtonCreator.createButton(this,R.color.fushia);
+		Button b = Bouton.createButton(this,R.color.fushia);
 		MenuDeroulant.add(b);
 	}
 }

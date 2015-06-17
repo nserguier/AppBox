@@ -13,10 +13,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import boutons.ButtonCreator;
+import boutons.Bouton;
 
 import com.Atlas.framework.R;
-import composants.Animate;
+import composants.Animer;
 
 public class MenuOceanH implements Menu{
 
@@ -137,7 +137,7 @@ public class MenuOceanH implements Menu{
 				break;
 			}
 						
-			Animate.pop_in(boutons, 3000);
+			Animer.pop_in(boutons, 3000);
 				
 		}
 					
@@ -181,9 +181,9 @@ public class MenuOceanH implements Menu{
 	
 	public Button addButton(String texte, int place) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton((Activity) context,R.color.bleu1);
+			Button b = Bouton.createRoundedButton((Activity) context,R.color.bleu1);
 			if( place ==3 || place == 4)
-				b = ButtonCreator.createRoundedButton((Activity) context,R.color.bleu2);
+				b = Bouton.createRoundedButton((Activity) context,R.color.bleu2);
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -220,7 +220,7 @@ public class MenuOceanH implements Menu{
 			Typeface externalFont = Typeface.createFromAsset(context.getAssets(),"fonts/intsh.ttf");
 			t.setTypeface(externalFont);
 			t.setTextSize(80);
-			Animate.pop_in(t,2000);
+			Animer.pop_in(t,2000);
 			t.setTextColor(context.getResources().getColor(R.color.orange2));
 			/*int color1 = R.color.bleu1;
 			int color2 = R.color.bleu2;
@@ -269,14 +269,14 @@ public class MenuOceanH implements Menu{
 		gnar.setLayoutParams(g_params);
 		sm.addView(gnar);
 		
-		Animate.translate(sm, -width/2,0, 2*width, 0, 15000,true);
+		Animer.translate(sm, -width/2,0, 2*width, 0, 15000,true);
 		
 		gnar.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				
-				Animate.translate(sm,sm.getTranslationX() ,0,sm.getTranslationX(), -height, 10000,false);
+				Animer.translate(sm,sm.getTranslationX() ,0,sm.getTranslationX(), -height, 10000,false);
 				
 			}
 		});
@@ -301,7 +301,7 @@ public class MenuOceanH implements Menu{
 			bulles.setLayoutParams(b_params);
 			bulles.setVisibility(View.INVISIBLE);
 			menu[0].addView(bulles);
-			Animate.translateDecelerate(bulles, height/2, 640, height/2, -2*height, 12000);
+			Animer.translateDecelerate(bulles, height/2, 640, height/2, -2*height, 12000);
 		
 		em.setOnClickListener(new View.OnClickListener() {
 			
@@ -309,7 +309,7 @@ public class MenuOceanH implements Menu{
 			public void onClick(View v) {
 				
 				bulles.setVisibility(View.VISIBLE);
-				Animate.translateDecelerate(bulles, 0, 640, 0, -2*height, 6000);
+				Animer.translateDecelerate(bulles, 0, 640, 0, -2*height, 6000);
 				
 				
 			}

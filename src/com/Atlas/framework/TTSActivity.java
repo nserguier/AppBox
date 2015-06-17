@@ -6,7 +6,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import boutons.HomeActivityListener;
-import boutons.TTSButton;
+import boutons.TTSBouton;
 
 public class TTSActivity extends Activity {
 
@@ -20,7 +20,7 @@ public class TTSActivity extends Activity {
 					      
 			      bouton = (Button) findViewById(R.id.bouton_tts);
 			      write = (EditText)findViewById(R.id.champ);
-			      TTSButton.parleEdit(bouton,write,this);
+			      TTSBouton.parleEdit(bouton,write,this);
 
 			      /* Bouton home de retour au menu */
 					Button home = (Button) findViewById(R.id.home);

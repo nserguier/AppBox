@@ -1,6 +1,6 @@
 package com.Atlas.framework;
 
-import boutons.ButtonCreator;
+import boutons.Bouton;
 import boutons.HomeActivityListener;
 import boutons.NextActivityListener;
 import android.app.Activity;
@@ -26,7 +26,7 @@ public class BoutonsActivity extends Activity {
 		setContentView(R.layout.activity_boutons);
 		
 		/* Bouton couleur perso */
-		Button bouton = ButtonCreator.createButton(this,R.color.rose);
+		Button bouton = Bouton.createButton(this,R.color.rose);
 		RelativeLayout parent = (RelativeLayout) findViewById(R.id.parent_view);
 		parent.addView(bouton);
 		
@@ -48,7 +48,7 @@ public class BoutonsActivity extends Activity {
 			public void onClick(View v) {
 				edit = (EditText) findViewById(R.id.editText);
 				String nomBouton = edit.getText().toString();
-				Button b = ButtonCreator.createButton(getApplicationContext(),getApplicationContext().getResources().getColor(R.color.bleu1));
+				Button b = Bouton.createButton(getApplicationContext(),getApplicationContext().getResources().getColor(R.color.bleu1));
 				stock.addView(b);
 				
 			}

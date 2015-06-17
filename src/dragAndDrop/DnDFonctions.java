@@ -1,6 +1,6 @@
 package dragAndDrop;
 
-import composants.Animate;
+import composants.Animer;
 
 import android.app.Activity;
 import android.content.Context;
@@ -28,7 +28,7 @@ public class DnDFonctions {
 	}
 	
 	public void play() {
-		Animate.fade_out(view, 1000, true);
+		Animer.fade_out(view, 1000, true);
 		parent.removeView(view);
 		/*ImageView f = new ImageView(context);
 		f.setBackground(context.getApplicationContext().getResources().getDrawable(R.drawable.fruit));

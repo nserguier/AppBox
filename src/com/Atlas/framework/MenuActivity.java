@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import boutons.ButtonCreator;
+import boutons.Bouton;
 import boutons.NextActivityListener;
 
-import composants.Animate;
+import composants.Animer;
 
 import custom.FabriqueMenu;
 import custom.Menu;
@@ -93,7 +93,7 @@ public class MenuActivity extends Activity {
 			}
 		});
 
-		final Button pressed = ButtonCreator.createRoundedButton(this, R.color.vert3);
+		final Button pressed = Bouton.createRoundedButton(this, R.color.vert3);
 		pressed.setText(jouer.getText());
 
 			
@@ -104,7 +104,7 @@ public class MenuActivity extends Activity {
 				jouer = pressed;
 				TypeMenu menu = TypeMenu.JungleHorizontal;
 				if(typeMenu.equals(TypeMenu.JungleHorizontal)) menu = TypeMenu.OceanHorizontal;	
-				Animate.changeActivityAnimation(parent, MemoryActivity.class,menu);
+				Animer.changeActivityAnimation(parent, MemoryActivity.class,menu);
 			}
 		});
 	
@@ -115,7 +115,7 @@ public class MenuActivity extends Activity {
 								
 				TypeMenu menu = TypeMenu.JungleHorizontal;
 				if(typeMenu.equals(TypeMenu.JungleHorizontal)) menu = TypeMenu.OceanHorizontal;	
-				Animate.changeActivityAnimation(parent, MenuActivity.class,menu);
+				Animer.changeActivityAnimation(parent, MenuActivity.class,menu);
 			}
 		});
 	}
@@ -123,7 +123,7 @@ public class MenuActivity extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
-		jouer = ButtonCreator.createRoundedButton(this, R.color.vert1);
+		jouer = Bouton.createRoundedButton(this, R.color.vert1);
 
 	}
 

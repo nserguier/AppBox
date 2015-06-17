@@ -24,10 +24,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import boutons.ButtonCreator;
+import boutons.Bouton;
 
 import com.Atlas.framework.R;
-import composants.Animate;
+import composants.Animer;
 
 import dragAndDrop.DnDFonctions;
 import dragAndDrop.MyDragAndDrop;
@@ -151,7 +151,7 @@ public class MenuJungleH implements Menu{
 				break;
 			}
 						
-			Animate.pop_in(boutons, 3000);
+			Animer.pop_in(boutons, 3000);
 	
 			
 		}
@@ -197,9 +197,9 @@ public class MenuJungleH implements Menu{
 	
 	public Button addButton(String texte, int place) {
 		if(place <7 && place >0 && menu[place] != null) {
-			Button b = ButtonCreator.createRoundedButton((Activity) context,R.color.vert1);
+			Button b = Bouton.createRoundedButton((Activity) context,R.color.vert1);
 			if( place ==3 || place == 4)
-				b = ButtonCreator.createRoundedButton((Activity) context,R.color.vert2);
+				b = Bouton.createRoundedButton((Activity) context,R.color.vert2);
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -236,7 +236,7 @@ public class MenuJungleH implements Menu{
 			Typeface externalFont = Typeface.createFromAsset(context.getAssets(),"fonts/intsh.ttf");
 			t.setTypeface(externalFont);
 			t.setTextSize(80);
-			Animate.pop_in(t,2000);
+			Animer.pop_in(t,2000);
 			t.setTextColor(context.getResources().getColor(R.color.orange2));
 			/*int color1 = R.color.bleu1;
 			int color2 = R.color.bleu2;
@@ -265,7 +265,7 @@ public class MenuJungleH implements Menu{
 		liane.setBackground(context.getApplicationContext().getResources().getDrawable(R.drawable.liane));
 		liane.setLayoutParams(l_params);
 		menu[0].addView(liane);
-		Animate.translateDecelerate(liane, 0, -height, 0, 0, 2000);
+		Animer.translateDecelerate(liane, 0, -height, 0, 0, 2000);
 		
 		
 		RelativeLayout fruit = new RelativeLayout(context);
@@ -295,7 +295,7 @@ public class MenuJungleH implements Menu{
 		tete.setLayoutParams(tete_params);
 		menu[0].addView(tete);
 		tete.setBackground(context.getApplicationContext().getResources().getDrawable(R.drawable.gnar));
-		Animate.translate(tete, 0, height/2, 0,  -height/9, 3000, true);
+		Animer.translate(tete, 0, height/2, 0,  -height/9, 3000, true);
 		
 		
 		RotateAnimation rotate = new RotateAnimation(0,360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
