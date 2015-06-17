@@ -4,7 +4,7 @@ package com.Atlas.framework;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import composants.Clock;
+import composants.Horloge;
 
 import boutons.HomeActivityListener;
 
@@ -55,7 +55,7 @@ public class ClockActivity extends Activity {
 		int minute = Calendar.MINUTE;
 		int seconde = Calendar.SECOND;
 		
-		r = Clock.create(r, this, heure, minute, seconde);
+		r = Horloge.create(r, this, heure, minute, seconde);
 
 		go.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -76,14 +76,14 @@ public class ClockActivity extends Activity {
 	public void setHour() {
 		String s = "";
 
-		Clock.erase(r);
+		Horloge.erase(r);
 		s = write.getText().toString();
 		String[] time = s.split(",");
 		int heure = Integer.valueOf(time[0]);
 		int minute = Integer.valueOf(time[1]);
 		int seconde = Integer.valueOf(time[2]);
 
-		r = Clock.create(r, this, heure, minute, seconde);
+		r = Horloge.create(r, this, heure, minute, seconde);
 	}
 
 }

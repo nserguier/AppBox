@@ -11,7 +11,7 @@ public class Couleur {
 	 *            la couleur a assombrir
 	 * @return la couleur assombrie
 	 */
-	public static int darkenColor(int color) {
+	public static int darken(int color) {
 		float[] hsv = new float[3];
 		Color.colorToHSV(color, hsv);
 		hsv[2] *= 0.85f;
@@ -27,7 +27,7 @@ public class Couleur {
 	 *            la couleur a eclaircir
 	 * @return la couleur eclaircie
 	 */
-	public static int lightenColor(int color) {
+	public static int lighten(int color) {
 		float[] hsv = new float[3];
 		Color.colorToHSV(color, hsv);
 		hsv[2] *= 1.2f;

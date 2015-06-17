@@ -25,10 +25,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import boutons.ButtonCreator;
+import boutons.Bouton;
+import boutons.NextActivityListener;
+import boutons.Bouton;
 import boutons.HomeActivityListener;
 
-import composants.Animate;
+import composants.Animer;
 import composants.AnimatedGnar;
 import composants.MyLayoutParams;
 
@@ -101,7 +103,7 @@ public class MemoryActivity extends Activity {
 						/* Apparition de l'activité */
 						int H = getApplicationContext().getResources()
 								.getDisplayMetrics().heightPixels;
-						Animate.translateDecelerate(parent, 0, H, 0, 0,
+						Animer.translateDecelerate(parent, 0, H, 0, 0,
 								2000);
 
 					}
@@ -191,7 +193,7 @@ public class MemoryActivity extends Activity {
 				if (modeAide) {// / on est denas le mode aide
 					tete.setBackground(getApplicationContext().getResources()
 							.getDrawable(R.drawable.tete3));
-					// Animate.scale(plateau[numDesordre.get(5)], 1, (float)
+					// Animer.scale(plateau[numDesordre.get(5)], 1, (float)
 					// 1.5, 2000, 20, true);
 					modeAide = false;
 				} else {
@@ -237,7 +239,7 @@ public class MemoryActivity extends Activity {
 			parent.addView(zone);
 			zone.setX(width / nbCaches * numDesordre.get(i));
 			zone.setY(height / nbCaches * zoneDesordre.get(i));
-			Animate.fade_in(zone, 1000);
+			Animer.fade_in(zone, 1000);
 			tab.add(e);
 
 		}
@@ -260,7 +262,7 @@ public class MemoryActivity extends Activity {
 	public void action(ArrayList<Element> e, Element element) {
 
 		TextView item = element.getItem();
-		Animate.fade_in(item, 1000);
+		Animer.fade_in(item, 1000);
 		element.setVisible(true);
 		for (int i = 0; i < e.size(); i++) {
 			Element ei = e.get(i);
@@ -275,24 +277,23 @@ public class MemoryActivity extends Activity {
 					nbCoups++;
 				} else {
 
-					Animate.fade_out(item, 1000, false);
+					Animer.fade_out(item, 1000, false);
 					ei.setVisible(false);
 					element.setVisible(false);
-					Animate.fade_out(ei.getItem(), 1000, false);
+					Animer.fade_out(ei.getItem(), 1000, false);
 					nbCoups++;
 				}
 		}
 		if (pairesOK == 3 + nbVictoire)
 			victoire();
-
 	}
 
 	public void mange(Element e1, Element e2) {
 
-		Animate.fade_out(e1.getItem(), 1000, true);
-		Animate.fade_out(e2.getItem(), 1000, true);
-		Animate.fade_out(e1.getZone(), 1000, true);
-		Animate.fade_out(e2.getZone(), 1000, true);
+		Animer.fade_out(e1.getItem(), 1000, true);
+		Animer.fade_out(e2.getItem(), 1000, true);
+		Animer.fade_out(e1.getZone(), 1000, true);
+		Animer.fade_out(e2.getZone(), 1000, true);
 
 	}
 
@@ -333,7 +334,7 @@ public class MemoryActivity extends Activity {
 		// params.addRule(RelativeLayout.CENTER_VERTICAL);
 		fin.setLayoutParams(params);
 
-		Button again = ButtonCreator.createRoundedButton(this, R.color.vert2);
+		Button again = Bouton.createRoundedButton(this, R.color.vert2);
 		RelativeLayout.LayoutParams again_params = new LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
@@ -354,18 +355,18 @@ public class MemoryActivity extends Activity {
 		gnar_params.addRule(RelativeLayout.ABOVE, 12);
 		gnar_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		gnar.setLayoutParams(gnar_params);
-		AnimatedGnar.addAnimatedGnar(this, gnar);
+		AnimatedGnar.addGnar(this, gnar);
 
-		Animate.pop_in(fin, 1000);
+		Animer.pop_in(fin, 1000);
 
-		Button pressed = ButtonCreator.createRoundedButton(this, R.color.vert2);
+		Button pressed = Bouton.createRoundedButton(this, R.color.vert2);
 		pressed.setText(again.getText());
 		again.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
-				Animate.changeActivityAnimation(parent, MemoryActivity.class,
-						nbVictoire + 1, menu, "victoire", "memory");
+				Animer.changeActivityAnimation(parent, MemoryActivity.class,
+						menu);
 			}
 		});
 	}
@@ -382,14 +383,14 @@ public class MemoryActivity extends Activity {
 		rl.setClipChildren(false);
 
 		// Creation des parties de gnar
-		ImageButton tete = ButtonCreator.create(this)
+		ImageButton tete = Bouton.create(this)
 				.setBack(r.getDrawable(R.drawable.tete)).buildImage();
-		ImageButton oreille_gauche = ButtonCreator.create(this)
+		ImageButton oreille_gauche = Bouton.create(this)
 				.setBack(r.getDrawable(R.drawable.oreille)).buildImage();
-		ImageButton oreille_droite = ButtonCreator.create(this)
+		ImageButton oreille_droite = Bouton.create(this)
 				.setBack(r.getDrawable(R.drawable.oreille)).mirror()
 				.buildImage();
-
+		
 		// Tailles des drawable
 		Bitmap bit_tete = ((BitmapDrawable) r.getDrawable(R.drawable.tete))
 				.getBitmap();
@@ -404,8 +405,8 @@ public class MemoryActivity extends Activity {
 
 		// Animation
 		int T = 1000;
-		Animate.rotate(oreille_gauche, T, -2, 3, 1f, 1f, true);
-		Animate.rotate(oreille_droite, T, 3, -2, 0f, 1f, true);
+		Animer.rotate(oreille_gauche, T, -2, 3, 1f, 1f, true);
+		Animer.rotate(oreille_droite, T, 3, -2, 0f, 1f, true);
 
 		rl.addView(oreille_gauche, params_oreille_gauche);
 		rl.addView(oreille_droite, params_oreille_droite);
@@ -440,8 +441,7 @@ public class MemoryActivity extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
-		again = ButtonCreator.createRoundedButton(this, R.color.vert1);
-
+		again = Bouton.createRoundedButton(this,R.color.vert1);
 	}
 
 }

@@ -15,12 +15,12 @@ import android.widget.ImageButton;
 import composants.Couleur;
 
 
-public class ButtonCreator {
+public class Bouton {
 
 	Button bouton;
 	ImageButton image_bouton;
 	
-	public ButtonCreator(Activity a){
+	public Bouton(Activity a){
 		bouton = new Button(a);
 		image_bouton = new ImageButton(a);
 	}
@@ -34,12 +34,12 @@ public class ButtonCreator {
 		GradientDrawable fond = new GradientDrawable();
 	    fond.setShape(GradientDrawable.RECTANGLE);
 	    fond.setCornerRadius(15);
-	    fond.setColor(Couleur.darkenColor(color));
+	    fond.setColor(Couleur.darken(color));
 	    
 		GradientDrawable devant = new GradientDrawable();
 	    devant.setShape(GradientDrawable.RECTANGLE);
 	    devant.setCornerRadius(15);
-	    int[] colors = { Couleur.lightenColor(color), color };
+	    int[] colors = { Couleur.lighten(color), color };
 	    devant.setColors(colors);
 	    devant.setOrientation(GradientDrawable.Orientation.BOTTOM_TOP);
 	    
@@ -66,22 +66,22 @@ public class ButtonCreator {
 		GradientDrawable fond = new GradientDrawable();
 	    fond.setShape(GradientDrawable.RECTANGLE);
 	    fond.setCornerRadius(1000);
-	    int fonce = Couleur.darkenColor(color);
+	    int fonce = Couleur.darken(color);
 	    int[] colors0 = { fonce, color };
 	    fond.setColors(colors0);
 	    fond.setOrientation(GradientDrawable.Orientation.BOTTOM_TOP);
-	    fond.setStroke(margin/3, Couleur.darkenColor(fonce));
+	    fond.setStroke(margin/3, Couleur.darken(fonce));
 	    int width = (int) (f*(W/3));
 	    fond.setSize(width,H/8);
 	    
 		GradientDrawable devant = new GradientDrawable();
 	    devant.setShape(GradientDrawable.RECTANGLE);
 	    devant.setCornerRadius(1000);
-	    int clair = Couleur.lightenColor(color);
+	    int clair = Couleur.lighten(color);
 	    int[] colors = { color, clair };
 	    devant.setColors(colors);
 	    devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-	    devant.setStroke(margin/4, Couleur.lightenColor(Couleur.lightenColor(clair)));
+	    devant.setStroke(margin/4, Couleur.lighten(Couleur.lighten(clair)));
 	    
 	    GradientDrawable[] layers = {fond,devant};
 	    LayerDrawable res = new LayerDrawable(layers);
@@ -106,22 +106,22 @@ public class ButtonCreator {
 		GradientDrawable fond = new GradientDrawable();
 	    fond.setShape(GradientDrawable.RECTANGLE);
 	    fond.setCornerRadius(1000);
-	    int clair = Couleur.lightenColor(color);
+	    int clair = Couleur.lighten(color);
 	    int[] colors0 = { color, clair };
 	    fond.setColors(colors0);
 	    fond.setOrientation(GradientDrawable.Orientation.BOTTOM_TOP);
-	    fond.setStroke(margin/3, Couleur.darkenColor(color));
+	    fond.setStroke(margin/3, Couleur.darken(color));
 	    int width = (int) (f*(W/3));
 	    fond.setSize(width,H/8);
 	    
 		GradientDrawable devant = new GradientDrawable();
 	    devant.setShape(GradientDrawable.RECTANGLE);
 	    devant.setCornerRadius(1000);
-	    int clair2 = Couleur.lightenColor(clair);
+	    int clair2 = Couleur.lighten(clair);
 	    int[] colors = { clair, clair2 };
 	    devant.setColors(colors);
 	    devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-	    devant.setStroke(margin/4, Couleur.lightenColor(Couleur.lightenColor(clair2)));
+	    devant.setStroke(margin/4, Couleur.lighten(Couleur.lighten(clair2)));
 	    
 	    GradientDrawable[] layers = {fond,devant};
 	    LayerDrawable res = new LayerDrawable(layers);
@@ -140,12 +140,12 @@ public class ButtonCreator {
 		GradientDrawable fond = new GradientDrawable();
 	    fond.setShape(GradientDrawable.RECTANGLE);
 	    fond.setCornerRadius(15);
-	    fond.setColor(Couleur.darkenColor(color));
+	    fond.setColor(Couleur.darken(color));
 	    
 		GradientDrawable devant = new GradientDrawable();
 	    devant.setShape(GradientDrawable.RECTANGLE);
 	    devant.setCornerRadius(15);
-	    int[] colors = { color,Couleur.lightenColor(color), color };
+	    int[] colors = { color,Couleur.lighten(color), color };
 	    devant.setColors(colors);
 	    devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
 	    
@@ -232,8 +232,8 @@ public class ButtonCreator {
 	 * @param context
 	 * @return 
 	 */
-	public static ButtonCreator create(Activity a){
-		return new ButtonCreator(a) ;
+	public static Bouton create(Activity a){
+		return new Bouton(a) ;
 	}
 
 	/**
@@ -241,7 +241,7 @@ public class ButtonCreator {
 	 * @param d
 	 * @return
 	 */
-	public ButtonCreator setBack(Drawable d){
+	public Bouton setBack(Drawable d){
 		bouton.setBackground(d);
 		image_bouton.setBackground(d);
 		return this;
@@ -252,7 +252,7 @@ public class ButtonCreator {
 	 * @param d
 	 * @return
 	 */
-	public ButtonCreator mirror(){
+	public Bouton mirror(){
 		bouton.setScaleX(-1f);
 		image_bouton.setScaleX(-1f);
 		return this;
@@ -263,7 +263,7 @@ public class ButtonCreator {
 	 * @param d
 	 * @return
 	 */
-	public ButtonCreator setText(String s){
+	public Bouton setText(String s){
 		bouton.setText(s);
 		return this;
 	}
@@ -273,7 +273,7 @@ public class ButtonCreator {
 	 * @param d
 	 * @return
 	 */
-	public ButtonCreator setTextSize(float s){
+	public Bouton setTextSize(float s){
 		bouton.setTextSize(s);
 		return this;
 	}
@@ -283,7 +283,7 @@ public class ButtonCreator {
 	 * @param d
 	 * @return
 	 */
-	public ButtonCreator setTextColor(int color){
+	public Bouton setTextColor(int color){
 		int true_color = bouton.getContext().getResources().getColor(color);
 		bouton.setTextColor(true_color);
 		return this;

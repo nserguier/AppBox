@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.Atlas.framework.R;
 
-public class BulleCreator {
+public class Bulle {
 
 	/**
 	 * Cree une bulle contenant du texte proche d'une vue et l'ajoute au layout
@@ -28,7 +28,7 @@ public class BulleCreator {
 	 * @param activity L'activite en question
 	 * @return La bulle
 	 */
-	public static TextView createBubble(View view, String texte,String lieu,boolean isVisible, Activity activity){
+	public static TextView create(View view, String texte,String lieu,boolean isVisible, Activity activity){
 		
 		Drawable bulle = null;
 		TextView bulle_texte = new TextView(activity);
@@ -80,7 +80,7 @@ public class BulleCreator {
 		parent.addView(bulle_texte, params);
 		
 		if(isVisible){
-			Animate.pop_in(bulle_texte,500);
+			Animer.pop_in(bulle_texte,500);
 		}
 		else{
 			bulle_texte.setVisibility(View.INVISIBLE);
@@ -93,8 +93,8 @@ public class BulleCreator {
 	 * Supprime une bulle, avec une animation
 	 * @param bulle la bulle existante
 	 */
-	public static void destroyBubble(final TextView bulle,Activity activity){
-		Animate.pop_out(bulle, 500,true);
+	public static void destroy(final TextView bulle,Activity activity){
+		Animer.pop_out(bulle, 500,true);
 		
 	}
 	

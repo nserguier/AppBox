@@ -1,7 +1,7 @@
 package com.Atlas.framework;
 
 
-import composants.Fonts;
+import composants.Police;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ public class DragAndDropActivity extends Activity {
 		setContentView(R.layout.activity_drag_n_drop);
 
 		/* Changement de la police par defaut */
-		Fonts.setDefaultFont(this, "fonts/onthemove.ttf");
+		Police.setDefaultFont(this, "fonts/onthemove.ttf");
 
 		/* Drag And Drop */
 		MyDragAndDrop dnd = new MyDragAndDrop(this, DragAndDropActivity.this);

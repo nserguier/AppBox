@@ -35,6 +35,11 @@ public class MyLayoutParams extends RelativeLayout.LayoutParams{
 		return this;
 	}
 	
+	public MyLayoutParams alignStart(View v){
+		this.addRule(RelativeLayout.ALIGN_START,v.getId());
+		return this;
+	}
+	
 	public MyLayoutParams centerHorizontal(){
 		this.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		return this;
@@ -57,6 +62,14 @@ public class MyLayoutParams extends RelativeLayout.LayoutParams{
 	
 	public MyLayoutParams marginRight(int margin){
 		this.rightMargin = margin;
+		return this;
+	}
+	
+	public MyLayoutParams margins(int left,int top,int right, int bottom){
+		this.rightMargin = right;
+		this.leftMargin = left;
+		this.topMargin = top;
+		this.bottomMargin = bottom;
 		return this;
 	}
 

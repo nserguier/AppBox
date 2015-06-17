@@ -1,7 +1,9 @@
 package composants;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
+import android.webkit.WebView.FindListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
@@ -14,26 +16,22 @@ import com.Atlas.framework.R;
  * @author Victor
  *
  */
-public class Clock {
+public class Horloge {
 
 	public static RelativeLayout create(RelativeLayout r, Context ctx, int h,
 			int m, int s) {
 
 		ImageView horloge = new ImageView(ctx);
 		horloge.setBackground(ctx.getResources().getDrawable(
-				R.drawable.clock_dial));
+				R.drawable.clock_dial_w));
 
 		ImageView heures = new ImageView(ctx);
 		heures.setBackground(ctx.getResources().getDrawable(
-				R.drawable.clock_hour));
+				R.drawable.clock_hour_w));
 
 		ImageView minutes = new ImageView(ctx);
 		minutes.setBackground(ctx.getResources().getDrawable(
-				R.drawable.clock_minute));
-
-		ImageView secondes = new ImageView(ctx);
-		secondes.setBackground(ctx.getResources().getDrawable(
-				R.drawable.clock_seconds));
+				R.drawable.clock_minute_w));
 
 		ViewGroup parent = (ViewGroup) r.getParent();
 
@@ -42,42 +40,30 @@ public class Clock {
 		horloge_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		horloge_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		horloge.setLayoutParams(horloge_params);
-		//horloge.setElevation(1f);
+		horloge.setElevation(1f);
 		r.addView(horloge);
-		parent.removeView(horloge);
 
 		RelativeLayout.LayoutParams heures_params = new LayoutParams(
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		heures_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		heures_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		heures.setLayoutParams(heures_params);
-		//heures.setElevation(2f);
+		heures.setElevation(2f);
 		r.addView(heures);
-		parent.removeView(heures);
 
 		RelativeLayout.LayoutParams minutes_params = new LayoutParams(
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		minutes_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		minutes_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		minutes.setLayoutParams(minutes_params);
-		//minutes.setElevation(2f);
+		minutes.setElevation(2f);
+		minutes.setId(88);
 		r.addView(minutes);
-		parent.removeView(minutes);
-
-		RelativeLayout.LayoutParams secondes_params = new LayoutParams(
-				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-		secondes_params.addRule(RelativeLayout.CENTER_VERTICAL);
-		secondes_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-		secondes.setLayoutParams(secondes_params);
-		//secondes.setElevation(2f);
-		r.addView(secondes);
-		parent.removeView(secondes);
 
 		h = h % 12; // heure en format pm
 
 		heures.setRotation((float) (30 * h + 0.5 * m));
 		minutes.setRotation((float) (6 * m + 0.1 * s));
-		secondes.setRotation(6 * s);
 
 		return r;
 	}
@@ -87,5 +73,12 @@ public class Clock {
 	 */
 	public static void erase(RelativeLayout r) {
 		r.removeAllViews();
+	}
+	
+	public static void incrementMin(Activity a){
+		ImageView heures = (ImageView) a.findViewById(88);
+		float degrees = heures.getRotation()+6f;
+		int minutes = (int) Math.round(degrees/6);
+		heures.setRotation(minutes*6);
 	}
 }

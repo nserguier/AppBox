@@ -9,7 +9,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
-import boutons.ButtonCreator;
+import boutons.Bouton;
 
 public class MenuDeroulant {
 
@@ -40,7 +40,7 @@ public class MenuDeroulant {
 				
 		// on cree le bouton et son listenner
 		
-		Button b = ButtonCreator.createButton(context, colorBouton);
+		Button b = Bouton.createButton(context, colorBouton);
 		b.setLayoutParams(bouton.getLayoutParams());
 		b.setText(text);
 				

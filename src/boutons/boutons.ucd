@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1457,735" id="boutons" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D3130204672616D65776F726B">
+  <children xsi:type="editmodel:ClassEditModel" name="ButtonCreator" location="50,50" size="202,373" id="boutons/Bouton" runTimeClassModel="image_bouton,setText(Ljava.lang.String;),roundedDrawable(Landroid.app.Activity;IF),bouton,createButton(Landroid.content.Context;I),buildImage(),createButtonDrawable(I),build(),createButtonPressedDrawable(Landroid.content.Context;I),pressedRoundedDrawable(Landroid.app.Activity;IF),setTextSize(F),mirror(),setButtonStyle(Landroid.content.Context;Landroid.widget.Button;ILjava.lang.String;I),setBack(Landroid.graphics.drawable.Drawable;),setTextColor(I),ButtonCreator(Landroid.app.Activity;),createRoundedButton(Landroid.app.Activity;I),create(Landroid.app.Activity;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="151,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="bouton" id="boutons/Bouton#bouton"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="image_bouton" id="boutons/Bouton#image_bouton"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="179,288">
+      <children xsi:type="editmodel:MethodEditModel" name="ButtonCreator" id="boutons/Bouton#Bouton(Landroid.app.Activity;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="build" id="boutons/Bouton#build()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="buildImage" id="boutons/Bouton#buildImage()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="create" id="boutons/Bouton#create(Landroid.app.Activity;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createButton" id="boutons/Bouton#createButton(Landroid.content.Context;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createButtonDrawable" id="boutons/Bouton#createButtonDrawable(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createButtonPressedDrawable" id="boutons/Bouton#createButtonPressedDrawable(Landroid.content.Context;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createRoundedButton" id="boutons/Bouton#createRoundedButton(Landroid.app.Activity;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mirror" id="boutons/Bouton#mirror()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="pressedRoundedDrawable" id="boutons/Bouton#pressedRoundedDrawable(Landroid.app.Activity;IF)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="roundedDrawable" id="boutons/Bouton#roundedDrawable(Landroid.app.Activity;IF)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setBack" id="boutons/Bouton#setBack(Landroid.graphics.drawable.Drawable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setButtonStyle" id="boutons/Bouton#setButtonStyle(Landroid.content.Context;Landroid.widget.Button;ILjava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setText" id="boutons/Bouton#setText(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setTextColor" id="boutons/Bouton#setTextColor(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setTextSize" id="boutons/Bouton#setTextSize(F)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ExitApplicationListener" location="746,50" size="189,139" id="boutons/ExitApplicationListener" runTimeClassModel="button,onClick(Landroid.view.View;),pressed,currentActivity,ExitApplicationListener(Landroid.widget.Button;Landroid.graphics.drawable.Drawable;Landroid.app.Activity;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="131,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="button" id="boutons/ExitApplicationListener#button"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="currentActivity" id="boutons/ExitApplicationListener#currentActivity"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pressed" id="boutons/ExitApplicationListener#pressed"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="139,36">
+      <children xsi:type="editmodel:MethodEditModel" name="ExitApplicationListener" id="boutons/ExitApplicationListener#ExitApplicationListener(Landroid.widget.Button;Landroid.graphics.drawable.Drawable;Landroid.app.Activity;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="boutons/ExitApplicationListener#onClick(Landroid.view.View;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="HomeActivityListener" location="525,170" size="176,157" id="boutons/HomeActivityListener" runTimeClassModel="button,onClick(Landroid.view.View;),pressed,currentActivity,targetActivity,HomeActivityListener(Landroid.content.Context;Landroid.widget.Button;Landroid.app.Activity;Ljava.lang.Class;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="134,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="button" id="boutons/HomeActivityListener#button"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="currentActivity" id="boutons/HomeActivityListener#currentActivity"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pressed" id="boutons/HomeActivityListener#pressed"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="targetActivity" id="boutons/HomeActivityListener#targetActivity"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="132,36">
+      <children xsi:type="editmodel:MethodEditModel" name="HomeActivityListener" id="boutons/HomeActivityListener#HomeActivityListener(Landroid.content.Context;Landroid.widget.Button;Landroid.app.Activity;Ljava.lang.Class;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="boutons/HomeActivityListener#onClick(Landroid.view.View;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="NextActivityListener" location="315,170" size="168,175" id="boutons/NextActivityListener" runTimeClassModel="button,onClick(Landroid.view.View;),pressed,currentActivity,targetActivity,NextActivityListener(Landroid.widget.Button;Landroid.graphics.drawable.Drawable;Landroid.app.Activity;Ljava.lang.Class;),NextActivityListener(Landroid.content.Context;Landroid.widget.Button;Landroid.app.Activity;Ljava.lang.Class;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="134,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="button" id="boutons/NextActivityListener#button"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="currentActivity" id="boutons/NextActivityListener#currentActivity"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pressed" id="boutons/NextActivityListener#pressed"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="targetActivity" id="boutons/NextActivityListener#targetActivity"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="127,54">
+      <children xsi:type="editmodel:MethodEditModel" name="NextActivityListener" id="boutons/NextActivityListener#NextActivityListener(Landroid.widget.Button;Landroid.graphics.drawable.Drawable;Landroid.app.Activity;Ljava.lang.Class;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="NextActivityListener" id="boutons/NextActivityListener#NextActivityListener(Landroid.content.Context;Landroid.widget.Button;Landroid.app.Activity;Ljava.lang.Class;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="boutons/NextActivityListener#onClick(Landroid.view.View;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="TTSButton" location="985,50" size="108,121" id="boutons/TTSBouton" runTimeClassModel="parle(Landroid.widget.Button;Ljava.lang.String;Landroid.content.Context;),parleEdit(Landroid.widget.Button;Landroid.widget.EditText;Landroid.content.Context;),fermer(Landroid.widget.Button;Landroid.content.Context;),initialisation(Landroid.widget.Button;Ljava.lang.String;Landroid.content.Context;ZLandroid.widget.EditText;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="84,72">
+      <children xsi:type="editmodel:MethodEditModel" name="fermer" id="boutons/TTSBouton#fermer(Landroid.widget.Button;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="initialisation" id="boutons/TTSBouton#initialisation(Landroid.widget.Button;Ljava.lang.String;Landroid.content.Context;ZLandroid.widget.EditText;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="parle" id="boutons/TTSBouton#parle(Landroid.widget.Button;Ljava.lang.String;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="parleEdit" id="boutons/TTSBouton#parleEdit(Landroid.widget.Button;Landroid.widget.EditText;Landroid.content.Context;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=7;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

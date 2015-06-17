@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class AnimatedText{
 	
 
-	public static void addAnimatedText(Context context,LinearLayout layout,String myText,int[] colors,float textSize){
+	public static void add(Context context,LinearLayout layout,String myText,int[] colors,float textSize){
 
 		
 		int offSet = 200;

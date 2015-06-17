@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public final class Fonts {
+public final class Police {
 
     public static void setDefaultFont(Context context, String fontAssetName) {
         final Typeface regular = Typeface.createFromAsset(context.getAssets(),fontAssetName);

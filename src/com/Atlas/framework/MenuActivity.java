@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import boutons.ButtonCreator;
+import boutons.Bouton;
 
-import composants.Animate;
+import composants.Animer;
 
 import custom.FabriqueMenu;
 import custom.Menu;
@@ -54,7 +54,7 @@ public class MenuActivity extends Activity {
 			/* Apparition de l'activité */
 			int H = getApplicationContext().getResources()
 					.getDisplayMetrics().heightPixels;
-			Animate.translateDecelerate(parent, 0, H, 0, 0,
+			Animer.translateDecelerate(parent, 0, H, 0, 0,
 					2000);
 		}
 		
@@ -114,9 +114,9 @@ public class MenuActivity extends Activity {
 			public void onClick(View v) {
 				
 				TypeMenu menu = TypeMenu.JungleHorizontal;
-				if(menuDepart.equals(v)) menu = TypeMenu.OceanHorizontal;
+				if(menuDepart.equals(TypeMenu.OceanHorizontal)) menu = TypeMenu.OceanHorizontal;
 				mp.stop();
-				Animate.changeActivityAnimation(parent, MemoryActivity.class,menu,"memory");
+				Animer.changeActivityAnimation(parent, MemoryActivity.class,menu);
 			}
 		});
 	
@@ -128,8 +128,8 @@ public class MenuActivity extends Activity {
 								
 				TypeMenu menu = TypeMenu.JungleHorizontal;
 				if(menuDepart.equals(TypeMenu.JungleHorizontal)) menu = TypeMenu.OceanHorizontal;	
-				Animate.changeActivityAnimation(parent, MenuActivity.class,menu,"extra");
-				
+				Animer.changeActivityAnimation(parent, MenuActivity.class,menu);
+
 			}
 		});
 	}
@@ -137,7 +137,7 @@ public class MenuActivity extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
-		jouer = ButtonCreator.createRoundedButton(this, R.color.vert1);
+		jouer = Bouton.createRoundedButton(this, R.color.vert1);
 		mp.start();
 
 	}
