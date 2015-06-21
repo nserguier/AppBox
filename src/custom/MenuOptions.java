@@ -20,14 +20,14 @@ import composants.Horloge;
 import composants.MyLayoutParams;
 import composants.Police;
 
-public class MenuOptions implements Menu {
+public class MenuOptions implements Menu{
 
 	private Context context;
 	private RelativeLayout[] menu; // les elements du menu : un titre et 6
 									// boutons
 	private RelativeLayout boutons; // le layout qui contient les boutons
 	private TypeMenu type = TypeMenu.Options;
-
+	
 	/**
 	 * 
 	 * @param context
@@ -223,25 +223,64 @@ public class MenuOptions implements Menu {
 						type.getCouleur2()));
 
 			RelativeLayout option = new RelativeLayout(context);
+			option.setClipChildren(false);
+			MyLayoutParams option_params = new MyLayoutParams()
+					.centerVertical();
+			option_params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+			option.setId(23);
+			option.setLayoutParams(option_params);
+
+			opt.addView(option);
+
+			RadioButton oui = new RadioButton(context);
+			oui.setText(" oui ");
+			oui.setId(1213);
+			float scaleFactor = 1.1f;
+			oui.setScaleX(scaleFactor);
+			oui.setScaleY(scaleFactor);
+			oui.setTextSize(oui.getTextSize() * scaleFactor);
+			Police.setFont((Activity) context, oui, "intsh.ttf");
+
+			RadioButton non = new RadioButton(context);
+			non.setText(" non ");
+			non.setId(1214);
+			non.setScaleX(scaleFactor);
+			non.setScaleY(scaleFactor);
+			non.setTextSize(non.getTextSize() * scaleFactor);
+			Police.setFont((Activity) context, non, "intsh.ttf");
+
+			RadioGroup group = new RadioGroup(context);
+			group.setOrientation(LinearLayout.HORIZONTAL);
+			MyLayoutParams group_params = new MyLayoutParams().centerVertical();
+			// group_params.setMargins(40, 0, 0, 0);
+			group_params.addRule(RelativeLayout.RIGHT_OF, option.getId());
+
+			group.setLayoutParams(group_params);
+			group.addView(oui);
+			group.addView(non);
 
 			switch (typeOption) {
 			case "gnar": {
 				option.setBackground(context.getResources().getDrawable(
 						R.drawable.mini_tete_2));
+				
 				break;
 			}
 			case "horloge": {
 				Horloge.create(option, context, 3, 30, 45);
+				
 				break;
 			}
 			case "son": {
 				option.setBackground(context.getResources().getDrawable(
 						R.drawable.sound));
+				
 				break;
 			}
 			case "bulle": {
 				option.setBackground(context.getResources().getDrawable(
 						R.drawable.bulle_bas));
+				
 				break;
 			}
 			case "sommaire": {
@@ -254,48 +293,13 @@ public class MenuOptions implements Menu {
 						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 				params.addRule(RelativeLayout.CENTER_IN_PARENT);
 				t.setLayoutParams(t_params);
-				t.setBackgroundColor(context.getResources().getColor(R.color.blanc));
-				option.addView(t);				
+				t.setBackgroundColor(context.getResources().getColor(
+						R.color.blanc));
+				option.addView(t);
+				
 				break;
+				}
 			}
-			}
-			
-			option.setClipChildren(false);
-			MyLayoutParams option_params = new MyLayoutParams()
-					.centerVertical();
-			option_params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-			option.setId(23);
-			option.setLayoutParams(option_params);
-
-			opt.addView(option);
-
-			RadioButton oui = new RadioButton(context);
-			oui.setText("oui  ");
-			oui.setId(1213);
-			float scaleFactor = 1.1f;
-			oui.setScaleX(scaleFactor);
-			oui.setScaleY(scaleFactor);
-			oui.setTextSize(oui.getTextSize() * scaleFactor);
-			Police.setFont((Activity) context, oui, "intsh.ttf");
-
-			RadioButton non = new RadioButton(context);
-			non.setText("non  ");
-			non.setScaleX(scaleFactor);
-			non.setScaleY(scaleFactor);
-			non.setTextSize(non.getTextSize() * scaleFactor);
-			Police.setFont((Activity) context, non, "intsh.ttf");
-
-			RadioGroup group = new RadioGroup(context);
-			group.setOrientation(LinearLayout.HORIZONTAL);
-			group.check(1213);
-			oui.setChecked(true);
-			MyLayoutParams group_params = new MyLayoutParams().centerVertical();
-			// group_params.setMargins(40, 0, 0, 0);
-			group_params.addRule(RelativeLayout.RIGHT_OF, option.getId());
-
-			group.setLayoutParams(group_params);
-			group.addView(oui);
-			group.addView(non);
 
 			opt.addView(group);
 
