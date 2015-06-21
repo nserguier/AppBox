@@ -1,5 +1,7 @@
 package boutons;
 
+import java.io.Serializable;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -19,12 +21,40 @@ public class HomeActivityListener implements OnClickListener {
 	Button button;
 	Activity currentActivity;
 	Class<?> targetActivity;
+	Serializable extra;
+	private String name;
 	
+	/**
+	 * 
+	 * @param context
+	 * @param button
+	 * @param currentActivity
+	 * @param targetActivity
+	 */
 	public HomeActivityListener(Context context,Button button,Activity currentActivity, Class<?> targetActivity){
 		this.pressed = context.getResources().getDrawable(R.drawable.home_e);
 		this.button = button;
 		this.currentActivity = currentActivity;
 		this.targetActivity = targetActivity;
+	}
+	
+	/**
+	 * 
+	 * @param context
+	 * @param button
+	 * @param currentActivity
+	 * @param targetActivity
+	 * @param extra
+	 * @param name
+	 */
+	public HomeActivityListener(Context context,Button button,Activity currentActivity,
+			Class<?> targetActivity,Serializable extra, String name){
+		this.pressed = context.getResources().getDrawable(R.drawable.home_e);
+		this.button = button;
+		this.currentActivity = currentActivity;
+		this.targetActivity = targetActivity;
+		this.extra = extra;
+		this.name = name;
 	}
 
 	@Override
@@ -35,6 +65,8 @@ public class HomeActivityListener implements OnClickListener {
     	
     	/* Retour au menu */
        Intent homeActivity = new Intent(currentActivity,targetActivity);
+       if (extra != null)
+			homeActivity.putExtra(name, extra);
        currentActivity.startActivity(homeActivity);
 		
 	}

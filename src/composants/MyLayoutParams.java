@@ -6,7 +6,7 @@ import android.widget.RelativeLayout;
 
 /**
  * Classe permettant de simplifier la creation les layout params
- * @author Nicklos
+ * @author Nicklos,Victor
  *
  */
 public class MyLayoutParams extends RelativeLayout.LayoutParams{

@@ -24,5 +24,6 @@
     <string name="title_activity_deroulant">DeroulantActivity</string>
     <string name="title_activity_menu_style">MenuStyleActivity</string>
     <string name="title_activity_memory">MemoryActivity</string>
+    <string name="title_activity_menu_option">MenuOption</string>
 
 </resources>

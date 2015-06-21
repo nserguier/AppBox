@@ -17,6 +17,7 @@ import boutons.Bouton;
 
 import com.Atlas.framework.R;
 import composants.Animer;
+import composants.Police;
 
 /**
  * Objet qui code un menu "ocean" selon une certaine disposition (orientation
@@ -30,9 +31,10 @@ import composants.Animer;
 public class MenuOceanH implements Menu {
 
 	private Context context;
-	RelativeLayout[] menu; // les elements du menu : un titre et 6 boutons
-	RelativeLayout boutons; // le layout qui contient les boutons
-
+	private RelativeLayout[] menu; // les elements du menu : un titre et 6 boutons
+	private RelativeLayout boutons; // le layout qui contient les boutons
+	private TypeMenu type = TypeMenu.OceanHorizontal;
+	
 	public MenuOceanH(Context context) {
 		this.context = context;
 		menu = new RelativeLayout[8];
@@ -48,7 +50,7 @@ public class MenuOceanH implements Menu {
 	 *            le parent de l'activite
 	 * @return
 	 */
-	public RelativeLayout[] createMenu(ViewGroup parent, TypeMenu type) {
+	public RelativeLayout[] createMenu(ViewGroup parent) {
 
 		int width = context.getApplicationContext().getResources()
 				.getDisplayMetrics().widthPixels;
@@ -207,24 +209,21 @@ public class MenuOceanH implements Menu {
 
 	public Button addButton(String texte, int place) {
 		if (place < 7 && place > 0 && menu[place] != null) {
-
+			
 			Button b = Bouton.createRoundedButton((Activity) context,
-					R.color.bleu1);
+					type.getCouleur1());
 
 			if (place == 3 || place == 4)
 
 				b = Bouton.createRoundedButton((Activity) context,
-						R.color.bleu2);
-
+						type.getCouleur2());
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(
 					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
 			b.setLayoutParams(params);
 			b.setText(texte);
-			Typeface externalFont = Typeface.createFromAsset(
-					context.getAssets(), "fonts/intsh.ttf");
-			b.setTypeface(externalFont);
+			Police.setFont((Activity) context, b, "intsh.ttf");
 			b.setTextSize(30);
 			return b;
 		} else {
@@ -254,17 +253,11 @@ public class MenuOceanH implements Menu {
 		t.setGravity(Gravity.CENTER_HORIZONTAL);
 		t.setLayoutParams(params);
 		t.setText(texte);
-		Typeface externalFont = Typeface.createFromAsset(context.getAssets(),
-				"fonts/intsh.ttf");
-		t.setTypeface(externalFont);
+		Police.setFont((Activity) context, t, "intsh.ttf");
 		t.setTextSize(80);
 		Animer.pop_in(t, 2000);
 		t.setTextColor(context.getResources().getColor(R.color.orange2));
-		/*
-		 * int color1 = R.color.bleu1; int color2 = R.color.bleu2; int color3 =
-		 * R.color.orange3; int[] colors = {color1,color2,color3};
-		 * AnimatedText.addAnimatedText(context,menu[1], texte, colors, 70);
-		 */
+		
 
 		animation();
 
@@ -365,20 +358,7 @@ public class MenuOceanH implements Menu {
 			}
 		});
 
-		/*
-		 * RelativeLayout tete = new RelativeLayout(context);
-		 * RelativeLayout.LayoutParams tete_params = new
-		 * LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-		 * tete_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-		 * tete_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-		 * tete_params.setMargins(0, 0, 0, -height/2);
-		 * tete.setLayoutParams(tete_params); menu[0].addView(tete);
-		 * tete.setBackground
-		 * (context.getApplicationContext().getResources().getDrawable
-		 * (R.drawable.gnar)); Animate.translate(tete, 0, height/2, 0,
-		 * -height/9, 3000, true);
-		 */
-
+		
 	}
 
 	/**

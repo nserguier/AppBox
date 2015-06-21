@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 		b1.setText("Drag and Drop");
 		b2.setText("Text to Speech");
 		b3.setText("Boutons");
-		b4.setText("Menus/Memory");
+		b4.setText("Menus");
 		b5.setText("Plein écran");
 		b6.setText("Glow");
 		b7.setText("Horloge");
