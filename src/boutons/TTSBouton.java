@@ -15,7 +15,7 @@ public class TTSBouton {
 	/**
 	 * cree un TextToSpeech sur un bouton
 	 */
-	public static void initialisation(final Button ttsButton,
+	public static void initialisation(final View ttsButton,
 			final String texte, Context ctx, final boolean muet,
 			final EditText edit) {
 
@@ -44,14 +44,13 @@ public class TTSBouton {
 	/**
 	 * pour faire taire un bouton initialise
 	 */
-	public static void fermer(Button ttsButton, Context ctx) {
+	public static void fermer(View ttsButton, Context ctx) {
 		initialisation(ttsButton, "", ctx, true, null);
-		tts.stop();
-		tts.shutdown();
+		
 
 	}
 
-	public static void parle(Button ttsButton, String texte, Context ctx) {
+	public static void parle(View ttsButton, String texte, Context ctx) {
 		initialisation(ttsButton, texte, ctx, false, null);
 
 	}
@@ -63,7 +62,7 @@ public class TTSBouton {
 	 * @param edit
 	 * @param ctx
 	 */
-	public static void parleEdit(Button ttsButton, EditText edit, Context ctx) {
+	public static void parleEdit(View ttsButton, EditText edit, Context ctx) {
 		initialisation(ttsButton, null, ctx, false, edit);
 
 	}

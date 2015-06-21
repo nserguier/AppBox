@@ -1,5 +1,6 @@
 package custom;
 
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -15,9 +16,9 @@ import android.widget.RelativeLayout;
  */
 public interface Menu {
 
-	RelativeLayout[] createMenu(ViewGroup parent,TypeMenu menu);
+	RelativeLayout[] createMenu(ViewGroup parent);
 	void rassembler(int l1, int l2);
-	Button addButton(String texte, int place);
+	View addButton(String texte, int place);
 	void addTitre(String texte);
 	void destroy(int place);
 	

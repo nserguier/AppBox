@@ -12,7 +12,8 @@ import android.graphics.drawable.Drawable;
  */
 public enum TypeMenu {OceanHorizontal(R.drawable.ocean_h,R.color.bleu1,R.color.bleu2),
 	JungleVertical(R.drawable.jungle_v,R.color.vert1,R.color.vert2),
-	JungleHorizontal(R.drawable.jungle_h,R.color.vert1,R.color.vert2);
+	JungleHorizontal(R.drawable.jungle_h,R.color.vert1,R.color.vert2),
+	Options(R.color.blanc_casse,R.color.blanc_casse,R.color.blanc_casse);
 
 	private int background;
 	private int couleur1;

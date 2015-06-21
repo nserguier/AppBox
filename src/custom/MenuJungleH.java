@@ -28,6 +28,7 @@ import boutons.Bouton;
 
 import com.Atlas.framework.R;
 import composants.Animer;
+import composants.Police;
 
 import dragAndDrop.DnDFonctions;
 import dragAndDrop.MyDragAndDrop;
@@ -44,8 +45,9 @@ import dragAndDrop.MyDragAndDrop;
 public class MenuJungleH implements Menu {
 
 	private Context context;
-	RelativeLayout[] menu; // les elements du menu : un titre et 6 boutons
-	RelativeLayout boutons; // le layout qui contient les boutons
+	private RelativeLayout[] menu; // les elements du menu : un titre et 6 boutons
+	private RelativeLayout boutons; // le layout qui contient les boutons
+	private TypeMenu type = TypeMenu.JungleHorizontal;
 
 	/**
 	 * 
@@ -67,7 +69,7 @@ public class MenuJungleH implements Menu {
 	 *            le parent de l'activite
 	 * @return
 	 */
-	public RelativeLayout[] createMenu(ViewGroup parent, TypeMenu type) {
+	public RelativeLayout[] createMenu(ViewGroup parent) {
 
 		int width = context.getApplicationContext().getResources()
 				.getDisplayMetrics().widthPixels;
@@ -225,11 +227,14 @@ public class MenuJungleH implements Menu {
 	public Button addButton(String texte, int place) {
 
 		if (place < 7 && place > 0 && menu[place] != null) {
+
 			Button b = Bouton.createRoundedButton((Activity) context,
-					R.color.vert1);
+					type.getCouleur1());
+
 			if (place == 3 || place == 4)
+
 				b = Bouton.createRoundedButton((Activity) context,
-						R.color.vert2);
+						type.getCouleur2());
 
 			menu[place].addView(b);
 			RelativeLayout.LayoutParams params = new LayoutParams(
@@ -237,9 +242,7 @@ public class MenuJungleH implements Menu {
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
 			b.setLayoutParams(params);
 			b.setText(texte);
-			Typeface externalFont = Typeface.createFromAsset(
-					context.getAssets(), "fonts/intsh.ttf");
-			b.setTypeface(externalFont);
+			Police.setFont((Activity) context, b, "intsh.ttf");
 			b.setTextSize(30);
 			return b;
 		} else {
@@ -269,9 +272,7 @@ public class MenuJungleH implements Menu {
 		t.setGravity(Gravity.CENTER_HORIZONTAL);
 		t.setLayoutParams(params);
 		t.setText(texte);
-		Typeface externalFont = Typeface.createFromAsset(context.getAssets(),
-				"fonts/intsh.ttf");
-		t.setTypeface(externalFont);
+		Police.setFont((Activity) context, t, "intsh.ttf");
 		t.setTextSize(80);
 		Animer.pop_in(t, 2000);
 		t.setTextColor(context.getResources().getColor(R.color.orange2));

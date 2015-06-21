@@ -6,7 +6,7 @@ import android.widget.RelativeLayout;
 
 /**
  * Classe permettant de simplifier la creation les layout params
- * @author Nicklos
+ * @author Nicklos,Victor
  *
  */
 public class MyLayoutParams extends RelativeLayout.LayoutParams{
@@ -42,6 +42,11 @@ public class MyLayoutParams extends RelativeLayout.LayoutParams{
 	
 	public MyLayoutParams centerHorizontal(){
 		this.addRule(RelativeLayout.CENTER_HORIZONTAL);
+		return this;
+	}
+	
+	public MyLayoutParams centerVertical(){
+		this.addRule(RelativeLayout.CENTER_VERTICAL);
 		return this;
 	}
 	

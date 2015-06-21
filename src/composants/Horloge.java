@@ -1,7 +1,10 @@
 package composants;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.view.ViewGroup;
 import android.webkit.WebView.FindListener;
 import android.widget.ImageView;
@@ -40,7 +43,8 @@ public class Horloge {
 		horloge_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		horloge_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		horloge.setLayoutParams(horloge_params);
-		horloge.setElevation(1f);
+		if(Build.VERSION.SDK_INT >= 21)
+			horloge.setElevation(1f);
 		r.addView(horloge);
 
 		RelativeLayout.LayoutParams heures_params = new LayoutParams(
@@ -48,6 +52,7 @@ public class Horloge {
 		heures_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		heures_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		heures.setLayoutParams(heures_params);
+		if(Build.VERSION.SDK_INT >= 21)
 		heures.setElevation(2f);
 		r.addView(heures);
 
@@ -56,6 +61,7 @@ public class Horloge {
 		minutes_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		minutes_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		minutes.setLayoutParams(minutes_params);
+		if(Build.VERSION.SDK_INT >= 21)
 		minutes.setElevation(2f);
 		minutes.setId(88);
 		r.addView(minutes);
@@ -80,5 +86,11 @@ public class Horloge {
 		float degrees = heures.getRotation()+6f;
 		int minutes = (int) Math.round(degrees/6);
 		heures.setRotation(minutes*6);
+	}
+	
+	public static String dateActuelle(){
+		Calendar now = Calendar.getInstance();
+		return "il est "+String.valueOf(now.get(Calendar.HOUR_OF_DAY))+
+				" heure et "+String.valueOf(now.get(Calendar.MINUTE))+" minutes";
 	}
 }

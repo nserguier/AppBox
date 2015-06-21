@@ -18,13 +18,16 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.Atlas.framework.R;
 
 import custom.TypeMenu;
 
 /**
- * Composant permettant d'animer des vues avec une collection d'animation parametrables
+ * Composant permettant d'animer des vues avec une collection d'animation
+ * parametrables
  */
 public class Animer {
 
@@ -106,15 +109,25 @@ public class Animer {
 		return rotate;
 	}
 
-	/** Fait tourner une vue d'un angle à un autre autour d'un point
+	/**
+	 * Fait tourner une vue d'un angle à un autre autour d'un point
 	 * 
-	 * @param view La vue a animer
-	 * @param duration duree d'un cycle d'animation en millisecondes
-	 * @param from l'angle à prendre au début de l'animation (souvent 0)
-	 * @param to l'angle à prendre en fin de l'animation
-	 * @param pivotX coordonnee x du point autour duquel tourner (x=0 bord gauche de la vue, x=1 bord droit)
-	 * @param pivotY coordonnee y du point autour duquel tourner (y=0 haut de la vue, y=1 bas)
-	 * @param loop "true" pour boucler l'animation a l'infini "false" pour
+	 * @param view
+	 *            La vue a animer
+	 * @param duration
+	 *            duree d'un cycle d'animation en millisecondes
+	 * @param from
+	 *            l'angle à prendre au début de l'animation (souvent 0)
+	 * @param to
+	 *            l'angle à prendre en fin de l'animation
+	 * @param pivotX
+	 *            coordonnee x du point autour duquel tourner (x=0 bord gauche
+	 *            de la vue, x=1 bord droit)
+	 * @param pivotY
+	 *            coordonnee y du point autour duquel tourner (y=0 haut de la
+	 *            vue, y=1 bas)
+	 * @param loop
+	 *            "true" pour boucler l'animation a l'infini "false" pour
 	 *            effectuer une seule fois l'animation
 	 * @return
 	 */
@@ -259,7 +272,8 @@ public class Animer {
 		return alpha;
 	}
 
-	/** Translate une vue de sa position initiale à une autre position
+	/**
+	 * Translate une vue de sa position initiale à une autre position
 	 * 
 	 * @param view
 	 * @param toX
@@ -276,7 +290,8 @@ public class Animer {
 
 	}
 
-	/** Translate une vue d'une position à une autre
+	/**
+	 * Translate une vue d'une position à une autre
 	 * 
 	 * @param view
 	 * @param toX
@@ -293,7 +308,9 @@ public class Animer {
 		return trans;
 	}
 
-	/** Translate une vue d'une position à une autre et peut boucler cette animation
+	/**
+	 * Translate une vue d'une position à une autre et peut boucler cette
+	 * animation
 	 * 
 	 * @param view
 	 * @param fromX
@@ -318,7 +335,8 @@ public class Animer {
 		return trans;
 	}
 
-	/** Translate une vue d'un point à un autre en decelerrant sur la fin
+	/**
+	 * Translate une vue d'un point à un autre en decelerrant sur la fin
 	 * 
 	 * @param view
 	 * @param toX
@@ -336,8 +354,9 @@ public class Animer {
 		return trans;
 	}
 
-	/** Translate une vue d'un point à un autre en decelerrant sur la fin
-	 * Peut se lancer de maniere decale
+	/**
+	 * Translate une vue d'un point à un autre en decelerrant sur la fin Peut se
+	 * lancer de maniere decale
 	 * 
 	 * @param view
 	 * @param toX
@@ -362,13 +381,20 @@ public class Animer {
 	/**
 	 * 
 	 * @param parent
+	 *            le parent de l'application
 	 * @param targetActivity
-	 * @param extra un parametre serialise qui sera repris par la nouvelle application, mettre null pour l'ignorer
-	 * @param name l'id du parametre extra
+	 *            l'application sur laquelle on veut aller et envoyer des
+	 *            parametres (extra)
+	 * @param extra
+	 *            un parametre serialise qui sera repris par la nouvelle
+	 *            application, mettre null pour l'ignorer
+	 * @param name
+	 *            l'id du parametre extra
 	 * 
 	 */
 	public static void changeActivityAnimation(ViewGroup parent,
-			final Class<?> targetActivity,final Serializable extra1,final String name1,final Serializable extra2,final String name2) {
+			final Class<?> targetActivity, final Serializable extra1,
+			final String name1, final Serializable extra2, final String name2) {
 		/* animation rideau sur l'ecran violet */
 		final Context context = parent.getContext();
 		int H = context.getApplicationContext().getResources()
@@ -407,4 +433,56 @@ public class Animer {
 
 	}
 
+	/**
+	 * animation qui fait apparaitre puis disparaitre le logo l'activite
+	 * apparait en se translatant : soit deux slide se rejoignent aux centre,
+	 * soit un l'activite se translate de bas en haut
+	 * 
+	 * @param logo_bouton
+	 *            la view (logo) qui apparait et disparait avant l'activite
+	 * @param slide_bottom
+	 *            layout auquel on ajoute le logo, ne doit pas être nul
+	 * @param slide_top
+	 *            (nul si activite pas coupee en deux mais un seul bloc)
+	 * @param H
+	 *            la hauteur de l'ecran
+	 */
+	public static void activityApparitionAnimation(final View logo_bouton,
+			final RelativeLayout slide_bottom, final RelativeLayout slide_top,
+			final int H) {
+		/* Apparition du logo bouton */
+
+		Animer.fade_in(logo_bouton, 1000);
+		AlphaAnimation alpha = new AlphaAnimation(0, 1);
+		alpha.setDuration(1000);
+		alpha.setAnimationListener(new AnimationListener() {
+
+			@Override
+			public void onAnimationStart(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+
+			}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				/* disparition du logo */
+				Animer.fade_out(logo_bouton, 1000, true);
+
+				/* Arrivée du menu par le haut et le bas */
+				if (slide_top != null) {
+					slide_top.setVisibility(View.VISIBLE);
+					Animer.translateDecelerate(slide_top, 0, -H / 3, 0, 0,
+							1000, 200);
+				}
+				slide_bottom.setVisibility(View.VISIBLE);
+				Animer.translateDecelerate(slide_bottom, 0, H * 1.1f, 0, 0,
+						1800, 600);
+
+			}
+		});
+		logo_bouton.startAnimation(alpha);
+	}
 }

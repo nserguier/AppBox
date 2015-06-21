@@ -85,13 +85,16 @@
         </activity>
         <activity
             android:name=".MenuActivity"
-            android:label="@string/title_activity_menu_style"
-             >
+            android:label="@string/title_activity_menu_style" >
         </activity>
         <activity
             android:name=".MemoryActivity"
             android:label="@string/title_activity_memory"
             android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".MenuOptions"
+            android:label="@string/title_activity_menu_option" >
         </activity>
     </application>
 
