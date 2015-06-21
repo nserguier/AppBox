@@ -10,12 +10,10 @@ import android.content.Context;
 public class MyDragAndDrop {
 	
 	Context context; // Le contexte de l'application
-	Activity activity; // L'activite dans laquelle on veut ajouter le drag-and-drop
 	
 	
-	public MyDragAndDrop(Context context,Activity activity){
+	public MyDragAndDrop(Context context){
 		this.context = context;
-		this.activity = activity;
 	}
 	
 	/**
@@ -24,7 +22,7 @@ public class MyDragAndDrop {
 	 */
 	public void addDrag(int toDragID){
 		/* Affectation du composant permettant le drag */
-		activity.findViewById(toDragID).setOnTouchListener(new MyTouchListener());
+		((Activity) context).findViewById(toDragID).setOnTouchListener(new MyTouchListener());
 	}
 	
 	/**
@@ -35,6 +33,6 @@ public class MyDragAndDrop {
 	 */
 	public void addDrop(int dropZoneID, int dropZoneDrawID, int dropZoneSurbrillantDrawID,DnDFonctions fonction){
 		/* Affectation du composant permettant le drop*/
-		activity.findViewById(dropZoneID).setOnDragListener(new MyDragListener(context,dropZoneDrawID,dropZoneSurbrillantDrawID,fonction));
+		((Activity) context).findViewById(dropZoneID).setOnDragListener(new MyDragListener(context,dropZoneDrawID,dropZoneSurbrillantDrawID,fonction));
 	}
 }

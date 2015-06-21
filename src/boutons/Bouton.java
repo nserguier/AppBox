@@ -15,7 +15,7 @@ import android.widget.ImageButton;
 import composants.Couleur;
 
 /**
- * classe qui permet de creer rapidement un bouton arrondi de la couleur de son choix
+ * classe qui permet de creer rapidement un bouton de la couleur de son choix
  * 
  * @author Victor,Nicklos
  *
@@ -232,7 +232,7 @@ public class Bouton {
 	
 	// les prochaines methodes permettent de changer les paramètres des boutons
 	// avec une ecriture fluent: on peut chainer les methodes pour plus de
-	// lisibililite et de concision.
+	// lisibilite et de concision.
 	
 	/**
 	 *

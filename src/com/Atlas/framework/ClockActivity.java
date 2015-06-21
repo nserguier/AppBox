@@ -55,7 +55,7 @@ public class ClockActivity extends Activity {
 		int minute = Calendar.MINUTE;
 		int seconde = Calendar.SECOND;
 		
-		r = Horloge.create(r, this, heure, minute, seconde);
+		Horloge.create(r, this, heure, minute, seconde);
 
 		go.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -83,7 +83,7 @@ public class ClockActivity extends Activity {
 		int minute = Integer.valueOf(time[1]);
 		int seconde = Integer.valueOf(time[2]);
 
-		r = Horloge.create(r, this, heure, minute, seconde);
+		Horloge.create(r, this, heure, minute, seconde);
 	}
 
 }
