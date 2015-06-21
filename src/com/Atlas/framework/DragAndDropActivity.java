@@ -19,7 +19,7 @@ public class DragAndDropActivity extends Activity {
 		Police.setDefaultFont(this, "fonts/onthemove.ttf");
 
 		/* Drag And Drop */
-		MyDragAndDrop dnd = new MyDragAndDrop(this, DragAndDropActivity.this);
+		MyDragAndDrop dnd = new MyDragAndDrop(this);
 
 		/* Objets qu'on veut deplacer */
 		dnd.addDrag(R.id.cercle1);

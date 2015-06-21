@@ -11,6 +11,9 @@ import android.widget.RelativeLayout.LayoutParams;
 
 import com.Atlas.framework.R;
 
+/** 
+ *
+ */
 public class GlowingButton {
 
 	

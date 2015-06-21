@@ -9,8 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 /**
- * Le composant a appliquer au bouton pour quitter l'application
- * 
+ * Le composant a appliquer a un bouton pour quitter l'application
  */
 public class ExitApplicationListener implements OnClickListener {
 	

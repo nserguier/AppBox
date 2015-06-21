@@ -1,0 +1,227 @@
+package composants;
+
+import java.lang.reflect.Field;
+
+import com.Atlas.framework.R;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Point;
+import android.graphics.Typeface;
+import android.os.Build;
+import android.os.Handler;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.RelativeLayout.LayoutParams;
+
+/**
+ * Composant comprenant toutes les fonctionnalites isolees mais utiles !
+ */
+public class Utile {
+
+	/* COULEURS */
+	
+	/**
+	 * Assombrit une couleur
+	 * @param color
+	 *            la couleur a assombrir
+	 * @return la couleur assombrie
+	 */
+	public static int darkenColor(int color) {
+		float[] hsv = new float[3];
+		Color.colorToHSV(color, hsv);
+		hsv[2] *= 0.85f;
+		color = Color.HSVToColor(hsv);
+		return color;
+	}
+
+	
+	/**
+	 * Eclaircit une couleur
+	 * @param color
+	 *            la couleur a eclaircir
+	 * @return la couleur eclaircie
+	 */
+	public static int lightenColor(int color) {
+		float[] hsv = new float[3];
+		Color.colorToHSV(color, hsv);
+		hsv[2] *= 1.2f;
+		hsv[1] *= 0.85f;
+		color = Color.HSVToColor(hsv);
+		return color;
+	}
+	
+	/* ECRAN */
+	
+	/**
+	 * Donne la taille de l'ecran
+	 * @param a L'activite concerne
+	 * @return [0] : la largeur en px
+	 * 			[1] : la hauteur en px
+	 */
+	public static int[] getSize(Activity a){
+		Display display = a.getWindowManager().getDefaultDisplay();
+		Point size = new Point();
+		display.getSize(size);
+		int[] rep = {size.x,size.y};
+		return rep;
+	}
+	
+	/**
+	 * Passe en plein ecran l'activite
+	 * A inserer dans onCreate avant le setContentView.
+	 * @param a L'activite
+	 */
+	public static void fullScreen(Activity a){
+		a.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		View decorView = a.getWindow().getDecorView();
+		decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+				| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+				| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+				| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+				| View.SYSTEM_UI_FLAG_FULLSCREEN
+				| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+	}
+	
+	public static void fullScreenResume(final Activity a) {
+		Handler handler = new Handler();
+		handler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				// execute after 500ms
+				hideNavBar(a);
+			}
+		}, 500);
+	}
+
+	private static void hideNavBar(Activity a) {
+		if (Build.VERSION.SDK_INT >= 19) {
+			View v = a.getWindow().getDecorView();
+			v.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+					| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+					| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+					| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+					| View.SYSTEM_UI_FLAG_FULLSCREEN
+					| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+		}
+	}
+	
+	/* GLOW BOUTON */
+	
+	/**
+	 * Met en surbrillance anime un bouton rond
+	 * @param bouton
+	 * @param ctx
+	 * @param relativeID L'id que l'on veut donner au relative layout qui va englober bouton + glow
+	 * @return
+	 */
+	public static ImageView makeGlow(Button bouton, Context ctx,int relativeID) {
+		ViewGroup parent = (ViewGroup) bouton.getParent();
+
+		float elevation = bouton.getElevation();
+
+		RelativeLayout.LayoutParams params = (LayoutParams) bouton
+				.getLayoutParams();
+		RelativeLayout rl = new RelativeLayout(ctx);
+		rl.setId(relativeID);
+		rl.setLayoutParams(params);
+		parent.addView(rl);
+
+		parent.setClipChildren(false);
+		if(parent.getParent()!=null){
+			ViewGroup pp = (ViewGroup) parent.getParent();
+			pp.setClipChildren(false);
+		}
+
+		RelativeLayout.LayoutParams bouton_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		bouton_params.addRule(RelativeLayout.CENTER_VERTICAL);
+		bouton_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+		bouton.setLayoutParams(bouton_params);
+		parent.removeView(bouton);
+		rl.addView(bouton);
+		rl.setElevation(elevation);
+
+		ImageView glow = new ImageView(ctx);
+		glow.setBackground(ctx.getResources().getDrawable(
+				R.drawable.glow_circle));
+		glow.setLayoutParams(bouton_params);
+		glow.setAlpha(0.7f);
+
+		rl.addView(glow);
+		glow.startAnimation(AnimationUtils
+				.loadAnimation(ctx, R.anim.glow_scale));
+
+		return glow;
+	}
+	
+	/**
+	 * Stoppe la surbrillance anime d'un bouton rond
+	 * @param bouton
+	 */
+	public static void stopGlow(Button bouton) {
+		ViewGroup rl = (ViewGroup) bouton.getParent();
+		RelativeLayout.LayoutParams params = (LayoutParams) rl
+				.getLayoutParams();
+		ViewGroup parent = (ViewGroup) rl.getParent();
+		
+			rl.removeAllViews();
+			parent.removeView(rl);
+			bouton.setLayoutParams(params);
+			parent.addView(bouton);
+	}
+	
+	/* POLICES DE TEXTE */
+    
+    /**
+     * Change la police d'ecriture d'une vue affichant du texte
+     * par une police issu d'un fichier place dans assets/fonts
+     * @param a l'activite
+     * @param v la vue qui affiche le texte (Bouton, TextView...)
+     * @param font le nom de la resource (ex: "comic.ttf")
+     */
+    public static void setFont(Activity a,View v,String font){
+    	Typeface externalFont = Typeface.createFromAsset(a.getAssets(),
+				"fonts/"+font);
+    	if (v instanceof TextView) {
+    		((TextView) v).setTypeface(externalFont);
+    	    
+    	}
+    	else if (v instanceof Button) {
+    		((Button) v).setTypeface(externalFont);
+    	}
+    }
+    
+    /* TAILLE DES VUES */
+    
+	/**
+	 * Redimensionne une vue
+	 * @param view La vue
+	 * @param h La hauteur souhaitee en px (0 pour wrap_content)
+	 * @param w La largeur souhaitee en px (0 pour wrap_content)
+	 */
+	public void setSize(View view,int h, int w){
+		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view.getLayoutParams();
+		if(h==0){
+			params.height = LayoutParams.WRAP_CONTENT;
+		}
+		else{
+			params.height = h;
+		}
+		if(w==0){
+			params.width = LayoutParams.WRAP_CONTENT;
+		}
+		else{
+			params.width = w;
+		}
+		view.setLayoutParams(params);
+	}
+}

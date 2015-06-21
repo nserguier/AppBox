@@ -293,7 +293,6 @@ public class MenuJungleH implements Menu {
 	 */
 	public void animation() {
 
-		Activity activity = (Activity) context;
 		int height = context.getApplicationContext().getResources()
 				.getDisplayMetrics().heightPixels;
 
@@ -373,7 +372,7 @@ public class MenuJungleH implements Menu {
 		dropZone.setAlpha((float) 0.3);
 		dropZone.setId(126);
 
-		MyDragAndDrop dnd = new MyDragAndDrop(context, activity);
+		MyDragAndDrop dnd = new MyDragAndDrop(context);
 		dnd.addDrag(f.getId());
 		DnDFonctions fonction = new DnDFonctions("play", fruit, f, context);
 		dnd.addDrop(dropZone.getId(), R.drawable.cercle, R.drawable.cercle,
