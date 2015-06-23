@@ -14,12 +14,14 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.Atlas.framework.R;
-import composants.AnimatedGnar;
 import composants.Animer;
 import composants.Horloge;
 import composants.MyLayoutParams;
 import composants.Police;
 
+/**
+ * @uml.dependency   supplier="custom.Menu"
+ */
 public class MenuOptions implements Menu {
 
 	private Context context;

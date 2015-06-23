@@ -1,6 +1,8 @@
 package dragAndDrop;
 
 
+import composants.MyLayoutParams;
+
 import android.graphics.drawable.Drawable;
 import android.view.DragEvent;
 import android.view.View;
@@ -10,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.content.Context;
 
 /**
- * Le composant a appliquer a un LinearLayout qui sert de zone de drop au Drag-and-drop
+ * Le composant a appliquer a un RelativeLayout qui sert de zone de drop au Drag-and-drop
  *
  */
 public class MyDragListener implements OnDragListener {
@@ -18,10 +20,9 @@ public class MyDragListener implements OnDragListener {
     private Drawable dropZoneSurbrillante; // l'image a utiliser lorsque l'objet drag passe dans la zone de drop
     private Drawable dropZone; // l'image a utiliser lorsque l'objet drag ne passe pas dans la zone de drop
     private boolean vide = true;
-    DnDFonctions fonction;
     
     
-    public MyDragListener(Context context, int dropZoneID,int dropZoneSurbrillanteID,DnDFonctions fonction){
+    public MyDragListener(Context context, int dropZoneID,int dropZoneSurbrillanteID){
     	if(dropZoneID!=0){
         	this.dropZone = context.getResources().getDrawable(dropZoneID);
     	}else{
@@ -32,23 +33,22 @@ public class MyDragListener implements OnDragListener {
     	}else{
     		this.dropZoneSurbrillante = null;
     	}
-    	this.fonction = fonction;
     	
     }
     
     @Override    
     public boolean onDrag(View v, DragEvent event) {
     	String s = "";
-    	if(fonction!=null) s = fonction.getString();
         switch (event.getAction()) {
         
         case DragEvent.ACTION_DRAG_STARTED:
-          // do nothing
+        	//TODO ICI PLACER LE CODE A EXECUTER LORSQUE L'OBJET COMMENCE A ETRE GLISSE
           break;
           
         case DragEvent.ACTION_DRAG_ENTERED: /* Passage du drag dans la zone de drop */
       	if(dropZoneSurbrillante!=null)
           v.setBackground(dropZoneSurbrillante);
+      	  //TODO ICI PLACER LE CODE A EXECUTER LORSQUE L'OBJET EST GLISSE DANS LA ZONE
           break;
           
         case DragEvent.ACTION_DRAG_EXITED: /* Sortie du drag de la zone de drop */
@@ -56,18 +56,20 @@ public class MyDragListener implements OnDragListener {
           v.setBackground(dropZone);
       	}
       	vide = true;
+      	//TODO ICI PLACER LE CODE A EXECUTER LORSQUE L'OBJET EST GLISSE EN DEHORS DE LA ZONE
           break;
           
-        case DragEvent.ACTION_DROP: /* Drop de l'objet */
+        case DragEvent.ACTION_DROP: /* Drop de l'objet dans la zone*/
       	if(vide){  
   	    	vide= !vide;
   	        View view = (View) event.getLocalState(); // la vue qui est drag au dessus
-  	        ViewGroup owner = (ViewGroup) view.getParent();
+  	        MyLayoutParams params_view = new MyLayoutParams().centerInParent();
+  	        ViewGroup owner = (ViewGroup) view.getParent(); // ancien parent
   	        owner.removeView(view);
   	        RelativeLayout dropTarget = (RelativeLayout) v; // la vue qui sert de drop zone
-  	        dropTarget.addView(view);
+  	        dropTarget.addView(view,params_view);
   	        view.setVisibility(View.VISIBLE);
-
+  	        //TODO ICI PLACER LE CODE A EXECUTER LORSQUE L'OBJET EST LACHE DANS LA ZONE
       	}
       	else{
       		
@@ -79,7 +81,7 @@ public class MyDragListener implements OnDragListener {
           v.setBackground(dropZone);
           View view2 = (View) event.getLocalState();
           view2.setVisibility(View.VISIBLE);
-          if(s.equals("play")) fonction.play();
+        //TODO ICI PLACER LE CODE A EXECUTER LORSQUE L'OBJET EST RELACHE EN DEHORS DE LA ZONE
           default:
           break;
         }

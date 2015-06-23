@@ -1,9 +1,5 @@
 package composants;
 
-import java.lang.reflect.Field;
-
-import com.Atlas.framework.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -19,8 +15,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.RelativeLayout.LayoutParams;
+import android.widget.TextView;
+
+import com.Atlas.framework.R;
 
 /**
  * Composant comprenant toutes les fonctionnalites isolees mais utiles !
@@ -67,7 +65,7 @@ public class Utile {
 	 * @return [0] : la largeur en px
 	 * 			[1] : la hauteur en px
 	 */
-	public static int[] getSize(Activity a){
+	public static int[] getScreenSize(Activity a){
 		Display display = a.getWindowManager().getDefaultDisplay();
 		Point size = new Point();
 		display.getSize(size);

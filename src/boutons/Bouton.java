@@ -1,6 +1,8 @@
 package boutons;
 
 
+import com.Atlas.framework.R;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
@@ -9,8 +11,13 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.view.Display;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
 
 import composants.Couleur;
 
@@ -87,6 +94,7 @@ public class Bouton {
 	 * @return L'image du bouton
 	 */
 	public static LayerDrawable roundedDrawable(Activity a,int color,float f){
+		color = a.getResources().getColor(color);
 		Display display = a.getWindowManager().getDefaultDisplay();
 		Point size = new Point();
 		display.getSize(size);
@@ -127,6 +135,7 @@ public class Bouton {
 	 * @return L'image du bouton
 	 */
 	public static LayerDrawable pressedRoundedDrawable(Activity a,int color,float f){
+		color = a.getResources().getColor(color);
 		Display display = a.getWindowManager().getDefaultDisplay();
 		Point size = new Point();
 		display.getSize(size);
@@ -190,7 +199,6 @@ public class Bouton {
 	 * @return Le bouton
 	 */
 	public static Button createRoundedButton(Activity a,int color) {
-		color = a.getResources().getColor(color);
 		LayerDrawable layerDrawable = roundedDrawable(a,color,1);
 		Button bouton = new Button(a);
 		bouton.setHeight(100);
@@ -230,6 +238,71 @@ public class Bouton {
 		b.setBackground(layerDrawable);
 	}
 	
+	/** Met en srubrillance un bouton rond
+	 * @param bouton
+	 * @param ctx
+	 * @param relativeID L'id que l'on veut donner au relative layout qui va englober bouton + glow
+	 * @return
+	 */
+	public static ImageView makeGlow(Button bouton, Context ctx,int relativeID) {
+		ViewGroup parent = (ViewGroup) bouton.getParent();
+
+		float elevation = bouton.getElevation();
+
+		RelativeLayout.LayoutParams params = (LayoutParams) bouton
+				.getLayoutParams();
+		RelativeLayout rl = new RelativeLayout(ctx);
+		rl.setId(relativeID);
+		rl.setLayoutParams(params);
+		parent.addView(rl);
+
+		parent.setClipChildren(false);
+		if(parent.getParent()!=null){
+			ViewGroup pp = (ViewGroup) parent.getParent();
+			pp.setClipChildren(false);
+		}
+
+		RelativeLayout.LayoutParams bouton_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		bouton_params.addRule(RelativeLayout.CENTER_VERTICAL);
+		bouton_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+		bouton.setLayoutParams(bouton_params);
+		parent.removeView(bouton);
+		rl.addView(bouton);
+		rl.setElevation(elevation);
+
+		ImageView glow = new ImageView(ctx);
+		glow.setBackground(ctx.getResources().getDrawable(
+				R.drawable.glow_circle));
+		glow.setLayoutParams(bouton_params);
+		glow.setAlpha(0.7f);
+
+		rl.addView(glow);
+		glow.startAnimation(AnimationUtils
+				.loadAnimation(ctx, R.anim.glow_scale));
+
+		return glow;
+	}
+	
+	/**
+	 * Enleve le glow d'un bouton
+	 * @param bouton Le bouton en srubrillance
+	 */
+	public static void stopGlow(Button bouton) {
+		ViewGroup rl = (ViewGroup) bouton.getParent();
+		RelativeLayout.LayoutParams params = (LayoutParams) rl
+				.getLayoutParams();
+		ViewGroup parent = (ViewGroup) rl.getParent();
+		
+			rl.removeAllViews();
+			parent.removeView(rl);
+			bouton.setLayoutParams(params);
+			parent.addView(bouton);
+		
+		
+		
+	}
+	
 	// les prochaines methodes permettent de changer les paramètres des boutons
 	// avec une ecriture fluent: on peut chainer les methodes pour plus de
 	// lisibilite et de concision.
@@ -241,8 +314,7 @@ public class Bouton {
 	 * @return 
 	 */
 	public static Bouton create(Activity a){
-		return new Bouton(a) ;
-	}
+		return new Bouton(a) ;	}
 
 	/**
 	 * Change le background drawable du bouton

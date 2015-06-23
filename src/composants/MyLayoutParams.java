@@ -154,6 +154,15 @@ public class MyLayoutParams extends RelativeLayout.LayoutParams{
 	}
 	
 	/**
+	 * Centrer verticalement et horizontalement dans le layout parent
+	 * @return params
+	 */
+	public MyLayoutParams centerInParent(){
+		this.addRule(RelativeLayout.CENTER_VERTICAL);
+		return this;
+	}
+	
+	/**
 	 * Fixer une marge sur le bord haut
 	 * @param margin valeur de la marge
 	 * @return params

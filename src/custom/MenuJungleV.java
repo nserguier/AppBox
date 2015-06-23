@@ -1,35 +1,25 @@
 package custom;
 
-import com.Atlas.framework.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.graphics.Typeface;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.RelativeLayout.LayoutParams;
+import android.widget.TextView;
 import boutons.Bouton;
 
+import com.Atlas.framework.R;
 import composants.Animer;
 import composants.Police;
 
-import dragAndDrop.DnDFonctions;
-import dragAndDrop.MyDragAndDrop;
-
 /**
- * Objet qui code un menu "jungle" selon une certaine disposition (orientation
- * portrait) et avec des animations la couleur des boutons, leur forme et le
- * background est imposée (sauf changement dans ce code) le nom des boutons et
- * leur fonction seront en revenche paramétrable dans un autre classe.
- * 
- * @author Victor:Nicklos
- * 
+ * Objet qui code un menu "jungle" selon une certaine disposition (orientation portrait) et avec des animations la couleur des boutons, leur forme et le background est imposée (sauf changement dans ce code) le nom des boutons et leur fonction seront en revenche paramétrable dans un autre classe.
+ * @author   Victor:Nicklos
+ * @uml.dependency   supplier="custom.Menu"
  */
 public class MenuJungleV implements Menu {
 

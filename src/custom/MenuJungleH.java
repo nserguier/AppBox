@@ -1,23 +1,15 @@
 package custom;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.graphics.Typeface;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
-import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,7 +22,6 @@ import com.Atlas.framework.R;
 import composants.Animer;
 import composants.Police;
 
-import dragAndDrop.DnDFonctions;
 import dragAndDrop.MyDragAndDrop;
 
 /**
@@ -374,10 +365,8 @@ public class MenuJungleH implements Menu {
 
 		MyDragAndDrop dnd = new MyDragAndDrop(context);
 		dnd.addDrag(f.getId());
-		DnDFonctions fonction = new DnDFonctions("play", fruit, f, context);
-		dnd.addDrop(dropZone.getId(), R.drawable.cercle, R.drawable.cercle,
-				fonction);
-		dnd.addDrop(fruit.getId(), R.drawable.fruit, R.drawable.fruit, null);
+		dnd.addDrop(dropZone.getId(), R.drawable.cercle, R.drawable.cercle);
+		dnd.addDrop(fruit.getId(), R.drawable.fruit, R.drawable.fruit);
 
 	}
 

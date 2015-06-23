@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="custom_2" size="1495,6025" id="custom" metadata="uml2-1.0" initialized="true" scrolledY="1313" tag="10" key="32303037303533312D3130204672616D65776F726B">
+  <children xsi:type="editmodel:ClassEditModel" name="R" location="50,3696" size="232,2309" id="com.Atlas.framework/R" runTimeClassModel="com.Atlas.framework.R.color,com.Atlas.framework.R.layout,com.Atlas.framework.R.drawable,com.Atlas.framework.R.dimen,com.Atlas.framework.R.styleable,com.Atlas.framework.R.attr,com.Atlas.framework.R.anim,com.Atlas.framework.R.id,com.Atlas.framework.R.raw,com.Atlas.framework.R.string,com.Atlas.framework.R.style">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="209,2236">
+      <children xsi:type="editmodel:ClassEditModel" name="attr" size="120,129" id="com.Atlas.framework/R$attr" runTimeClassModel="hand_minute,bouton_txt,titre,hand_hour,dial">
+        <children xsi:type="editmodel:CompartmentEditModel" size="97,90">
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton_txt" id="com.Atlas.framework/R$attr#bouton_txt"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="dial" id="com.Atlas.framework/R$attr#dial"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="hand_hour" id="com.Atlas.framework/R$attr#hand_hour"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="hand_minute" id="com.Atlas.framework/R$attr#hand_minute"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="titre" id="com.Atlas.framework/R$attr#titre"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="dimen" size="184,75" id="com.Atlas.framework/R$dimen" runTimeClassModel="activity_vertical_margin,activity_horizontal_margin">
+        <children xsi:type="editmodel:CompartmentEditModel" size="161,36">
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_horizontal_margin" id="com.Atlas.framework/R$dimen#activity_horizontal_margin"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_vertical_margin" id="com.Atlas.framework/R$dimen#activity_vertical_margin"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="id" size="146,903" id="com.Atlas.framework/R$id" runTimeClassModel="bouton_police1,parent,glow_shadow_2,topleft,titre,blink,fond,glow_bouton_2,bouton_tts,topright,bouton_supprimer,reserve,devant,parent_view,textView1,champ,stock,image3,analogClock,image4,bouton12,glow_bouton,go,editText,bottomright,creer,image1,image2,bouton10,bouton11,home,cercle3,cercle2,cercle1,bottomleft,bouton2,bouton1,bouton6,bouton5,bouton4,bouton3,bouton_bulle,bouton9,glow,bouton8,bouton_police2,bouton7,cercle4">
+        <children xsi:type="editmodel:CompartmentEditModel" size="123,864">
+          <children xsi:type="editmodel:AttributeEditModel" name="analogClock" id="com.Atlas.framework/R$id#analogClock"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="blink" id="com.Atlas.framework/R$id#blink"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bottomleft" id="com.Atlas.framework/R$id#bottomleft"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bottomright" id="com.Atlas.framework/R$id#bottomright"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton1" id="com.Atlas.framework/R$id#bouton1"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton10" id="com.Atlas.framework/R$id#bouton10"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton11" id="com.Atlas.framework/R$id#bouton11"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton12" id="com.Atlas.framework/R$id#bouton12"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton2" id="com.Atlas.framework/R$id#bouton2"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton3" id="com.Atlas.framework/R$id#bouton3"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton4" id="com.Atlas.framework/R$id#bouton4"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton5" id="com.Atlas.framework/R$id#bouton5"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton6" id="com.Atlas.framework/R$id#bouton6"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton7" id="com.Atlas.framework/R$id#bouton7"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton8" id="com.Atlas.framework/R$id#bouton8"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton9" id="com.Atlas.framework/R$id#bouton9"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton_bulle" id="com.Atlas.framework/R$id#bouton_bulle"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton_police1" id="com.Atlas.framework/R$id#bouton_police1"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton_police2" id="com.Atlas.framework/R$id#bouton_police2"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton_supprimer" id="com.Atlas.framework/R$id#bouton_supprimer"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="bouton_tts" id="com.Atlas.framework/R$id#bouton_tts"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="cercle1" id="com.Atlas.framework/R$id#cercle1"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="cercle2" id="com.Atlas.framework/R$id#cercle2"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="cercle3" id="com.Atlas.framework/R$id#cercle3"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="cercle4" id="com.Atlas.framework/R$id#cercle4"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="champ" id="com.Atlas.framework/R$id#champ"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="creer" id="com.Atlas.framework/R$id#creer"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="devant" id="com.Atlas.framework/R$id#devant"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="editText" id="com.Atlas.framework/R$id#editText"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="fond" id="com.Atlas.framework/R$id#fond"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="glow" id="com.Atlas.framework/R$id#glow"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="glow_bouton" id="com.Atlas.framework/R$id#glow_bouton"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="glow_bouton_2" id="com.Atlas.framework/R$id#glow_bouton_2"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="glow_shadow_2" id="com.Atlas.framework/R$id#glow_shadow_2"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="go" id="com.Atlas.framework/R$id#go"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="home" id="com.Atlas.framework/R$id#home"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="image1" id="com.Atlas.framework/R$id#image1"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="image2" id="com.Atlas.framework/R$id#image2"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="image3" id="com.Atlas.framework/R$id#image3"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="image4" id="com.Atlas.framework/R$id#image4"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="parent" id="com.Atlas.framework/R$id#parent"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="parent_view" id="com.Atlas.framework/R$id#parent_view"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="reserve" id="com.Atlas.framework/R$id#reserve"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="stock" id="com.Atlas.framework/R$id#stock"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="textView1" id="com.Atlas.framework/R$id#textView1"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="titre" id="com.Atlas.framework/R$id#titre"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="topleft" id="com.Atlas.framework/R$id#topleft"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="topright" id="com.Atlas.framework/R$id#topright"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="layout" size="161,255" id="com.Atlas.framework/R$layout" runTimeClassModel="activity_menu,activity_boutons,activity_clock,activity_deroulant,activity_font,activity_full_screen,activity_tts,activity_drag_n_drop,activity_glow,activity_bulle,activity_menu_style,activity_animation">
+        <children xsi:type="editmodel:CompartmentEditModel" size="138,216">
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_animation" id="com.Atlas.framework/R$layout#activity_animation"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_boutons" id="com.Atlas.framework/R$layout#activity_boutons"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_bulle" id="com.Atlas.framework/R$layout#activity_bulle"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_clock" id="com.Atlas.framework/R$layout#activity_clock"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_deroulant" id="com.Atlas.framework/R$layout#activity_deroulant"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_drag_n_drop" id="com.Atlas.framework/R$layout#activity_drag_n_drop"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_font" id="com.Atlas.framework/R$layout#activity_font"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_full_screen" id="com.Atlas.framework/R$layout#activity_full_screen"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_glow" id="com.Atlas.framework/R$layout#activity_glow"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_menu" id="com.Atlas.framework/R$layout#activity_menu"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_menu_style" id="com.Atlas.framework/R$layout#activity_menu_style"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="activity_tts" id="com.Atlas.framework/R$layout#activity_tts"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="raw" size="137,111" id="com.Atlas.framework/R$raw" runTimeClassModel="mountains,music,duel,habla_con_hella">
+        <children xsi:type="editmodel:CompartmentEditModel" size="114,72">
+          <children xsi:type="editmodel:AttributeEditModel" name="duel" id="com.Atlas.framework/R$raw#duel"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="habla_con_hella" id="com.Atlas.framework/R$raw#habla_con_hella"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="mountains" id="com.Atlas.framework/R$raw#mountains"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="music" id="com.Atlas.framework/R$raw#music"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="string" size="195,471" id="com.Atlas.framework/R$string" runTimeClassModel="title_activity_tts,title_activity_second,title_activity_squelette,titre_menu,indication_bouton,sous_titre_menu,title_activity_menu_option,title_activity_deroulant,title_activity_memory,title_activity_boutons,title_activity_menu,title_activity_drag_and_drop,title_activity_animation,app_name,title_activity_test,hello_world,title_activity_glow,title_activity_menu_style,title_activity_third,title_activity_full_screen,title_activity_clock,titre_bouton,title_activity_bulle,title_activity_font">
+        <children xsi:type="editmodel:CompartmentEditModel" size="172,432">
+          <children xsi:type="editmodel:AttributeEditModel" name="app_name" id="com.Atlas.framework/R$string#app_name"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="hello_world" id="com.Atlas.framework/R$string#hello_world"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="indication_bouton" id="com.Atlas.framework/R$string#indication_bouton"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="sous_titre_menu" id="com.Atlas.framework/R$string#sous_titre_menu"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_animation" id="com.Atlas.framework/R$string#title_activity_animation"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_boutons" id="com.Atlas.framework/R$string#title_activity_boutons"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_bulle" id="com.Atlas.framework/R$string#title_activity_bulle"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_clock" id="com.Atlas.framework/R$string#title_activity_clock"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_deroulant" id="com.Atlas.framework/R$string#title_activity_deroulant"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_drag_and_drop" id="com.Atlas.framework/R$string#title_activity_drag_and_drop"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_font" id="com.Atlas.framework/R$string#title_activity_font"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_full_screen" id="com.Atlas.framework/R$string#title_activity_full_screen"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_glow" id="com.Atlas.framework/R$string#title_activity_glow"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_memory" id="com.Atlas.framework/R$string#title_activity_memory"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_menu" id="com.Atlas.framework/R$string#title_activity_menu"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_menu_option" id="com.Atlas.framework/R$string#title_activity_menu_option"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_menu_style" id="com.Atlas.framework/R$string#title_activity_menu_style"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_second" id="com.Atlas.framework/R$string#title_activity_second"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_squelette" id="com.Atlas.framework/R$string#title_activity_squelette"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_test" id="com.Atlas.framework/R$string#title_activity_test"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_third" id="com.Atlas.framework/R$string#title_activity_third"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="title_activity_tts" id="com.Atlas.framework/R$string#title_activity_tts"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="titre_bouton" id="com.Atlas.framework/R$string#titre_bouton"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="titre_menu" id="com.Atlas.framework/R$string#titre_menu"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="style" size="136,93" id="com.Atlas.framework/R$style" runTimeClassModel="appTheme,appBaseTheme,wrapped">
+        <children xsi:type="editmodel:CompartmentEditModel" size="113,54">
+          <children xsi:type="editmodel:AttributeEditModel" name="appBaseTheme" id="com.Atlas.framework/R$style#appBaseTheme"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="appTheme" id="com.Atlas.framework/R$style#appTheme"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="wrapped" id="com.Atlas.framework/R$style#wrapped"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="styleable" size="209,183" id="com.Atlas.framework/R$styleable" runTimeClassModel="stylableTitle,analogClock,stylableTitle_bouton_txt,analogClock_hand_hour,analogClock_hand_minute,analogClock_dial,stylableTitle_android_drawable,stylableTitle_titre">
+        <children xsi:type="editmodel:CompartmentEditModel" size="186,144">
+          <children xsi:type="editmodel:AttributeEditModel" name="analogClock" id="com.Atlas.framework/R$styleable#analogClock"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="analogClock_dial" id="com.Atlas.framework/R$styleable#analogClock_dial"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="analogClock_hand_hour" id="com.Atlas.framework/R$styleable#analogClock_hand_hour"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="analogClock_hand_minute" id="com.Atlas.framework/R$styleable#analogClock_hand_minute"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="stylableTitle" id="com.Atlas.framework/R$styleable#stylableTitle"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="stylableTitle_android_drawable" id="com.Atlas.framework/R$styleable#stylableTitle_android_drawable"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="stylableTitle_bouton_txt" id="com.Atlas.framework/R$styleable#stylableTitle_bouton_txt"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="stylableTitle_titre" id="com.Atlas.framework/R$styleable#stylableTitle_titre"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="FabriqueMenu" location="300,1305" size="134,67" id="custom/FabriqueMenu" runTimeClassModel="create(Lcustom.TypeMenu;Landroid.content.Context;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="61,18">
+      <children xsi:type="editmodel:MethodEditModel" name="create" id="custom/FabriqueMenu#create(Lcustom.TypeMenu;Landroid.content.Context;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuOptions" source="//@children.1" target="//@children.7" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,156"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuOceanH" source="//@children.1" target="//@children.5" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,16" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,158"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuJungleH" source="//@children.1" target="//@children.4" targetEnd="//@children.1/@sourceConnections.2/@children.2" label="//@children.1/@sourceConnections.2/@children.0" sourceEnd="//@children.1/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,33" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,87"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/TypeMenu*custom/FabriqueMenu-Soyatec::Access->custom/TypeMenu*custom/FabriqueMenu-Soyatec::Import->custom/TypeMenu" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.3/@children.2" label="//@children.1/@sourceConnections.3/@children.0" sourceEnd="//@children.1/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Access»" size="84,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,62" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,35"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuJungleV" source="//@children.1" target="//@children.6" targetEnd="//@children.1/@sourceConnections.4/@children.2" label="//@children.1/@sourceConnections.4/@children.0" sourceEnd="//@children.1/@sourceConnections.4/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,16" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,158"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu-Soyatec::Import->custom/Menu" source="//@children.1" target="//@children.3" targetEnd="//@children.1/@sourceConnections.5/@children.2" label="//@children.1/@sourceConnections.5/@children.0" sourceEnd="//@children.1/@sourceConnections.5/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="118,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,111"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:EnumerationEditModel" targetConnections="//@children.1/@sourceConnections.3 //@children.7/@sourceConnections.0 //@children.5/@sourceConnections.0 //@children.4/@sourceConnections.0 //@children.6/@sourceConnections.0" name="TypeMenu" location="750,1470" size="122,125" id="custom/TypeMenu" runTimeClassModel="Options%,JungleVertical%,OceanHorizontal%,JungleHorizontal%">
+    <children xsi:type="editmodel:CompartmentEditModel" size="99,72">
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="OceanHorizontal" id="custom/TypeMenu#OceanHorizontal%"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="Options" id="custom/TypeMenu#Options%"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="JungleVertical" id="custom/TypeMenu#JungleVertical%"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="JungleHorizontal" id="custom/TypeMenu#JungleHorizontal%"/>
+    </children>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.6/@sourceConnections.1 //@children.6/@sourceConnections.2 //@children.1/@sourceConnections.5 //@children.4/@sourceConnections.1 //@children.4/@sourceConnections.2 //@children.5/@sourceConnections.1 //@children.5/@sourceConnections.2 //@children.7/@sourceConnections.1 //@children.7/@sourceConnections.2" name="Menu" location="780,960" size="110,153" id="custom/Menu" runTimeClassModel="destroy(I),rassembler(II),createMenu(Landroid.view.ViewGroup;),addButton(Ljava.lang.String;I),addTitre(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="87,90">
+      <children xsi:type="editmodel:MethodEditModel" name="addButton" id="custom/Menu#addButton(Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addTitre" id="custom/Menu#addTitre(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createMenu" id="custom/Menu#createMenu(Landroid.view.ViewGroup;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="destroy" id="custom/Menu#destroy(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rassembler" id="custom/Menu#rassembler(II)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.2" name="MenuJungleH" location="855,1251" size="129,175" id="custom/MenuJungleH" runTimeClassModel="MenuJungleH(Landroid.content.Context;),animation(),destroy(I),rassembler(II),createMenu(Landroid.view.ViewGroup;),addButton(Ljava.lang.String;I),addTitre(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="94,126">
+      <children xsi:type="editmodel:MethodEditModel" name="MenuJungleH" id="custom/MenuJungleH#MenuJungleH(Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addButton" id="custom/MenuJungleH#addButton(Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addTitre" id="custom/MenuJungleH#addTitre(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="animation" id="custom/MenuJungleH#animation()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createMenu" id="custom/MenuJungleH#createMenu(Landroid.view.ViewGroup;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="destroy" id="custom/MenuJungleH#destroy(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rassembler" id="custom/MenuJungleH#rassembler(II)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuJungleH->custom/TypeMenu*custom/MenuJungleH-Soyatec::Access->custom/TypeMenu*custom/MenuJungleH-Soyatec::Import->custom/TypeMenu" source="//@children.4" target="//@children.2" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Access»" size="84,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="8,175" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="113,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuJungleH-Soyatec::Implement->custom/Menu" source="//@children.4" target="//@children.3" targetEnd="//@children.4/@sourceConnections.1/@children.2" label="//@children.4/@sourceConnections.1/@children.0" sourceEnd="//@children.4/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="17,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="92,153"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="custom/Menu&lt;-custom/MenuJungleH" source="//@children.4" target="//@children.3" targetEnd="//@children.4/@sourceConnections.2/@children.1" sourceEnd="//@children.4/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,5" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="72,153"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.1" name="MenuOceanH" location="692,1163" size="127,175" id="custom/MenuOceanH" runTimeClassModel="animation(),destroy(I),rassembler(II),createMenu(Landroid.view.ViewGroup;),MenuOceanH(Landroid.content.Context;),addButton(Ljava.lang.String;I),addTitre(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="95,126">
+      <children xsi:type="editmodel:MethodEditModel" name="MenuOceanH" id="custom/MenuOceanH#MenuOceanH(Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addButton" id="custom/MenuOceanH#addButton(Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addTitre" id="custom/MenuOceanH#addTitre(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="animation" id="custom/MenuOceanH#animation()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createMenu" id="custom/MenuOceanH#createMenu(Landroid.view.ViewGroup;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="destroy" id="custom/MenuOceanH#destroy(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rassembler" id="custom/MenuOceanH#rassembler(II)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuOceanH->custom/TypeMenu*custom/MenuOceanH-Soyatec::Access->custom/TypeMenu*custom/MenuOceanH-Soyatec::Import->custom/TypeMenu" source="//@children.5" target="//@children.2" targetEnd="//@children.5/@sourceConnections.0/@children.2" label="//@children.5/@sourceConnections.0/@children.0" sourceEnd="//@children.5/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Access»" size="84,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="92,175" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="34,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuOceanH-Soyatec::Implement->custom/Menu" source="//@children.5" target="//@children.3" targetEnd="//@children.5/@sourceConnections.1/@children.2" label="//@children.5/@sourceConnections.1/@children.0" sourceEnd="//@children.5/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="107,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="19,153"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="custom/Menu&lt;-custom/MenuOceanH" source="//@children.5" target="//@children.3" targetEnd="//@children.5/@sourceConnections.2/@children.1" sourceEnd="//@children.5/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="127,15" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,148"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.4" name="MenuJungleV" location="1020,1163" size="129,175" id="custom/MenuJungleV" runTimeClassModel="MenuJungleV(Landroid.content.Context;),animation(),rassembler(II),destroy(I),createMenu(Landroid.view.ViewGroup;),addButton(Ljava.lang.String;I),addTitre(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="95,126">
+      <children xsi:type="editmodel:MethodEditModel" name="MenuJungleV" location="1120,1229" id="custom/MenuJungleV#MenuJungleV(Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addButton" id="custom/MenuJungleV#addButton(Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addTitre" id="custom/MenuJungleV#addTitre(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="animation" id="custom/MenuJungleV#animation()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createMenu" id="custom/MenuJungleV#createMenu(Landroid.view.ViewGroup;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="destroy" id="custom/MenuJungleV#destroy(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rassembler" id="custom/MenuJungleV#rassembler(II)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuJungleV->custom/TypeMenu*custom/MenuJungleV-Soyatec::Access->custom/TypeMenu*custom/MenuJungleV-Soyatec::Import->custom/TypeMenu*custom/MenuJungleV->custom/TypeMenu*custom/MenuJungleV->custom/TypeMenu" source="//@children.6" target="//@children.2" targetEnd="//@children.6/@sourceConnections.0/@children.2" label="//@children.6/@sourceConnections.0/@children.0" sourceEnd="//@children.6/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Access»" size="84,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,153" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="121,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuJungleV->custom/Menu*custom/MenuJungleV-Soyatec::Implement->custom/Menu" source="//@children.6" target="//@children.3" targetEnd="//@children.6/@sourceConnections.1/@children.1" label="//@children.6/@sourceConnections.1/@children.2" sourceEnd="//@children.6/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="110,143"/>
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="custom/Menu&lt;-custom/MenuJungleV" source="//@children.6" target="//@children.3" targetEnd="//@children.6/@sourceConnections.2/@children.1" sourceEnd="//@children.6/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="129,5" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="100,153"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0" name="MenuOptions" location="540,1149" size="125,157" id="custom/MenuOptions" runTimeClassModel="rassembler(II),destroy(I),createMenu(Landroid.view.ViewGroup;),MenuOptions(Landroid.content.Context;),addButton(Ljava.lang.String;I),addTitre(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="93,108">
+      <children xsi:type="editmodel:MethodEditModel" name="MenuOptions" id="custom/MenuOptions#MenuOptions(Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addButton" id="custom/MenuOptions#addButton(Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addTitre" id="custom/MenuOptions#addTitre(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createMenu" id="custom/MenuOptions#createMenu(Landroid.view.ViewGroup;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="destroy" id="custom/MenuOptions#destroy(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rassembler" id="custom/MenuOptions#rassembler(II)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuOptions->custom/TypeMenu*custom/MenuOptions-Soyatec::Access->custom/TypeMenu*custom/MenuOptions-Soyatec::Import->custom/TypeMenu*custom/MenuOptions->custom/TypeMenu" source="//@children.7" target="//@children.2" targetEnd="//@children.7/@sourceConnections.0/@children.2" label="//@children.7/@sourceConnections.0/@children.0" sourceEnd="//@children.7/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Access»" size="84,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="116,157" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="19,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuOptions-Soyatec::Implement->custom/Menu" source="//@children.7" target="//@children.3" targetEnd="//@children.7/@sourceConnections.1/@children.2" label="//@children.7/@sourceConnections.1/@children.0" sourceEnd="//@children.7/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="115,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,143"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="custom/Menu&lt;-custom/MenuOptions" source="//@children.7" target="//@children.3" targetEnd="//@children.7/@sourceConnections.2/@children.1" sourceEnd="//@children.7/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="120,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,147"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=7;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

@@ -17,7 +17,7 @@ public class MyDragAndDrop {
 	}
 	
 	/**
-	 * 
+	 * Ajoute un element deplacable et deposable au drag and drop
 	 * @param toDragID l'id de la View qu'on veut pouvoir deplacer
 	 */
 	public void addDrag(int toDragID){
@@ -26,13 +26,13 @@ public class MyDragAndDrop {
 	}
 	
 	/**
-	 * 
+	 * Ajoute une zone de depot au drag and drop
 	 * @param dropZoneID l'id du LinearLayout servant de drop zone
 	 * @param dropZoneDrawID l'id de l'image servant de fond a la drop zone
 	 * @param dropZoneSurbrillantDrawID l'id de l'image servant de fond a la drop zone en surbrillance
 	 */
-	public void addDrop(int dropZoneID, int dropZoneDrawID, int dropZoneSurbrillantDrawID,DnDFonctions fonction){
+	public void addDrop(int dropZoneID, int dropZoneDrawID, int dropZoneSurbrillantDrawID){
 		/* Affectation du composant permettant le drop*/
-		((Activity) context).findViewById(dropZoneID).setOnDragListener(new MyDragListener(context,dropZoneDrawID,dropZoneSurbrillantDrawID,fonction));
+		((Activity) context).findViewById(dropZoneID).setOnDragListener(new MyDragListener(context,dropZoneDrawID,dropZoneSurbrillantDrawID));
 	}
 }

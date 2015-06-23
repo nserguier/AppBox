@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1008,470" id="composants" metadata="uml2-1.0" initialized="true" zoom="1.5" tag="10" key="32303037303533312D3130204672616D65776F726B">
-  <children xsi:type="editmodel:ClassEditModel" name="MyLayoutParams" location="270,120" size="151,265" id="composants/MyLayoutParams" runTimeClassModel="marginRight(I),marginBottom(I),toRightOf(Landroid.view.View;),margins(IIII),alignStart(Landroid.view.View;),marginLeft(I),marginTop(I),centerHorizontal(),below(Landroid.view.View;),MyLayoutParams(),toLeftOf(Landroid.view.View;),above(Landroid.view.View;)">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="997,585" id="composants" metadata="uml2-1.0" initialized="true" zoom="1.5" tag="10" key="32303037303533312D3130204672616D65776F726B">
+  <children xsi:type="editmodel:ClassEditModel" name="MyLayoutParams" location="270,120" size="151,445" id="composants/MyLayoutParams" runTimeClassModel="MyLayoutParams(II),marginRight(I),alignStart(Landroid.view.View;),margins(IIII),alignTop(Landroid.view.View;),marginLeft(I),alignParentLeft(),centerVertical(),centerHorizontal(),alignParentRight(),alignParentTop(),MyLayoutParams(),toLeftOf(Landroid.view.View;),marginBottom(I),toRightOf(Landroid.view.View;),marginTop(I),centerInParent(),alignBottom(Landroid.view.View;),alignEnd(Landroid.view.View;),below(Landroid.view.View;),above(Landroid.view.View;),alignParentBottom()">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="113,216">
+    <children xsi:type="editmodel:CompartmentEditModel" size="116,396">
       <children xsi:type="editmodel:MethodEditModel" name="MyLayoutParams" id="composants/MyLayoutParams#MyLayoutParams()"/>
       <children xsi:type="editmodel:MethodEditModel" name="above" id="composants/MyLayoutParams#above(Landroid.view.View;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="alignStart" id="composants/MyLayoutParams#alignStart(Landroid.view.View;)"/>
@@ -15,6 +15,16 @@
       <children xsi:type="editmodel:MethodEditModel" name="margins" id="composants/MyLayoutParams#margins(IIII)"/>
       <children xsi:type="editmodel:MethodEditModel" name="toLeftOf" id="composants/MyLayoutParams#toLeftOf(Landroid.view.View;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="toRightOf" id="composants/MyLayoutParams#toRightOf(Landroid.view.View;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="alignParentLeft" id="composants/MyLayoutParams#alignParentLeft()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="alignParentTop" id="composants/MyLayoutParams#alignParentTop()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="alignEnd" id="composants/MyLayoutParams#alignEnd(Landroid.view.View;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="alignParentRight" id="composants/MyLayoutParams#alignParentRight()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="alignTop" id="composants/MyLayoutParams#alignTop(Landroid.view.View;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="centerVertical" id="composants/MyLayoutParams#centerVertical()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="centerInParent" id="composants/MyLayoutParams#centerInParent()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="alignBottom" id="composants/MyLayoutParams#alignBottom(Landroid.view.View;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="alignParentBottom" id="composants/MyLayoutParams#alignParentBottom()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="MyLayoutParams" id="composants/MyLayoutParams#MyLayoutParams(II)"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
