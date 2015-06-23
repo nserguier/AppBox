@@ -28,7 +28,7 @@ public class FabriqueMenu {
 		case JungleHorizontal: return new MenuJungleH(context);
 		case JungleVertical: return new MenuJungleV(context);
 		case OceanHorizontal: return new MenuOceanH(context);
-		case Options: return new MenuOptions(context);
+		case Options : return new MenuOptions(context);
 		}
 		throw new IllegalArgumentException(
 				"wrong argument, should of type TypeMenu ");

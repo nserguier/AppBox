@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="custom_2" size="1495,6025" id="custom" metadata="uml2-1.0" initialized="true" scrolledY="1313" tag="10" key="32303037303533312D3130204672616D65776F726B">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="custom_2" size="1495,6025" id="custom" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D3130204672616D65776F726B">
   <children xsi:type="editmodel:ClassEditModel" name="R" location="50,3696" size="232,2309" id="com.Atlas.framework/R" runTimeClassModel="com.Atlas.framework.R.color,com.Atlas.framework.R.layout,com.Atlas.framework.R.drawable,com.Atlas.framework.R.dimen,com.Atlas.framework.R.styleable,com.Atlas.framework.R.attr,com.Atlas.framework.R.anim,com.Atlas.framework.R.id,com.Atlas.framework.R.raw,com.Atlas.framework.R.string,com.Atlas.framework.R.style">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
@@ -175,27 +175,27 @@
       <children xsi:type="editmodel:MethodEditModel" name="create" id="custom/FabriqueMenu#create(Lcustom.TypeMenu;Landroid.content.Context;)"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuOptions" source="//@children.1" target="//@children.7" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuOptions*custom/FabriqueMenu->custom/MenuOptions" source="//@children.1" target="//@children.7" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
       <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="134,0" attachSource="true"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="0,156"/>
     </sourceConnections>
-    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuOceanH" source="//@children.1" target="//@children.5" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuOceanH*custom/FabriqueMenu->custom/MenuOceanH" source="//@children.1" target="//@children.5" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
       <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="134,16" attachSource="true"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="0,158"/>
     </sourceConnections>
-    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuJungleH" source="//@children.1" target="//@children.4" targetEnd="//@children.1/@sourceConnections.2/@children.2" label="//@children.1/@sourceConnections.2/@children.0" sourceEnd="//@children.1/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuJungleH*custom/FabriqueMenu->custom/MenuJungleH" source="//@children.1" target="//@children.4" targetEnd="//@children.1/@sourceConnections.2/@children.2" label="//@children.1/@sourceConnections.2/@children.0" sourceEnd="//@children.1/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
       <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="134,33" attachSource="true"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="0,87"/>
     </sourceConnections>
-    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/TypeMenu*custom/FabriqueMenu-Soyatec::Access->custom/TypeMenu*custom/FabriqueMenu-Soyatec::Import->custom/TypeMenu" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.3/@children.2" label="//@children.1/@sourceConnections.3/@children.0" sourceEnd="//@children.1/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/TypeMenu*custom/FabriqueMenu-Soyatec::Access->custom/TypeMenu*custom/FabriqueMenu-Soyatec::Import->custom/TypeMenu*custom/FabriqueMenu->custom/TypeMenu" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.3/@children.2" label="//@children.1/@sourceConnections.3/@children.0" sourceEnd="//@children.1/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
       <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Access»" size="84,14" anchorKind="MiddlePart"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="134,62" attachSource="true"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="0,35"/>
     </sourceConnections>
-    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuJungleV" source="//@children.1" target="//@children.6" targetEnd="//@children.1/@sourceConnections.4/@children.2" label="//@children.1/@sourceConnections.4/@children.0" sourceEnd="//@children.1/@sourceConnections.4/@children.1" connectionRouterKind="Manual">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/FabriqueMenu->custom/MenuJungleV*custom/FabriqueMenu->custom/MenuJungleV" source="//@children.1" target="//@children.6" targetEnd="//@children.1/@sourceConnections.4/@children.2" label="//@children.1/@sourceConnections.4/@children.0" sourceEnd="//@children.1/@sourceConnections.4/@children.1" connectionRouterKind="Manual">
       <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="134,16" attachSource="true"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="0,158"/>
@@ -216,7 +216,7 @@
     </children>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.6/@sourceConnections.1 //@children.6/@sourceConnections.2 //@children.1/@sourceConnections.5 //@children.4/@sourceConnections.1 //@children.4/@sourceConnections.2 //@children.5/@sourceConnections.1 //@children.5/@sourceConnections.2 //@children.7/@sourceConnections.1 //@children.7/@sourceConnections.2" name="Menu" location="780,960" size="110,153" id="custom/Menu" runTimeClassModel="destroy(I),rassembler(II),createMenu(Landroid.view.ViewGroup;),addButton(Ljava.lang.String;I),addTitre(Ljava.lang.String;)">
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.6/@sourceConnections.1 //@children.6/@sourceConnections.2 //@children.1/@sourceConnections.5 //@children.4/@sourceConnections.1 //@children.4/@sourceConnections.2 //@children.5/@sourceConnections.1 //@children.5/@sourceConnections.2 //@children.7/@sourceConnections.1 //@children.7/@sourceConnections.2" name="Menu" location="780,960" size="110,153" id="custom/Menu" runTimeClassModel="rassembler(II),destroy(I),createMenu(Landroid.view.ViewGroup;),addButton(Ljava.lang.String;I),addTitre(Ljava.lang.String;)">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="87,90">
       <children xsi:type="editmodel:MethodEditModel" name="addButton" id="custom/Menu#addButton(Ljava.lang.String;I)"/>
@@ -228,7 +228,7 @@
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.2" name="MenuJungleH" location="855,1251" size="129,175" id="custom/MenuJungleH" runTimeClassModel="MenuJungleH(Landroid.content.Context;),animation(),destroy(I),rassembler(II),createMenu(Landroid.view.ViewGroup;),addButton(Ljava.lang.String;I),addTitre(Ljava.lang.String;)">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.2" name="MenuJungleH" location="855,1251" size="129,175" id="custom/MenuJungleH" runTimeClassModel="MenuJungleH(Landroid.content.Context;),animation(),rassembler(II),destroy(I),createMenu(Landroid.view.ViewGroup;),addTitre(Ljava.lang.String;),addButton(Ljava.lang.String;I)">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="94,126">
       <children xsi:type="editmodel:MethodEditModel" name="MenuJungleH" id="custom/MenuJungleH#MenuJungleH(Landroid.content.Context;)"/>
@@ -252,7 +252,7 @@
     </sourceConnections>
     <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="custom/Menu&lt;-custom/MenuJungleH" source="//@children.4" target="//@children.3" targetEnd="//@children.4/@sourceConnections.2/@children.1" sourceEnd="//@children.4/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
       <children xsi:type="editmodel:AssociationEndEditModel" location="0,5" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="72,153"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="110,148"/>
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
@@ -296,12 +296,12 @@
       <children xsi:type="editmodel:MethodEditModel" name="rassembler" id="custom/MenuJungleV#rassembler(II)"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuJungleV->custom/TypeMenu*custom/MenuJungleV-Soyatec::Access->custom/TypeMenu*custom/MenuJungleV-Soyatec::Import->custom/TypeMenu*custom/MenuJungleV->custom/TypeMenu*custom/MenuJungleV->custom/TypeMenu" source="//@children.6" target="//@children.2" targetEnd="//@children.6/@sourceConnections.0/@children.2" label="//@children.6/@sourceConnections.0/@children.0" sourceEnd="//@children.6/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuJungleV->custom/TypeMenu*custom/MenuJungleV-Soyatec::Access->custom/TypeMenu*custom/MenuJungleV-Soyatec::Import->custom/TypeMenu" source="//@children.6" target="//@children.2" targetEnd="//@children.6/@sourceConnections.0/@children.2" label="//@children.6/@sourceConnections.0/@children.0" sourceEnd="//@children.6/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
       <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Access»" size="84,14" anchorKind="MiddlePart"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="0,153" attachSource="true"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="121,0"/>
     </sourceConnections>
-    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuJungleV->custom/Menu*custom/MenuJungleV-Soyatec::Implement->custom/Menu" source="//@children.6" target="//@children.3" targetEnd="//@children.6/@sourceConnections.1/@children.1" label="//@children.6/@sourceConnections.1/@children.2" sourceEnd="//@children.6/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="custom/MenuJungleV-Soyatec::Implement->custom/Menu" source="//@children.6" target="//@children.3" targetEnd="//@children.6/@sourceConnections.1/@children.1" label="//@children.6/@sourceConnections.1/@children.2" sourceEnd="//@children.6/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
       <children xsi:type="editmodel:AssociationEndEditModel" location="10,0" attachSource="true"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="110,143"/>
       <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
@@ -312,7 +312,7 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0" name="MenuOptions" location="540,1149" size="125,157" id="custom/MenuOptions" runTimeClassModel="rassembler(II),destroy(I),createMenu(Landroid.view.ViewGroup;),MenuOptions(Landroid.content.Context;),addButton(Ljava.lang.String;I),addTitre(Ljava.lang.String;)">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0" name="MenuOptions" location="540,1149" size="125,157" id="custom/MenuOptions" runTimeClassModel="rassembler(II),destroy(I),createMenu(Landroid.view.ViewGroup;),addTitre(Ljava.lang.String;),addButton(Ljava.lang.String;I),MenuOptions(Landroid.content.Context;)">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="93,108">
       <children xsi:type="editmodel:MethodEditModel" name="MenuOptions" id="custom/MenuOptions#MenuOptions(Landroid.content.Context;)"/>
