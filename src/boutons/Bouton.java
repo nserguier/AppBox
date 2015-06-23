@@ -91,6 +91,7 @@ public class Bouton {
 	/**
 	 * Cree une image de bouton arrondi a partir d'une couleur
 	 * @param color La couleur servant de base au bouton
+	 * @param f la largeur de l'image
 	 * @return L'image du bouton
 	 */
 	public static LayerDrawable roundedDrawable(Activity a,int color,float f){
@@ -132,6 +133,7 @@ public class Bouton {
 	/**
 	 * Cree une image de bouton arrondi presse a partir d'une couleur
 	 * @param color La couleur servant de base au bouton
+	 * @param f la largeur de l'image
 	 * @return L'image du bouton
 	 */
 	public static LayerDrawable pressedRoundedDrawable(Activity a,int color,float f){

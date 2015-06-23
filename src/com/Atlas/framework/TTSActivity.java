@@ -2,10 +2,9 @@ package com.Atlas.framework;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import boutons.HomeActivityListener;
+import boutons.NextActivityListener;
 import boutons.TTSBouton;
 
 public class TTSActivity extends Activity {
@@ -24,7 +23,7 @@ public class TTSActivity extends Activity {
 
 			      /* Bouton home de retour au menu */
 					Button home = (Button) findViewById(R.id.home);
-					home.setOnClickListener(new HomeActivityListener(this,home,TTSActivity.this,MainActivity.class));
+					home.setOnClickListener(new NextActivityListener(home,null,TTSActivity.this,MainActivity.class));
 			   }
 
 	}
