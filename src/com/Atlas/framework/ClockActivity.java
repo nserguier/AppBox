@@ -4,27 +4,17 @@ package com.Atlas.framework;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import composants.Horloge;
-
-import boutons.HomeActivityListener;
+import boutons.NextActivityListener;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
-import android.view.animation.RotateAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import composants.Horloge;
 
 public class ClockActivity extends Activity {
 
@@ -66,7 +56,7 @@ public class ClockActivity extends Activity {
 
 		/* Bouton home de retour au menu */
 		Button home = (Button) findViewById(R.id.home);
-		home.setOnClickListener(new HomeActivityListener(this, home,
+		home.setOnClickListener(new NextActivityListener(home,null,
 				ClockActivity.this, MainActivity.class));
 
 	}

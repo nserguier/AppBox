@@ -1,7 +1,6 @@
 package com.Atlas.framework;
 
 import boutons.Bouton;
-import boutons.HomeActivityListener;
 import boutons.NextActivityListener;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -37,7 +36,7 @@ public class BoutonsActivity extends Activity {
 		
 		/* Bouton home de retour au menu */
 		Button home = (Button) findViewById(R.id.home);
-		home.setOnClickListener(new HomeActivityListener(this,home,BoutonsActivity.this,MainActivity.class));
+		home.setOnClickListener(new NextActivityListener(home,null,BoutonsActivity.this,MainActivity.class));
 		
 		/* Bouton de creation */
 		Button creer =  (Button) findViewById(R.id.creer);

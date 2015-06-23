@@ -1,16 +1,14 @@
 package com.Atlas.framework;
 
-import composants.MenuDeroulant;
-
-import boutons.Bouton;
-import boutons.HomeActivityListener;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
-import android.widget.TextView;
+import boutons.Bouton;
+
+import composants.MenuDeroulant;
 
 public class DeroulantActivity extends Activity {
 

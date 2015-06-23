@@ -46,17 +46,17 @@ public class MainActivity extends Activity {
 		/* Cree les lien des boutons */
 		
 
-		b1.setOnClickListener(new NextActivityListener(this,b1,MainActivity.this,DragAndDropActivity.class));
-		b2.setOnClickListener(new NextActivityListener(this,b2,MainActivity.this,TTSActivity.class)); 
-		b3.setOnClickListener(new NextActivityListener(this,b3,MainActivity.this,BoutonsActivity.class));
-		b4.setOnClickListener(new NextActivityListener(this,b4,MainActivity.this,MenuActivity.class));
-		b5.setOnClickListener(new NextActivityListener(this,b5,MainActivity.this,FullScreenActivity.class));
-		b6.setOnClickListener(new NextActivityListener(this,b6,MainActivity.this,GlowActivity.class));
-		b7.setOnClickListener(new NextActivityListener(this,b7,MainActivity.this,ClockActivity.class));
-		b8.setOnClickListener(new NextActivityListener(this,b8,MainActivity.this,BulleActivity.class));
-		b9.setOnClickListener(new NextActivityListener(this,b9,MainActivity.this,AnimationActivity.class));
-		b10.setOnClickListener(new NextActivityListener(this,b10,MainActivity.this,FontActivity.class));
-		b12.setOnClickListener(new NextActivityListener(this,b12,MainActivity.this,DeroulantActivity.class));
+		b1.setOnClickListener(new NextActivityListener(b1,null,MainActivity.this,DragAndDropActivity.class));
+		b2.setOnClickListener(new NextActivityListener(b2,null,MainActivity.this,TTSActivity.class)); 
+		b3.setOnClickListener(new NextActivityListener(b3,null,MainActivity.this,BoutonsActivity.class));
+		b4.setOnClickListener(new NextActivityListener(b4,null,MainActivity.this,MenuActivity.class));
+		b5.setOnClickListener(new NextActivityListener(b5,null,MainActivity.this,FullScreenActivity.class));
+		b6.setOnClickListener(new NextActivityListener(b6,null,MainActivity.this,GlowActivity.class));
+		b7.setOnClickListener(new NextActivityListener(b7,null,MainActivity.this,ClockActivity.class));
+		b8.setOnClickListener(new NextActivityListener(b8,null,MainActivity.this,BulleActivity.class));
+		b9.setOnClickListener(new NextActivityListener(b9,null,MainActivity.this,AnimationActivity.class));
+		b10.setOnClickListener(new NextActivityListener(b10,null,MainActivity.this,FontActivity.class));
+		b12.setOnClickListener(new NextActivityListener(b12,null,MainActivity.this,DeroulantActivity.class));
 		
 	}
 
