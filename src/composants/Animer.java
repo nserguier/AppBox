@@ -452,9 +452,9 @@ public class Animer {
 			final int H) {
 		/* Apparition du logo bouton */
 
-		Animer.fade_in(logo_bouton, 1000);
+		Animer.fade_in(logo_bouton, 500);
 		AlphaAnimation alpha = new AlphaAnimation(0, 1);
-		alpha.setDuration(1000);
+		alpha.setDuration(500);
 		alpha.setAnimationListener(new AnimationListener() {
 
 			@Override
