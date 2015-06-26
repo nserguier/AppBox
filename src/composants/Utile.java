@@ -206,7 +206,7 @@ public class Utile {
 	 * @param h La hauteur souhaitee en px (0 pour wrap_content)
 	 * @param w La largeur souhaitee en px (0 pour wrap_content)
 	 */
-	public void setSize(View view,int h, int w){
+	public static void setSize(View view,int h, int w){
 		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view.getLayoutParams();
 		if(h==0){
 			params.height = LayoutParams.WRAP_CONTENT;
