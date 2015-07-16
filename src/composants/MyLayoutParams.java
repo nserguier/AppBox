@@ -19,6 +19,10 @@ public class MyLayoutParams extends RelativeLayout.LayoutParams{
 		super(width,height);
 	}
 	
+	public MyLayoutParams(View vue){
+		super(vue.getLayoutParams());
+	}
+	
 	/**
 	 * Se placer a gauche d'une vue
 	 * @param v La vue de reference

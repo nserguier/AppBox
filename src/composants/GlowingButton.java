@@ -28,7 +28,7 @@ public class GlowingButton {
 	public static ImageView makeGlow(Button bouton, Context ctx,int relativeID) {
 		ViewGroup parent = (ViewGroup) bouton.getParent();
 
-		float elevation = bouton.getElevation();
+		//float elevation = bouton.getElevation();
 
 		RelativeLayout.LayoutParams params = (LayoutParams) bouton
 				.getLayoutParams();
@@ -50,10 +50,10 @@ public class GlowingButton {
 		bouton.setLayoutParams(bouton_params);
 		parent.removeView(bouton);
 		rl.addView(bouton);
-		rl.setElevation(elevation);
+		//rl.setElevation(elevation);
 
 		ImageView glow = new ImageView(ctx);
-		glow.setBackground(ctx.getResources().getDrawable(
+		glow.setBackgroundDrawable(ctx.getResources().getDrawable(
 				R.drawable.glow_circle));
 		glow.setLayoutParams(bouton_params);
 		glow.setAlpha(0.7f);

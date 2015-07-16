@@ -1,5 +1,6 @@
 package composants;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.animation.Animation;
@@ -26,9 +27,8 @@ public class AnimatedText{
 	 */
 	public static void add(Context context,LinearLayout layout,String myText,int[] colors,float textSize){
 
-		
+		int[] size = Utile.getScreenSize((Activity) context);
 		int offSet = 200;
-		Typeface myFont = Typeface.createFromAsset(context.getAssets(),"fonts/intsh.ttf");
 		int j =0;
 		
 		for(int i=0;i<myText.length();i++){
@@ -41,10 +41,10 @@ public class AnimatedText{
 				j+=1;
 			}
 			txt.setTextSize(textSize);
-			txt.setTypeface(myFont);
+			Utile.setFont((Activity) context, txt, "Action_Man.ttf");
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-			txt.setPadding(0, 50,0, 0);
-			params.setMargins(0,0, -35, 0); // espacement entre les lettres
+			txt.setPadding(0, 20*size[1]/1600,0, 0);
+			params.setMargins(0,0, -60*size[0]/2560, 0); // espacement entre les lettres
 			txt.setLayoutParams(params);
 			
 			// Animation du char

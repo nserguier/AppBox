@@ -39,15 +39,15 @@ public class Horloge {
 			int m, int s) {
 
 		ImageView horloge = new ImageView(ctx);
-		horloge.setBackground(ctx.getResources().getDrawable(
+		horloge.setBackgroundDrawable(ctx.getResources().getDrawable(
 				R.drawable.clock_dial_w));
 
 		ImageView heures = new ImageView(ctx);
-		heures.setBackground(ctx.getResources().getDrawable(
+		heures.setBackgroundDrawable(ctx.getResources().getDrawable(
 				R.drawable.clock_hour_w));
 
 		ImageView minutes = new ImageView(ctx);
-		minutes.setBackground(ctx.getResources().getDrawable(
+		minutes.setBackgroundDrawable(ctx.getResources().getDrawable(
 				R.drawable.clock_minute_w));
 
 		ViewGroup parent = (ViewGroup) r.getParent();
@@ -57,8 +57,6 @@ public class Horloge {
 		horloge_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		horloge_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		horloge.setLayoutParams(horloge_params);
-		if(Build.VERSION.SDK_INT >= 21)
-			horloge.setElevation(1f);
 		r.addView(horloge);
 
 		RelativeLayout.LayoutParams heures_params = new LayoutParams(
@@ -66,8 +64,6 @@ public class Horloge {
 		heures_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		heures_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		heures.setLayoutParams(heures_params);
-		if(Build.VERSION.SDK_INT >= 21)
-		heures.setElevation(2f);
 		r.addView(heures);
 
 		RelativeLayout.LayoutParams minutes_params = new LayoutParams(
@@ -75,8 +71,6 @@ public class Horloge {
 		minutes_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		minutes_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		minutes.setLayoutParams(minutes_params);
-		if(Build.VERSION.SDK_INT >= 21)
-		minutes.setElevation(2f);
 		minutes.setId(88);
 		r.addView(minutes);
 
@@ -139,15 +133,15 @@ public class Horloge {
 		int m = now.get(Calendar.MINUTE);
 		int s = now.get(Calendar.SECOND);
 		ImageView horloge = new ImageView(ctx);
-		horloge.setBackground(ctx.getResources().getDrawable(
+		horloge.setBackgroundDrawable(ctx.getResources().getDrawable(
 				R.drawable.clock_dial_w));
 
 		ImageView heures = new ImageView(ctx);
-		heures.setBackground(ctx.getResources().getDrawable(
+		heures.setBackgroundDrawable(ctx.getResources().getDrawable(
 				R.drawable.clock_hour_w));
 
 		ImageView minutes = new ImageView(ctx);
-		minutes.setBackground(ctx.getResources().getDrawable(
+		minutes.setBackgroundDrawable(ctx.getResources().getDrawable(
 				R.drawable.clock_minute_w));
 
 		RelativeLayout.LayoutParams horloge_params = new LayoutParams(
@@ -155,7 +149,6 @@ public class Horloge {
 		horloge_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		horloge_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		horloge.setLayoutParams(horloge_params);
-		horloge.setElevation(1f);
 		r.addView(horloge);
 
 		RelativeLayout.LayoutParams heures_params = new LayoutParams(
@@ -163,7 +156,6 @@ public class Horloge {
 		heures_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		heures_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		heures.setLayoutParams(heures_params);
-		heures.setElevation(2f);
 		r.addView(heures);
 
 		RelativeLayout.LayoutParams minutes_params = new LayoutParams(
@@ -171,7 +163,6 @@ public class Horloge {
 		minutes_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		minutes_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		minutes.setLayoutParams(minutes_params);
-		minutes.setElevation(2f);
 		minutes.setId(88);
 		r.addView(minutes);
 

@@ -18,12 +18,10 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.Atlas.framework.R;
-
-import custom.TypeMenu;
 
 /**
  * Composant permettant d'animer des vues avec une collection d'animation
@@ -448,7 +446,7 @@ public class Animer {
 	 *            la hauteur de l'ecran
 	 */
 	public static void activityApparitionAnimation(final View logo_bouton,
-			final RelativeLayout slide_bottom, final RelativeLayout slide_top,
+			final RelativeLayout slide_bottom, final RelativeLayout slide_top,final ImageView slide_top_shadow,
 			final int H) {
 		/* Apparition du logo bouton */
 
@@ -475,6 +473,11 @@ public class Animer {
 				if (slide_top != null) {
 					slide_top.setVisibility(View.VISIBLE);
 					Animer.translateDecelerate(slide_top, 0, -H / 3, 0, 0,
+							1000, 200);
+				}
+				if (slide_top_shadow != null) {
+					slide_top_shadow.setVisibility(View.VISIBLE);
+					Animer.translateDecelerate(slide_top_shadow, 0, -H / 3, 0, 0,
 							1000, 200);
 				}
 				slide_bottom.setVisibility(View.VISIBLE);

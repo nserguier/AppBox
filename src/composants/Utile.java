@@ -124,8 +124,6 @@ public class Utile {
 	public static ImageView makeGlow(Button bouton, Context ctx,int relativeID) {
 		ViewGroup parent = (ViewGroup) bouton.getParent();
 
-		float elevation = bouton.getElevation();
-
 		RelativeLayout.LayoutParams params = (LayoutParams) bouton
 				.getLayoutParams();
 		RelativeLayout rl = new RelativeLayout(ctx);
@@ -146,10 +144,9 @@ public class Utile {
 		bouton.setLayoutParams(bouton_params);
 		parent.removeView(bouton);
 		rl.addView(bouton);
-		rl.setElevation(elevation);
 
 		ImageView glow = new ImageView(ctx);
-		glow.setBackground(ctx.getResources().getDrawable(
+		glow.setBackgroundDrawable(ctx.getResources().getDrawable(
 				R.drawable.glow_circle));
 		glow.setLayoutParams(bouton_params);
 		glow.setAlpha(0.7f);
@@ -221,5 +218,19 @@ public class Utile {
 			params.width = w;
 		}
 		view.setLayoutParams(params);
+	}
+	
+	/* OMBRES */
+	
+	public static void addShadow(View view){
+		ViewGroup parent = (ViewGroup) view.getParent(); 
+		int index = parent.indexOfChild(view); 
+		MyLayoutParams params = new MyLayoutParams(view); // on donnera a l'ombre les memes params que la vue
+		params.alignTop(view).alignBottom(view).alignEnd(view).alignStart(view);
+		ImageView shadow = new ImageView(view.getContext());
+		shadow.setBackgroundDrawable(view.getContext().getResources().getDrawable(R.drawable.shadow_large));
+		parent.addView(shadow, index-1, params); // place l'ombre juste en dessous de la vue
+		parent.invalidate(); 
+		
 	}
 }
