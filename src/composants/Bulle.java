@@ -66,13 +66,13 @@ public class Bulle {
 			break;
 		}
 		
-		Typeface comic = Typeface.createFromAsset(activity.getAssets(),"fonts/comic.otf");
+		Typeface comic = Typeface.createFromAsset(activity.getAssets(),"fonts/comic.ttf");
 		
 		bulle_texte.setText(texte);
 		bulle_texte.setTextSize(26);
 		bulle_texte.setTextColor(Color.BLACK);
 		bulle_texte.setTypeface(comic);
-		bulle_texte.setBackground(bulle);
+		bulle_texte.setBackgroundDrawable(bulle);
 		bulle_texte.setGravity(Gravity.CENTER);
 		//bulle_texte.setElevation(view.getElevation());
 		
