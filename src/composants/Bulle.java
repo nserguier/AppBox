@@ -40,19 +40,19 @@ public class Bulle {
 		case "above":
 			bulle = activity.getResources().getDrawable(R.drawable.bulle_haut);
 			params.addRule(RelativeLayout.ABOVE,view.getId());
-			params.addRule(RelativeLayout.ALIGN_END,view.getId());
+			params.addRule(RelativeLayout.ALIGN_RIGHT,view.getId());
 			break;
 
 		case "below":
 			bulle = activity.getResources().getDrawable(R.drawable.bulle_bas);
 			params.addRule(RelativeLayout.BELOW,view.getId());
-			params.addRule(RelativeLayout.ALIGN_END,view.getId());
+			params.addRule(RelativeLayout.ALIGN_RIGHT,view.getId());
 			break;
 			
 		case "right":
 			bulle = activity.getResources().getDrawable(R.drawable.bulle_droite);
 			params.addRule(RelativeLayout.ALIGN_TOP,view.getId());
-			params.addRule(RelativeLayout.END_OF,view.getId());
+			params.addRule(RelativeLayout.RIGHT_OF,view.getId());
 			break;
 		
 		case "left":
