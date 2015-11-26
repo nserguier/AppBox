@@ -5,7 +5,6 @@ import java.util.Locale;
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 public class TTSBouton {
@@ -15,9 +14,8 @@ public class TTSBouton {
 	/**
 	 * cree un TextToSpeech sur un bouton
 	 */
-	public static void initialisation(final View ttsButton,
-			final String texte, Context ctx, final boolean muet,
-			final EditText edit) {
+	public static void initialisation(final View ttsButton, final String texte,
+			Context ctx, final boolean muet, final EditText edit) {
 
 		tts = new TextToSpeech(ctx, new TextToSpeech.OnInitListener() {
 
@@ -46,7 +44,6 @@ public class TTSBouton {
 	 */
 	public static void fermer(View ttsButton, Context ctx) {
 		initialisation(ttsButton, "", ctx, true, null);
-		
 
 	}
 

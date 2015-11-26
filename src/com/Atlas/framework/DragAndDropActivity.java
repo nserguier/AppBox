@@ -1,10 +1,10 @@
 package com.Atlas.framework;
 
+import android.app.Activity;
+import android.os.Bundle;
 
 import composants.Police;
 
-import android.app.Activity;
-import android.os.Bundle;
 import dragAndDrop.MyDragAndDrop;
 
 public class DragAndDropActivity extends Activity {
@@ -35,6 +35,5 @@ public class DragAndDropActivity extends Activity {
 		dnd.addDrop(R.id.bottomright, R.drawable.shape, R.drawable.shape_drop);
 
 	}
-
 
 }

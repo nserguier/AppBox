@@ -26,9 +26,10 @@ import com.Atlas.framework.R;
 public class Utile {
 
 	/* COULEURS */
-	
+
 	/**
 	 * Assombrit une couleur
+	 * 
 	 * @param color
 	 *            la couleur a assombrir
 	 * @return la couleur assombrie
@@ -41,9 +42,9 @@ public class Utile {
 		return color;
 	}
 
-	
 	/**
 	 * Eclaircit une couleur
+	 * 
 	 * @param color
 	 *            la couleur a eclaircir
 	 * @return la couleur eclaircie
@@ -56,29 +57,32 @@ public class Utile {
 		color = Color.HSVToColor(hsv);
 		return color;
 	}
-	
+
 	/* ECRAN */
-	
+
 	/**
 	 * Donne la taille de l'ecran
-	 * @param a L'activite concerne
-	 * @return [0] : la largeur en px
-	 * 			[1] : la hauteur en px
+	 * 
+	 * @param a
+	 *            L'activite concerne
+	 * @return [0] : la largeur en px [1] : la hauteur en px
 	 */
-	public static int[] getScreenSize(Activity a){
+	public static int[] getScreenSize(Activity a) {
 		Display display = a.getWindowManager().getDefaultDisplay();
 		Point size = new Point();
 		display.getSize(size);
-		int[] rep = {size.x,size.y};
+		int[] rep = { size.x, size.y };
 		return rep;
 	}
-	
+
 	/**
-	 * Passe en plein ecran l'activite
-	 * A inserer dans onCreate avant le setContentView.
-	 * @param a L'activite
+	 * Passe en plein ecran l'activite A inserer dans onCreate avant le
+	 * setContentView.
+	 * 
+	 * @param a
+	 *            L'activite
 	 */
-	public static void fullScreen(Activity a){
+	public static void fullScreen(Activity a) {
 		a.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		View decorView = a.getWindow().getDecorView();
 		decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -88,7 +92,7 @@ public class Utile {
 				| View.SYSTEM_UI_FLAG_FULLSCREEN
 				| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 	}
-	
+
 	public static void fullScreenResume(final Activity a) {
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
@@ -111,17 +115,20 @@ public class Utile {
 					| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 		}
 	}
-	
+
 	/* GLOW BOUTON */
-	
+
 	/**
 	 * Met en surbrillance anime un bouton rond
+	 * 
 	 * @param bouton
 	 * @param ctx
-	 * @param relativeID L'id que l'on veut donner au relative layout qui va englober bouton + glow
+	 * @param relativeID
+	 *            L'id que l'on veut donner au relative layout qui va englober
+	 *            bouton + glow
 	 * @return
 	 */
-	public static ImageView makeGlow(Button bouton, Context ctx,int relativeID) {
+	public static ImageView makeGlow(Button bouton, Context ctx, int relativeID) {
 		ViewGroup parent = (ViewGroup) bouton.getParent();
 
 		RelativeLayout.LayoutParams params = (LayoutParams) bouton
@@ -132,13 +139,14 @@ public class Utile {
 		parent.addView(rl);
 
 		parent.setClipChildren(false);
-		if(parent.getParent()!=null){
+		if (parent.getParent() != null) {
 			ViewGroup pp = (ViewGroup) parent.getParent();
 			pp.setClipChildren(false);
 		}
 
 		RelativeLayout.LayoutParams bouton_params = new LayoutParams(
-				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		bouton_params.addRule(RelativeLayout.CENTER_VERTICAL);
 		bouton_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		bouton.setLayoutParams(bouton_params);
@@ -157,9 +165,10 @@ public class Utile {
 
 		return glow;
 	}
-	
+
 	/**
 	 * Stoppe la surbrillance anime d'un bouton rond
+	 * 
 	 * @param bouton
 	 */
 	public static void stopGlow(Button bouton) {
@@ -167,70 +176,80 @@ public class Utile {
 		RelativeLayout.LayoutParams params = (LayoutParams) rl
 				.getLayoutParams();
 		ViewGroup parent = (ViewGroup) rl.getParent();
-		
-			rl.removeAllViews();
-			parent.removeView(rl);
-			bouton.setLayoutParams(params);
-			parent.addView(bouton);
+
+		rl.removeAllViews();
+		parent.removeView(rl);
+		bouton.setLayoutParams(params);
+		parent.addView(bouton);
 	}
-	
+
 	/* POLICES DE TEXTE */
-    
-    /**
-     * Change la police d'ecriture d'une vue affichant du texte
-     * par une police issu d'un fichier place dans assets/fonts
-     * @param a l'activite
-     * @param v la vue qui affiche le texte (Bouton, TextView...)
-     * @param font le nom de la resource (ex: "comic.ttf")
-     */
-    public static void setFont(Activity a,View v,String font){
-    	Typeface externalFont = Typeface.createFromAsset(a.getAssets(),
-				"fonts/"+font);
-    	if (v instanceof TextView) {
-    		((TextView) v).setTypeface(externalFont);
-    	    
-    	}
-    	else if (v instanceof Button) {
-    		((Button) v).setTypeface(externalFont);
-    	}
-    }
-    
-    /* TAILLE DES VUES */
-    
+
+	/**
+	 * Change la police d'ecriture d'une vue affichant du texte par une police
+	 * issu d'un fichier place dans assets/fonts
+	 * 
+	 * @param a
+	 *            l'activite
+	 * @param v
+	 *            la vue qui affiche le texte (Bouton, TextView...)
+	 * @param font
+	 *            le nom de la resource (ex: "comic.ttf")
+	 */
+	public static void setFont(Activity a, View v, String font) {
+		Typeface externalFont = Typeface.createFromAsset(a.getAssets(),
+				"fonts/" + font);
+		if (v instanceof TextView) {
+			((TextView) v).setTypeface(externalFont);
+
+		} else if (v instanceof Button) {
+			((Button) v).setTypeface(externalFont);
+		}
+	}
+
+	/* TAILLE DES VUES */
+
 	/**
 	 * Redimensionne une vue
-	 * @param view La vue
-	 * @param h La hauteur souhaitee en px (0 pour wrap_content)
-	 * @param w La largeur souhaitee en px (0 pour wrap_content)
+	 * 
+	 * @param view
+	 *            La vue
+	 * @param h
+	 *            La hauteur souhaitee en px (0 pour wrap_content)
+	 * @param w
+	 *            La largeur souhaitee en px (0 pour wrap_content)
 	 */
-	public static void setSize(View view,int h, int w){
-		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view.getLayoutParams();
-		if(h==0){
-			params.height = LayoutParams.WRAP_CONTENT;
-		}
-		else{
+	public static void setSize(View view, int h, int w) {
+		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view
+				.getLayoutParams();
+		if (h == 0) {
+			params.height = android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+		} else {
 			params.height = h;
 		}
-		if(w==0){
-			params.width = LayoutParams.WRAP_CONTENT;
-		}
-		else{
+		if (w == 0) {
+			params.width = android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+		} else {
 			params.width = w;
 		}
 		view.setLayoutParams(params);
 	}
-	
+
 	/* OMBRES */
-	
-	public static void addShadow(View view){
-		ViewGroup parent = (ViewGroup) view.getParent(); 
-		int index = parent.indexOfChild(view); 
-		MyLayoutParams params = new MyLayoutParams(view); // on donnera a l'ombre les memes params que la vue
+
+	public static void addShadow(View view) {
+		ViewGroup parent = (ViewGroup) view.getParent();
+		int index = parent.indexOfChild(view);
+		MyLayoutParams params = new MyLayoutParams(view); // on donnera a
+															// l'ombre les memes
+															// params que la vue
 		params.alignTop(view).alignBottom(view).alignEnd(view).alignStart(view);
 		ImageView shadow = new ImageView(view.getContext());
-		shadow.setBackgroundDrawable(view.getContext().getResources().getDrawable(R.drawable.shadow_large));
-		parent.addView(shadow, index-1, params); // place l'ombre juste en dessous de la vue
-		parent.invalidate(); 
-		
+		shadow.setBackgroundDrawable(view.getContext().getResources()
+				.getDrawable(R.drawable.shadow_large));
+		parent.addView(shadow, index - 1, params); // place l'ombre juste en
+													// dessous de la vue
+		parent.invalidate();
+
 	}
 }

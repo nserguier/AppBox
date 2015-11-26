@@ -3,6 +3,7 @@ package custom;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -17,18 +18,22 @@ import composants.Animer;
 import composants.Police;
 
 /**
- * Objet qui code un menu "jungle" selon une certaine disposition (orientation portrait) et avec des animations la couleur des boutons, leur forme et le background est imposée (sauf changement dans ce code) le nom des boutons et leur fonction seront en revenche paramétrable dans un autre classe.
- * @author   Victor:Nicklos
- * @uml.dependency   supplier="custom.Menu"
+ * Objet qui code un menu "jungle" selon une certaine disposition (orientation
+ * portrait) et avec des animations la couleur des boutons, leur forme et le
+ * background est imposï¿½e (sauf changement dans ce code) le nom des boutons et
+ * leur fonction seront en revenche paramï¿½trable dans un autre classe.
+ * 
+ * @author Victor:Nicklos
+ * @uml.dependency supplier="custom.Menu"
  */
 public class MenuJungleV implements Menu {
 
-	private Context context;
-	private RelativeLayout[] menu;
-	private RelativeLayout boutons;
-	private TypeMenu type = TypeMenu.JungleVertical;
+	private final Context context;
+	private final RelativeLayout[] menu;
+	private final RelativeLayout boutons;
+	private final TypeMenu type = TypeMenu.JungleVertical;
 
-	public MenuJungleV(Context context) {
+	public MenuJungleV(final Context context) {
 		this.context = context;
 		menu = new RelativeLayout[8];
 		boutons = new RelativeLayout(context);
@@ -45,25 +50,32 @@ public class MenuJungleV implements Menu {
 	 * @param width
 	 * @return
 	 */
-	public RelativeLayout[] createMenu(ViewGroup parent) {
+	@Override
+	public RelativeLayout[] createMenu(final ViewGroup parent) {
 
-		int width = context.getApplicationContext().getResources()
+		final int width = context.getApplicationContext().getResources()
 				.getDisplayMetrics().widthPixels;
-		int height = context.getApplicationContext().getResources()
+		final int height = context.getApplicationContext().getResources()
 				.getDisplayMetrics().heightPixels;
 
 		// l'orienttation de l'ecran
-		Activity a = (Activity) context;
+		final Activity a = (Activity) context;
 		a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 		// on definit un background general
-		parent.setBackground(context.getResources().getDrawable(
-				type.getBackground()));
+		if (Build.VERSION.SDK_INT >= 16) {
+			parent.setBackground(context.getResources().getDrawable(
+					type.getBackground()));
+		} else {
+			parent.setBackgroundDrawable(context.getResources().getDrawable(
+					type.getBackground()));
+		}
+
 		parent.addView(boutons);
 		parent.setClipChildren(false);
 
-		RelativeLayout.LayoutParams boutons_params = new LayoutParams(
-				LayoutParams.MATCH_PARENT, height / 2);
+		final RelativeLayout.LayoutParams boutons_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT, height / 2);
 		boutons_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		boutons.setLayoutParams(boutons_params);
 		boutons.setClipChildren(false);
@@ -77,16 +89,17 @@ public class MenuJungleV implements Menu {
 
 		// le placement des emplacements
 		for (int i = 0; i < 7; i++) {
-			int marge = width / 40;
-			RelativeLayout.LayoutParams params = new LayoutParams(width / 2
-					- marge, height / 8);
+			final int marge = width / 40;
+			final RelativeLayout.LayoutParams params = new LayoutParams(width
+					/ 2 - marge, height / 8);
 
 			switch (i) {
 
 			// case 0 : layout du titre
 			case 0:
-				RelativeLayout.LayoutParams titre_params = new LayoutParams(
-						LayoutParams.MATCH_PARENT, height / 2);
+				final RelativeLayout.LayoutParams titre_params = new LayoutParams(
+						android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+						height / 2);
 				titre_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 				menu[0].setLayoutParams(titre_params);
 
@@ -167,15 +180,18 @@ public class MenuJungleV implements Menu {
 	 * @param l2
 	 *            l'emplacement a droite (2,4,6)
 	 */
-	public void rassembler(int l1, int l2) {
-		int width = context.getApplicationContext().getResources()
+
+	@Override
+	public void rassembler(final int l1, final int l2) {
+		final int width = context.getApplicationContext().getResources()
 				.getDisplayMetrics().widthPixels;
-		int marge = width / 40;
+		final int marge = width / 40;
 		if ((l1 == 1 || l1 == 3 || l1 == 5) && (l2 == 2 || l2 == 4 || l2 == 6)) {
-			RelativeLayout l = new RelativeLayout(context);
+			final RelativeLayout l = new RelativeLayout(context);
 			boutons.addView(l);
-			RelativeLayout.LayoutParams params = new LayoutParams(
-					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			final RelativeLayout.LayoutParams params = new LayoutParams(
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			params.addRule(RelativeLayout.ALIGN_LEFT, menu[l1].getId());
 			params.addRule(RelativeLayout.ALIGN_RIGHT, menu[l2].getId());
 			params.addRule(RelativeLayout.ALIGN_TOP, menu[l1].getId());
@@ -185,9 +201,10 @@ public class MenuJungleV implements Menu {
 			menu[l1] = l;
 			boutons.removeView(menu[l2]);
 			menu[l2] = null;
-		} else
+		} else {
 			Log.d("erreur",
-					" les emplacements specifiés l1 ou l2 ne sont pas corrects");
+					" les emplacements specifiï¿½s l1 ou l2 ne sont pas corrects");
+		}
 
 	}
 
@@ -202,21 +219,22 @@ public class MenuJungleV implements Menu {
 	 * @param place
 	 *            le numero de l'emplacement du bouton (entre 1 et 6)
 	 */
-
-	public Button addButton(String texte, int place) {
+	@Override
+	public Button addButton(final String texte, final int place) {
 		if (place < 7 && place > 0 && menu[place] != null) {
 
 			Button b = Bouton.createRoundedButton((Activity) context,
 					type.getCouleur1());
 
-			if (place == 3 || place == 4)
-
+			if (place == 3 || place == 4) {
 				b = Bouton.createRoundedButton((Activity) context,
 						type.getCouleur2());
+			}
 
 			menu[place].addView(b);
-			RelativeLayout.LayoutParams params = new LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+			final RelativeLayout.LayoutParams params = new LayoutParams(
+					android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+					android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
 			b.setLayoutParams(params);
 			b.setText(texte);
@@ -237,14 +255,17 @@ public class MenuJungleV implements Menu {
 	 * @param texte
 	 *            le titre du menu
 	 */
-	public void addTitre(String texte) {
 
-		int width = context.getApplicationContext().getResources()
+	@Override
+	public void addTitre(final String texte) {
+
+		final int width = context.getApplicationContext().getResources()
 				.getDisplayMetrics().widthPixels;
-		TextView t = new TextView(context);
+		final TextView t = new TextView(context);
 		menu[0].addView(t);
-		RelativeLayout.LayoutParams params = new LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		final RelativeLayout.LayoutParams params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.setMargins(-30, width / 3, 0, 0);
 
 		t.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -254,7 +275,6 @@ public class MenuJungleV implements Menu {
 		t.setTextSize(80);
 		Animer.pop_in(t, 2000);
 		t.setTextColor(context.getResources().getColor(R.color.orange2));
-		
 
 		animation();
 
@@ -267,20 +287,27 @@ public class MenuJungleV implements Menu {
 	 */
 	public void animation() {
 
-		int width = context.getApplicationContext().getResources()
+		final int width = context.getApplicationContext().getResources()
 				.getDisplayMetrics().widthPixels;
 
-		RelativeLayout tete = new RelativeLayout(context);
-		RelativeLayout.LayoutParams tete_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		final RelativeLayout tete = new RelativeLayout(context);
+		final RelativeLayout.LayoutParams tete_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		tete_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		tete_params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		tete_params.setMargins(0, 0, 0, 0);
 		tete.setLayoutParams(tete_params);
 		menu[0].addView(tete);
 		menu[0].setClipChildren(false);
-		tete.setBackground(context.getApplicationContext().getResources()
-				.getDrawable(R.drawable.gnar));
+		if (Build.VERSION.SDK_INT >= 16) {
+			tete.setBackground(context.getApplicationContext().getResources()
+					.getDrawable(R.drawable.gnar));
+		} else {
+			tete.setBackgroundDrawable(context.getApplicationContext()
+					.getResources().getDrawable(R.drawable.gnar));
+		}
+
 		tete.setRotation(-90);
 		Animer.translate(tete, width / 4 + width / 8, 0, width - width / 4, 0,
 				3000, true);
@@ -294,7 +321,8 @@ public class MenuJungleV implements Menu {
 	 * @param place
 	 *            l'emplacement que l'on veut remettre a zeros
 	 */
-	public void destroy(int place) {
+	@Override
+	public void destroy(final int place) {
 		if (place < 7 && place > 0 && menu[place] != null) {
 			menu[place].removeAllViews();
 		} else {

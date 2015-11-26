@@ -1,7 +1,6 @@
 package composants;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -15,62 +14,69 @@ public class MenuDeroulant {
 
 	private static RelativeLayout menuDeroulant;
 	private static boolean isOpen = false;
-	
-	public static RelativeLayout create(final RelativeLayout parent,Context context,int colorBouton,int colorDeroulant,String text) {
-		
+
+	public static RelativeLayout create(final RelativeLayout parent,
+			Context context, int colorBouton, int colorDeroulant, String text) {
+
 		parent.setClipChildren(true);
-		// on cree deux layout : un pour le bouton qui fait poper le menu et un pour le menu deroulant
+		// on cree deux layout : un pour le bouton qui fait poper le menu et un
+		// pour le menu deroulant
 		menuDeroulant = new RelativeLayout(context);
 		menuDeroulant.setId(1);
 		RelativeLayout bouton = new RelativeLayout(context);
 		bouton.setId(2);
-		RelativeLayout.LayoutParams params = new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 		bouton.setLayoutParams(params);
-		
-		
-		RelativeLayout.LayoutParams menu_params = new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-		menu_params.setMargins(0, -10 , 0, 0);
-		menu_params.addRule(RelativeLayout.BELOW,bouton.getId());
+
+		RelativeLayout.LayoutParams menu_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		menu_params.setMargins(0, -10, 0, 0);
+		menu_params.addRule(RelativeLayout.BELOW, bouton.getId());
 		menu_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		menuDeroulant.setLayoutParams(menu_params);
 		menuDeroulant.setVisibility(View.INVISIBLE);
-		menuDeroulant.setBackgroundColor(context.getResources().getColor(colorDeroulant));
-		
-				
+		menuDeroulant.setBackgroundColor(context.getResources().getColor(
+				colorDeroulant));
+
 		// on cree le bouton et son listenner
-		
+
 		Button b = Bouton.createButton(context, colorBouton);
 		b.setLayoutParams(bouton.getLayoutParams());
 		b.setText(text);
-				
+
 		b.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
-				isOpen = toggle(menuDeroulant,isOpen);
-				
-			}});
-	
+
+				isOpen = toggle(menuDeroulant, isOpen);
+
+			}
+		});
+
 		// enfin on ajoute ces vues aux parents
 		bouton.addView(b);
 		parent.addView(menuDeroulant);
 		parent.addView(bouton);
-		
-			
+
 		return menuDeroulant;
 	}
-	
+
 	public static void add(View v) {
-		
-		RelativeLayout.LayoutParams params = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+
+		RelativeLayout.LayoutParams params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.ALIGN_END);
 		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-		params.setMargins(0,10,0,0);
+		params.setMargins(0, 10, 0, 0);
 		v.setLayoutParams(params);
 		menuDeroulant.addView(v);
 	}
-	
+
 	/**
 	 * Utilisee pour ouvrir ou fermer le menu.
 	 * 
@@ -106,8 +112,7 @@ public class MenuDeroulant {
 
 		return isOpen;
 	}
-	
-	
+
 	/* Listener pour l'animation de fermeture du menu */
 	static Animation.AnimationListener closeListener = new Animation.AnimationListener() {
 		@Override
@@ -143,6 +148,5 @@ public class MenuDeroulant {
 			menuDeroulant.setVisibility(View.VISIBLE);
 		}
 	};
-	
-	
+
 }

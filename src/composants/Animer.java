@@ -415,7 +415,7 @@ public class Animer {
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				/* Passage a l'autre activite */
-				Intent intent = new Intent((Activity) context, targetActivity);
+				Intent intent = new Intent(context, targetActivity);
 				if (extra1 != null)
 					intent.putExtra(name1, extra1);
 				if (extra2 != null)
@@ -446,8 +446,8 @@ public class Animer {
 	 *            la hauteur de l'ecran
 	 */
 	public static void activityApparitionAnimation(final View logo_bouton,
-			final RelativeLayout slide_bottom, final RelativeLayout slide_top,final ImageView slide_top_shadow,
-			final int H) {
+			final RelativeLayout slide_bottom, final RelativeLayout slide_top,
+			final ImageView slide_top_shadow, final int H) {
 		/* Apparition du logo bouton */
 
 		Animer.fade_in(logo_bouton, 500);
@@ -477,8 +477,8 @@ public class Animer {
 				}
 				if (slide_top_shadow != null) {
 					slide_top_shadow.setVisibility(View.VISIBLE);
-					Animer.translateDecelerate(slide_top_shadow, 0, -H / 3, 0, 0,
-							1000, 200);
+					Animer.translateDecelerate(slide_top_shadow, 0, -H / 3, 0,
+							0, 1000, 200);
 				}
 				slide_bottom.setVisibility(View.VISIBLE);
 				Animer.translateDecelerate(slide_bottom, 0, H * 1.1f, 0, 0,

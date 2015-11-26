@@ -3,7 +3,6 @@ package com.Atlas.framework;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.ViewGroup;
-
 import composants.Ecran;
 
 import custom.FabriqueMenu;
@@ -12,7 +11,7 @@ import custom.TypeMenu;
 
 public class MenuActivity extends Activity {
 
-	private	Menu m;
+	private Menu m;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +25,7 @@ public class MenuActivity extends Activity {
 
 		try {
 			m = FabriqueMenu.create(TypeMenu.Options, this);
-		} catch (IllegalArgumentException | InstantiationException
-				| IllegalAccessException e) {
+		} catch (IllegalArgumentException | IllegalAccessException e) {
 
 			e.printStackTrace();
 		}
@@ -35,7 +33,7 @@ public class MenuActivity extends Activity {
 		// on cree le menu
 		m.createMenu(parent);
 		// on rassemble les boutons
-		
+
 		m.addTitre("OPTIONS GNAR !!  ");
 		// on cree les boutons, on pourra plus tard leur donner une tâche
 		m.addButton("gnar", 1);
@@ -48,5 +46,4 @@ public class MenuActivity extends Activity {
 		// c'est fini, et voici le resultat !
 
 	}
-
 }

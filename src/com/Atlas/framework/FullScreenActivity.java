@@ -9,7 +9,6 @@ import android.view.Window;
 
 public class FullScreenActivity extends Activity {
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,7 +22,7 @@ public class FullScreenActivity extends Activity {
 				| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 				| View.SYSTEM_UI_FLAG_FULLSCREEN
 				| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-		
+
 		setContentView(R.layout.activity_full_screen);
 	}
 

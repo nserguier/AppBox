@@ -3,8 +3,11 @@ package custom;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -19,21 +22,20 @@ import composants.Horloge;
 import composants.MyLayoutParams;
 import composants.Police;
 
+public class MenuOptions implements Menu {
 
-public class MenuOptions implements Menu{
+	private final Context context;
+	private final RelativeLayout[] menu; // les elements du menu : un titre et 6
+	// boutons
+	private final RelativeLayout boutons; // le layout qui contient les boutons
+	private final TypeMenu type = TypeMenu.Options;
 
-	private Context context;
-	private RelativeLayout[] menu; // les elements du menu : un titre et 6
-									// boutons
-	private RelativeLayout boutons; // le layout qui contient les boutons
-	private TypeMenu type = TypeMenu.Options;
-	
 	/**
 	 * 
 	 * @param context
 	 *            le contexte de l'application utilisatrice du menu
 	 */
-	public MenuOptions(Context context) {
+	public MenuOptions(final Context context) {
 		this.context = context;
 		menu = new RelativeLayout[8];
 		boutons = new RelativeLayout(context);
@@ -41,33 +43,40 @@ public class MenuOptions implements Menu{
 
 	/**
 	 * cette methode permet la creation d'un certain type de menu : horizontal,
-	 * avec des layouts sur la droite (en rangées de 2 layouts fusionnables) et
+	 * avec des layouts sur la droite (en rangï¿½es de 2 layouts fusionnables) et
 	 * un gros titre a gauche auquel on peut rajouter des elements et animations
 	 * 
 	 * @param parent
 	 *            le parent de l'activite
 	 * @return
 	 */
-	public RelativeLayout[] createMenu(ViewGroup parent) {
+	@Override
+	public RelativeLayout[] createMenu(final ViewGroup parent) {
 
-		int width = context.getApplicationContext().getResources()
+		final int width = context.getApplicationContext().getResources()
 				.getDisplayMetrics().widthPixels;
-		int height = context.getApplicationContext().getResources()
+		final int height = context.getApplicationContext().getResources()
 				.getDisplayMetrics().heightPixels;
 
 		// l'orienttation de l'ecran
-		Activity a = (Activity) context;
+		final Activity a = (Activity) context;
 		a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		// on definit un background general
-		parent.setBackground(context.getResources().getDrawable(
-				TypeMenu.Options.getBackground()));
+		if (Build.VERSION.SDK_INT >= 16) {
+			parent.setBackground(context.getResources().getDrawable(
+					type.getBackground()));
+		} else {
+			parent.setBackgroundDrawable(context.getResources().getDrawable(
+					type.getBackground()));
+		}
 		parent.addView(boutons);
 		parent.setClipChildren(false);
 
 		// les parametres du layout qui contient les options
-		RelativeLayout.LayoutParams boutons_params = new LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		final RelativeLayout.LayoutParams boutons_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		boutons_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		boutons.setLayoutParams(boutons_params);
 
@@ -81,16 +90,17 @@ public class MenuOptions implements Menu{
 		// le placement des emplacements
 		for (int i = 0; i < 7; i++) {
 
-			// paramètre de taille de chaque layout d'option
-			int marge = height / 40;
-			RelativeLayout.LayoutParams params = new LayoutParams(width / 2
-					- marge, height / 5);
+			// paramï¿½tre de taille de chaque layout d'option
+			final int marge = height / 40;
+			final RelativeLayout.LayoutParams params = new LayoutParams(width
+					/ 2 - marge, height / 5);
 			switch (i) {
 
 			// case 0 : layout du titre
 			case 0:
-				RelativeLayout.LayoutParams titre_params = new LayoutParams(
-						LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+				final RelativeLayout.LayoutParams titre_params = new LayoutParams(
+						android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+						android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 				titre_params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 				titre_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 				menu[0].setLayoutParams(titre_params);
@@ -171,15 +181,17 @@ public class MenuOptions implements Menu{
 	 * @param l2
 	 *            l'emplacement a droite (2,4,6)
 	 */
-	public void rassembler(int l1, int l2) {
-		int height = context.getApplicationContext().getResources()
+	@Override
+	public void rassembler(final int l1, final int l2) {
+		final int height = context.getApplicationContext().getResources()
 				.getDisplayMetrics().heightPixels;
-		int marge = height / 40;
+		final int marge = height / 40;
 		if ((l1 == 1 || l1 == 3 || l1 == 5) && (l2 == 2 || l2 == 4 || l2 == 6)) {
-			RelativeLayout l = new RelativeLayout(context);
+			final RelativeLayout l = new RelativeLayout(context);
 			boutons.addView(l);
-			RelativeLayout.LayoutParams params = new LayoutParams(
-					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			final RelativeLayout.LayoutParams params = new LayoutParams(
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			params.addRule(RelativeLayout.ALIGN_LEFT, menu[l1].getId());
 			params.addRule(RelativeLayout.ALIGN_RIGHT, menu[l2].getId());
 			params.addRule(RelativeLayout.ALIGN_TOP, menu[l1].getId());
@@ -189,42 +201,47 @@ public class MenuOptions implements Menu{
 			menu[l1] = l;
 			boutons.removeView(menu[l2]);
 			menu[l2] = null;
-		} else
+		} else {
 			Log.d("erreur",
-					" les emplacements specifiés l1 ou l2 ne sont pas corrects");
+					" les emplacements specifiï¿½s l1 ou l2 ne sont pas corrects");
+		}
 
 	}
 
 	/**
-	 * permet d'ajouter une option à la place voulue sur l'ecran
+	 * permet d'ajouter une option ï¿½ la place voulue sur l'ecran
 	 * 
 	 * @param place
 	 *            le numero de l'emplacement du bouton (entre 1 et 6)
 	 * 
 	 * @param typeOption
-	 *            le type d'option à rajouter(son, horloge, gnar)
+	 *            le type d'option ï¿½ rajouter(son, horloge, gnar)
 	 */
-	public RadioGroup addButton(String typeOption, int place) {
+
+	@Override
+	public RadioGroup addButton(final String typeOption, final int place) {
 
 		if (place < 7 && place > 0 && menu[place] != null) {
 
-			RelativeLayout opt = new RelativeLayout(context);
+			final RelativeLayout opt = new RelativeLayout(context);
 			opt.setClipChildren(false);
 			menu[place].addView(opt);
-			RelativeLayout.LayoutParams params = new LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+			final RelativeLayout.LayoutParams params = new LayoutParams(
+					android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+					android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
 			opt.setLayoutParams(params);
 
 			opt.setBackgroundColor(context.getResources().getColor(
 					type.getCouleur1()));
-			if (place == 3 || place == 4)
+			if (place == 3 || place == 4) {
 				opt.setBackgroundColor(context.getResources().getColor(
 						type.getCouleur2()));
+			}
 
-			RelativeLayout option = new RelativeLayout(context);
+			final RelativeLayout option = new RelativeLayout(context);
 			option.setClipChildren(false);
-			MyLayoutParams option_params = new MyLayoutParams()
+			final MyLayoutParams option_params = new MyLayoutParams()
 					.centerVertical();
 			option_params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
 			option.setId(23);
@@ -232,16 +249,16 @@ public class MenuOptions implements Menu{
 
 			opt.addView(option);
 
-			RadioButton oui = new RadioButton(context);
+			final RadioButton oui = new RadioButton(context);
 			oui.setText(" oui ");
 			oui.setId(1213);
-			float scaleFactor = 1.1f;
+			final float scaleFactor = 1.1f;
 			oui.setScaleX(scaleFactor);
 			oui.setScaleY(scaleFactor);
 			oui.setTextSize(oui.getTextSize() * scaleFactor);
 			Police.setFont((Activity) context, oui, "intsh.ttf");
 
-			RadioButton non = new RadioButton(context);
+			final RadioButton non = new RadioButton(context);
 			non.setText(" non ");
 			non.setId(1214);
 			non.setScaleX(scaleFactor);
@@ -249,9 +266,10 @@ public class MenuOptions implements Menu{
 			non.setTextSize(non.getTextSize() * scaleFactor);
 			Police.setFont((Activity) context, non, "intsh.ttf");
 
-			RadioGroup group = new RadioGroup(context);
+			final RadioGroup group = new RadioGroup(context);
 			group.setOrientation(LinearLayout.HORIZONTAL);
-			MyLayoutParams group_params = new MyLayoutParams().centerVertical();
+			final MyLayoutParams group_params = new MyLayoutParams()
+					.centerVertical();
 			// group_params.setMargins(40, 0, 0, 0);
 			group_params.addRule(RelativeLayout.RIGHT_OF, option.getId());
 
@@ -261,44 +279,48 @@ public class MenuOptions implements Menu{
 
 			switch (typeOption) {
 			case "gnar": {
-				option.setBackground(context.getResources().getDrawable(
-						R.drawable.mini_tete_2));
-				
+				setBackground(
+						option,
+						context.getResources().getDrawable(
+								R.drawable.mini_tete_2));
+
 				break;
 			}
 			case "horloge": {
 				Horloge.create(option, context, 3, 30, 45);
-				
+
 				break;
 			}
 			case "son": {
-				option.setBackground(context.getResources().getDrawable(
-						R.drawable.sound));
-				
+				setBackground(option,
+						context.getResources().getDrawable(R.drawable.sound));
+
 				break;
 			}
 			case "bulle": {
-				option.setBackground(context.getResources().getDrawable(
-						R.drawable.bulle_bas));
-				
+				setBackground(option,
+						context.getResources()
+								.getDrawable(R.drawable.bulle_bas));
+
 				break;
 			}
 			case "sommaire": {
-				TextView t = new TextView(context);
+				final TextView t = new TextView(context);
 				t.setText("sommaire   ");
 				Police.setFont((Activity) context, t, "intsh.ttf");
 				t.setTextSize(30);
 				t.setTextColor(context.getResources().getColor(R.color.grey7));
-				RelativeLayout.LayoutParams t_params = new LayoutParams(
-						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				final RelativeLayout.LayoutParams t_params = new LayoutParams(
+						android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+						android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 				params.addRule(RelativeLayout.CENTER_IN_PARENT);
 				t.setLayoutParams(t_params);
 				t.setBackgroundColor(context.getResources().getColor(
 						R.color.blanc));
 				option.addView(t);
-				
+
 				break;
-				}
+			}
 			}
 
 			opt.addView(group);
@@ -317,14 +339,16 @@ public class MenuOptions implements Menu{
 	 * @param texte
 	 *            le titre du menu
 	 */
-	public void addTitre(String texte) {
+	@Override
+	public void addTitre(final String texte) {
 
-		int height = context.getApplicationContext().getResources()
+		final int height = context.getApplicationContext().getResources()
 				.getDisplayMetrics().heightPixels;
-		TextView t = new TextView(context);
+		final TextView t = new TextView(context);
 		menu[0].addView(t);
-		RelativeLayout.LayoutParams params = new LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		final RelativeLayout.LayoutParams params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.setMargins(0, height / 6, 0, 0);
 
 		t.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -344,11 +368,27 @@ public class MenuOptions implements Menu{
 	 * @param place
 	 *            l'emplacement que l'on veut remettre a zeros
 	 */
-	public void destroy(int place) {
+	@Override
+	public void destroy(final int place) {
 		if (place < 7 && place > 0 && menu[place] != null) {
 			menu[place].removeAllViews();
 		} else {
 			Log.d("Attention", "le layout designe ne convient pas ou est nul");
+		}
+	}
+
+	/**
+	 * sets the background of a view depending on the API
+	 * 
+	 * @param v
+	 * @param d
+	 */
+	@SuppressWarnings("deprecation")
+	private void setBackground(final View v, final Drawable d) {
+		if (Build.VERSION.SDK_INT >= 16) {
+			v.setBackground(d);
+		} else {
+			v.setBackgroundDrawable(d);
 		}
 	}
 

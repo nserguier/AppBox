@@ -19,7 +19,6 @@ public class Couleur {
 		return color;
 	}
 
-	
 	/**
 	 * Eclaircit une couleur
 	 * 

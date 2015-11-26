@@ -1,10 +1,7 @@
 package com.Atlas.framework;
 
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
-import boutons.NextActivityListener;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import boutons.NextActivityListener;
 
 import composants.Horloge;
 
@@ -37,14 +35,14 @@ public class ClockActivity extends Activity {
 		r = (RelativeLayout) findViewById(R.id.analogClock);
 		write = (EditText) findViewById(R.id.champ);
 		go = (Button) findViewById(R.id.go);
-		
-		GregorianCalendar c =new GregorianCalendar();
+
+		GregorianCalendar c = new GregorianCalendar();
 		c.setTimeInMillis(System.currentTimeMillis());
 
 		int heure = Calendar.HOUR;
 		int minute = Calendar.MINUTE;
 		int seconde = Calendar.SECOND;
-		
+
 		Horloge.create(r, this, heure, minute, seconde);
 
 		go.setOnClickListener(new View.OnClickListener() {
@@ -56,12 +54,10 @@ public class ClockActivity extends Activity {
 
 		/* Bouton home de retour au menu */
 		Button home = (Button) findViewById(R.id.home);
-		home.setOnClickListener(new NextActivityListener(home,null,
+		home.setOnClickListener(new NextActivityListener(home, null,
 				ClockActivity.this, MainActivity.class));
 
 	}
-	
-	
 
 	public void setHour() {
 		String s = "";

@@ -3,8 +3,11 @@ package custom;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -27,25 +30,26 @@ import dragAndDrop.MyDragAndDrop;
 /**
  * Objet qui code un menu "jungle" selon une certaine disposition (orientation
  * paysage) et avec des animations la couleur des boutons, leur forme et le
- * background est imposée (sauf changement dans ce code) le nom des boutons et
- * leur fonction seront en revenche paramétrable dans un autre classe.
+ * background est imposï¿½e (sauf changement dans ce code) le nom des boutons et
+ * leur fonction seront en revenche paramï¿½trable dans un autre classe.
  * 
  * @author Victor:Nicklos
  * 
  */
 public class MenuJungleH implements Menu {
 
-	private Context context;
-	private RelativeLayout[] menu; // les elements du menu : un titre et 6 boutons
-	private RelativeLayout boutons; // le layout qui contient les boutons
-	private TypeMenu type = TypeMenu.JungleHorizontal;
+	private final Context context;
+	private final RelativeLayout[] menu; // les elements du menu : un titre et 6
+											// boutons
+	private final RelativeLayout boutons; // le layout qui contient les boutons
+	private final TypeMenu type = TypeMenu.JungleHorizontal;
 
 	/**
 	 * 
 	 * @param context
 	 *            le contexte de l'application utilisatrice du menu
 	 */
-	public MenuJungleH(Context context) {
+	public MenuJungleH(final Context context) {
 		this.context = context;
 		menu = new RelativeLayout[8];
 		boutons = new RelativeLayout(context);
@@ -53,32 +57,38 @@ public class MenuJungleH implements Menu {
 
 	/**
 	 * cette methode permet la creation d'un certain type de menu : horizontal,
-	 * avec 6 boutons sur la droite (3 rangées de 2 boutons fusionnables) et un
+	 * avec 6 boutons sur la droite (3 rangï¿½es de 2 boutons fusionnables) et un
 	 * gros titre a gauche auquel on peut rajouter des elements et animations
 	 * 
 	 * @param parent
 	 *            le parent de l'activite
 	 * @return
 	 */
-	public RelativeLayout[] createMenu(ViewGroup parent) {
+	@Override
+	public RelativeLayout[] createMenu(final ViewGroup parent) {
 
-		int width = context.getApplicationContext().getResources()
+		final int width = context.getApplicationContext().getResources()
 				.getDisplayMetrics().widthPixels;
-		int height = context.getApplicationContext().getResources()
+		final int height = context.getApplicationContext().getResources()
 				.getDisplayMetrics().heightPixels;
 
 		// l'orienttation de l'ecran
-		Activity a = (Activity) context;
+		final Activity a = (Activity) context;
 		a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		// on definit un background general
-		parent.setBackground(context.getResources().getDrawable(
-				type.getBackground()));
+		if (Build.VERSION.SDK_INT >= 16) {
+			parent.setBackground(context.getResources().getDrawable(
+					type.getBackground()));
+		} else {
+			parent.setBackgroundDrawable(context.getResources().getDrawable(
+					type.getBackground()));
+		}
 		parent.addView(boutons);
 		parent.setClipChildren(false);
 
-		RelativeLayout.LayoutParams boutons_params = new LayoutParams(
-				width / 2, LayoutParams.MATCH_PARENT);
+		final RelativeLayout.LayoutParams boutons_params = new LayoutParams(
+				width / 2, android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 		boutons_params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		boutons.setLayoutParams(boutons_params);
 
@@ -92,15 +102,16 @@ public class MenuJungleH implements Menu {
 		// le placement des emplacements
 		for (int i = 0; i < 7; i++) {
 
-			int marge = height / 40;
-			RelativeLayout.LayoutParams params = new LayoutParams(width / 4
-					- marge, height / 7);
+			final int marge = height / 40;
+			final RelativeLayout.LayoutParams params = new LayoutParams(width
+					/ 4 - marge, height / 7);
 			switch (i) {
 
 			// case 0 : layout du titre
 			case 0:
-				RelativeLayout.LayoutParams titre_params = new LayoutParams(
-						width / 2, LayoutParams.MATCH_PARENT);
+				final RelativeLayout.LayoutParams titre_params = new LayoutParams(
+						width / 2,
+						android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 				menu[0].setLayoutParams(titre_params);
 				// menu[0].setElevation(50);
 				parent.addView(menu[0]);
@@ -180,15 +191,17 @@ public class MenuJungleH implements Menu {
 	 * @param l2
 	 *            l'emplacement a droite (2,4,6)
 	 */
-	public void rassembler(int l1, int l2) {
-		int height = context.getApplicationContext().getResources()
+	@Override
+	public void rassembler(final int l1, final int l2) {
+		final int height = context.getApplicationContext().getResources()
 				.getDisplayMetrics().heightPixels;
-		int marge = height / 40;
+		final int marge = height / 40;
 		if ((l1 == 1 || l1 == 3 || l1 == 5) && (l2 == 2 || l2 == 4 || l2 == 6)) {
-			RelativeLayout l = new RelativeLayout(context);
+			final RelativeLayout l = new RelativeLayout(context);
 			boutons.addView(l);
-			RelativeLayout.LayoutParams params = new LayoutParams(
-					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			final RelativeLayout.LayoutParams params = new LayoutParams(
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			params.addRule(RelativeLayout.ALIGN_LEFT, menu[l1].getId());
 			params.addRule(RelativeLayout.ALIGN_RIGHT, menu[l2].getId());
 			params.addRule(RelativeLayout.ALIGN_TOP, menu[l1].getId());
@@ -198,9 +211,10 @@ public class MenuJungleH implements Menu {
 			menu[l1] = l;
 			boutons.removeView(menu[l2]);
 			menu[l2] = null;
-		} else
+		} else {
 			Log.d("erreur",
-					" les emplacements specifiés l1 ou l2 ne sont pas corrects");
+					" les emplacements specifiï¿½s l1 ou l2 ne sont pas corrects");
+		}
 
 	}
 
@@ -215,21 +229,23 @@ public class MenuJungleH implements Menu {
 	 * @param place
 	 *            le numero de l'emplacement du bouton (entre 1 et 6)
 	 */
-	public Button addButton(String texte, int place) {
+	@Override
+	public Button addButton(final String texte, final int place) {
 
 		if (place < 7 && place > 0 && menu[place] != null) {
 
 			Button b = Bouton.createRoundedButton((Activity) context,
 					type.getCouleur1());
 
-			if (place == 3 || place == 4)
-
+			if (place == 3 || place == 4) {
 				b = Bouton.createRoundedButton((Activity) context,
 						type.getCouleur2());
+			}
 
 			menu[place].addView(b);
-			RelativeLayout.LayoutParams params = new LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+			final RelativeLayout.LayoutParams params = new LayoutParams(
+					android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+					android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT);
 			b.setLayoutParams(params);
 			b.setText(texte);
@@ -250,14 +266,16 @@ public class MenuJungleH implements Menu {
 	 * @param texte
 	 *            le titre du menu
 	 */
-	public void addTitre(String texte) {
+	@Override
+	public void addTitre(final String texte) {
 
-		int height = context.getApplicationContext().getResources()
+		final int height = context.getApplicationContext().getResources()
 				.getDisplayMetrics().heightPixels;
-		TextView t = new TextView(context);
+		final TextView t = new TextView(context);
 		menu[0].addView(t);
-		RelativeLayout.LayoutParams params = new LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		final RelativeLayout.LayoutParams params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.setMargins(-30, height / 3, 0, 0);
 
 		t.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -284,24 +302,26 @@ public class MenuJungleH implements Menu {
 	 */
 	public void animation() {
 
-		int height = context.getApplicationContext().getResources()
+		final int height = context.getApplicationContext().getResources()
 				.getDisplayMetrics().heightPixels;
 
 		// separateur
-		RelativeLayout liane = new RelativeLayout(context);
-		RelativeLayout.LayoutParams l_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+		final RelativeLayout liane = new RelativeLayout(context);
+		final RelativeLayout.LayoutParams l_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 		l_params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-		liane.setBackground(context.getApplicationContext().getResources()
+		setBackground(liane, context.getApplicationContext().getResources()
 				.getDrawable(R.drawable.liane));
 		liane.setLayoutParams(l_params);
 		menu[0].addView(liane);
 
 		Animer.translateDecelerate(liane, 0, -height, 0, 0, 2000);
 
-		RelativeLayout fruit = new RelativeLayout(context);
-		RelativeLayout.LayoutParams fruit_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		final RelativeLayout fruit = new RelativeLayout(context);
+		final RelativeLayout.LayoutParams fruit_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		fruit_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		fruit_params.setMargins(0, height / 10, 0, 0);
 
@@ -310,37 +330,40 @@ public class MenuJungleH implements Menu {
 		// Animate.scale(fruit, (float) 0.8, (float) 0.9, 1000, 20, true);
 		fruit.setId(125);
 
-		ImageView f = new ImageView(context);
-		f.setBackground(context.getApplicationContext().getResources()
+		final ImageView f = new ImageView(context);
+		setBackground(f, context.getApplicationContext().getResources()
 				.getDrawable(R.drawable.fruit));
 		f.setId(124);
-		RelativeLayout.LayoutParams f_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		final RelativeLayout.LayoutParams f_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		f_params.addRule(RelativeLayout.CENTER_IN_PARENT);
 		f.setLayoutParams(f_params);
 		fruit.addView(f);
 
-		RelativeLayout tete = new RelativeLayout(context);
-		RelativeLayout.LayoutParams tete_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		final RelativeLayout tete = new RelativeLayout(context);
+		final RelativeLayout.LayoutParams tete_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		tete_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		tete_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		tete_params.setMargins(0, 0, 0, -height / 2);
 		tete.setLayoutParams(tete_params);
 		menu[0].addView(tete);
 
-		tete.setBackground(context.getApplicationContext().getResources()
+		setBackground(tete, context.getApplicationContext().getResources()
 				.getDrawable(R.drawable.gnar));
 		Animer.translate(tete, 0, height / 2, 0, -height / 9, 3000, true);
 
-		RotateAnimation rotate = new RotateAnimation(0, 360,
+		final RotateAnimation rotate = new RotateAnimation(0, 360,
 				Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
 				0.5f);
 
 		rotate.setRepeatCount(Animation.INFINITE);
 		rotate.setInterpolator(new LinearInterpolator());
-		TranslateAnimation trans = new TranslateAnimation(0, 0, 0, height / 2);
-		AnimationSet set = new AnimationSet(true);
+		final TranslateAnimation trans = new TranslateAnimation(0, 0, 0,
+				height / 2);
+		final AnimationSet set = new AnimationSet(true);
 		fruit.setAnimation(trans);
 		fruit.setAnimation(rotate);
 
@@ -350,20 +373,21 @@ public class MenuJungleH implements Menu {
 
 		// dropZone
 
-		RelativeLayout dropZone = new RelativeLayout(context);
-		RelativeLayout.LayoutParams drop_params = new LayoutParams(
-				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		final RelativeLayout dropZone = new RelativeLayout(context);
+		final RelativeLayout.LayoutParams drop_params = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		drop_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		drop_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		drop_params.setMargins(0, 0, 0, height / 8);
 		dropZone.setLayoutParams(drop_params);
 		menu[0].addView(dropZone);
-		dropZone.setBackground(context.getApplicationContext().getResources()
+		setBackground(dropZone, context.getApplicationContext().getResources()
 				.getDrawable(R.drawable.cercle));
 		dropZone.setAlpha((float) 0.3);
 		dropZone.setId(126);
 
-		MyDragAndDrop dnd = new MyDragAndDrop(context);
+		final MyDragAndDrop dnd = new MyDragAndDrop(context);
 		dnd.addDrag(f.getId());
 		dnd.addDrop(dropZone.getId(), R.drawable.cercle, R.drawable.cercle);
 		dnd.addDrop(fruit.getId(), R.drawable.fruit, R.drawable.fruit);
@@ -377,11 +401,27 @@ public class MenuJungleH implements Menu {
 	 * @param place
 	 *            l'emplacement que l'on veut remettre a zeros
 	 */
-	public void destroy(int place) {
+	@Override
+	public void destroy(final int place) {
 		if (place < 7 && place > 0 && menu[place] != null) {
 			menu[place].removeAllViews();
 		} else {
 			Log.d("Attention", "le layout designe ne convient pas ou est nul");
+		}
+	}
+
+	/**
+	 * sets the background of a view depending on the API
+	 * 
+	 * @param v
+	 * @param d
+	 */
+	@SuppressWarnings("deprecation")
+	private void setBackground(final View v, final Drawable d) {
+		if (Build.VERSION.SDK_INT >= 16) {
+			v.setBackground(d);
+		} else {
+			v.setBackgroundDrawable(d);
 		}
 	}
 }

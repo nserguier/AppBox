@@ -11,20 +11,20 @@ public class TTSActivity extends Activity {
 
 	EditText write = null;
 	Button bouton = null;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tts);
-					      
-			      bouton = (Button) findViewById(R.id.bouton_tts);
-			      write = (EditText)findViewById(R.id.champ);
-			      TTSBouton.parleEdit(bouton,write,this);
 
-			      /* Bouton home de retour au menu */
-					Button home = (Button) findViewById(R.id.home);
-					home.setOnClickListener(new NextActivityListener(home,null,TTSActivity.this,MainActivity.class));
-			   }
+		bouton = (Button) findViewById(R.id.bouton_tts);
+		write = (EditText) findViewById(R.id.champ);
+		TTSBouton.parleEdit(bouton, write, this);
 
+		/* Bouton home de retour au menu */
+		Button home = (Button) findViewById(R.id.home);
+		home.setOnClickListener(new NextActivityListener(home, null,
+				TTSActivity.this, MainActivity.class));
 	}
 
+}
