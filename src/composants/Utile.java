@@ -85,18 +85,25 @@ public class Utile {
 	public static void fullScreen(Activity a) {
 		a.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		View decorView = a.getWindow().getDecorView();
-		decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-				| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-				| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-				| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-				| View.SYSTEM_UI_FLAG_FULLSCREEN
-				| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+		decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+		if (Build.VERSION.SDK_INT >= 19) {
+			/*
+			 * if (Build.VERSION.SDK_INT >= 19) {
+			 * decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+			 * | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+			 * View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+			 * View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+			 * View.SYSTEM_UI_FLAG_FULLSCREEN |
+			 * View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY); }
+			 */
+		}
 	}
+
 
 	public static void fullScreenResume(final Activity a) {
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
-			@Override
+			
 			public void run() {
 				// execute after 500ms
 				hideNavBar(a);
@@ -104,16 +111,17 @@ public class Utile {
 		}, 500);
 	}
 
-	private static void hideNavBar(Activity a) {
-		if (Build.VERSION.SDK_INT >= 19) {
-			View v = a.getWindow().getDecorView();
+	public static void hideNavBar(Activity a) {
+		View v = a.getWindow().getDecorView();
+		v.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+		/*if (Build.VERSION.SDK_INT >= 19) {
 			v.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 					| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 					| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 					| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 					| View.SYSTEM_UI_FLAG_FULLSCREEN
 					| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-		}
+		}*/
 	}
 
 	/* GLOW BOUTON */

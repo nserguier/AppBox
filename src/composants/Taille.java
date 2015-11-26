@@ -2,7 +2,6 @@ package composants;
 
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
 
 /**
  * Permet de redimensionner une vue

@@ -62,11 +62,9 @@ public class AnimatedText {
 
 				int compteur = 0;
 
-				@Override
 				public void onAnimationStart(Animation animation) {
 				}
 
-				@Override
 				public void onAnimationRepeat(Animation animation) {
 					anim.setStartOffset(0);
 					if ((compteur % 2) != 0 && compteur != 0) {
@@ -77,7 +75,6 @@ public class AnimatedText {
 
 				}
 
-				@Override
 				public void onAnimationEnd(Animation animation) {
 				}
 			});
@@ -129,11 +126,9 @@ public class AnimatedText {
 
 				int compteur = 0;
 
-				@Override
 				public void onAnimationStart(Animation animation) {
 				}
 
-				@Override
 				public void onAnimationRepeat(Animation animation) {
 					anim.setStartOffset(0);
 					if ((compteur % 2) != 0 && compteur != 0) {
@@ -144,7 +139,6 @@ public class AnimatedText {
 
 				}
 
-				@Override
 				public void onAnimationEnd(Animation animation) {
 				}
 			});

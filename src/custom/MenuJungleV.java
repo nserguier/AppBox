@@ -1,11 +1,17 @@
 package custom;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.content.res.Resources.NotFoundException;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -50,7 +56,7 @@ public class MenuJungleV implements Menu {
 	 * @param width
 	 * @return
 	 */
-	@Override
+	
 	public RelativeLayout[] createMenu(final ViewGroup parent) {
 
 		final int width = context.getApplicationContext().getResources()
@@ -64,8 +70,8 @@ public class MenuJungleV implements Menu {
 
 		// on definit un background general
 		if (Build.VERSION.SDK_INT >= 16) {
-			parent.setBackground(context.getResources().getDrawable(
-					type.getBackground()));
+			setBackground(parent,
+					context.getResources().getDrawable(type.getBackground()));
 		} else {
 			parent.setBackgroundDrawable(context.getResources().getDrawable(
 					type.getBackground()));
@@ -181,7 +187,7 @@ public class MenuJungleV implements Menu {
 	 *            l'emplacement a droite (2,4,6)
 	 */
 
-	@Override
+	
 	public void rassembler(final int l1, final int l2) {
 		final int width = context.getApplicationContext().getResources()
 				.getDisplayMetrics().widthPixels;
@@ -219,7 +225,7 @@ public class MenuJungleV implements Menu {
 	 * @param place
 	 *            le numero de l'emplacement du bouton (entre 1 et 6)
 	 */
-	@Override
+	
 	public Button addButton(final String texte, final int place) {
 		if (place < 7 && place > 0 && menu[place] != null) {
 
@@ -256,7 +262,7 @@ public class MenuJungleV implements Menu {
 	 *            le titre du menu
 	 */
 
-	@Override
+	
 	public void addTitre(final String texte) {
 
 		final int width = context.getApplicationContext().getResources()
@@ -301,7 +307,7 @@ public class MenuJungleV implements Menu {
 		menu[0].addView(tete);
 		menu[0].setClipChildren(false);
 		if (Build.VERSION.SDK_INT >= 16) {
-			tete.setBackground(context.getApplicationContext().getResources()
+			setBackground(tete, context.getApplicationContext().getResources()
 					.getDrawable(R.drawable.gnar));
 		} else {
 			tete.setBackgroundDrawable(context.getApplicationContext()
@@ -321,12 +327,47 @@ public class MenuJungleV implements Menu {
 	 * @param place
 	 *            l'emplacement que l'on veut remettre a zeros
 	 */
-	@Override
+	
 	public void destroy(final int place) {
 		if (place < 7 && place > 0 && menu[place] != null) {
 			menu[place].removeAllViews();
 		} else {
 			Log.d("Attention", "le layout designe ne convient pas ou est nul");
+		}
+	}
+
+	/**
+	 * sets the background of a view depending on the API
+	 * 
+	 * @param v
+	 * @param d
+	 */
+	private static void setBackground(final View v, final Drawable d) {
+		if (Build.VERSION.SDK_INT >= 16) {
+			// v.setBackground(d);
+			Method methodBackgroung;
+			try {
+				methodBackgroung = View.class.getMethod("setBackground",
+						Drawable.class);
+				methodBackgroung.invoke(v, d);
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			v.setBackgroundDrawable(d);
 		}
 	}
 }

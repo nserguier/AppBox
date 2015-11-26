@@ -9,7 +9,7 @@
         android:id="@+id/image1"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/etoile" />
 
@@ -19,7 +19,7 @@
         android:layout_height="110dp"
                 android:layout_toRightOf="@id/image1"
         android:layout_alignTop="@id/image1"
-        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
         android:background="@drawable/etoile" />
 
     <ImageView
@@ -28,7 +28,7 @@
         android:layout_height="110dp"
                 android:layout_toRightOf="@id/image2"
         android:layout_alignTop="@id/image1"
-        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
         android:background="@drawable/etoile" />
 
     <ImageView
@@ -37,7 +37,7 @@
         android:layout_height="110dp"
         android:layout_alignTop="@id/image1"
         android:layout_toRightOf="@id/image3"
-        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
         android:background="@drawable/etoile" />
 
 </RelativeLayout>

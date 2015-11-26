@@ -46,7 +46,6 @@ public class ClockActivity extends Activity {
 		Horloge.create(r, this, heure, minute, seconde);
 
 		go.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				setHour();
 			}

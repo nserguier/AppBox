@@ -1,6 +1,11 @@
 package com.Atlas.framework;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.app.Activity;
+import android.content.res.Resources.NotFoundException;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -41,7 +46,6 @@ public class BoutonsActivity extends Activity {
 		creer.setTextSize(30);
 		creer.setOnClickListener(new OnClickListener() {
 
-			@Override
 			public void onClick(final View v) {
 				edit = (EditText) findViewById(R.id.editText);
 				final String nomBouton = edit.getText().toString();
@@ -62,7 +66,29 @@ public class BoutonsActivity extends Activity {
 		super.onResume();
 		final Button home = (Button) findViewById(R.id.home);
 		if (Build.VERSION.SDK_INT >= 16) {
-			home.setBackground(getResources().getDrawable(R.drawable.home));
+			//home.setBackground(getResources().getDrawable(R.drawable.home));
+			Method methodBackgroung;
+				try {
+					methodBackgroung = View.class.getMethod("setBackground",
+							Drawable.class);
+					methodBackgroung.invoke(home, getResources().getDrawable(R.drawable.home));
+				} catch (NoSuchMethodException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalArgumentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (NotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InvocationTargetException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
 		} else {
 			home.setBackgroundDrawable(getResources().getDrawable(
 					R.drawable.home));

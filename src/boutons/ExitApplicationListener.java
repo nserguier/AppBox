@@ -1,8 +1,12 @@
 package boutons;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
@@ -25,12 +29,32 @@ public class ExitApplicationListener implements OnClickListener {
 		currentActivity = activity;
 	}
 
-	@Override
 	public void onClick(final View v) {
 
 		/* Changement de l'aspect du bouton lorsqu'on l'enfonce */
 		if (Build.VERSION.SDK_INT >= 16) {
-			button.setBackground(pressed);
+			//button.setBackground(pressed);
+			Method methodBackgroung;
+			try {
+				methodBackgroung = View.class.getMethod("setBackground",
+						Drawable.class);
+				methodBackgroung.invoke(button, pressed);
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else {
 			button.setBackgroundDrawable(pressed);
 		}

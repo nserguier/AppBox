@@ -19,7 +19,6 @@ public class TTSBouton {
 
 		tts = new TextToSpeech(ctx, new TextToSpeech.OnInitListener() {
 
-			@Override
 			public void onInit(int status) {
 				if (status != TextToSpeech.ERROR)
 					tts.setLanguage(Locale.FRANCE);
@@ -27,7 +26,6 @@ public class TTSBouton {
 		});
 
 		ttsButton.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				String t = texte;
 				if (!muet) {

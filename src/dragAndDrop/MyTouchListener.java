@@ -12,7 +12,6 @@ import android.view.View.OnTouchListener;
  */
 public class MyTouchListener implements OnTouchListener {
 
-	@Override
 	public boolean onTouch(View view, MotionEvent motionEvent) {
 
 		switch (motionEvent.getAction()) {

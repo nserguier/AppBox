@@ -1,9 +1,14 @@
 package com.Atlas.framework;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.app.Activity;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import boutons.NextActivityListener;
 
@@ -87,18 +92,38 @@ public class MainActivity extends Activity {
 		final Button b12 = (Button) findViewById(R.id.bouton12);
 		final Drawable d = getResources().getDrawable(R.drawable.bouton_bleu);
 		if (Build.VERSION.SDK_INT >= 16) {
-			b1.setBackground(d);
-			b2.setBackground(d);
-			b3.setBackground(d);
-			b4.setBackground(d);
-			b5.setBackground(d);
-			b6.setBackground(d);
-			b7.setBackground(d);
-			b8.setBackground(d);
-			b9.setBackground(d);
-			b10.setBackground(d);
-			b11.setBackground(d);
-			b12.setBackground(d);
+			Method methodBackgroung;
+			try {
+				methodBackgroung = View.class.getMethod("setBackground",
+						Drawable.class);
+				methodBackgroung.invoke(b1,d);
+				methodBackgroung.invoke(b2,d);
+				methodBackgroung.invoke(b3,d);
+				methodBackgroung.invoke(b4,d);
+				methodBackgroung.invoke(b5,d);
+				methodBackgroung.invoke(b6,d);
+				methodBackgroung.invoke(b7,d);
+				methodBackgroung.invoke(b8,d);
+				methodBackgroung.invoke(b9,d);
+				methodBackgroung.invoke(b10,d);
+				methodBackgroung.invoke(b11,d);
+				methodBackgroung.invoke(b12,d);
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else {
 			b1.setBackgroundDrawable(d);
 			b2.setBackgroundDrawable(d);

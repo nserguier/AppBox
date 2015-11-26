@@ -124,7 +124,6 @@ public class Horloge {
 
 				// use a handler to run a toast that shows the current timestamp
 				handler.post(new Runnable() {
-					@Override
 					public void run() {
 						Horloge.incrementMin(a);
 					}

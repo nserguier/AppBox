@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,36 +41,29 @@ public class Bulle {
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.addRule(Gravity.CENTER_HORIZONTAL);
 
-		switch (lieu) {
-		case "above":
+		if (lieu.equals("above")) {
 			bulle = activity.getResources().getDrawable(R.drawable.bulle_haut);
 			params.addRule(RelativeLayout.ABOVE, view.getId());
-			params.addRule(RelativeLayout.ALIGN_END, view.getId());
-			break;
-
-		case "below":
+			params.addRule(RelativeLayout.ALIGN_RIGHT, view.getId());
+		} else if (lieu.equals("below")) {
 			bulle = activity.getResources().getDrawable(R.drawable.bulle_bas);
 			params.addRule(RelativeLayout.BELOW, view.getId());
-			params.addRule(RelativeLayout.ALIGN_END, view.getId());
-			break;
+			if (Build.VERSION.SDK_INT >= 17) {
+				// params.addRule(RelativeLayout.ALIGN_END, view.getId());
+			} else {
+				params.addRule(RelativeLayout.ALIGN_RIGHT, view.getId());
+			}
+		} else if (lieu.equals("right")) {
 
-		case "right":
 			bulle = activity.getResources()
 					.getDrawable(R.drawable.bulle_droite);
 			params.addRule(RelativeLayout.ALIGN_TOP, view.getId());
-			params.addRule(RelativeLayout.END_OF, view.getId());
-			break;
-
-		case "left":
+			params.addRule(RelativeLayout.RIGHT_OF, view.getId());
+		} else if (lieu.equals("left")) {
 			bulle = activity.getResources()
 					.getDrawable(R.drawable.bulle_gauche);
 			params.addRule(RelativeLayout.ALIGN_TOP, view.getId());
 			params.addRule(RelativeLayout.LEFT_OF, view.getId());
-			break;
-
-		default:
-			// afficher une erreur
-			break;
 		}
 
 		Typeface comic = Typeface.createFromAsset(activity.getAssets(),

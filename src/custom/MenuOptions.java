@@ -1,8 +1,12 @@
 package custom;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Log;
@@ -50,7 +54,7 @@ public class MenuOptions implements Menu {
 	 *            le parent de l'activite
 	 * @return
 	 */
-	@Override
+
 	public RelativeLayout[] createMenu(final ViewGroup parent) {
 
 		final int width = context.getApplicationContext().getResources()
@@ -63,13 +67,8 @@ public class MenuOptions implements Menu {
 		a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		// on definit un background general
-		if (Build.VERSION.SDK_INT >= 16) {
-			parent.setBackground(context.getResources().getDrawable(
-					type.getBackground()));
-		} else {
-			parent.setBackgroundDrawable(context.getResources().getDrawable(
-					type.getBackground()));
-		}
+		setBackground(parent,
+				context.getResources().getDrawable(type.getBackground()));
 		parent.addView(boutons);
 		parent.setClipChildren(false);
 
@@ -181,7 +180,7 @@ public class MenuOptions implements Menu {
 	 * @param l2
 	 *            l'emplacement a droite (2,4,6)
 	 */
-	@Override
+
 	public void rassembler(final int l1, final int l2) {
 		final int height = context.getApplicationContext().getResources()
 				.getDisplayMetrics().heightPixels;
@@ -218,7 +217,6 @@ public class MenuOptions implements Menu {
 	 *            le type d'option � rajouter(son, horloge, gnar)
 	 */
 
-	@Override
 	public RadioGroup addButton(final String typeOption, final int place) {
 
 		if (place < 7 && place > 0 && menu[place] != null) {
@@ -277,34 +275,29 @@ public class MenuOptions implements Menu {
 			group.addView(oui);
 			group.addView(non);
 
-			switch (typeOption) {
-			case "gnar": {
+			if (typeOption.equals("gnar")) {
 				setBackground(
 						option,
 						context.getResources().getDrawable(
 								R.drawable.mini_tete_2));
 
-				break;
-			}
-			case "horloge": {
+			} else if (typeOption.equals("horloge")) {
+
 				Horloge.create(option, context, 3, 30, 45);
 
-				break;
-			}
-			case "son": {
+			} else if (typeOption.equals("son")) {
+
 				setBackground(option,
 						context.getResources().getDrawable(R.drawable.sound));
 
-				break;
-			}
-			case "bulle": {
+			} else if (typeOption.equals("bulle")) {
+
 				setBackground(option,
 						context.getResources()
 								.getDrawable(R.drawable.bulle_bas));
 
-				break;
-			}
-			case "sommaire": {
+			} else if (typeOption.equals("sommaire")) {
+
 				final TextView t = new TextView(context);
 				t.setText("sommaire   ");
 				Police.setFont((Activity) context, t, "intsh.ttf");
@@ -319,8 +312,6 @@ public class MenuOptions implements Menu {
 						R.color.blanc));
 				option.addView(t);
 
-				break;
-			}
 			}
 
 			opt.addView(group);
@@ -339,7 +330,7 @@ public class MenuOptions implements Menu {
 	 * @param texte
 	 *            le titre du menu
 	 */
-	@Override
+
 	public void addTitre(final String texte) {
 
 		final int height = context.getApplicationContext().getResources()
@@ -368,7 +359,7 @@ public class MenuOptions implements Menu {
 	 * @param place
 	 *            l'emplacement que l'on veut remettre a zeros
 	 */
-	@Override
+
 	public void destroy(final int place) {
 		if (place < 7 && place > 0 && menu[place] != null) {
 			menu[place].removeAllViews();
@@ -383,10 +374,30 @@ public class MenuOptions implements Menu {
 	 * @param v
 	 * @param d
 	 */
-	@SuppressWarnings("deprecation")
-	private void setBackground(final View v, final Drawable d) {
+	private static void setBackground(final View v, final Drawable d) {
 		if (Build.VERSION.SDK_INT >= 16) {
-			v.setBackground(d);
+			// v.setBackground(d);
+			Method methodBackgroung;
+			try {
+				methodBackgroung = View.class.getMethod("setBackground",
+						Drawable.class);
+				methodBackgroung.invoke(v, d);
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else {
 			v.setBackgroundDrawable(d);
 		}

@@ -49,7 +49,7 @@ public class MenuDeroulant {
 		b.setText(text);
 
 		b.setOnClickListener(new View.OnClickListener() {
-			@Override
+			
 			public void onClick(View v) {
 
 				isOpen = toggle(menuDeroulant, isOpen);
@@ -70,7 +70,7 @@ public class MenuDeroulant {
 		RelativeLayout.LayoutParams params = new LayoutParams(
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-		params.addRule(RelativeLayout.ALIGN_END);
+		params.addRule(RelativeLayout.ALIGN_LEFT);
 		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		params.setMargins(0, 10, 0, 0);
 		v.setLayoutParams(params);
@@ -115,18 +115,18 @@ public class MenuDeroulant {
 
 	/* Listener pour l'animation de fermeture du menu */
 	static Animation.AnimationListener closeListener = new Animation.AnimationListener() {
-		@Override
+		
 		public void onAnimationEnd(Animation animation) {
 			// On dissimule le menu
 			menuDeroulant.setVisibility(View.INVISIBLE);
 		}
 
-		@Override
+		
 		public void onAnimationRepeat(Animation animation) {
 
 		}
 
-		@Override
+		
 		public void onAnimationStart(Animation animation) {
 
 		}
@@ -134,15 +134,15 @@ public class MenuDeroulant {
 
 	/* Listener pour l'animation d'ouverture du menu */
 	static Animation.AnimationListener openListener = new Animation.AnimationListener() {
-		@Override
+		
 		public void onAnimationEnd(Animation animation) {
 		}
 
-		@Override
+		
 		public void onAnimationRepeat(Animation animation) {
 		}
 
-		@Override
+		
 		public void onAnimationStart(Animation animation) {
 			// On affiche le menu
 			menuDeroulant.setVisibility(View.VISIBLE);

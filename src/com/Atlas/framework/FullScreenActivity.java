@@ -1,5 +1,8 @@
 package com.Atlas.framework;
 
+import composants.Ecran;
+import composants.Utile;
+
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,15 +17,7 @@ public class FullScreenActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		/* Passage en plein ecran */
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		View decorView = getWindow().getDecorView();
-		decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-				| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-				| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-				| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-				| View.SYSTEM_UI_FLAG_FULLSCREEN
-				| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
+		Utile.fullScreen(this);
 		setContentView(R.layout.activity_full_screen);
 	}
 
@@ -37,7 +32,6 @@ public class FullScreenActivity extends Activity {
 	private void executeDelayed() {
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
-			@Override
 			public void run() {
 				// execute after 500ms
 				hideNavBar();
@@ -46,14 +40,15 @@ public class FullScreenActivity extends Activity {
 	}
 
 	private void hideNavBar() {
-		if (Build.VERSION.SDK_INT >= 19) {
-			View v = getWindow().getDecorView();
+		View v = getWindow().getDecorView();
+		v.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+		/*if (Build.VERSION.SDK_INT >= 19) {
 			v.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 					| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 					| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 					| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 					| View.SYSTEM_UI_FLAG_FULLSCREEN
 					| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-		}
+		}*/
 	}
 }

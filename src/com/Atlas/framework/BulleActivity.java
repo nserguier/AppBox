@@ -28,7 +28,6 @@ public class BulleActivity extends Activity {
 		Button suppr = (Button) findViewById(R.id.bouton_supprimer);
 		suppr.setOnClickListener(new View.OnClickListener() {
 
-			@Override
 			public void onClick(View v) {
 				Bulle.destroy(bulle1, BulleActivity.this);
 				Bulle.destroy(bulle2, BulleActivity.this);

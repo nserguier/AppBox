@@ -10,14 +10,14 @@
         android:layout_width="300dp"
         android:layout_height="120dp"
         android:layout_centerVertical="true"
-        android:layout_marginStart="350dp" />
+        android:layout_marginLeft="350dp" />
 
     <Button
         android:id="@+id/bouton_police2"
         android:layout_width="300dp"
         android:layout_height="120dp"
         android:layout_centerVertical="true"
-        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
         android:layout_toRightOf="@id/bouton_police1" />
 
     <TextView

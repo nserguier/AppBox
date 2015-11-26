@@ -1,6 +1,10 @@
 package dragAndDrop;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.content.Context;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.DragEvent;
@@ -43,7 +47,6 @@ public class MyDragListener implements OnDragListener {
 
 	}
 
-	@Override
 	public boolean onDrag(final View v, final DragEvent event) {
 		final String s = "";
 		switch (event.getAction()) {
@@ -58,11 +61,7 @@ public class MyDragListener implements OnDragListener {
 											 * drop
 											 */
 			if (dropZoneSurbrillante != null) {
-				if (Build.VERSION.SDK_INT >= 16) {
-					v.setBackground(dropZoneSurbrillante);
-				} else {
-					v.setBackgroundDrawable(dropZoneSurbrillante);
-				}
+				setBackground(v, dropZoneSurbrillante);
 			}
 			// TODO ICI PLACER LE CODE A EXECUTER LORSQUE L'OBJET EST GLISSE
 			// DANS LA ZONE
@@ -70,12 +69,7 @@ public class MyDragListener implements OnDragListener {
 
 		case DragEvent.ACTION_DRAG_EXITED: /* Sortie du drag de la zone de drop */
 			if (dropZone != null) {
-				if (Build.VERSION.SDK_INT >= 16) {
-					v.setBackground(dropZone);
-				} else {
-					v.setBackgroundDrawable(dropZone);
-				}
-
+				setBackground(v, dropZone);
 			}
 			vide = true;
 			// TODO ICI PLACER LE CODE A EXECUTER LORSQUE L'OBJET EST GLISSE EN
@@ -111,11 +105,7 @@ public class MyDragListener implements OnDragListener {
 
 		case DragEvent.ACTION_DRAG_ENDED: /* Fin du drag-and-drop */
 			if (dropZone != null) {
-				if (Build.VERSION.SDK_INT >= 16) {
-					v.setBackground(dropZone);
-				} else {
-					v.setBackgroundDrawable(dropZone);
-				}
+				setBackground(v, dropZone);
 			}
 			final View view2 = (View) event.getLocalState();
 			view2.setVisibility(View.VISIBLE);
@@ -126,5 +116,40 @@ public class MyDragListener implements OnDragListener {
 			break;
 		}
 		return true;
+	}
+
+	/**
+	 * sets the background of a view depending on the API
+	 * 
+	 * @param v
+	 * @param d
+	 */
+	private static void setBackground(final View v, final Drawable d) {
+		if (Build.VERSION.SDK_INT >= 16) {
+			// v.setBackground(d);
+			Method methodBackgroung;
+			try {
+				methodBackgroung = View.class.getMethod("setBackground",
+						Drawable.class);
+				methodBackgroung.invoke(v, d);
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			v.setBackgroundDrawable(d);
+		}
 	}
 }

@@ -1,8 +1,14 @@
 package com.Atlas.framework;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.app.Activity;
+import android.content.res.Resources.NotFoundException;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,7 +30,28 @@ public class GlowActivity extends Activity {
 
 		final Button bouton = (Button) findViewById(R.id.glow_bouton);
 		if (Build.VERSION.SDK_INT >= 16) {
-			bouton.setBackground(getResources().getDrawable(R.drawable.home));
+			//bouton.setBackground(getResources().getDrawable(R.drawable.home));
+			Method methodBackgroung;
+			try {
+				methodBackgroung = View.class.getMethod("setBackground",
+						Drawable.class);
+				methodBackgroung.invoke(bouton, getResources().getDrawable(R.drawable.home));
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else {
 			bouton.setBackgroundDrawable(getResources().getDrawable(
 					R.drawable.home));

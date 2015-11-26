@@ -183,12 +183,12 @@ public class Animer {
 		scale.setDuration(duration);
 		scale.setInterpolator(new BounceInterpolator());
 		scale.setAnimationListener(new AnimationListener() {
-			@Override
+			
 			public void onAnimationStart(
 					android.view.animation.Animation animation) {
 			}
 
-			@Override
+			
 			public void onAnimationEnd(
 					android.view.animation.Animation animation) {
 				if (delete) {
@@ -200,7 +200,7 @@ public class Animer {
 				}
 			}
 
-			@Override
+			
 			public void onAnimationRepeat(
 					android.view.animation.Animation animation) {
 			}
@@ -244,12 +244,12 @@ public class Animer {
 		alpha.setDuration(duration);
 		alpha.setInterpolator(new AccelerateDecelerateInterpolator());
 		alpha.setAnimationListener(new AnimationListener() {
-			@Override
+			
 			public void onAnimationStart(
 					android.view.animation.Animation animation) {
 			}
 
-			@Override
+			
 			public void onAnimationEnd(
 					android.view.animation.Animation animation) {
 				if (delete) {
@@ -261,7 +261,7 @@ public class Animer {
 				}
 			}
 
-			@Override
+			
 			public void onAnimationRepeat(
 					android.view.animation.Animation animation) {
 			}
@@ -404,15 +404,15 @@ public class Animer {
 		trans.setInterpolator(new DecelerateInterpolator());
 		trans.setAnimationListener(new Animation.AnimationListener() {
 
-			@Override
+			
 			public void onAnimationStart(Animation animation) {
 			}
 
-			@Override
+			
 			public void onAnimationRepeat(Animation animation) {
 			}
 
-			@Override
+			
 			public void onAnimationEnd(Animation animation) {
 				/* Passage a l'autre activite */
 				Intent intent = new Intent(context, targetActivity);
@@ -455,16 +455,16 @@ public class Animer {
 		alpha.setDuration(500);
 		alpha.setAnimationListener(new AnimationListener() {
 
-			@Override
+			
 			public void onAnimationStart(Animation animation) {
 			}
 
-			@Override
+			
 			public void onAnimationRepeat(Animation animation) {
 
 			}
 
-			@Override
+			
 			public void onAnimationEnd(Animation animation) {
 				/* disparition du logo */
 				Animer.fade_out(logo_bouton, 1000, true);

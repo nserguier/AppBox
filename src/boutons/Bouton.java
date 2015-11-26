@@ -1,9 +1,13 @@
 package boutons;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import com.Atlas.framework.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -55,11 +59,7 @@ public class Bouton {
 		devant.setShape(GradientDrawable.RECTANGLE);
 		devant.setCornerRadius(15);
 		final int[] colors = { Couleur.lighten(color), color };
-		if (Build.VERSION.SDK_INT >= 16) {
-			devant.mutate();
-			devant.setColors(colors);
-			devant.setOrientation(GradientDrawable.Orientation.BOTTOM_TOP);
-		}
+		setGradient(fond, colors, GradientDrawable.Orientation.BOTTOM_TOP);
 
 		final GradientDrawable[] layers = { fond, devant };
 		final LayerDrawable res = new LayerDrawable(layers);
@@ -87,11 +87,7 @@ public class Bouton {
 		devant.setShape(GradientDrawable.RECTANGLE);
 		devant.setCornerRadius(15);
 		final int[] colors = { color, Couleur.lighten(color), color };
-		if (Build.VERSION.SDK_INT >= 16) {
-			devant.mutate();
-			devant.setColors(colors);
-			devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-		}
+		setGradient(fond, colors, GradientDrawable.Orientation.TOP_BOTTOM);
 
 		final GradientDrawable[] layers = { fond, devant };
 		final LayerDrawable res = new LayerDrawable(layers);
@@ -124,11 +120,8 @@ public class Bouton {
 		fond.setCornerRadius(1000);
 		final int fonce = Couleur.darken(color);
 		final int[] colors0 = { fonce, color };
-		if (Build.VERSION.SDK_INT >= 16) {
-			fond.mutate();
-			fond.setColors(colors0);
-			fond.setOrientation(GradientDrawable.Orientation.BOTTOM_TOP);
-		}
+		setGradient(fond, colors0, GradientDrawable.Orientation.BOTTOM_TOP);
+
 		fond.setStroke(margin / 3, Couleur.darken(fonce));
 		final int width = (int) (f * (W / 3));
 		fond.setSize(width, H / 8);
@@ -138,11 +131,8 @@ public class Bouton {
 		devant.setCornerRadius(1000);
 		final int clair = Couleur.lighten(color);
 		final int[] colors = { color, clair };
-		if (Build.VERSION.SDK_INT >= 16) {
-			devant.mutate();
-			devant.setColors(colors);
-			devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-		}
+		setGradient(fond, colors, GradientDrawable.Orientation.TOP_BOTTOM);
+
 		devant.setStroke(margin / 4, Couleur.lighten(Couleur.lighten(clair)));
 
 		final GradientDrawable[] layers = { fond, devant };
@@ -176,11 +166,8 @@ public class Bouton {
 		fond.setCornerRadius(1000);
 		final int clair = Couleur.lighten(color);
 		final int[] colors0 = { color, clair };
-		if (Build.VERSION.SDK_INT >= 16) {
-			fond.mutate();
-			fond.setColors(colors0);
-			fond.setOrientation(GradientDrawable.Orientation.BOTTOM_TOP);
-		}
+		setGradient(fond, colors0, GradientDrawable.Orientation.BOTTOM_TOP);
+
 		fond.setStroke(margin / 3, Couleur.darken(color));
 		final int width = (int) (f * (W / 3));
 		fond.setSize(width, H / 8);
@@ -190,11 +177,8 @@ public class Bouton {
 		devant.setCornerRadius(1000);
 		final int clair2 = Couleur.lighten(clair);
 		final int[] colors = { clair, clair2 };
-		if (Build.VERSION.SDK_INT >= 16) {
-			devant.mutate();
-			devant.setColors(colors);
-			devant.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-		}
+		setGradient(fond, colors, GradientDrawable.Orientation.TOP_BOTTOM);
+
 		devant.setStroke(margin / 4, Couleur.lighten(Couleur.lighten(clair2)));
 
 		final GradientDrawable[] layers = { fond, devant };
@@ -308,18 +292,37 @@ public class Bouton {
 		parent.removeView(bouton);
 		rl.addView(bouton);
 		if (Build.VERSION.SDK_INT >= 21) {
-			final float elevation = bouton.getElevation();
-			rl.setElevation(elevation);
+			float elevation;
+			try {
+				elevation = (Float) View.class.getMethod("getElevation",
+						new Class<?>[] {}).invoke(bouton, (Object[]) null);
+				RelativeLayout.class.getMethod("setElevation", float.class)
+						.invoke(rl, elevation);
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			// bouton.getElevation();
+			// rl.setElevation(elevation);
 		}
 
 		final ImageView glow = new ImageView(ctx);
-		if (Build.VERSION.SDK_INT >= 16) {
-			glow.setBackground(ctx.getResources().getDrawable(
-					R.drawable.glow_circle));
-		} else {
-			glow.setBackgroundDrawable(ctx.getResources().getDrawable(
-					R.drawable.glow_circle));
-		}
+		setBackground(glow,
+				ctx.getResources().getDrawable(R.drawable.glow_circle));
+
 		glow.setLayoutParams(bouton_params);
 		glow.setAlpha(0.7f);
 
@@ -441,15 +444,78 @@ public class Bouton {
 	}
 
 	/**
+	 * sets the colors and oriantation of GradientDrawable
+	 * 
+	 * @param fond
+	 * @param colors
+	 * @param orientation
+	 * @throws NoSuchMethodException
+	 */
+	private static void setGradient(final GradientDrawable fond,
+			final int[] colors, final GradientDrawable.Orientation orientation) {
+		if (Build.VERSION.SDK_INT >= 16) {
+			fond.mutate();
+			// fond.setColors(colors);
+			// fond.setOrientation(orientation);
+
+			Method methodColor;
+			Method methodOrientation;
+			try {
+				methodColor = GradientDrawable.class.getMethod("setColors",
+						int[].class);
+				methodColor.invoke(fond, colors);
+				methodOrientation = GradientDrawable.class.getMethod(
+						"setOrientation", GradientDrawable.Orientation.class);
+				methodOrientation.invoke(fond, orientation);
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/**
 	 * sets the background of a view depending on the API
 	 * 
 	 * @param v
 	 * @param d
 	 */
-	@SuppressWarnings("deprecation")
 	private static void setBackground(final View v, final Drawable d) {
 		if (Build.VERSION.SDK_INT >= 16) {
-			v.setBackground(d);
+			// v.setBackground(d);
+			Method methodBackgroung;
+			try {
+				methodBackgroung = View.class.getMethod("setBackground",
+						Drawable.class);
+				methodBackgroung.invoke(v, d);
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else {
 			v.setBackgroundDrawable(d);
 		}

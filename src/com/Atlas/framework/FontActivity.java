@@ -25,7 +25,6 @@ public class FontActivity extends Activity {
 		bouton1.setTypeface(font1);
 		bouton1.setOnClickListener(new View.OnClickListener() {
 
-			@Override
 			public void onClick(View v) {
 				Police.setDefaultFont(getApplicationContext(),
 						"fonts/comic.otf");
@@ -43,7 +42,6 @@ public class FontActivity extends Activity {
 		bouton2.setTypeface(font2);
 		bouton2.setOnClickListener(new View.OnClickListener() {
 
-			@Override
 			public void onClick(View v) {
 				Police.setDefaultFont(getApplicationContext(),
 						"fonts/onthemove.ttf");

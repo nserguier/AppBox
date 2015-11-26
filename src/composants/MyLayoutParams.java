@@ -1,5 +1,6 @@
 package composants;
 
+import android.os.Build;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -32,7 +33,7 @@ public class MyLayoutParams extends RelativeLayout.LayoutParams {
 	 * @return params
 	 */
 	public MyLayoutParams toLeftOf(View v) {
-		this.addRule(RelativeLayout.START_OF, v.getId());
+		this.addRule(RelativeLayout.LEFT_OF, v.getId());
 		return this;
 	}
 
@@ -80,7 +81,7 @@ public class MyLayoutParams extends RelativeLayout.LayoutParams {
 	 * @return params
 	 */
 	public MyLayoutParams alignStart(View v) {
-		this.addRule(RelativeLayout.ALIGN_START, v.getId());
+		this.addRule(RelativeLayout.ALIGN_LEFT, v.getId());
 		return this;
 	}
 
@@ -92,7 +93,8 @@ public class MyLayoutParams extends RelativeLayout.LayoutParams {
 	 * @return params
 	 */
 	public MyLayoutParams alignEnd(View v) {
-		this.addRule(RelativeLayout.ALIGN_END, v.getId());
+
+		this.addRule(RelativeLayout.ALIGN_RIGHT, v.getId());
 		return this;
 	}
 

@@ -1,7 +1,11 @@
 package composants;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.app.Activity;
 import android.content.res.Resources;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
@@ -95,7 +99,6 @@ public class AnimatedGnar {
 		final OnClickListener ocl = new View.OnClickListener() {
 			int num_tete = 2;
 
-			@Override
 			public void onClick(final View v) {
 				final int random = (int) Math.floor(Math.random() * 3);
 				switch (random) {
@@ -160,10 +163,30 @@ public class AnimatedGnar {
 	 * @param v
 	 * @param d
 	 */
-	@SuppressWarnings("deprecation")
 	private static void setBackground(final View v, final Drawable d) {
 		if (Build.VERSION.SDK_INT >= 16) {
-			v.setBackground(d);
+			// v.setBackground(d);
+			Method methodBackgroung;
+			try {
+				methodBackgroung = View.class.getMethod("setBackground",
+						Drawable.class);
+				methodBackgroung.invoke(v, d);
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else {
 			v.setBackgroundDrawable(d);
 		}
@@ -242,7 +265,7 @@ public class AnimatedGnar {
 				.marginLeft(-W_tete / 15);
 		final MyLayoutParams params_jambe_gauche = new MyLayoutParams()
 				.marginTop((int) (H_tete * 1.22f)).toLeftOf(corps)
-				.marginRight(-W_tete / 7);
+				.marginRight(-W_tete / 15);
 		final MyLayoutParams params_jambe_droit = new MyLayoutParams()
 				.marginTop((int) (H_tete * 1.22f)).toRightOf(corps)
 				.marginLeft(-W_tete / 7);
@@ -260,7 +283,6 @@ public class AnimatedGnar {
 		final OnClickListener ocl = new View.OnClickListener() {
 			int num_tete = 2;
 
-			@Override
 			public void onClick(final View v) {
 				final int random = (int) Math.floor(Math.random() * 3);
 				switch (random) {

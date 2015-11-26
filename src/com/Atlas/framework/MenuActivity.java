@@ -2,6 +2,7 @@ package com.Atlas.framework;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment.InstantiationException;
 import android.view.ViewGroup;
 import composants.Ecran;
 
@@ -25,8 +26,14 @@ public class MenuActivity extends Activity {
 
 		try {
 			m = FabriqueMenu.create(TypeMenu.Options, this);
-		} catch (IllegalArgumentException | IllegalAccessException e) {
-
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
