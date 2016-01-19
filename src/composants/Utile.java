@@ -7,13 +7,16 @@ import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
@@ -61,7 +64,8 @@ public class Utile {
 	/* ECRAN */
 
 	/**
-	 * Donne la taille de l'ecran
+	 * Donne la taille de l'ecran en px, attention cela ne dépend pas des "mesures" de l'ecran
+	 * mais de sa densite de pixel, donc cela peut être plus grand pour un smartphone qu'une tablette ...
 	 * 
 	 * @param a
 	 *            L'activite concerne
@@ -72,6 +76,21 @@ public class Utile {
 		Point size = new Point();
 		display.getSize(size);
 		int[] rep = { size.x, size.y };
+		return rep;
+	}
+	
+	/**
+	 * Donne la taille de l'ecran en px/inch, attention cela ne dépend pas des "mesures" de l'ecran
+	 * mais de sa densite de pixel, donc cela peut être plus grand pour un smartphone qu'une tablette ...
+	 * 
+	 * @param a
+	 *            L'activite concerne
+	 * @return [0] : la largeur en px [1] : la hauteur en px
+	 */
+	public static int[] getScreenSizePI(Activity a) {
+		final DisplayMetrics metrics = new DisplayMetrics();
+        a.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int[] rep = { (int) metrics.xdpi, (int) metrics.ydpi };
 		return rep;
 	}
 
@@ -218,7 +237,7 @@ public class Utile {
 	/* TAILLE DES VUES */
 
 	/**
-	 * Redimensionne une vue
+	 * Redimensionne une vue positionnée dans un RelativeLayout
 	 * 
 	 * @param view
 	 *            La vue
@@ -229,6 +248,32 @@ public class Utile {
 	 */
 	public static void setSize(View view, int h, int w) {
 		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view
+				.getLayoutParams();
+		if (h == 0) {
+			params.height = android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+		} else {
+			params.height = h;
+		}
+		if (w == 0) {
+			params.width = android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+		} else {
+			params.width = w;
+		}
+		view.setLayoutParams(params);
+	}
+	
+	/**
+	 * Redimensionne une vue positionnée dans un LinearLayout
+	 * 
+	 * @param view
+	 *            La vue
+	 * @param h
+	 *            La hauteur souhaitee en px (0 pour wrap_content)
+	 * @param w
+	 *            La largeur souhaitee en px (0 pour wrap_content)
+	 */
+	public static void setSizeLinear(View view, int h, int w) {
+		FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) view
 				.getLayoutParams();
 		if (h == 0) {
 			params.height = android.view.ViewGroup.LayoutParams.WRAP_CONTENT;

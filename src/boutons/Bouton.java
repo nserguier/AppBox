@@ -53,13 +53,13 @@ public class Bouton {
 		final GradientDrawable fond = new GradientDrawable();
 		fond.setShape(GradientDrawable.RECTANGLE);
 		fond.setCornerRadius(15);
-		fond.setColor(Couleur.darken(color));
+		fond.setColor(color);//Couleur.darken(color));
 
 		final GradientDrawable devant = new GradientDrawable();
 		devant.setShape(GradientDrawable.RECTANGLE);
 		devant.setCornerRadius(15);
 		final int[] colors = { Couleur.lighten(color), color };
-		setGradient(fond, colors, GradientDrawable.Orientation.BOTTOM_TOP);
+		setGradient(devant, colors, GradientDrawable.Orientation.BOTTOM_TOP);
 
 		final GradientDrawable[] layers = { fond, devant };
 		final LayerDrawable res = new LayerDrawable(layers);
@@ -111,9 +111,18 @@ public class Bouton {
 		final Display display = a.getWindowManager().getDefaultDisplay();
 		final Point size = new Point();
 		display.getSize(size);
-		final int H = size.y;
-		final int W = size.x;
-		final int margin = (H + W) / 200;
+		// petite et grande dimensions
+		final int minDim;
+		final int maxDim;
+		if(size.x>size.y){
+			minDim=size.y;
+			maxDim=size.x;
+		}
+		else{
+			minDim=size.x;
+			maxDim=size.y;
+		}
+		final int margin = (maxDim + minDim) / 200;
 
 		final GradientDrawable fond = new GradientDrawable();
 		fond.setShape(GradientDrawable.RECTANGLE);
@@ -123,15 +132,16 @@ public class Bouton {
 		setGradient(fond, colors0, GradientDrawable.Orientation.BOTTOM_TOP);
 
 		fond.setStroke(margin / 3, Couleur.darken(fonce));
-		final int width = (int) (f * (W / 3));
-		fond.setSize(width, H / 8);
+		final int width = (int) (f * (maxDim / 3));
+		final int height = (int) (f*(minDim / 8));
+		fond.setSize(width,height );
 
 		final GradientDrawable devant = new GradientDrawable();
 		devant.setShape(GradientDrawable.RECTANGLE);
 		devant.setCornerRadius(1000);
 		final int clair = Couleur.lighten(color);
 		final int[] colors = { color, clair };
-		setGradient(fond, colors, GradientDrawable.Orientation.TOP_BOTTOM);
+		setGradient(devant, colors, GradientDrawable.Orientation.TOP_BOTTOM);
 
 		devant.setStroke(margin / 4, Couleur.lighten(Couleur.lighten(clair)));
 
@@ -141,6 +151,8 @@ public class Bouton {
 		res.setLayerInset(1, margin, margin, margin, margin);
 		return res;
 	}
+	
+	
 
 	/**
 	 * Cree une image de bouton arrondi presse a partir d'une couleur
@@ -157,9 +169,18 @@ public class Bouton {
 		final Display display = a.getWindowManager().getDefaultDisplay();
 		final Point size = new Point();
 		display.getSize(size);
-		final int H = size.y;
-		final int W = size.x;
-		final int margin = (H + W) / 200;
+		// petite et grande dimensions
+				final int minDim;
+				final int maxDim;
+				if(size.x>size.y){
+					minDim=size.y;
+					maxDim=size.x;
+				}
+				else{
+					minDim=size.x;
+					maxDim=size.y;
+				}
+				final int margin = (maxDim + minDim) / 200;
 
 		final GradientDrawable fond = new GradientDrawable();
 		fond.setShape(GradientDrawable.RECTANGLE);
@@ -169,15 +190,16 @@ public class Bouton {
 		setGradient(fond, colors0, GradientDrawable.Orientation.BOTTOM_TOP);
 
 		fond.setStroke(margin / 3, Couleur.darken(color));
-		final int width = (int) (f * (W / 3));
-		fond.setSize(width, H / 8);
+		final int width = (int) (f * (maxDim / 3));
+		final int height = (int) (f*(minDim / 8));
+		fond.setSize(width,height );
 
 		final GradientDrawable devant = new GradientDrawable();
 		devant.setShape(GradientDrawable.RECTANGLE);
 		devant.setCornerRadius(1000);
 		final int clair2 = Couleur.lighten(clair);
 		final int[] colors = { clair, clair2 };
-		setGradient(fond, colors, GradientDrawable.Orientation.TOP_BOTTOM);
+		setGradient(devant, colors, GradientDrawable.Orientation.TOP_BOTTOM);
 
 		devant.setStroke(margin / 4, Couleur.lighten(Couleur.lighten(clair2)));
 
@@ -203,7 +225,7 @@ public class Bouton {
 		final Button bouton = new Button(c);
 		bouton.setHeight(80);
 		bouton.setWidth(200);
-		setBackground(bouton, layerDrawable);
+		bouton.setBackgroundDrawable(layerDrawable);
 		return bouton;
 	}
 
@@ -221,7 +243,7 @@ public class Bouton {
 		final Button bouton = new Button(a);
 		bouton.setHeight(100);
 		bouton.setWidth(500);
-		setBackground(bouton, layerDrawable);
+		bouton.setBackgroundDrawable(layerDrawable);
 		return bouton;
 	}
 
@@ -254,7 +276,7 @@ public class Bouton {
 		b.setTextSize(30f);
 		b.setTextColor(textColor);
 		b.setPadding(0, 0, 0, 15);
-		setBackground(b, layerDrawable);
+		b.setBackgroundDrawable(layerDrawable);
 	}
 
 	/**
@@ -320,8 +342,7 @@ public class Bouton {
 		}
 
 		final ImageView glow = new ImageView(ctx);
-		setBackground(glow,
-				ctx.getResources().getDrawable(R.drawable.glow_circle));
+		glow.setBackgroundDrawable(ctx.getResources().getDrawable(R.drawable.glow_circle));
 
 		glow.setLayoutParams(bouton_params);
 		glow.setAlpha(0.7f);
@@ -373,8 +394,8 @@ public class Bouton {
 	 * @return
 	 */
 	public Bouton setBack(final Drawable d) {
-		setBackground(bouton, d);
-		setBackground(image_bouton, d);
+		bouton.setBackgroundDrawable(d);
+		image_bouton.setBackgroundDrawable(d);
 		return this;
 	}
 
@@ -483,42 +504,9 @@ public class Bouton {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}else {
+			fond.setColor(colors[1]);
 		}
-	}
+	} 
 
-	/**
-	 * sets the background of a view depending on the API
-	 * 
-	 * @param v
-	 * @param d
-	 */
-	private static void setBackground(final View v, final Drawable d) {
-		if (Build.VERSION.SDK_INT >= 16) {
-			// v.setBackground(d);
-			Method methodBackgroung;
-			try {
-				methodBackgroung = View.class.getMethod("setBackground",
-						Drawable.class);
-				methodBackgroung.invoke(v, d);
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else {
-			v.setBackgroundDrawable(d);
-		}
 	}
-
-}

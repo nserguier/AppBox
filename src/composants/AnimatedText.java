@@ -24,9 +24,10 @@ public class AnimatedText {
 	 * @param myText
 	 * @param colors
 	 * @param textSize
+	 * @param unit
 	 */
 	public static void add(Context context, LinearLayout layout, String myText,
-			int[] colors, float textSize) {
+			int[] colors, float textSize,int unit) {
 
 		int[] size = Utile.getScreenSize((Activity) context);
 		int offSet = 200;
@@ -41,7 +42,7 @@ public class AnimatedText {
 			if (!c.contains(" ")) {
 				j += 1;
 			}
-			txt.setTextSize(textSize);
+			txt.setTextSize(unit,textSize);
 			Utile.setFont((Activity) context, txt, "Action_Man.ttf");
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -93,9 +94,10 @@ public class AnimatedText {
 	 * @param myText
 	 * @param color
 	 * @param textSize
+	 * @param unit
 	 */
 	public static void add(Context context, LinearLayout layout, String myText,
-			int color, float textSize) {
+			int color, float textSize,int unit) {
 
 		int offSet = 200;
 		Typeface myFont = Typeface.createFromAsset(context.getAssets(),
@@ -107,7 +109,7 @@ public class AnimatedText {
 			TextView txt = new TextView(context);
 			txt.setText(c + " ");
 			txt.setTextColor(context.getResources().getColor(color));
-			txt.setTextSize(textSize);
+			txt.setTextSize(unit,textSize);
 			txt.setTypeface(myFont);
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,

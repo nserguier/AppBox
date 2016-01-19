@@ -5,6 +5,7 @@ import java.io.Serializable;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -183,24 +184,28 @@ public class Animer {
 		scale.setDuration(duration);
 		scale.setInterpolator(new BounceInterpolator());
 		scale.setAnimationListener(new AnimationListener() {
-			
+
 			public void onAnimationStart(
 					android.view.animation.Animation animation) {
 			}
 
-			
 			public void onAnimationEnd(
 					android.view.animation.Animation animation) {
-				if (delete) {
-					ViewGroup parent = (ViewGroup) view.getParent();
-					parent.removeView(view);
-					view.destroyDrawingCache();
-				} else {
-					view.setVisibility(View.INVISIBLE);
-				}
+				new Handler().post(new Runnable() {
+					public void run() {
+
+						if (delete) {
+							ViewGroup parent = (ViewGroup) view.getParent();
+							parent.removeView(view);
+							view.destroyDrawingCache();
+						} else {
+							view.setVisibility(View.INVISIBLE);
+						}
+
+					}
+				});
 			}
 
-			
 			public void onAnimationRepeat(
 					android.view.animation.Animation animation) {
 			}
@@ -244,24 +249,26 @@ public class Animer {
 		alpha.setDuration(duration);
 		alpha.setInterpolator(new AccelerateDecelerateInterpolator());
 		alpha.setAnimationListener(new AnimationListener() {
-			
+
 			public void onAnimationStart(
 					android.view.animation.Animation animation) {
 			}
 
-			
 			public void onAnimationEnd(
 					android.view.animation.Animation animation) {
-				if (delete) {
-					ViewGroup parent = (ViewGroup) view.getParent();
-					parent.removeView(view);
-					view.destroyDrawingCache();
-				} else {
-					view.setVisibility(View.INVISIBLE);
-				}
+				new Handler().post(new Runnable() {
+					public void run() {
+						if (delete) {
+							ViewGroup parent = (ViewGroup) view.getParent();
+							parent.removeView(view);
+							view.destroyDrawingCache();
+						} else {
+							view.setVisibility(View.INVISIBLE);
+						}
+					}
+				});
 			}
 
-			
 			public void onAnimationRepeat(
 					android.view.animation.Animation animation) {
 			}
@@ -404,26 +411,27 @@ public class Animer {
 		trans.setInterpolator(new DecelerateInterpolator());
 		trans.setAnimationListener(new Animation.AnimationListener() {
 
-			
 			public void onAnimationStart(Animation animation) {
 			}
 
-			
 			public void onAnimationRepeat(Animation animation) {
 			}
 
-			
 			public void onAnimationEnd(Animation animation) {
-				/* Passage a l'autre activite */
-				Intent intent = new Intent(context, targetActivity);
-				if (extra1 != null)
-					intent.putExtra(name1, extra1);
-				if (extra2 != null)
-					intent.putExtra(name2, extra2);
-				((Activity) context).startActivity(intent);
+				new Handler().post(new Runnable() {
+					public void run() {
+						/* Passage a l'autre activite */
+						Intent intent = new Intent(context, targetActivity);
+						if (extra1 != null)
+							intent.putExtra(name1, extra1);
+						if (extra2 != null)
+							intent.putExtra(name2, extra2);
+						((Activity) context).startActivity(intent);
 
-				((Activity) context).overridePendingTransition(R.anim.fade_out,
-						R.anim.fade_in);
+						((Activity) context).overridePendingTransition(
+								R.anim.fade_out, R.anim.fade_in);
+					}
+				});
 
 			}
 		});
@@ -455,34 +463,35 @@ public class Animer {
 		alpha.setDuration(500);
 		alpha.setAnimationListener(new AnimationListener() {
 
-			
 			public void onAnimationStart(Animation animation) {
 			}
 
-			
 			public void onAnimationRepeat(Animation animation) {
 
 			}
 
-			
 			public void onAnimationEnd(Animation animation) {
 				/* disparition du logo */
-				Animer.fade_out(logo_bouton, 1000, true);
+				new Handler().post(new Runnable() {
+					public void run() {
+						Animer.fade_out(logo_bouton, 1000, true);
 
-				/* Arrivée du menu par le haut et le bas */
-				if (slide_top != null) {
-					slide_top.setVisibility(View.VISIBLE);
-					Animer.translateDecelerate(slide_top, 0, -H / 3, 0, 0,
-							1000, 200);
-				}
-				if (slide_top_shadow != null) {
-					slide_top_shadow.setVisibility(View.VISIBLE);
-					Animer.translateDecelerate(slide_top_shadow, 0, -H / 3, 0,
-							0, 1000, 200);
-				}
-				slide_bottom.setVisibility(View.VISIBLE);
-				Animer.translateDecelerate(slide_bottom, 0, H * 1.1f, 0, 0,
-						1800, 600);
+						/* Arrivée du menu par le haut et le bas */
+						if (slide_top != null) {
+							slide_top.setVisibility(View.VISIBLE);
+							Animer.translateDecelerate(slide_top, 0, -H / 3, 0,
+									0, 1000, 200);
+						}
+						if (slide_top_shadow != null) {
+							slide_top_shadow.setVisibility(View.VISIBLE);
+							Animer.translateDecelerate(slide_top_shadow, 0,
+									-H / 3, 0, 0, 1000, 200);
+						}
+						slide_bottom.setVisibility(View.VISIBLE);
+						Animer.translateDecelerate(slide_bottom, 0, H * 1.1f,
+								0, 0, 1800, 600);
+					}
+				});
 
 			}
 		});

@@ -157,41 +157,7 @@ public class AnimatedGnar {
 
 	}
 
-	/**
-	 * sets the background of a view depending on the API
-	 * 
-	 * @param v
-	 * @param d
-	 */
-	private static void setBackground(final View v, final Drawable d) {
-		if (Build.VERSION.SDK_INT >= 16) {
-			// v.setBackground(d);
-			Method methodBackgroung;
-			try {
-				methodBackgroung = View.class.getMethod("setBackground",
-						Drawable.class);
-				methodBackgroung.invoke(v, d);
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else {
-			v.setBackgroundDrawable(d);
-		}
-	}
-
+	
 	public static void blink() {
 		tete.setBackgroundResource(R.drawable.blink);
 		final AnimationDrawable frameAnimation = (AnimationDrawable) tete
@@ -343,5 +309,41 @@ public class AnimatedGnar {
 		rl.addView(tete, params_tete);
 
 	}
+	
+	/**
+	 * sets the background of a view depending on the API
+	 * 
+	 * @param v
+	 * @param d
+	 */
+	private static void setBackground(final View v, final Drawable d) {
+		if (Build.VERSION.SDK_INT >= 16) {
+			// v.setBackground(d);
+			Method methodBackgroung;
+			try {
+				methodBackgroung = View.class.getMethod("setBackground",
+						Drawable.class);
+				methodBackgroung.invoke(v, d);
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			v.setBackgroundDrawable(d);
+		}
+	}
+
 
 }

@@ -48,11 +48,7 @@ public class Bulle {
 		} else if (lieu.equals("below")) {
 			bulle = activity.getResources().getDrawable(R.drawable.bulle_bas);
 			params.addRule(RelativeLayout.BELOW, view.getId());
-			if (Build.VERSION.SDK_INT >= 17) {
-				// params.addRule(RelativeLayout.ALIGN_END, view.getId());
-			} else {
-				params.addRule(RelativeLayout.ALIGN_RIGHT, view.getId());
-			}
+			params.addRule(RelativeLayout.ALIGN_RIGHT, view.getId());
 		} else if (lieu.equals("right")) {
 
 			bulle = activity.getResources()

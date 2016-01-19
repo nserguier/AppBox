@@ -1,6 +1,7 @@
 package composants;
 
 import android.content.Context;
+import android.os.Handler;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -49,7 +50,7 @@ public class MenuDeroulant {
 		b.setText(text);
 
 		b.setOnClickListener(new View.OnClickListener() {
-			
+
 			public void onClick(View v) {
 
 				isOpen = toggle(menuDeroulant, isOpen);
@@ -115,18 +116,20 @@ public class MenuDeroulant {
 
 	/* Listener pour l'animation de fermeture du menu */
 	static Animation.AnimationListener closeListener = new Animation.AnimationListener() {
-		
+
 		public void onAnimationEnd(Animation animation) {
 			// On dissimule le menu
-			menuDeroulant.setVisibility(View.INVISIBLE);
+			new Handler().post(new Runnable() {
+				public void run() {
+					menuDeroulant.setVisibility(View.INVISIBLE);
+				}
+			});
 		}
 
-		
 		public void onAnimationRepeat(Animation animation) {
 
 		}
 
-		
 		public void onAnimationStart(Animation animation) {
 
 		}
@@ -134,15 +137,13 @@ public class MenuDeroulant {
 
 	/* Listener pour l'animation d'ouverture du menu */
 	static Animation.AnimationListener openListener = new Animation.AnimationListener() {
-		
+
 		public void onAnimationEnd(Animation animation) {
 		}
 
-		
 		public void onAnimationRepeat(Animation animation) {
 		}
 
-		
 		public void onAnimationStart(Animation animation) {
 			// On affiche le menu
 			menuDeroulant.setVisibility(View.VISIBLE);
