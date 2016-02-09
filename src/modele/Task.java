@@ -20,7 +20,7 @@ public class Task implements Serializable {
 
 	private String description; // description de l'activite en quelques mots
 
-	private double duree; // duree de l'activite en heure
+	private double heureFin; // heure de fin de l'activite
 
 	private double heureDebut; // heure du debut de l'activite
 
@@ -50,13 +50,13 @@ public class Task implements Serializable {
 	 * @param couleur
 	 */
 	public Task(final int id, final String nomEdt, final String nom,
-			final String description, final double duree,
-			final double heureDebut, final String nomImage, final int couleur) {
+			final String description, final double heureDebut,
+			final double heureFin, final String nomImage, final int couleur) {
 		this.id = id;
 		this.nomEdt = nomEdt;
 		this.nom = nom;
 		this.description = description;
-		this.duree = duree;
+		this.heureFin = heureFin;
 		this.heureDebut = heureDebut;
 		this.nomImage = nomImage;
 		this.couleur = couleur;
@@ -92,7 +92,7 @@ public class Task implements Serializable {
 	}
 
 	public double getDuree() {
-		return duree;
+		return heureFin - heureDebut;
 	}
 
 	public double getHeureDebut() {
@@ -100,16 +100,16 @@ public class Task implements Serializable {
 	}
 
 	public double getHeureFin() {
-		return heureDebut + duree;
+		return heureFin;
 	}
 
 	public String getImage() {
 		return nomImage;
 	}
-	
+
 	/**
-	 * l'id de la couleur choisie, a recuperer avec getRessources().getColor() 
-	 *
+	 * l'id de la couleur choisie, a recuperer avec getRessources().getColor()
+	 * 
 	 * @return
 	 */
 	public int getCouleur() {
@@ -124,8 +124,8 @@ public class Task implements Serializable {
 		this.description = description;
 	}
 
-	public void setDuree(final double d) {
-		duree = d;
+	public void setHeureFin(final double heureFin) {
+		this.heureFin = heureFin;
 	}
 
 	public void setHeureDebut(final double heureDebut) {
@@ -187,10 +187,9 @@ public class Task implements Serializable {
 
 	/**
 	 * Trie une ArrayList<Task> et renvoie cette liste dans l'ordre des
-	 * activites (meme si la liste est vide) en revanche renvoie null si des
+	 * activites (meme si la liste est vide). En revanche renvoie null si des
 	 * activite se chevauchent et ne sont pas coherentes (voir heure de debut et
-	 * de fin)
-	 * Change les id des activites pour faciliter le trie de la base de donnees
+	 * de fin).
 	 * 
 	 * @param list
 	 *            La liste triee par "tri a bulle"
@@ -205,7 +204,6 @@ public class Task implements Serializable {
 				estTriee = true;
 				for (int i = 0; i < list.size() - 1; i++) {
 					final Task t = list.get(i);
-
 					final Task prochaine = list.get(i + 1);
 					// un element n'est pas a sa place, la liste n'est pas
 					// encore triee
@@ -293,6 +291,7 @@ public class Task implements Serializable {
 	 */
 	public int getXwidth(final int W, final double h0, final double h1,
 			final int margin) {
+		final double duree = heureFin - heureDebut;
 		return (int) ((duree * W) / (h1 - h0)) - margin;
 	}
 

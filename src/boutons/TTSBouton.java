@@ -14,7 +14,7 @@ public class TTSBouton {
 	/**
 	 * cree un TextToSpeech sur un bouton
 	 */
-	public static void initialisation(final View ttsButton, final String texte,
+	private static void initialisation(final View ttsButton, final String texte,
 			Context ctx, final boolean muet, final EditText edit) {
 
 		tts = new TextToSpeech(ctx, new TextToSpeech.OnInitListener() {
@@ -45,6 +45,12 @@ public class TTSBouton {
 
 	}
 
+	/**
+	 * Creer un listener sur la vue pour lire le texte au clic
+	 * @param ttsButton
+	 * @param texte
+	 * @param ctx
+	 */
 	public static void parle(View ttsButton, String texte, Context ctx) {
 		initialisation(ttsButton, texte, ctx, false, null);
 

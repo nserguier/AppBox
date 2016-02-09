@@ -80,6 +80,26 @@ public class Utile {
 	}
 	
 	/**
+	 * donne la dimension de l'ecran en pouces 
+	 * @param a
+	 * @return
+	 */
+	public static double getScreeSizeInch(Activity a){
+		DisplayMetrics dm = new DisplayMetrics();
+		a.getWindowManager().getDefaultDisplay().getMetrics(dm);
+		int width=dm.widthPixels;
+		int height=dm.heightPixels;
+		int dens=dm.densityDpi;
+		double wi=(double)width/(double)dens;
+		double hi=(double)height/(double)dens;
+		double x = Math.pow(wi,2);
+		double y = Math.pow(hi,2);
+		double screenInches = Math.sqrt(x+y);
+		return screenInches;
+		
+	}
+	
+	/**
 	 * Donne la taille de l'ecran en px/inch, attention cela ne dépend pas des "mesures" de l'ecran
 	 * mais de sa densite de pixel, donc cela peut être plus grand pour un smartphone qu'une tablette ...
 	 * 
